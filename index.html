@@ -50,7 +50,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .hero-logo { width:clamp(90px,12vw,150px); height:auto; margin-bottom:48px; opacity:0; animation:heroFade 1.4s var(--ease) 0.2s forwards; filter:drop-shadow(0 0 60px rgba(212,175,55,0.15)); }
 @keyframes heroFade { from { opacity:0; transform:translateY(24px) scale(0.96); } to { opacity:1; transform:translateY(0) scale(1); } }
 
-.hero-overline { font-family:var(--font-body); font-size:10px; font-weight:600; letter-spacing:10px; text-transform:uppercase; color:var(--gold); margin-bottom:28px; opacity:0; animation:heroFade 1s var(--ease) 0.6s forwards; display:flex; align-items:center; gap:20px; }
+.hero-overline { font-family:var(--font-body); font-size:10px; font-weight:500; letter-spacing:8px; text-transform:uppercase; color:var(--gold); margin-bottom:28px; opacity:0; animation:heroFade 1s var(--ease) 0.6s forwards; display:flex; align-items:center; gap:20px; }
 .hero-overline::before, .hero-overline::after { content:''; width:40px; height:1px; background:linear-gradient(90deg, transparent, var(--gold-dim)); }
 .hero-overline::after { background:linear-gradient(90deg, var(--gold-dim), transparent); }
 
@@ -66,7 +66,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 
 .hero-sub { font-size:clamp(14px,1.6vw,17px); font-weight:300; color:var(--text-secondary); max-width:480px; line-height:1.85; opacity:0; animation:heroFade 1s var(--ease) 1.4s forwards; letter-spacing:0.01em; }
 
-.hero-scroll-cue { position:absolute; bottom:80px; left:0; right:0; z-index:3; display:flex; flex-direction:column; align-items:center; gap:10px; opacity:0; animation:heroFade 1s var(--ease) 2.2s forwards; }
+.hero-scroll-cue { position:absolute; bottom:48px; left:0; right:0; z-index:3; display:flex; flex-direction:column; align-items:center; gap:10px; opacity:0; animation:heroFade 1s var(--ease) 2.2s forwards; }
 .hero-scroll-cue span { font-size:9px; letter-spacing:5px; text-transform:uppercase; color:var(--text-muted); }
 .scroll-line { width:1px; height:36px; position:relative; overflow:hidden; }
 .scroll-line::after { content:''; position:absolute; top:-100%; left:0; width:1px; height:100%; background:linear-gradient(to bottom, transparent, var(--gold)); animation:scrollDrop 2s ease-in-out infinite; }
@@ -74,24 +74,10 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 
 /* ═══════ TRUST MARQUEE — SEAMLESS INFINITE ═══════ */
 .trust-section { position:relative; z-index:1; padding:60px 0; overflow:hidden; }
-@media(max-width:768px){
-.trust-section{padding:16px 0;border:none!important}
-.capacity-section{padding:20px 24px 40px!important;margin-top:0!important;border:none!important;box-shadow:none!important}
-.capacity-label{margin-bottom:12px;font-size:8px;letter-spacing:4px}
-.capacity-section .capacity-text{font-size:12px}
-}
-/* Left/right fade edges for marquee scroll */
 .trust-section::before, .trust-section::after { content:''; position:absolute; top:0; bottom:0; width:120px; z-index:2; pointer-events:none; }
 .trust-section::before { left:0; background:linear-gradient(to right, var(--black), transparent); }
 .trust-section::after { right:0; background:linear-gradient(to left, var(--black), transparent); }
-/* ── SOFT GRADIENT BLENDS BETWEEN SECTIONS ── */
-.trust-section-fade-top,.trust-section-fade-bot,.capacity-fade-top,.capacity-fade-bot,.packages-fade-top{position:absolute;left:0;right:0;pointer-events:none;z-index:3}
-.trust-section-fade-top{top:0;height:48px;background:linear-gradient(180deg,var(--black) 0%,transparent 100%)}
-.trust-section-fade-bot{bottom:0;height:48px;background:linear-gradient(0deg,var(--black) 0%,transparent 100%)}
-.capacity-fade-top{top:0;height:40px;background:linear-gradient(180deg,var(--black) 0%,transparent 100%)}
-.capacity-fade-bot{bottom:0;height:56px;background:linear-gradient(0deg,var(--black) 0%,transparent 100%)}
-.packages-fade-top{top:0;height:60px;background:linear-gradient(180deg,var(--black) 0%,transparent 100%)}
-/* trust-divider removed */
+.trust-divider { position:absolute; top:0; left:5%; right:5%; height:1px; background:linear-gradient(90deg, transparent, var(--border-gold), transparent); }
 
 .trust-track-wrap { display:flex; width:max-content; animation:marquee 35s linear infinite; }
 .trust-track-wrap:hover { animation-play-state:paused; }
@@ -102,7 +88,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .trust-sep { color:var(--gold-dim); opacity:0.3; padding:0 8px; font-size:8px; flex-shrink:0; }
 
 /* ═══════ CAPACITY ═══════ */
-.capacity-section { position:relative; z-index:1; max-width:480px; margin:0 auto; padding:24px 24px 56px; text-align:center; overflow:hidden; }
+.capacity-section { position:relative; z-index:1; max-width:480px; margin:0 auto; padding:0 24px 80px; text-align:center; }
 .capacity-label { font-size:9px; font-weight:600; letter-spacing:5px; text-transform:uppercase; color:var(--gold-dim); margin-bottom:20px; }
 .capacity-visual { display:flex; gap:8px; justify-content:center; margin-bottom:14px; }
 .cap-dot { width:clamp(18px,2.8vw,32px); height:clamp(18px,2.8vw,32px); border-radius:50%; border:1px solid rgba(255,255,255,0.06); transition:all 0.8s var(--ease); position:relative; }
@@ -186,7 +172,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="showcase"] .pkg-tier-name { color:var(--text-primary); }
 .pkg-card[data-tier="signature"] .pkg-tier-name { color:#8AA0E0; }
 
-.pkg-price { font-family:var(--font-body); font-weight:700; font-size:clamp(36px,3.8vw,50px); line-height:1; margin-bottom:4px; letter-spacing:-.01em; }
+.pkg-price { font-family:'Plus Jakarta Sans', var(--font-body); font-weight:700; font-size:clamp(38px,4vw,52px); line-height:1; margin-bottom:4px; }
 .pkg-card[data-tier="starter"] .pkg-price { color:var(--text-secondary); }
 .pkg-card[data-tier="essential"] .pkg-price { color:var(--text-primary); }
 .pkg-card[data-tier="authority"] .pkg-price { background:linear-gradient(135deg, var(--gold-light), var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
@@ -221,7 +207,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 /* EXPAND */
 .pkg-expand { max-height:0; overflow:hidden; transition:max-height 0.5s var(--ease); }
 .pkg-expand-inner { padding:0 26px 26px; }
-.pkg-expand-inner h4 { font-family:var(--font-editorial); font-size:18px; font-weight:500; font-style:italic; color:var(--cream); margin-bottom:18px; }
+.pkg-expand-inner h4 { font-family:var(--font-display); font-size:17px; font-weight:500; color:var(--cream); margin-bottom:18px; }
 .detail-block { margin-bottom:16px; }
 .detail-label { font-size:9px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--gold-dim); margin-bottom:5px; display:block; }
 .detail-block p, .detail-block ul { font-size:12.5px; font-weight:300; color:var(--text-secondary); line-height:1.7; }
@@ -247,11 +233,11 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .addon-card:hover { border-color:var(--border-gold); }
 .addon-emoji { font-size:26px; flex-shrink:0; }
 .addon-info { flex:1; }
-.addon-name { font-family:var(--font-editorial); font-size:18px; font-weight:500; color:var(--cream); margin-bottom:3px; }
+.addon-name { font-family:var(--font-display); font-size:17px; font-weight:500; color:var(--cream); margin-bottom:3px; }
 .addon-applies { font-size:10px; font-weight:500; letter-spacing:1px; color:var(--gold-dim); margin-bottom:7px; text-transform:uppercase; }
 .addon-desc { font-size:12.5px; font-weight:300; color:var(--text-secondary); line-height:1.6; }
 .addon-price-col { text-align:center; flex-shrink:0; }
-.addon-price { font-family:var(--font-editorial); font-size:28px; font-weight:500; color:var(--gold); margin-bottom:10px; }
+.addon-price { font-family:var(--font-display); font-size:26px; font-weight:600; color:var(--gold); margin-bottom:10px; }
 .addon-price span { font-size:13px; font-weight:400; opacity:0.7; }
 .btn-addon { display:inline-block; padding:10px 22px; border-radius:10px; font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; text-decoration:none; background:rgba(212,175,55,0.06); color:var(--gold); border:1px solid rgba(212,175,55,0.15); transition:all 0.3s ease; }
 .btn-addon:hover { background:rgba(212,175,55,0.14); border-color:var(--gold); }
@@ -299,7 +285,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .modal-header { padding:28px 28px 0; text-align:center; flex-shrink:0; }
 .modal-tier-row { display:flex; justify-content:center; align-items:baseline; gap:12px; margin-bottom:6px; }
 .modal-tier-name { font-size:9px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:var(--gold-dim); }
-.modal-tier-price { font-family:var(--font-editorial); font-size:28px; font-weight:600; color:var(--cream); }
+.modal-tier-price { font-family:var(--font-display); font-size:28px; font-weight:600; color:var(--cream); }
 .modal-tagline { font-size:13px; color:var(--text-muted); font-weight:300; padding-bottom:20px; border-bottom:1px solid var(--border-faint); }
 .modal-notice { padding:14px 28px; text-align:center; flex-shrink:0; }
 .modal-notice p { font-size:11px; color:var(--text-muted); font-weight:300; }
@@ -404,6 +390,17 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 @media(max-width:768px){.film-strip{display:none}}
 
 /* ── VIEWFINDER GRID (hero) ── */
+.viewfinder-grid{position:absolute;inset:0;pointer-events:none;z-index:4;opacity:0;transition:opacity 1.5s ease 2s}
+.viewfinder-grid.active{opacity:.06}
+.viewfinder-grid::before,.viewfinder-grid::after{content:'';position:absolute;background:var(--gold)}
+.viewfinder-grid::before{width:1px;height:100%;left:33.33%}
+.viewfinder-grid::after{width:100%;height:1px;top:33.33%}
+.vg-line-v2{position:absolute;width:1px;height:100%;left:66.66%;background:var(--gold)}
+.vg-line-h2{position:absolute;width:100%;height:1px;top:66.66%;background:var(--gold)}
+.vf-h{position:absolute;width:100%;height:1px;background:var(--gold);opacity:.4}
+.vf-h1{top:33.33%}.vf-h2{top:66.66%}
+.vf-v{position:absolute;height:100%;width:1px;background:var(--gold);opacity:.4}
+.vf-v1{left:33.33%}.vf-v2{left:66.66%}
 /* ── CLICK FOCUS RING ── */
 .click-focus-ring{position:fixed;width:50px;height:50px;border:1.5px solid rgba(212,175,55,.6);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%) scale(.3);animation:clickFocusExpand .65s cubic-bezier(.16,1,.3,1) forwards}
 @keyframes clickFocusExpand{0%{transform:translate(-50%,-50%) scale(.3);opacity:1}100%{transform:translate(-50%,-50%) scale(1.8);opacity:0}}
@@ -419,6 +416,12 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .nav-dot.active{background:var(--gold);box-shadow:0 0 10px rgba(212,175,55,.4)}
 
 /* ── SOCIAL FOLLOW SECTION ── */
+.trust-section-fade-top,.trust-section-fade-bot,.capacity-fade-top,.capacity-fade-bot,.packages-fade-top{position:absolute;left:0;right:0;pointer-events:none;z-index:3}
+.trust-section-fade-top{top:0;height:48px;background:linear-gradient(180deg,var(--black) 0%,transparent 100%)}
+.trust-section-fade-bot{bottom:0;height:48px;background:linear-gradient(0deg,var(--black) 0%,transparent 100%)}
+.capacity-fade-top{top:0;height:40px;background:linear-gradient(180deg,var(--black) 0%,transparent 100%)}
+.capacity-fade-bot{bottom:0;height:56px;background:linear-gradient(0deg,var(--black) 0%,transparent 100%)}
+.packages-fade-top{top:0;height:60px;background:linear-gradient(180deg,var(--black) 0%,transparent 100%)}
 .social-section{position:relative;z-index:1;text-align:center;padding:56px 24px 20px}
 .social-label{font-size:9px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:24px}
 .social-row{display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
@@ -454,283 +457,23 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .timecode{position:fixed;top:clamp(16px,2.5vh,28px);right:clamp(60px,5vw,90px);z-index:9997;font-family:'Courier New',monospace;font-size:10px;letter-spacing:1px;color:rgba(212,175,55,.2);pointer-events:none;font-variant-numeric:tabular-nums}
 @media(max-width:768px){.timecode{top:8px;right:8px;font-size:8px}}
 
-/* ── CINEMA CURTAIN REVEAL (vertical split) ── */
-.curtain-left,.curtain-right{position:fixed;top:0;bottom:0;width:50%;z-index:99999;pointer-events:none;overflow:hidden}
+/* ── DRAMATIC CURTAIN REVEAL (page load) ── */
+.curtain-left,.curtain-right{position:fixed;top:0;bottom:0;width:50%;background:var(--black);z-index:99999;pointer-events:none;transition:transform 1.4s cubic-bezier(.77,0,.18,1)}
 .curtain-left{left:0}
 .curtain-right{right:0}
-/* Curtain fabric — deep velvet with subtle fold texture */
-.curtain-left .curtain-fabric,.curtain-right .curtain-fabric{position:absolute;inset:0;background:linear-gradient(180deg,#0a0206 0%,#140610 30%,#1a0818 50%,#140610 70%,#0a0206 100%)}
-/* Vertical fold pleats for realism */
-.curtain-left .curtain-fabric::before,.curtain-right .curtain-fabric::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0px,rgba(60,10,30,.3) 12px,transparent 24px,rgba(80,15,40,.15) 36px,transparent 48px);pointer-events:none}
-/* Soft inner shadow for depth between folds */
-.curtain-left .curtain-fabric::after,.curtain-right .curtain-fabric::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(0,0,0,.15) 0px,transparent 6px,rgba(0,0,0,.1) 12px,transparent 18px);pointer-events:none}
-/* Gold trim edge — ornate fringe on the inner curtain edges */
-.curtain-left .curtain-trim{position:absolute;top:0;right:0;width:6px;height:100%;background:linear-gradient(180deg,var(--gold) 0%,var(--gold-light) 15%,var(--gold) 30%,var(--gold-dim) 50%,var(--gold) 70%,var(--gold-light) 85%,var(--gold) 100%);box-shadow:0 0 20px rgba(212,175,55,.4),0 0 60px rgba(212,175,55,.15);z-index:2}
-.curtain-right .curtain-trim{position:absolute;top:0;left:0;width:6px;height:100%;background:linear-gradient(180deg,var(--gold) 0%,var(--gold-light) 15%,var(--gold) 30%,var(--gold-dim) 50%,var(--gold) 70%,var(--gold-light) 85%,var(--gold) 100%);box-shadow:0 0 20px rgba(212,175,55,.4),0 0 60px rgba(212,175,55,.15);z-index:2}
-/* Gold tassel fringe along trim */
-.curtain-trim::before{content:'';position:absolute;top:0;left:50%;width:1px;height:100%;transform:translateX(-50%);background:repeating-linear-gradient(180deg,var(--gold-light) 0px,transparent 4px,var(--gold) 8px,transparent 12px)}
-/* Curtain open animation */
-.curtains-open .curtain-left{animation:curtainSlideLeft 2.2s cubic-bezier(.65,.05,.36,1) forwards}
-.curtains-open .curtain-right{animation:curtainSlideRight 2.2s cubic-bezier(.65,.05,.36,1) forwards}
-@keyframes curtainSlideLeft{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
-@keyframes curtainSlideRight{0%{transform:translateX(0)}100%{transform:translateX(100%)}}
-/* Spotlight glow that bleeds through as curtains part */
-.curtain-glow{position:fixed;top:50%;left:50%;width:0;height:0;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(ellipse,rgba(212,175,55,.15) 0%,rgba(212,175,55,.05) 40%,transparent 70%);z-index:99998;pointer-events:none;opacity:0;transition:width 2.5s ease,height 2.5s ease,opacity 1.5s ease}
-.curtains-open .curtain-glow{width:160vw;height:160vh;opacity:1}
-/* ── ANAMORPHIC LENS STREAK ── */
-/* anamorphic streak removed */
-/* ── COLOR GRADING OVERLAY ── */
-.color-grade{position:fixed;inset:0;pointer-events:none;z-index:9994;mix-blend-mode:color;opacity:0;transition:opacity 2.5s ease,background 2.5s ease}
-.color-grade.active{opacity:1}
-/* ── KEN BURNS on card images ── */
-.pkg-thumb img{transition:transform 8s cubic-bezier(.25,.46,.45,.94),filter .6s ease!important}
-.pkg-card.visible .pkg-thumb img{transform:scale(1.08)!important}
-.pkg-card[data-tier="essential"].visible .pkg-thumb img,.pkg-card[data-tier="showcase"].visible .pkg-thumb img,.pkg-card[data-tier="signature"].visible .pkg-thumb img{transform:scale(1.58) translateY(-14%)!important}
-/* ── RACK FOCUS (depth-of-field blur on non-hovered cards) ── */
-@media(pointer:fine){
-.pkg-card{transition:all .6s var(--ease),filter .5s ease!important}
-.pkg-row-top:hover .pkg-card:not(:hover),.pkg-row-bot:hover .pkg-card:not(:hover){filter:blur(2px) brightness(.85);transform:scale(.97)}
-}
-/* ── SECTION WIPE TRANSITIONS ── */
-.wipe-reveal{clip-path:inset(0 100% 0 0);transition:clip-path 1.2s cubic-bezier(.77,0,.18,1)}
-.wipe-reveal.visible{clip-path:inset(0 0 0 0)}
-/* ── PARALLAX DEPTH LAYERS ── */
-.depth-layer{will-change:transform;transition:transform .1s linear}
-/* ── MOUSE-REACTIVE GOLDEN DUST ── */
-.mouse-particle{position:fixed;width:3px;height:3px;border-radius:50%;pointer-events:none;z-index:9999;background:var(--gold);opacity:0;transition:opacity .3s ease}
-/* ── SECTION FOCUS PULL (camera-like) ── */
-.section-blur-out{filter:blur(4px);opacity:.4;transition:filter .8s ease,opacity .8s ease}
-.section-blur-out.sharp{filter:blur(0);opacity:1}
-/* ── GOLDEN SUN RAYS ── */
-.sun-rays{position:fixed;top:-20%;left:50%;width:200vw;height:200vh;transform:translateX(-50%);pointer-events:none;z-index:9993;opacity:0;transition:opacity 3s ease;background:conic-gradient(from 0deg at 50% 0%,transparent 0deg,rgba(212,175,55,.02) 5deg,transparent 10deg,transparent 20deg,rgba(212,175,55,.015) 25deg,transparent 30deg,transparent 40deg,rgba(212,175,55,.02) 45deg,transparent 50deg,transparent 60deg,rgba(212,175,55,.01) 65deg,transparent 70deg,transparent 80deg,rgba(212,175,55,.02) 85deg,transparent 90deg,transparent 270deg,rgba(212,175,55,.02) 275deg,transparent 280deg,transparent 290deg,rgba(212,175,55,.015) 295deg,transparent 300deg,transparent 310deg,rgba(212,175,55,.02) 315deg,transparent 320deg,transparent 340deg,rgba(212,175,55,.015) 345deg,transparent 350deg,transparent 360deg)}
-.sun-rays.active{opacity:1}
-
-/* ═══════ $1.5M WELLNESS-CINEMA FUSION ═══════ */
-/* ── WARM AURORA / ENERGY FIELD ── */
-.wellness-aurora{position:fixed;inset:0;pointer-events:none;z-index:9992;opacity:0;transition:opacity 4s ease;mix-blend-mode:soft-light}
-.wellness-aurora.active{opacity:1}
-.wellness-aurora canvas{width:100%;height:100%}
-/* ── HEALING PULSE ON SCROLL (warm glow from center) ── */
-.heal-pulse{position:fixed;top:50%;left:50%;width:0;height:0;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.06) 0%,rgba(245,240,232,.03) 40%,transparent 70%);transform:translate(-50%,-50%);pointer-events:none;z-index:9991;opacity:0}
-/* ── WARM ENERGY LINES (flowing like meridians) ── */
-.energy-meridian{position:fixed;pointer-events:none;z-index:9990;opacity:0;transition:opacity 2s ease}
-.energy-meridian.active{opacity:1}
-.energy-meridian canvas{width:100%;height:100%;position:fixed;inset:0}
-/* ── CARD WARMTH GLOW (wellness touch on hover) ── */
-.pkg-card::after{content:'';position:absolute;inset:-2px;border-radius:calc(var(--radius, 18px) + 2px);background:conic-gradient(from var(--card-glow-angle, 0deg),transparent 0%,rgba(212,175,55,.08) 10%,rgba(244,213,141,.12) 20%,rgba(245,240,232,.06) 30%,transparent 40%);opacity:0;transition:opacity .8s ease;z-index:-1;filter:blur(8px)}
-.pkg-card:hover::after{opacity:1}
-/* ── MOBILE SCROLL MOMENTUM GLOW ── */
-@media(max-width:768px){
-.scroll-glow{position:fixed;bottom:0;left:0;right:0;height:30vh;pointer-events:none;z-index:9989;background:radial-gradient(ellipse at 50% 100%,rgba(212,175,55,.04) 0%,transparent 70%);opacity:0;transition:opacity .4s ease}
-.scroll-glow.active{opacity:1}
-.pkg-card{transform:translateY(40px) scale(.95);opacity:0;transition:transform .7s cubic-bezier(.16,1,.3,1),opacity .7s ease,filter .6s ease!important}
-.pkg-card.mob-reveal{transform:translateY(0) scale(1);opacity:1!important}
-.pkg-card.mob-reveal:nth-child(odd){transform:translateY(0) scale(1) rotate(-.3deg)}
-.pkg-card.mob-reveal:nth-child(even){transform:translateY(0) scale(1) rotate(.3deg)}
-section{transform:translateZ(0)}
-.hero-section .hero-text{transition:transform .5s ease,opacity .5s ease}
-.addon-item{transform:translateX(-30px);opacity:0;transition:transform .6s cubic-bezier(.16,1,.3,1) calc(var(--i,0) * .1s),opacity .6s ease calc(var(--i,0) * .1s)!important}
-.addon-item.mob-reveal{transform:translateX(0);opacity:1}
-}
-/* ── TOUCH RIPPLE (mobile tap feedback, warm energy) ── */
-.touch-ripple{position:fixed;border-radius:50%;pointer-events:none;z-index:99997;background:radial-gradient(circle,rgba(212,175,55,.15),rgba(244,213,141,.05),transparent 70%);transform:translate(-50%,-50%) scale(0);opacity:1}
-@keyframes touchRippleExpand{0%{transform:translate(-50%,-50%) scale(0);opacity:.6}100%{transform:translate(-50%,-50%) scale(1);opacity:0}}
-/* ── SCROLL VELOCITY PARALLAX (depth on mobile) ── */
-@media(max-width:768px){
-.hero-section{transform-style:preserve-3d;perspective:1200px}
-.trust-scroll{transform:translateZ(0);will-change:transform}
-}
-/* ── WARM GRADIENT SHIFT PER SECTION ── */
-.section-warmth{position:fixed;inset:0;pointer-events:none;z-index:9987;opacity:0;transition:background 3s ease,opacity 3s ease;mix-blend-mode:overlay}
-.section-warmth.active{opacity:1}
-/* ── ZEN BREATHING INDICATOR (subtle hero pulse) ── */
-.zen-breathe{position:absolute;top:50%;left:50%;width:300px;height:300px;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(212,175,55,.03) 0%,transparent 70%);animation:zenBreathe 6s ease-in-out infinite}
-@keyframes zenBreathe{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.3}50%{transform:translate(-50%,-50%) scale(1.6);opacity:.08}}
-/* ── GOLDEN HOUR AMBIENT SHIFT ── */
-.golden-hour-overlay{position:fixed;inset:0;pointer-events:none;z-index:9986;background:linear-gradient(135deg,rgba(212,175,55,.01) 0%,transparent 30%,transparent 70%,rgba(139,117,54,.01) 100%);opacity:0;transition:opacity 4s ease;mix-blend-mode:screen}
-.golden-hour-overlay.active{opacity:1}
-/* ── CARD HOVER VITALITY RING ── */
-@keyframes vitalityPulse{0%{box-shadow:0 0 0 0 rgba(212,175,55,.1)}50%{box-shadow:0 0 0 15px rgba(212,175,55,0)}100%{box-shadow:0 0 0 0 rgba(212,175,55,0)}}
-.pkg-card:hover{animation:vitalityPulse 2s ease-in-out infinite}
-/* ── SMOOTH SCROLL SNAP (mobile) ── */
-@media(max-width:768px){
-html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
-}
-/* ── MOBILE TILT-CARD DEPTH ── */
-@media(max-width:768px){
-.pkg-card{transform-style:preserve-3d;backface-visibility:hidden}
-}
-/* ── FLOATING WELLNESS SYMBOL (subtle) ── */
-.wellness-symbol{position:fixed;pointer-events:none;z-index:9985;opacity:0;font-size:clamp(12px,2vw,20px);color:rgba(212,175,55,.04);transition:opacity 3s ease;filter:blur(.5px)}
-.wellness-symbol.active{opacity:1}
-
-/* ═══════ $2M ULTRA-PREMIUM LAYER ═══════ */
-/* ── CINEMATIC TYPOGRAPHY MICRO-ANIMATIONS ── */
-/* titleRevealChar removed */
-/* char-reveal removed — using original line-based slideUp */
-/* ── PREMIUM UNDERLINE SWEEP ── */
-.packages-header h2,.addons-title{position:relative;display:inline-block}
-.packages-header h2::after,.addons-title::after{content:'';position:absolute;bottom:-8px;left:0;width:0;height:1px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));transition:width 1.2s cubic-bezier(.16,1,.3,1)}
-.packages-header h2.visible::after,.addons-title.visible::after{width:100%}
-/* ── CRYSTALLINE CARD GLASS ── */
-.pkg-card{backdrop-filter:blur(12px) saturate(1.2);-webkit-backdrop-filter:blur(12px) saturate(1.2)}
-/* ── PREMIUM MICRO-INTERACTIONS ── */
-@keyframes gentleBreathe{0%,100%{box-shadow:0 4px 30px rgba(0,0,0,.3),0 0 0 0 rgba(212,175,55,0)}50%{box-shadow:0 8px 40px rgba(0,0,0,.4),0 0 40px -10px rgba(212,175,55,.05)}}
-.pkg-card.visible{animation:gentleBreathe 8s ease-in-out infinite}
-/* ── SCROLL-DRIVEN GOLDEN THREAD (replaces mist) ── */
-/* golden-thread removed */
-/* ── AWARD SEAL SHIMMER ── */
-@keyframes sealShimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
-.trust-icon{background:linear-gradient(120deg,transparent 30%,rgba(212,175,55,.1) 50%,transparent 70%);background-size:200% 100%;animation:sealShimmer 4s ease-in-out infinite}
-/* ── MOBILE DEPTH LAYERS ── */
-@media(max-width:768px){
-.packages{transform-style:preserve-3d;perspective:1000px}
-.pkg-card{transition:transform .7s cubic-bezier(.16,1,.3,1),opacity .7s ease!important}
-.pkg-card.mob-reveal{transform:translateY(0) scale(1)!important}
-.capacity-section{transform:translateY(20px);opacity:0;transition:transform .8s var(--ease),opacity .8s ease}
-.capacity-section.mob-reveal{transform:translateY(0);opacity:1}
-.hero-section{min-height:100svh}
-}
-/* ── CINZEL KERNING REFINEMENT ── */
-.hero-title{letter-spacing:.03em;text-rendering:optimizeLegibility}
-.packages-header h2{letter-spacing:.04em}
-.pkg-name{letter-spacing:.02em}
-.addons-title{letter-spacing:.04em}
-/* ── EDITORIAL ITALIC ACCENTS ── */
-.pkg-subtitle{font-family:var(--font-editorial);font-style:italic;font-weight:300}
-.capacity-text{font-family:var(--font-editorial);font-style:italic;font-weight:300;font-size:14px;letter-spacing:.02em}
-/* ── PREMIUM NAV DOTS TYPOGRAPHY ── */
-.nav-dot-label{font-family:var(--font-body);font-weight:300;letter-spacing:.08em;font-size:9px}
-/* ── SCROLL PROGRESS WARMTH ── */
-.scroll-progress{background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-light))!important}
-/* ── SMOOTH ENTRANCE STAGGER SYSTEM ── */
-@keyframes premiumFadeUp{0%{opacity:0;transform:translateY(24px)}100%{opacity:1;transform:translateY(0)}}
-.premium-reveal{opacity:0;transform:translateY(24px)}
-.premium-reveal.visible{animation:premiumFadeUp .8s var(--ease) forwards}
-/* ── ADDON CARD HOVER LIFT ── */
-.addon-item{transition:transform .4s var(--ease),box-shadow .4s ease!important}
-.addon-item:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3),0 0 0 1px rgba(212,175,55,.08)}
-/* ── HERO TEXT SHADOW DEPTH ── */
-/* ── HERO TITLE GOLD SHIMMER ── */
-.hero-title .line span{background:linear-gradient(120deg,var(--cream) 25%,var(--gold-light) 45%,var(--gold) 50%,var(--gold-light) 55%,var(--cream) 75%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:titleShimmer 8s linear infinite}
-@keyframes titleShimmer{0%{background-position:300% center}100%{background-position:-300% center}}
-.hero-title em{background:linear-gradient(120deg,var(--gold) 25%,var(--gold-light) 45%,#fff 50%,var(--gold-light) 55%,var(--gold) 75%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:titleShimmer 8s linear infinite;animation-delay:-.5s}
-/* ── MOBILE HERO OVERLINE ENTRANCE ── */
-@media(max-width:768px){
-.hero-overline{letter-spacing:6px;font-size:9px}
-}
-
-/* ── MOBILE TOUCH RIPPLE ── */
-@keyframes touchRippleGold{0%{transform:scale(.5);opacity:1}100%{transform:scale(3);opacity:0}}
-/* ═══════ $2.5M APEX LAYER ═══════ */
-/* ── AURORA BOREALIS BORDER ON HERO ── */
-/* auroraShift removed */
-/* hero aurora line removed */
-/* ── DIAMOND DUST PARTICLE FIELD ── */
-@keyframes diamondFloat{0%{transform:translateY(0) scale(1);opacity:0}15%{opacity:.6}85%{opacity:.6}100%{transform:translateY(-100vh) scale(.3);opacity:0}}
-.diamond-particle{position:fixed;width:2px;height:2px;background:var(--gold-light);border-radius:50%;pointer-events:none;z-index:9986;opacity:0;animation:diamondFloat linear infinite;box-shadow:0 0 3px rgba(212,175,55,.4)}
-/* ── VELVET GRADIENT ON SECTIONS ── */
-/* packages top gradient now handled by .packages-fade-top element */
-/* ── LUXURY CARD BORDER GLOW ── */
-@keyframes borderPulse{0%,100%{border-color:rgba(212,175,55,.06)}50%{border-color:rgba(212,175,55,.15)}}
-.pkg-card{border:1px solid rgba(212,175,55,.06);animation:borderPulse 6s ease-in-out infinite}
-/* ── HERO SUBTITLE GRADIENT TEXT ── */
-.hero-sub{background:linear-gradient(135deg,rgba(245,240,232,.9),rgba(245,240,232,.6),rgba(212,175,55,.4));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-/* ── SECTION DIVIDER DIAMONDS ── */
-/* section-diamond removed */
-/* ── PREMIUM SCROLLBAR ── */
-::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:var(--black)}
-::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--gold-dim),var(--gold));border-radius:3px}
-::-webkit-scrollbar-thumb:hover{background:var(--gold-light)}
-/* ── TRUST BADGE ELEGANT GLOW ── */
-.trust-icon{position:relative}
-.trust-icon::after{content:'';position:absolute;inset:-4px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.08),transparent 70%);pointer-events:none}
-/* ── MOBILE HERO TEXT SIZE REFINEMENT ── */
-@media(max-width:480px){
-.hero-title{font-size:clamp(36px,11vw,52px);letter-spacing:.01em}
-.hero-title .line{line-height:1.05}
-}
-@media(min-width:481px) and (max-width:768px){
-.hero-title{font-size:clamp(44px,9vw,70px);letter-spacing:.02em}
-}
-/* ── PACKAGE NAME SHIMMER ── */
-@keyframes nameShimmer{0%{background-position:-200% center}100%{background-position:200% center}}
-.pkg-name{background:linear-gradient(120deg,var(--gold) 30%,var(--gold-light) 50%,var(--gold) 70%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:nameShimmer 6s linear infinite}
-/* ── OVERLINE ELEGANT DASH ── */
-.hero-overline::before,.hero-overline::after{content:'';display:inline-block;width:30px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim));vertical-align:middle;margin:0 12px}
-.hero-overline::after{background:linear-gradient(90deg,var(--gold-dim),transparent)}
-/* ── ADDON LUXURY BORDER ── */
-.addon-item{border:1px solid rgba(212,175,55,.04);position:relative;overflow:hidden}
-.addon-item::before{content:'';position:absolute;top:0;left:-100%;width:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.3),transparent);transition:left 1.2s ease}
-.addon-item:hover::before{left:150%}
-/* ── FOOTER LUXURY GRADIENT ── */
-footer{background:linear-gradient(180deg,var(--black) 0%,rgba(6,6,9,.98) 50%,rgba(10,10,16,.95) 100%)}
-/* ── TITLE GLOW PULSE ── */
-/* titleGlow removed — using titleShimmer gradient instead */
-.hero-title{text-shadow:0 2px 40px rgba(0,0,0,.4)}
-/* ── CAPACITY CARD PREMIUM ── */
-/* capacity border removed for cleaner look */
-
-
-/* ═══════ $3M CINEMATIC DEPTH LAYER ═══════ */
-/* ── FILM REEL SECTION TRANSITIONS ── */
-@keyframes filmBurn{0%{opacity:0}15%{opacity:.08}30%{opacity:0}100%{opacity:0}}
-.film-burn{position:fixed;inset:0;pointer-events:none;z-index:9989;background:radial-gradient(ellipse at 60% 40%,rgba(212,175,55,.08),transparent 60%);opacity:0}
-/* ── SMOOTH SECTION FADE TRANSITIONS ── */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s cubic-bezier(.16,1,.3,1)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-/* ── CINEMATIC GRAIN INTENSIFY ON SCROLL ── */
-.grain-overlay{transition:opacity .5s ease}
-/* ── HERO BOTTOM GRADIENT EXTENSION ── */
-.hero-section::after{height:300px!important}
-/* ── PKG CARD SPOTLIGHT HOVER ── */
-.pkg-card::after{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(212,175,55,.03),transparent 60%);pointer-events:none;opacity:0;transition:opacity .4s ease}
-.pkg-card:hover::after{opacity:1}
-/* ── SMOOTH SCROLL BEHAVIOR ── */
-html{scroll-behavior:smooth}
-/* ── TRUST SECTION TOP FADE ── */
-/* trust top gradient removed */
-/* ── MOBILE CARD PRESS FEEDBACK ── */
-@media(max-width:768px){
-.pkg-card:active{transform:scale(.985);transition:transform .1s ease}
-}
-/* ── CINEMATIC WIDESCREEN BARS ON SCROLL ── */
-.cinema-bar{position:fixed;left:0;right:0;height:0;background:#000;pointer-events:none;z-index:99990;transition:height .8s cubic-bezier(.16,1,.3,1)}
-.cinema-bar.top{top:0}
-.cinema-bar.bottom{bottom:0}
-/* ── PACKAGE SECTION ENTRANCE GLOW ── */
-.packages-section{position:relative}
-/* packages top line removed */
+.curtains-open .curtain-left{transform:translateX(-100%)}
+.curtains-open .curtain-right{transform:translateX(100%)}
+.curtain-gold{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1px;height:60vh;background:linear-gradient(to bottom,transparent,var(--gold),transparent);z-index:100000;pointer-events:none;opacity:1;transition:opacity .8s ease .6s}
+.curtains-open .curtain-gold{opacity:0}
 
 </style>
 </head>
 <body>
 
 <!-- CINEMA CURTAIN REVEAL -->
-<div class="curtain-left"><div class="curtain-fabric"></div><div class="curtain-trim"></div></div>
-<div class="curtain-right"><div class="curtain-fabric"></div><div class="curtain-trim"></div></div>
-<div class="curtain-glow"></div>
-<!-- ANAMORPHIC LENS STREAK -->
-<!-- anamorphic streak removed -->
-<!-- COLOR GRADING OVERLAY -->
-<div class="color-grade" id="colorGrade"></div>
-<!-- GOLDEN SUN RAYS -->
-<div class="sun-rays" id="sunRays"></div>
-<!-- WELLNESS-CINEMA FUSION OVERLAYS -->
-<div class="wellness-aurora" id="wellnessAurora"><canvas id="auroraCanvas"></canvas></div>
-<div class="energy-meridian" id="energyMeridian"><canvas id="meridianCanvas"></canvas></div>
-<div class="heal-pulse" id="healPulse"></div>
-<div class="section-warmth" id="sectionWarmth"></div>
-<div class="golden-hour-overlay" id="goldenHourOverlay"></div>
-<div class="scroll-glow" id="scrollGlow"></div>
-<!-- golden-thread removed -->
-<!-- CINEMATIC BARS -->
-<div class="cinema-bar top" id="cinemaBarTop"></div>
-<div class="cinema-bar bottom" id="cinemaBarBot"></div>
-<div class="film-burn" id="filmBurn"></div>
-<!-- DIAMOND DUST FIELD -->
-<div id="diamondField" aria-hidden="true"></div>
+<div class="curtain-left"></div>
+<div class="curtain-right"></div>
+<div class="curtain-gold"></div>
 
 <!-- CINEMATIC LETTERBOX -->
 <div class="letterbox-top"></div>
@@ -770,16 +513,20 @@ html{scroll-behavior:smooth}
     <span>Scroll</span>
     <div class="scroll-line"></div>
   </div>
-  <!-- ZEN BREATHING PULSE -->
-  <div class="zen-breathe"></div>
+  <!-- VIEWFINDER GRID (rule-of-thirds) -->
+  <div class="viewfinder-grid" id="viewfinderGrid">
+    <div class="vf-h vf-h1"></div><div class="vf-h vf-h2"></div>
+    <div class="vf-v vf-v1"></div><div class="vf-v vf-v2"></div>
+  </div>
   <!-- LENS FLARE -->
   <div class="lens-flare" id="lensFlare"></div>
 </section>
 
 <!-- ═══════ TRUST MARQUEE ═══════ -->
-<section class="trust-section reveal">
+<section class="trust-section reveal" style="position:relative">
   <div class="trust-section-fade-top"></div>
   <div class="trust-section-fade-bot"></div>
+  <div class="trust-divider"></div>
   <div class="trust-track-wrap">
     <div class="trust-item"><span class="trust-icon">🏆</span><span class="trust-text">Award winning filmmaker</span></div>
     <span class="trust-sep">·</span>
@@ -827,7 +574,6 @@ html{scroll-behavior:smooth}
 
 <!-- ═══════ PACKAGES ═══════ -->
 <section class="packages-section" id="packages" data-section="packages">
-  <div class="packages-fade-top"></div>
   <div class="packages-header reveal">
     <p class="section-overline">Select Your Experience</p>
     <h2>Five Tiers of <em>Excellence</em></h2>
@@ -1036,7 +782,6 @@ html{scroll-behavior:smooth}
   <p><span class="highlight">Book in advance</span> for best possible coverage. Payment must be received before the event. I cannot apply priority coverage retroactively.</p>
   <p>All packages include a <span class="highlight">Personal Commercial License</span> to advertise yourself, your brand, and your private practice freely.</p>
 </div>
-
 <div class="sumup-tip">
   <span class="tip-icon">💡</span>
   <p>On the SumUp payment page, add your <strong>table number</strong>, <strong>category name</strong>, and <strong>category time</strong> in the order notes — if you know them. If you only know your category, that works too.</p>
@@ -1073,21 +818,19 @@ html{scroll-behavior:smooth}
 
 <!-- ═══════ JAVASCRIPT ═══════ -->
 <script>
-/* ═══════ iCONSTANTINE $2M WELLNESS-CINEMA FUSION ENGINE ═══════ */
+/* ═══════ iCONSTANTINE $700K CINEMA ENGINE ═══════ */
 ;(function CINEMA(){
 'use strict';
 var isFine=matchMedia('(pointer:fine)').matches,isMobile=/Mobi|Android/i.test(navigator.userAgent),reducedMotion=matchMedia('(prefers-reduced-motion:reduce)').matches;
 function lerp(a,b,n){return(1-n)*a+n*b}
 function clamp(v,mn,mx){return Math.max(mn,Math.min(mx,v))}
 
-/* ─── 1. CINEMA CURTAIN REVEAL (no countdown) ─── */
+/* ─── 1. DRAMATIC CURTAIN REVEAL ─── */
 (function(){
-var cL=document.querySelector('.curtain-left'),cR=document.querySelector('.curtain-right'),cG=document.querySelector('.curtain-glow');
-/* Open curtains immediately after brief pause */
-setTimeout(function(){document.body.classList.add('curtains-open')},400);
-setTimeout(function(){document.body.classList.add('letterbox-active')},1400);
-setTimeout(function(){if(cL)cL.style.display='none';if(cR)cR.style.display='none';if(cG)cG.style.display='none'},3200);
-setTimeout(function(){var rays=document.getElementById('sunRays');if(rays)rays.classList.add('active')},2000);
+setTimeout(function(){document.body.classList.add('curtains-open')},300);
+setTimeout(function(){document.body.classList.add('letterbox-active')},1600);
+var cL=document.querySelector('.curtain-left'),cR=document.querySelector('.curtain-right'),cG=document.querySelector('.curtain-gold');
+if(cL)setTimeout(function(){cL.style.display='none';cR.style.display='none';if(cG)cG.style.display='none'},2200);
 })();
 
 /* ─── 2. GOLDEN BOKEH CANVAS (cinema depth-of-field) ─── */
@@ -1172,6 +915,8 @@ setTimeout(function(){if(bracket.parentNode)bracket.parentNode.removeChild(brack
 (function(){
 var hero=document.querySelector('.hero-section');if(!hero)return;
 var logo=document.getElementById('siteLogo');
+var vf=document.getElementById('viewfinderGrid');
+if(vf)setTimeout(function(){vf.style.opacity='.18'},2000);
 if(isMobile)return;
 addEventListener('scroll',function(){
 var sy=pageYOffset,vh=innerHeight;
@@ -1355,913 +1100,6 @@ document.querySelectorAll('.pkg-card').forEach(function(c){c.style.transform='pe
 if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){
 document.addEventListener('touchstart',function once(){DeviceOrientationEvent.requestPermission().then(function(r){if(r==='granted')initGyro()});document.removeEventListener('touchstart',once)},{once:true})}
 else if(window.DeviceOrientationEvent){initGyro()}
-})();
-
-/* ─── 29. ANAMORPHIC LENS STREAK (mouse-reactive) ─── */
-(function(){
-if(!isFine)return;
-var streak=document.getElementById('anamorphicStreak');if(!streak)return;
-addEventListener('mousemove',function(e){
-var yPct=e.clientY/innerHeight;
-streak.style.transform='translateY('+(yPct*100-50)*.15+'px)';
-streak.style.opacity=clamp(.4+Math.abs(yPct-.5)*.6,0,1)
-})
-})();
-
-/* ─── 30. COLOR GRADING PER SECTION ─── */
-(function(){
-var grade=document.getElementById('colorGrade');if(!grade)return;
-var grades={hero:'rgba(45,35,15,.08)',packages:'rgba(40,35,20,.06)',addons:'rgba(20,25,50,.07)',social:'rgba(50,40,15,.09)'};
-var obs=new IntersectionObserver(function(es){es.forEach(function(e){
-if(e.isIntersecting){var sec=e.target.getAttribute('data-section');
-if(sec&&grades[sec]){grade.style.background=grades[sec];grade.classList.add('active')}
-}})},{threshold:.3});
-document.querySelectorAll('[data-section]').forEach(function(s){obs.observe(s)})
-})();
-
-/* ─── 31. GOLDEN SUN RAYS ACTIVATION ─── */
-(function(){
-var rays=document.getElementById('sunRays');if(!rays)return;
-addEventListener('scroll',function(){
-var pct=pageYOffset/(document.documentElement.scrollHeight-innerHeight);
-rays.style.transform='translateX(-50%) rotate('+(pct*8)+'deg)';
-rays.style.opacity=clamp(.5-pct*.3,0,.5)
-})
-})();
-
-/* ─── 32. MOUSE-TRAIL GOLDEN DUST ─── */
-(function(){
-if(!isFine||isMobile)return;
-var trail=[],POOL=18;
-for(var i=0;i<POOL;i++){var p=document.createElement('div');p.className='mouse-particle';p.style.cssText='position:fixed;width:'+( 2+Math.random()*3)+'px;height:'+(2+Math.random()*3)+'px;border-radius:50%;pointer-events:none;z-index:9999;background:rgba(212,175,55,'+(0.15+Math.random()*.25)+');opacity:0;transition:opacity .4s ease;filter:blur('+(Math.random()*1.5)+'px)';document.body.appendChild(p);trail.push({el:p,life:0,x:0,y:0,vx:0,vy:0})}
-var mx=0,my=0,idx=0;
-addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;
-var t=trail[idx%POOL];t.x=mx;t.y=my;t.vx=(Math.random()-.5)*30;t.vy=(Math.random()-.5)*30-15;t.life=1;t.el.style.opacity='1';t.el.style.left=mx+'px';t.el.style.top=my+'px';idx++});
-(function anim(){
-for(var i=0;i<POOL;i++){var t=trail[i];if(t.life>0){t.life-=.025;t.x+=t.vx*.02;t.y+=t.vy*.02;t.vy+=.5;t.el.style.left=t.x+'px';t.el.style.top=t.y+'px';t.el.style.opacity=t.life;if(t.life<=0)t.el.style.opacity='0'}}
-requestAnimationFrame(anim)})()
-})();
-
-/* ─── 33. SECTION FOCUS PULL (camera rack-focus) ─── */
-(function(){
-var sections=document.querySelectorAll('[data-section]');if(!sections.length)return;
-var obs=new IntersectionObserver(function(es){es.forEach(function(e){
-if(e.isIntersecting){
-sections.forEach(function(s){if(s!==e.target)s.classList.add('section-blur-out');else s.classList.remove('section-blur-out')});
-setTimeout(function(){sections.forEach(function(s){s.classList.add('sharp')})},400);
-setTimeout(function(){sections.forEach(function(s){s.classList.remove('section-blur-out');s.classList.remove('sharp')})},1200)
-}})},{threshold:.4});
-sections.forEach(function(s){obs.observe(s)})
-})();
-
-/* ─── 34. PARALLAX DEPTH LAYERS ─── */
-(function(){
-if(isMobile)return;
-var hero=document.querySelector('.hero-section'),pkgs=document.querySelector('.packages-section'),adds=document.querySelector('.addons-section');
-addEventListener('scroll',function(){
-var sy=pageYOffset;
-if(pkgs)pkgs.style.transform='translateY('+(-sy*.015)+'px)';
-if(adds)adds.style.transform='translateY('+(-sy*.008)+'px)'
-})
-})();
-
-/* ─── 35. CINEMATIC CARD ENTRANCE (aperture iris per card) ─── */
-(function(){
-var co=new IntersectionObserver(function(es){es.forEach(function(e){
-if(e.isIntersecting){
-e.target.style.clipPath='circle(0% at 50% 50%)';
-setTimeout(function(){e.target.style.transition='clip-path 1s cubic-bezier(.16,1,.3,1)';e.target.style.clipPath='circle(100% at 50% 50%)'},50);
-co.unobserve(e.target)}
-})},{threshold:.15});
-document.querySelectorAll('.addon-card').forEach(function(c){co.observe(c)})
-})();
-
-/* ─── 36. HERO ANAMORPHIC HOVER FLARE ─── */
-(function(){
-if(!isFine)return;
-var hero=document.querySelector('.hero-section');if(!hero)return;
-var flare=document.createElement('div');
-flare.style.cssText='position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:5;opacity:0;transition:opacity .8s ease;background:linear-gradient(90deg,transparent 30%,rgba(212,175,55,.06) 48%,rgba(244,213,141,.1) 50%,rgba(212,175,55,.06) 52%,transparent 70%);mix-blend-mode:screen';
-hero.appendChild(flare);
-hero.addEventListener('mouseenter',function(){flare.style.opacity='1'});
-hero.addEventListener('mouseleave',function(){flare.style.opacity='0'});
-hero.addEventListener('mousemove',function(e){
-var r=hero.getBoundingClientRect();var xPct=(e.clientX-r.left)/r.width;
-flare.style.background='linear-gradient(90deg,transparent '+(xPct*100-25)+'%,rgba(212,175,55,.05) '+(xPct*100-3)+'%,rgba(244,213,141,.12) '+(xPct*100)+'%,rgba(212,175,55,.05) '+(xPct*100+3)+'%,transparent '+(xPct*100+25)+'%)'
-})
-})();
-
-/* ─── 37. PACKAGE CARD SHIMMER SWEEP ─── */
-(function(){
-document.querySelectorAll('.pkg-card').forEach(function(card){
-var shimmer=document.createElement('div');
-shimmer.style.cssText='position:absolute;inset:0;border-radius:22px;pointer-events:none;z-index:10;background:linear-gradient(105deg,transparent 40%,rgba(212,175,55,.06) 45%,rgba(244,213,141,.1) 50%,rgba(212,175,55,.06) 55%,transparent 60%);background-size:300% 100%;opacity:0;transition:opacity .6s ease';
-card.appendChild(shimmer);
-card.addEventListener('mouseenter',function(){shimmer.style.opacity='1';shimmer.style.animation='cardShimmerSweep 1.5s ease forwards'});
-card.addEventListener('mouseleave',function(){shimmer.style.opacity='0';shimmer.style.animation='none'})
-});
-var style=document.createElement('style');
-style.textContent='@keyframes cardShimmerSweep{0%{background-position:200% 0}100%{background-position:-200% 0}}';
-document.head.appendChild(style)
-})();
-
-/* ─── 39. DYNAMIC LETTERBOX ASPECT RATIO ─── */
-(function(){
-addEventListener('scroll',function(){
-var pct=pageYOffset/(document.documentElement.scrollHeight-innerHeight);
-var h=clamp(20+pct*28,20,48);
-var lt=document.querySelector('.letterbox-top'),lb=document.querySelector('.letterbox-bot');
-if(lt&&document.body.classList.contains('letterbox-active')){lt.style.height=h+'px';lb.style.height=h+'px'}
-})
-})();
-
-/* ─── 40. CINEMATIC SMOOTH SCROLL EASING ─── */
-(function(){
-document.querySelectorAll('a[href^="#"]').forEach(function(a){
-a.addEventListener('click',function(e){
-var target=document.querySelector(a.getAttribute('href'));if(!target)return;
-e.preventDefault();
-var start=pageYOffset,end=target.offsetTop-60,dist=end-start,dur=1200,startT=performance.now();
-requestAnimationFrame(function step(t){
-var p=clamp((t-startT)/dur,0,1);
-var ease=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
-scrollTo(0,start+dist*ease);
-if(p<1)requestAnimationFrame(step)
-})
-})
-})
-})();
-
-
-/* ═══════════════════════════════════════════════════════════════
-   $1.5M WELLNESS-CINEMA FUSION SYSTEMS (41-56)
-   Massage Championship Industry × Cinematic Excellence
-   ═══════════════════════════════════════════════════════════════ */
-
-/* ─── 41. WELLNESS AURORA CANVAS (flowing energy field) ─── */
-(function(){
-var c=document.getElementById('auroraCanvas'),w=document.getElementById('wellnessAurora');
-if(!c||!w)return;var ctx=c.getContext('2d');
-function resize(){c.width=innerWidth;c.height=innerHeight}
-resize();addEventListener('resize',resize);
-var t=0,active=false;
-setTimeout(function(){w.classList.add('active');active=true},3500);
-var cols=[
-{r:212,g:175,b:55,a:.012},
-{r:244,g:213,b:141,a:.008},
-{r:245,g:240,b:232,a:.006},
-{r:139,g:117,b:54,a:.01}
-];
-function draw(){
-if(!active){requestAnimationFrame(draw);return}
-ctx.clearRect(0,0,c.width,c.height);
-for(var i=0;i<4;i++){
-var col=cols[i];
-var cx=c.width*(.2+.15*i)+Math.sin(t*.3+i*1.5)*c.width*.15;
-var cy=c.height*(.3+.1*i)+Math.cos(t*.2+i*2)*c.height*.2;
-var r=Math.min(c.width,c.height)*(.3+.1*Math.sin(t*.4+i));
-var g=ctx.createRadialGradient(cx,cy,0,cx,cy,r);
-g.addColorStop(0,'rgba('+col.r+','+col.g+','+col.b+','+col.a+')');
-g.addColorStop(1,'rgba('+col.r+','+col.g+','+col.b+',0)');
-ctx.fillStyle=g;ctx.fillRect(0,0,c.width,c.height)
-}
-t+=.008;requestAnimationFrame(draw)
-}
-draw()
-})();
-
-/* ─── 42. ENERGY MERIDIAN LINES (flowing like chi paths) ─── */
-(function(){
-var c=document.getElementById('meridianCanvas'),wrap=document.getElementById('energyMeridian');
-if(!c||!wrap)return;var ctx=c.getContext('2d');
-function resize(){c.width=innerWidth;c.height=innerHeight}
-resize();addEventListener('resize',resize);
-var paths=[],NUM=5,t=0;
-for(var i=0;i<NUM;i++){
-paths.push({
-phase:Math.random()*Math.PI*2,
-speed:.002+Math.random()*.003,
-amp:.15+Math.random()*.1,
-yBase:.15+i*.17,
-width:.3+Math.random()*.4
-})}
-setTimeout(function(){wrap.classList.add('active')},5000);
-function draw(){
-ctx.clearRect(0,0,c.width,c.height);
-paths.forEach(function(p){
-ctx.beginPath();
-ctx.strokeStyle='rgba(212,175,55,.015)';
-ctx.lineWidth=1.5;
-for(var x=0;x<=c.width;x+=3){
-var norm=x/c.width;
-var y=c.height*(p.yBase+p.amp*Math.sin(norm*Math.PI*2*p.width+t+p.phase));
-if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)
-}
-ctx.stroke()
-});
-t+=.015;requestAnimationFrame(draw)
-}
-draw()
-})();
-
-/* ─── 43. HEALING SCROLL PULSE (warm energy burst on scroll) ─── */
-(function(){
-var pulse=document.getElementById('healPulse');if(!pulse)return;
-var lastY=pageYOffset,cooldown=false;
-addEventListener('scroll',function(){
-var dy=Math.abs(pageYOffset-lastY);lastY=pageYOffset;
-if(dy>60&&!cooldown){
-cooldown=true;
-pulse.style.width='0';pulse.style.height='0';pulse.style.opacity='1';
-var size=Math.min(innerWidth,innerHeight)*2;
-pulse.style.transition='width 1.5s ease-out,height 1.5s ease-out,opacity 1.5s ease-out';
-pulse.style.width=size+'px';pulse.style.height=size+'px';pulse.style.opacity='0';
-setTimeout(function(){
-pulse.style.transition='none';pulse.style.width='0';pulse.style.height='0';
-cooldown=false
-},1600)
-}
-})
-})();
-
-/* ─── 44. SECTION WARMTH GRADIENT (wellness color grading) ─── */
-(function(){
-var el=document.getElementById('sectionWarmth');if(!el)return;
-var warmths=[
-'radial-gradient(ellipse at 50% 30%,rgba(212,175,55,.03) 0%,transparent 60%)',
-'radial-gradient(ellipse at 30% 50%,rgba(199,165,85,.025) 0%,transparent 50%)',
-'radial-gradient(ellipse at 70% 40%,rgba(180,150,70,.02) 0%,transparent 55%)',
-'radial-gradient(ellipse at 50% 60%,rgba(220,190,100,.025) 0%,transparent 50%)',
-'radial-gradient(ellipse at 40% 50%,rgba(245,240,232,.02) 0%,transparent 60%)'
-];
-var idx=0;
-var obs=new IntersectionObserver(function(entries){
-entries.forEach(function(e){
-if(e.isIntersecting){
-el.style.background=warmths[idx%warmths.length];
-el.classList.add('active');
-idx++
-}
-})
-},{threshold:.3});
-document.querySelectorAll('section,.packages,.addons-section,.footer-section').forEach(function(s){obs.observe(s)})
-})();
-
-/* ─── 45. GOLDEN HOUR OVERLAY ACTIVATION ─── */
-(function(){
-var el=document.getElementById('goldenHourOverlay');if(!el)return;
-setTimeout(function(){el.classList.add('active')},4000)
-})();
-
-/* ─── 47. MOBILE TOUCH RIPPLE (warm energy on tap) ─── */
-(function(){
-if(!isMobile)return;
-document.addEventListener('touchstart',function(e){
-var touch=e.touches[0];if(!touch)return;
-var ripple=document.createElement('div');
-ripple.className='touch-ripple';
-ripple.style.left=touch.clientX+'px';ripple.style.top=touch.clientY+'px';
-ripple.style.width='200px';ripple.style.height='200px';
-ripple.style.animation='touchRippleExpand .8s ease-out forwards';
-document.body.appendChild(ripple);
-setTimeout(function(){ripple.remove()},900)
-},{passive:true})
-})();
-
-/* ─── 48. MOBILE CARD REVEAL ON SCROLL (staggered) ─── */
-(function(){
-if(!isMobile)return;
-var cards=document.querySelectorAll('.pkg-card,.addon-item');
-cards.forEach(function(c,i){c.style.setProperty('--i',i)});
-var obs=new IntersectionObserver(function(entries){
-entries.forEach(function(e){
-if(e.isIntersecting){
-e.target.classList.add('mob-reveal');obs.unobserve(e.target)
-}
-})
-},{threshold:.15,rootMargin:'0px 0px -50px 0px'});
-cards.forEach(function(c){obs.observe(c)})
-})();
-
-/* ─── 49. MOBILE SCROLL GLOW (bottom warm glow on scroll) ─── */
-(function(){
-var glow=document.getElementById('scrollGlow');if(!glow)return;
-if(!isMobile)return;
-var lastY=pageYOffset,timer;
-addEventListener('scroll',function(){
-var dy=Math.abs(pageYOffset-lastY);lastY=pageYOffset;
-if(dy>5){
-glow.classList.add('active');
-clearTimeout(timer);
-timer=setTimeout(function(){glow.classList.remove('active')},600)
-}
-},{passive:true})
-})();
-
-/* ─── 50. MOBILE HERO PARALLAX DEPTH ─── */
-(function(){
-if(!isMobile)return;
-var hero=document.querySelector('.hero-section');if(!hero)return;
-var text=hero.querySelector('.hero-text');
-var logo=document.getElementById('siteLogo');
-addEventListener('scroll',function(){
-var sy=pageYOffset,vh=innerHeight;
-if(sy<vh){
-var p=sy/vh;
-if(text){text.style.transform='translateY('+sy*.25+'px) scale('+(1-p*.08)+')';text.style.opacity=1-p*.7}
-if(logo)logo.style.transform='translateY('+(-sy*.1)+'px) scale('+(1+p*.05)+')'
-}
-},{passive:true})
-})();
-
-/* ─── 51. WELLNESS FLOATING SYMBOLS (subtle industry nods) ─── */
-(function(){
-if(isMobile&&innerWidth<500)return;
-var symbols=['✦','❋','◈','✧','❖'];
-var NUM=isMobile?3:7;
-for(var i=0;i<NUM;i++){
-var s=document.createElement('div');
-s.className='wellness-symbol';
-s.textContent=symbols[i%symbols.length];
-s.style.left=10+Math.random()*80+'%';
-s.style.top=15+Math.random()*70+'%';
-s.style.fontSize=(10+Math.random()*14)+'px';
-document.body.appendChild(s);
-(function(el,delay){
-setTimeout(function(){
-el.classList.add('active');
-var baseX=parseFloat(el.style.left),baseY=parseFloat(el.style.top);
-var phase=Math.random()*Math.PI*2,t=0;
-function float(){
-t+=.0008;
-el.style.left=(baseX+Math.sin(t+phase)*3)+'%';
-el.style.top=(baseY+Math.cos(t*.6+phase)*2)+'%';
-el.style.transform='rotate('+(Math.sin(t*.5)*15)+'deg)';
-requestAnimationFrame(float)
-}float()
-},delay)
-})(s,5000+i*800)
-}
-})();
-
-/* ─── 52. CARD GLOW ANGLE TRACKING (conic gradient follows mouse) ─── */
-(function(){
-if(isMobile)return;
-document.querySelectorAll('.pkg-card').forEach(function(card){
-card.addEventListener('mousemove',function(e){
-var rect=card.getBoundingClientRect();
-var cx=rect.left+rect.width/2,cy=rect.top+rect.height/2;
-var angle=Math.atan2(e.clientY-cy,e.clientX-cx)*(180/Math.PI)+180;
-card.style.setProperty('--card-glow-angle',angle+'deg')
-})
-})
-})();
-
-/* ─── 53. MOBILE GYROSCOPE CARD TILT (device motion) ─── */
-(function(){
-if(!isMobile)return;
-if(!window.DeviceOrientationEvent)return;
-var cards=document.querySelectorAll('.pkg-card');
-window.addEventListener('deviceorientation',function(e){
-if(e.gamma===null)return;
-var tiltX=Math.max(-15,Math.min(15,e.gamma))*.3;
-var tiltY=Math.max(-15,Math.min(15,e.beta-45))*.3;
-cards.forEach(function(card){
-var rect=card.getBoundingClientRect();
-if(rect.top>-100&&rect.bottom<innerHeight+100){
-card.style.transform='perspective(800px) rotateY('+tiltX+'deg) rotateX('+(-tiltY)+'deg)'
-}
-})
-},{passive:true})
-})();
-
-/* ─── 54. WARM SCROLL VELOCITY INDICATOR ─── */
-(function(){
-var lastY=pageYOffset,lastT=Date.now();
-var strip=document.querySelector('.film-strip');
-addEventListener('scroll',function(){
-var now=Date.now(),dt=now-lastT;if(dt<16)return;
-var vel=Math.abs(pageYOffset-lastY)/(dt/16);
-lastY=pageYOffset;lastT=now;
-var warmth=Math.min(vel/8,1);
-if(strip){
-strip.style.borderColor='rgba(212,175,55,'+(0.06+warmth*.08)+')';
-strip.style.filter='brightness('+(1+warmth*.15)+')'
-}
-document.body.style.setProperty('--scroll-warmth',warmth)
-},{passive:true})
-})();
-
-/* ─── 55. INTERSECTION CARD VITALITY (progressive reveal with scale bounce) ─── */
-(function(){
-var cards=document.querySelectorAll('.pkg-card');
-var obs=new IntersectionObserver(function(entries){
-entries.forEach(function(e){
-if(e.isIntersecting){
-var delay=Array.prototype.indexOf.call(cards,e.target)*.12;
-e.target.style.transition='transform .8s cubic-bezier(.34,1.56,.64,1) '+delay+'s,opacity .6s ease '+delay+'s';
-e.target.style.transform='scale(1)';
-e.target.style.opacity='1'
-}
-})
-},{threshold:.2});
-cards.forEach(function(c){
-if(!isMobile){c.style.transform='scale(.92)';c.style.opacity='.3'}
-obs.observe(c)
-})
-})();
-
-/* ─── 56. MOBILE HAPTIC SCROLL SECTIONS (visual snap feedback) ─── */
-(function(){
-if(!isMobile)return;
-var sections=document.querySelectorAll('section,.packages,.addons-section');
-var current=-1;
-var obs=new IntersectionObserver(function(entries){
-entries.forEach(function(e){
-if(e.isIntersecting){
-var idx=Array.prototype.indexOf.call(sections,e.target);
-if(idx!==current){
-current=idx;
-e.target.style.transition='none';
-e.target.style.transform='scale(.99)';
-setTimeout(function(){
-e.target.style.transition='transform .4s cubic-bezier(.34,1.56,.64,1)';
-e.target.style.transform='scale(1)'
-},50)
-}
-}
-})
-},{threshold:.4});
-sections.forEach(function(s){obs.observe(s)})
-})();
-
-
-/* ═══════════════════════════════════════════════════════════════
-   $2M ULTRA-PREMIUM SYSTEMS (57-68)
-   Cinematic Typography + Premium Micro-Interactions
-   ═══════════════════════════════════════════════════════════════ */
-
-/* ─── 57. (REMOVED — using original line-based slideUp) ─── */
-
-/* ─── 58. HEADING UNDERLINE SWEEP ON SCROLL ─── */
-(function(){
-var headings=document.querySelectorAll('.packages-header h2,.addons-title');
-var obs=new IntersectionObserver(function(es){es.forEach(function(e){
-if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
-})},{threshold:.5});
-headings.forEach(function(h){obs.observe(h)})
-})();
-
-/* ─── 59. (REMOVED — golden thread) ─── */
-
-/* ─── 60. PREMIUM SECTION REVEAL (replaces shutter) ─── */
-(function(){
-var items=document.querySelectorAll('.packages-header,.addons-header,.capacity-section,.footer-section,.social-section');
-items.forEach(function(el){el.classList.add('premium-reveal')});
-var obs=new IntersectionObserver(function(es){es.forEach(function(e){
-if(e.isIntersecting){
-e.target.classList.add('visible');
-obs.unobserve(e.target)
-}
-})},{threshold:.2});
-items.forEach(function(el){obs.observe(el)})
-})();
-
-/* ─── 61. MOBILE CAPACITY SECTION REVEAL ─── */
-(function(){
-if(!isMobile)return;
-var cap=document.querySelector('.capacity-section');if(!cap)return;
-var obs=new IntersectionObserver(function(es){es.forEach(function(e){
-if(e.isIntersecting){e.target.classList.add('mob-reveal');obs.unobserve(e.target)}
-})},{threshold:.3});
-obs.observe(cap)
-})();
-
-/* ─── 62. PREMIUM CARD GLASS REFLECTION (mouse-reactive) ─── */
-(function(){
-if(isMobile)return;
-document.querySelectorAll('.pkg-card').forEach(function(card){
-var reflection;
-card.addEventListener('mouseenter',function(){
-reflection=document.createElement('div');
-reflection.style.cssText='position:absolute;inset:0;pointer-events:none;z-index:10;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.03) 0%,transparent 50%,rgba(212,175,55,.02) 100%);opacity:0;transition:opacity .6s ease';
-card.style.position='relative';
-card.appendChild(reflection);
-setTimeout(function(){if(reflection)reflection.style.opacity='1'},10)
-});
-card.addEventListener('mousemove',function(e){
-if(!reflection)return;
-var rect=card.getBoundingClientRect();
-var x=(e.clientX-rect.left)/rect.width*100;
-var y=(e.clientY-rect.top)/rect.height*100;
-reflection.style.background='radial-gradient(circle at '+x+'% '+y+'%,rgba(255,255,255,.06) 0%,transparent 50%),linear-gradient(135deg,rgba(255,255,255,.01) 0%,transparent 60%)'
-});
-card.addEventListener('mouseleave',function(){
-if(reflection){reflection.style.opacity='0';var r=reflection;reflection=null;setTimeout(function(){if(r.parentNode)r.parentNode.removeChild(r)},600)}
-})
-})
-})();
-
-/* ─── 63. HERO SCROLL DISSOLVE (premium depth on scroll) ─── */
-(function(){
-var hero=document.querySelector('.hero-section');if(!hero)return;
-var overline=hero.querySelector('.hero-overline');
-addEventListener('scroll',function(){
-var sy=pageYOffset,vh=innerHeight;
-if(sy<vh){
-var p=sy/vh;
-if(overline){overline.style.opacity=Math.max(0,1-p*2);overline.style.transform='translateY('+sy*.15+'px)'}
-}
-},{passive:true})
-})();
-
-/* ─── 64. TRUST MARQUEE SUBTLE PARALLAX ─── */
-(function(){
-var trust=document.querySelector('.trust-section');if(!trust)return;
-addEventListener('scroll',function(){
-var rect=trust.getBoundingClientRect();
-if(rect.top<innerHeight&&rect.bottom>0){
-var p=(innerHeight-rect.top)/(innerHeight+rect.height);
-var wrap=trust.querySelector('.trust-track-wrap');
-if(wrap)wrap.style.transform='translateX('+(-(Date.now()/35)%trust.scrollWidth)+'px) translateY('+((p-.5)*8)+'px)'
-}
-},{passive:true})
-})();
-
-/* ─── 65. ADDON ITEM STAGGER ENTRANCE ─── */
-(function(){
-var addons=document.querySelectorAll('.addon-item');
-addons.forEach(function(a,i){a.classList.add('premium-reveal');a.style.animationDelay=(i*.08)+'s'});
-var obs=new IntersectionObserver(function(es){es.forEach(function(e){
-if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
-})},{threshold:.2,rootMargin:'0px 0px -30px 0px'});
-addons.forEach(function(a){obs.observe(a)})
-})();
-
-/* ─── 66. MOBILE SCROLL VELOCITY HAPTIC (enhanced) ─── */
-(function(){
-if(!isMobile)return;
-var lastY=pageYOffset,lastT=Date.now();
-var letterboxT=document.querySelector('.letterbox-top'),letterboxB=document.querySelector('.letterbox-bot');
-addEventListener('scroll',function(){
-var now=Date.now(),dt=now-lastT;if(dt<16)return;
-var vel=Math.abs(pageYOffset-lastY)/(dt/16);
-lastY=pageYOffset;lastT=now;
-var warmth=Math.min(vel/6,1);
-if(letterboxT&&document.body.classList.contains('letterbox-active')){
-var h=20+warmth*10;
-letterboxT.style.height=h+'px';
-letterboxB.style.height=h+'px'
-}
-},{passive:true})
-})();
-
-/* ─── 67. PREMIUM CURSOR TRAIL (desktop, snappy gold trail) ─── */
-(function(){
-if(isMobile)return;
-var POOL=6,trail=[],mx=0,my=0;
-for(var i=0;i<POOL;i++){
-var dot=document.createElement('div');
-dot.style.cssText='position:fixed;width:4px;height:4px;border-radius:50%;pointer-events:none;z-index:99996;background:radial-gradient(circle,rgba(212,175,55,.4),rgba(212,175,55,.1));opacity:0;transition:opacity .2s ease,transform .15s ease;transform:translate(-50%,-50%) scale(1);will-change:transform,left,top';
-document.body.appendChild(dot);
-trail.push({el:dot,x:0,y:0,life:0})
-}
-addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY});
-function tick(){
-for(var i=0;i<POOL;i++){
-var dot=trail[i];
-var t=(i+1)/POOL;
-dot.x+=(mx-dot.x)*(.35-t*.04);
-dot.y+=(my-dot.y)*(.35-t*.04);
-dot.el.style.left=dot.x+'px';
-dot.el.style.top=dot.y+'px';
-var scale=1-i*.1;
-dot.el.style.transform='translate(-50%,-50%) scale('+scale+')';
-dot.el.style.opacity=String(.3-i*.04)
-}
-requestAnimationFrame(tick)
-}
-tick()
-})();
-
-/* ─── 68. FONT LOADING OPTIMIZATION ─── */
-(function(){
-if(document.fonts&&document.fonts.ready){
-document.fonts.ready.then(function(){
-document.body.classList.add('fonts-loaded');
-var title=document.querySelector('.hero-title');
-/* title opacity handled by slideUp animation */
-})
-}
-})();
-
-
-/* ═══════════════════════════════════════════════════════════════
-   $2.5M APEX EXPERIENCE SYSTEMS (69-80)
-   Diamond Dust + Magnetic Cards + Depth Parallax + More
-   ═══════════════════════════════════════════════════════════════ */
-
-/* ─── 69. DIAMOND DUST PARTICLE FIELD ─── */
-(function(){
-var field=document.getElementById('diamondField');if(!field)return;
-var count=window.innerWidth<768?8:15;
-function spawn(){
-var p=document.createElement('div');
-p.className='diamond-particle';
-p.style.left=Math.random()*100+'%';
-p.style.animationDuration=(8+Math.random()*12)+'s';
-p.style.animationDelay=Math.random()*5+'s';
-p.style.width=p.style.height=(1+Math.random()*2)+'px';
-field.appendChild(p);
-p.addEventListener('animationiteration',function(){
-p.style.left=Math.random()*100+'%'
-})
-}
-for(var i=0;i<count;i++)spawn()
-})();
-
-/* ─── 70. MAGNETIC CARD ATTRACTION (desktop) ─── */
-(function(){
-if(window.innerWidth<1024)return;
-var cards=document.querySelectorAll('.pkg-card');
-cards.forEach(function(card){
-card.addEventListener('mousemove',function(e){
-var r=card.getBoundingClientRect();
-var x=(e.clientX-r.left)/r.width-.5;
-var y=(e.clientY-r.top)/r.height-.5;
-card.style.transform='perspective(800px) rotateY('+x*4+'deg) rotateX('+-y*4+'deg) translateY(-6px) scale(1.01)';
-card.style.transition='transform .1s ease-out'
-});
-card.addEventListener('mouseleave',function(){
-card.style.transform='perspective(800px) rotateY(0) rotateX(0) translateY(0) scale(1)';
-card.style.transition='transform .6s var(--ease)'
-})
-})
-})();
-
-/* ─── 71. HERO PARALLAX DEPTH LAYERS ─── */
-(function(){
-var hero=document.querySelector('.hero-section');
-var title=document.querySelector('.hero-title');
-var sub=document.querySelector('.hero-sub');
-var overline=document.querySelector('.hero-overline');
-if(!hero||!title)return;
-var ticking=false;
-window.addEventListener('scroll',function(){
-if(!ticking){requestAnimationFrame(function(){
-var s=window.pageYOffset;
-var h=window.innerHeight;
-if(s<h*1.2){
-var r=s/h;
-if(title)title.style.transform='translateY('+s*.15+'px) scale('+(1-r*.04)+')';
-if(sub)sub.style.transform='translateY('+s*.08+'px)';
-if(overline)overline.style.transform='translateY('+s*.05+'px)';
-title.style.opacity=Math.max(0,1-r*1.1);
-if(sub)sub.style.opacity=Math.max(0,1-r*1.3)
-}
-ticking=false
-});ticking=true}
-})
-})();
-
-/* ─── 72. LUXURY ENTRANCE STAGGER (packages appear with offset) ─── */
-(function(){
-var cards=document.querySelectorAll('.pkg-card');
-var obs=new IntersectionObserver(function(entries){
-entries.forEach(function(e){
-if(e.isIntersecting){
-var idx=Array.from(cards).indexOf(e.target);
-e.target.style.transitionDelay=(idx*.12)+'s';
-e.target.classList.add('visible');
-obs.unobserve(e.target)
-}
-})
-},{threshold:.15});
-cards.forEach(function(c){obs.observe(c)})
-})();
-
-/* ─── 73. SMOOTH SCROLL MOMENTUM INDICATOR ─── */
-(function(){
-var bar=document.querySelector('.scroll-progress');if(!bar)return;
-var last=0;var velocity=0;
-function tick(){
-var curr=window.pageYOffset;
-velocity=velocity*.85+(curr-last)*.15;
-last=curr;
-var glow=Math.min(Math.abs(velocity)*2,30);
-bar.style.boxShadow='0 0 '+glow+'px rgba(212,175,55,'+(glow/60)+')';
-requestAnimationFrame(tick)
-}
-tick()
-})();
-
-/* ─── 74. AMBIENT LIGHT REACTIVE TINT (time-based) ─── */
-(function(){
-var tint=document.getElementById('ambientTint');if(!tint)return;
-function updateTint(){
-var h=new Date().getHours();
-var warmth=0;
-if(h>=18||h<6)warmth=.04;
-else if(h>=6&&h<10)warmth=.02;
-else if(h>=16&&h<18)warmth=.03;
-tint.style.background='radial-gradient(ellipse at 50% 30%,rgba(212,175,55,'+warmth+'),transparent 70%)';
-}
-updateTint();setInterval(updateTint,60000)
-})();
-
-/* ─── 75. TRUST MARQUEE ENTRANCE ANIMATION ─── */
-(function(){
-var trust=document.querySelector('.trust-section');if(!trust)return;
-trust.style.opacity='0';trust.style.transform='translateY(15px)';
-var obs=new IntersectionObserver(function(es){
-if(es[0].isIntersecting){
-trust.style.transition='opacity .8s ease,transform .8s var(--ease)';
-trust.style.opacity='1';trust.style.transform='translateY(0)';
-obs.unobserve(trust)
-}
-},{threshold:.3});
-obs.observe(trust)
-})();
-
-/* ─── 76. HERO LOGO SUBTLE FLOAT ─── */
-(function(){
-var logo=document.getElementById('siteLogo');if(!logo)return;
-var t=0;
-function float(){
-t+=.015;
-logo.style.transform='translateY('+Math.sin(t)*3+'px)';
-requestAnimationFrame(float)
-}
-float()
-})();
-
-/* ─── 77. ADDON ITEM COUNTER REVEAL ─── */
-(function(){
-var addons=document.querySelectorAll('.addon-item');
-var obs=new IntersectionObserver(function(es){
-es.forEach(function(e){
-if(e.isIntersecting){
-var idx=Array.from(addons).indexOf(e.target);
-e.target.style.transitionDelay=(idx*.08)+'s';
-e.target.style.opacity='1';
-e.target.style.transform='translateY(0)';
-obs.unobserve(e.target)
-}
-})
-},{threshold:.2});
-addons.forEach(function(a){
-a.style.opacity='0';a.style.transform='translateY(16px)';
-a.style.transition='opacity .6s ease,transform .6s var(--ease)';
-obs.observe(a)
-})
-})();
-
-/* ─── 78. CINEMATIC VIGNETTE ON SCROLL ─── */
-(function(){
-var vig=document.createElement('div');
-vig.style.cssText='position:fixed;inset:0;pointer-events:none;z-index:9990;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.4) 100%);opacity:0;transition:opacity .5s ease';
-document.body.appendChild(vig);
-var ticking=false;
-window.addEventListener('scroll',function(){
-if(!ticking){requestAnimationFrame(function(){
-var s=window.pageYOffset;
-var h=document.documentElement.scrollHeight-window.innerHeight;
-var r=s/h;
-vig.style.opacity=Math.min(r*1.5,.35);
-ticking=false
-});ticking=true}
-})
-})();
-
-/* ─── 79. MOBILE TOUCH RIPPLE GOLD ─── */
-(function(){
-if(window.innerWidth>768)return;
-document.addEventListener('touchstart',function(e){
-var ripple=document.createElement('div');
-var x=e.touches[0].clientX;
-var y=e.touches[0].clientY;
-ripple.style.cssText='position:fixed;left:'+(x-25)+'px;top:'+(y-25)+'px;width:50px;height:50px;border-radius:50%;border:1px solid rgba(212,175,55,.2);pointer-events:none;z-index:99999;animation:touchRippleGold .8s ease-out forwards';
-document.body.appendChild(ripple);
-setTimeout(function(){ripple.remove()},900)
-},{passive:true})
-})();
-
-/* ─── 80. SCROLL-DRIVEN NAV DOT PULSE ─── */
-(function(){
-var dots=document.querySelectorAll('.nav-dot');if(!dots.length)return;
-var activeDot=null;
-var obs=new IntersectionObserver(function(es){
-es.forEach(function(e){
-if(e.isIntersecting){
-var id=e.target.id;
-dots.forEach(function(d){
-if(d.getAttribute('data-section')===id){
-d.style.boxShadow='0 0 8px rgba(212,175,55,.5)';
-d.style.transform='scale(1.3)';
-if(activeDot&&activeDot!==d){
-activeDot.style.boxShadow='none';
-activeDot.style.transform='scale(1)'
-}
-activeDot=d
-}
-})
-}
-})
-},{threshold:.4});
-document.querySelectorAll('section[id],div[id]').forEach(function(s){obs.observe(s)})
-})();
-
-
-/* ═══════════════════════════════════════════════════════════════
-   $3M CINEMATIC DEPTH SYSTEMS (81-86)
-   Film-grade scroll behaviors + depth effects
-   ═══════════════════════════════════════════════════════════════ */
-
-/* ─── 81. CINEMATIC WIDESCREEN BARS ON DEEP SCROLL ─── */
-(function(){
-var top=document.getElementById('cinemaBarTop');
-var bot=document.getElementById('cinemaBarBot');
-if(!top||!bot)return;
-var maxBar=window.innerWidth<768?0:24;
-var ticking=false;
-window.addEventListener('scroll',function(){
-if(!ticking){requestAnimationFrame(function(){
-var s=window.pageYOffset;
-var h=document.documentElement.scrollHeight-window.innerHeight;
-var r=Math.min(s/(h*.3),1);
-var barH=Math.round(r*maxBar);
-top.style.height=barH+'px';
-bot.style.height=barH+'px';
-ticking=false
-});ticking=true}
-})
-})();
-
-/* ─── 82. FILM BURN FLASH ON SECTION CHANGE ─── */
-(function(){
-var burn=document.getElementById('filmBurn');if(!burn)return;
-var sections=document.querySelectorAll('.packages-section,.trust-section,.capacity-section');
-var obs=new IntersectionObserver(function(es){
-es.forEach(function(e){
-if(e.isIntersecting){
-burn.style.opacity='.06';
-setTimeout(function(){burn.style.opacity='0'},400)
-}
-})
-},{threshold:.1});
-sections.forEach(function(s){obs.observe(s)})
-})();
-
-/* ─── 83. GRAIN INTENSITY ON SCROLL DEPTH ─── */
-(function(){
-var grain=document.querySelector('.grain-overlay');if(!grain)return;
-var ticking=false;
-window.addEventListener('scroll',function(){
-if(!ticking){requestAnimationFrame(function(){
-var r=window.pageYOffset/(document.documentElement.scrollHeight-window.innerHeight);
-grain.style.opacity=String(.03+r*.04);
-ticking=false
-});ticking=true}
-})
-})();
-
-/* ─── 84. CARD SPOTLIGHT MOUSE TRACKING ─── */
-(function(){
-if(window.innerWidth<1024)return;
-document.querySelectorAll('.pkg-card').forEach(function(card){
-card.addEventListener('mousemove',function(e){
-var r=card.getBoundingClientRect();
-var x=((e.clientX-r.left)/r.width*100).toFixed(1);
-var y=((e.clientY-r.top)/r.height*100).toFixed(1);
-card.style.setProperty('--mx',x+'%');
-card.style.setProperty('--my',y+'%')
-})
-})
-})();
-
-/* ─── 85. SMOOTH REVEAL SYSTEM (enhanced) ─── */
-(function(){
-var els=document.querySelectorAll('.reveal:not(.visible)');
-var obs=new IntersectionObserver(function(es){
-es.forEach(function(e){
-if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
-})
-},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
-els.forEach(function(el){obs.observe(el)})
-})();
-
-/* ─── 86. DYNAMIC HERO GRADIENT SHIFT ─── */
-(function(){
-var hero=document.querySelector('.hero-section');if(!hero)return;
-var t=0;
-function shift(){
-t+=.002;
-var x=50+Math.sin(t)*15;
-var y=50+Math.cos(t*.7)*10;
-hero.style.backgroundImage='radial-gradient(ellipse at '+x+'% '+y+'%,rgba(12,12,18,1) 0%,rgba(2,2,4,1) 70%)';
-requestAnimationFrame(shift)
-}
-shift()
 })();
 
 })();/* END CINEMA ENGINE */
