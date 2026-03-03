@@ -450,23 +450,69 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .timecode{position:fixed;top:clamp(16px,2.5vh,28px);right:clamp(60px,5vw,90px);z-index:9997;font-family:'Courier New',monospace;font-size:10px;letter-spacing:1px;color:rgba(212,175,55,.2);pointer-events:none;font-variant-numeric:tabular-nums}
 @media(max-width:768px){.timecode{top:8px;right:8px;font-size:8px}}
 
-/* ── DRAMATIC CURTAIN REVEAL (page load) ── */
-.curtain-left,.curtain-right{position:fixed;top:0;bottom:0;width:50%;background:var(--black);z-index:99999;pointer-events:none;transition:transform 1.4s cubic-bezier(.77,0,.18,1)}
-.curtain-left{left:0}
-.curtain-right{right:0}
-.curtains-open .curtain-left{transform:translateX(-100%)}
-.curtains-open .curtain-right{transform:translateX(100%)}
-.curtain-gold{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1px;height:60vh;background:linear-gradient(to bottom,transparent,var(--gold),transparent);z-index:100000;pointer-events:none;opacity:1;transition:opacity .8s ease .6s}
-.curtains-open .curtain-gold{opacity:0}
+/* ── WIDESCREEN PROJECTOR REVEAL (horizontal split) ── */
+.projector-top,.projector-bot{position:fixed;left:0;right:0;height:50%;background:var(--black);z-index:99999;pointer-events:none;transition:transform 1.6s cubic-bezier(.77,0,.18,1)}
+.projector-top{top:0}
+.projector-bot{bottom:0}
+.projector-open .projector-top{transform:translateY(-100%)}
+.projector-open .projector-bot{transform:translateY(100%)}
+.projector-seam{position:fixed;top:50%;left:0;right:0;height:2px;transform:translateY(-50%);background:linear-gradient(90deg,transparent,var(--gold),transparent);z-index:100000;pointer-events:none;opacity:1;transition:opacity .6s ease .8s}
+.projector-open .projector-seam{opacity:0}
+.projector-countdown{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:100001;font-family:'Courier New',monospace;font-size:clamp(48px,10vw,120px);color:var(--gold);pointer-events:none;opacity:0;letter-spacing:4px;text-shadow:0 0 40px rgba(212,175,55,.4)}
+@keyframes countPulse{0%{transform:translate(-50%,-50%) scale(.7);opacity:0}30%{transform:translate(-50%,-50%) scale(1);opacity:1}70%{opacity:1}100%{transform:translate(-50%,-50%) scale(1.15);opacity:0}}
+/* ── ANAMORPHIC LENS STREAK ── */
+.anamorphic-streak{position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:9995;overflow:hidden;opacity:0;transition:opacity .6s ease}
+.anamorphic-streak.active{opacity:1}
+.streak-line{position:absolute;top:50%;left:-20%;width:140%;height:1px;transform:translateY(-50%);background:linear-gradient(90deg,transparent 0%,rgba(140,180,255,.04) 20%,rgba(212,175,55,.08) 45%,rgba(244,213,141,.12) 50%,rgba(212,175,55,.08) 55%,rgba(140,180,255,.04) 80%,transparent 100%);filter:blur(1px)}
+.streak-line:nth-child(2){height:3px;filter:blur(3px);opacity:.5;top:49.5%}
+.streak-line:nth-child(3){height:6px;filter:blur(8px);opacity:.3;top:50.5%}
+/* ── COLOR GRADING OVERLAY ── */
+.color-grade{position:fixed;inset:0;pointer-events:none;z-index:9994;mix-blend-mode:color;opacity:0;transition:opacity 2.5s ease,background 2.5s ease}
+.color-grade.active{opacity:1}
+/* ── KEN BURNS on card images ── */
+.pkg-thumb img{transition:transform 8s cubic-bezier(.25,.46,.45,.94),filter .6s ease!important}
+.pkg-card.visible .pkg-thumb img{transform:scale(1.08)!important}
+.pkg-card[data-tier="essential"].visible .pkg-thumb img,.pkg-card[data-tier="showcase"].visible .pkg-thumb img,.pkg-card[data-tier="signature"].visible .pkg-thumb img{transform:scale(1.58) translateY(-14%)!important}
+/* ── RACK FOCUS (depth-of-field blur on non-hovered cards) ── */
+@media(pointer:fine){
+.pkg-card{transition:all .6s var(--ease),filter .5s ease!important}
+.pkg-row-top:hover .pkg-card:not(:hover),.pkg-row-bot:hover .pkg-card:not(:hover){filter:blur(2px) brightness(.85);transform:scale(.97)}
+}
+/* ── SECTION WIPE TRANSITIONS ── */
+.wipe-reveal{clip-path:inset(0 100% 0 0);transition:clip-path 1.2s cubic-bezier(.77,0,.18,1)}
+.wipe-reveal.visible{clip-path:inset(0 0 0 0)}
+/* ── PARALLAX DEPTH LAYERS ── */
+.depth-layer{will-change:transform;transition:transform .1s linear}
+/* ── MOUSE-REACTIVE GOLDEN DUST ── */
+.mouse-particle{position:fixed;width:3px;height:3px;border-radius:50%;pointer-events:none;z-index:9999;background:var(--gold);opacity:0;transition:opacity .3s ease}
+/* ── FILM COUNTDOWN CIRCLE ── */
+.countdown-ring{position:fixed;top:50%;left:50%;width:120px;height:120px;transform:translate(-50%,-50%);z-index:100002;pointer-events:none;opacity:0}
+.countdown-ring svg{width:100%;height:100%}
+.countdown-ring circle{fill:none;stroke:var(--gold);stroke-width:2;stroke-dasharray:340;stroke-dashoffset:340;transform-origin:center;transform:rotate(-90deg)}
+@keyframes countdownSweep{to{stroke-dashoffset:0}}
+/* ── SECTION FOCUS PULL (camera-like) ── */
+.section-blur-out{filter:blur(4px);opacity:.4;transition:filter .8s ease,opacity .8s ease}
+.section-blur-out.sharp{filter:blur(0);opacity:1}
+/* ── GOLDEN SUN RAYS ── */
+.sun-rays{position:fixed;top:-20%;left:50%;width:200vw;height:200vh;transform:translateX(-50%);pointer-events:none;z-index:9993;opacity:0;transition:opacity 3s ease;background:conic-gradient(from 0deg at 50% 0%,transparent 0deg,rgba(212,175,55,.02) 5deg,transparent 10deg,transparent 20deg,rgba(212,175,55,.015) 25deg,transparent 30deg,transparent 40deg,rgba(212,175,55,.02) 45deg,transparent 50deg,transparent 60deg,rgba(212,175,55,.01) 65deg,transparent 70deg,transparent 80deg,rgba(212,175,55,.02) 85deg,transparent 90deg,transparent 270deg,rgba(212,175,55,.02) 275deg,transparent 280deg,transparent 290deg,rgba(212,175,55,.015) 295deg,transparent 300deg,transparent 310deg,rgba(212,175,55,.02) 315deg,transparent 320deg,transparent 340deg,rgba(212,175,55,.015) 345deg,transparent 350deg,transparent 360deg)}
+.sun-rays.active{opacity:1}
 
 </style>
 </head>
 <body>
 
-<!-- CINEMA CURTAIN REVEAL -->
-<div class="curtain-left"></div>
-<div class="curtain-right"></div>
-<div class="curtain-gold"></div>
+<!-- WIDESCREEN PROJECTOR REVEAL -->
+<div class="projector-top"></div>
+<div class="projector-bot"></div>
+<div class="projector-seam"></div>
+<div class="projector-countdown" id="projCountdown"></div>
+<div class="countdown-ring" id="countdownRing"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54"/></svg></div>
+<!-- ANAMORPHIC LENS STREAK -->
+<div class="anamorphic-streak" id="anamorphicStreak"><div class="streak-line"></div><div class="streak-line"></div><div class="streak-line"></div></div>
+<!-- COLOR GRADING OVERLAY -->
+<div class="color-grade" id="colorGrade"></div>
+<!-- GOLDEN SUN RAYS -->
+<div class="sun-rays" id="sunRays"></div>
 
 <!-- CINEMATIC LETTERBOX -->
 <div class="letterbox-top"></div>
@@ -802,19 +848,36 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 
 <!-- ═══════ JAVASCRIPT ═══════ -->
 <script>
-/* ═══════ iCONSTANTINE $700K CINEMA ENGINE ═══════ */
+/* ═══════ iCONSTANTINE $900K CINEMA ULTRA ENGINE ═══════ */
 ;(function CINEMA(){
 'use strict';
 var isFine=matchMedia('(pointer:fine)').matches,isMobile=/Mobi|Android/i.test(navigator.userAgent),reducedMotion=matchMedia('(prefers-reduced-motion:reduce)').matches;
 function lerp(a,b,n){return(1-n)*a+n*b}
 function clamp(v,mn,mx){return Math.max(mn,Math.min(mx,v))}
 
-/* ─── 1. DRAMATIC CURTAIN REVEAL ─── */
+/* ─── 1. WIDESCREEN PROJECTOR REVEAL + COUNTDOWN ─── */
 (function(){
-setTimeout(function(){document.body.classList.add('curtains-open')},300);
-setTimeout(function(){document.body.classList.add('letterbox-active')},1600);
-var cL=document.querySelector('.curtain-left'),cR=document.querySelector('.curtain-right'),cG=document.querySelector('.curtain-gold');
-if(cL)setTimeout(function(){cL.style.display='none';cR.style.display='none';if(cG)cG.style.display='none'},2200);
+var cd=document.getElementById('projCountdown'),ring=document.getElementById('countdownRing');
+var nums=['3','2','1','▶'],i=0;
+if(cd){
+cd.style.opacity='1';
+if(ring){ring.style.opacity='1';var c=ring.querySelector('circle');if(c)c.style.animation='countdownSweep .7s linear forwards'}
+function showNum(){
+if(i>=nums.length){cd.style.opacity='0';if(ring)ring.style.opacity='0';
+setTimeout(function(){document.body.classList.add('projector-open')},100);
+setTimeout(function(){document.body.classList.add('letterbox-active')},1200);
+var pT=document.querySelector('.projector-top'),pB=document.querySelector('.projector-bot'),pS=document.querySelector('.projector-seam');
+setTimeout(function(){if(pT)pT.style.display='none';if(pB)pB.style.display='none';if(pS)pS.style.display='none';if(cd)cd.style.display='none';if(ring)ring.style.display='none'},2400);
+setTimeout(function(){var streak=document.getElementById('anamorphicStreak');if(streak)streak.classList.add('active');var rays=document.getElementById('sunRays');if(rays)rays.classList.add('active')},2000);
+return}
+cd.textContent=nums[i];cd.style.animation='none';void cd.offsetWidth;cd.style.animation='countPulse .65s ease forwards';
+if(ring){var c=ring.querySelector('circle');if(c){c.style.animation='none';void c.offsetWidth;c.style.animation='countdownSweep .65s linear forwards'}}
+i++;setTimeout(showNum,700)
+}showNum()
+}else{
+setTimeout(function(){document.body.classList.add('projector-open')},300);
+setTimeout(function(){document.body.classList.add('letterbox-active')},1200)
+}
 })();
 
 /* ─── 2. GOLDEN BOKEH CANVAS (cinema depth-of-field) ─── */
@@ -1084,6 +1147,156 @@ document.querySelectorAll('.pkg-card').forEach(function(c){c.style.transform='pe
 if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){
 document.addEventListener('touchstart',function once(){DeviceOrientationEvent.requestPermission().then(function(r){if(r==='granted')initGyro()});document.removeEventListener('touchstart',once)},{once:true})}
 else if(window.DeviceOrientationEvent){initGyro()}
+})();
+
+/* ─── 29. ANAMORPHIC LENS STREAK (mouse-reactive) ─── */
+(function(){
+if(!isFine)return;
+var streak=document.getElementById('anamorphicStreak');if(!streak)return;
+addEventListener('mousemove',function(e){
+var yPct=e.clientY/innerHeight;
+streak.style.transform='translateY('+(yPct*100-50)*.15+'px)';
+streak.style.opacity=clamp(.4+Math.abs(yPct-.5)*.6,0,1)
+})
+})();
+
+/* ─── 30. COLOR GRADING PER SECTION ─── */
+(function(){
+var grade=document.getElementById('colorGrade');if(!grade)return;
+var grades={hero:'rgba(45,35,15,.08)',packages:'rgba(40,35,20,.06)',addons:'rgba(20,25,50,.07)',social:'rgba(50,40,15,.09)'};
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){
+if(e.isIntersecting){var sec=e.target.getAttribute('data-section');
+if(sec&&grades[sec]){grade.style.background=grades[sec];grade.classList.add('active')}
+}})},{threshold:.3});
+document.querySelectorAll('[data-section]').forEach(function(s){obs.observe(s)})
+})();
+
+/* ─── 31. GOLDEN SUN RAYS ACTIVATION ─── */
+(function(){
+var rays=document.getElementById('sunRays');if(!rays)return;
+addEventListener('scroll',function(){
+var pct=pageYOffset/(document.documentElement.scrollHeight-innerHeight);
+rays.style.transform='translateX(-50%) rotate('+(pct*8)+'deg)';
+rays.style.opacity=clamp(.5-pct*.3,0,.5)
+})
+})();
+
+/* ─── 32. MOUSE-TRAIL GOLDEN DUST ─── */
+(function(){
+if(!isFine||isMobile)return;
+var trail=[],POOL=18;
+for(var i=0;i<POOL;i++){var p=document.createElement('div');p.className='mouse-particle';p.style.cssText='position:fixed;width:'+( 2+Math.random()*3)+'px;height:'+(2+Math.random()*3)+'px;border-radius:50%;pointer-events:none;z-index:9999;background:rgba(212,175,55,'+(0.15+Math.random()*.25)+');opacity:0;transition:opacity .4s ease;filter:blur('+(Math.random()*1.5)+'px)';document.body.appendChild(p);trail.push({el:p,life:0,x:0,y:0,vx:0,vy:0})}
+var mx=0,my=0,idx=0;
+addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;
+var t=trail[idx%POOL];t.x=mx;t.y=my;t.vx=(Math.random()-.5)*30;t.vy=(Math.random()-.5)*30-15;t.life=1;t.el.style.opacity='1';t.el.style.left=mx+'px';t.el.style.top=my+'px';idx++});
+(function anim(){
+for(var i=0;i<POOL;i++){var t=trail[i];if(t.life>0){t.life-=.025;t.x+=t.vx*.02;t.y+=t.vy*.02;t.vy+=.5;t.el.style.left=t.x+'px';t.el.style.top=t.y+'px';t.el.style.opacity=t.life;if(t.life<=0)t.el.style.opacity='0'}}
+requestAnimationFrame(anim)})()
+})();
+
+/* ─── 33. SECTION FOCUS PULL (camera rack-focus) ─── */
+(function(){
+var sections=document.querySelectorAll('[data-section]');if(!sections.length)return;
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){
+if(e.isIntersecting){
+sections.forEach(function(s){if(s!==e.target)s.classList.add('section-blur-out');else s.classList.remove('section-blur-out')});
+setTimeout(function(){sections.forEach(function(s){s.classList.add('sharp')})},400);
+setTimeout(function(){sections.forEach(function(s){s.classList.remove('section-blur-out');s.classList.remove('sharp')})},1200)
+}})},{threshold:.4});
+sections.forEach(function(s){obs.observe(s)})
+})();
+
+/* ─── 34. PARALLAX DEPTH LAYERS ─── */
+(function(){
+if(isMobile)return;
+var hero=document.querySelector('.hero-section'),pkgs=document.querySelector('.packages-section'),adds=document.querySelector('.addons-section');
+addEventListener('scroll',function(){
+var sy=pageYOffset;
+if(pkgs)pkgs.style.transform='translateY('+(-sy*.015)+'px)';
+if(adds)adds.style.transform='translateY('+(-sy*.008)+'px)'
+})
+})();
+
+/* ─── 35. CINEMATIC CARD ENTRANCE (aperture iris per card) ─── */
+(function(){
+var co=new IntersectionObserver(function(es){es.forEach(function(e){
+if(e.isIntersecting){
+e.target.style.clipPath='circle(0% at 50% 50%)';
+setTimeout(function(){e.target.style.transition='clip-path 1s cubic-bezier(.16,1,.3,1)';e.target.style.clipPath='circle(100% at 50% 50%)'},50);
+co.unobserve(e.target)}
+})},{threshold:.15});
+document.querySelectorAll('.addon-card').forEach(function(c){co.observe(c)})
+})();
+
+/* ─── 36. HERO ANAMORPHIC HOVER FLARE ─── */
+(function(){
+if(!isFine)return;
+var hero=document.querySelector('.hero-section');if(!hero)return;
+var flare=document.createElement('div');
+flare.style.cssText='position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:5;opacity:0;transition:opacity .8s ease;background:linear-gradient(90deg,transparent 30%,rgba(212,175,55,.06) 48%,rgba(244,213,141,.1) 50%,rgba(212,175,55,.06) 52%,transparent 70%);mix-blend-mode:screen';
+hero.appendChild(flare);
+hero.addEventListener('mouseenter',function(){flare.style.opacity='1'});
+hero.addEventListener('mouseleave',function(){flare.style.opacity='0'});
+hero.addEventListener('mousemove',function(e){
+var r=hero.getBoundingClientRect();var xPct=(e.clientX-r.left)/r.width;
+flare.style.background='linear-gradient(90deg,transparent '+(xPct*100-25)+'%,rgba(212,175,55,.05) '+(xPct*100-3)+'%,rgba(244,213,141,.12) '+(xPct*100)+'%,rgba(212,175,55,.05) '+(xPct*100+3)+'%,transparent '+(xPct*100+25)+'%)'
+})
+})();
+
+/* ─── 37. PACKAGE CARD SHIMMER SWEEP ─── */
+(function(){
+document.querySelectorAll('.pkg-card').forEach(function(card){
+var shimmer=document.createElement('div');
+shimmer.style.cssText='position:absolute;inset:0;border-radius:22px;pointer-events:none;z-index:10;background:linear-gradient(105deg,transparent 40%,rgba(212,175,55,.06) 45%,rgba(244,213,141,.1) 50%,rgba(212,175,55,.06) 55%,transparent 60%);background-size:300% 100%;opacity:0;transition:opacity .6s ease';
+card.appendChild(shimmer);
+card.addEventListener('mouseenter',function(){shimmer.style.opacity='1';shimmer.style.animation='cardShimmerSweep 1.5s ease forwards'});
+card.addEventListener('mouseleave',function(){shimmer.style.opacity='0';shimmer.style.animation='none'})
+});
+var style=document.createElement('style');
+style.textContent='@keyframes cardShimmerSweep{0%{background-position:200% 0}100%{background-position:-200% 0}}';
+document.head.appendChild(style)
+})();
+
+/* ─── 38. SCROLL-TRIGGERED SHUTTER TRANSITION ─── */
+(function(){
+var lastSection='';
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){
+if(e.isIntersecting){
+var sec=e.target.getAttribute('data-section');
+if(sec&&sec!==lastSection&&lastSection!==''){
+var flash=document.createElement('div');flash.className='shutter-flash';
+flash.style.animationDuration='.3s';document.body.appendChild(flash);
+setTimeout(function(){if(flash.parentNode)flash.parentNode.removeChild(flash)},350)
+}lastSection=sec||lastSection}
+})},{threshold:.5});
+document.querySelectorAll('[data-section]').forEach(function(s){obs.observe(s)})
+})();
+
+/* ─── 39. DYNAMIC LETTERBOX ASPECT RATIO ─── */
+(function(){
+addEventListener('scroll',function(){
+var pct=pageYOffset/(document.documentElement.scrollHeight-innerHeight);
+var h=clamp(20+pct*28,20,48);
+var lt=document.querySelector('.letterbox-top'),lb=document.querySelector('.letterbox-bot');
+if(lt&&document.body.classList.contains('letterbox-active')){lt.style.height=h+'px';lb.style.height=h+'px'}
+})
+})();
+
+/* ─── 40. CINEMATIC SMOOTH SCROLL EASING ─── */
+(function(){
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+a.addEventListener('click',function(e){
+var target=document.querySelector(a.getAttribute('href'));if(!target)return;
+e.preventDefault();
+var start=pageYOffset,end=target.offsetTop-60,dist=end-start,dur=1200,startT=performance.now();
+requestAnimationFrame(function step(t){
+var p=clamp((t-startT)/dur,0,1);
+var ease=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
+scrollTo(0,start+dist*ease);
+if(p<1)requestAnimationFrame(step)
+})
+})
+})
 })();
 
 })();/* END CINEMA ENGINE */
