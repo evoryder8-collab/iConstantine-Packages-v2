@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>iCONSTANTINE — Championship Media Packages</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════
    iCONSTANTINE — $300K ULTRA LUXURY REDESIGN v3
@@ -16,8 +16,9 @@
   --cream: #F5F0E8; --white: #FFFFFF;
   --text-primary: #E8E4DC; --text-secondary: #9A958A; --text-muted: #5C5850;
   --border-gold: rgba(212,175,55,0.12); --border-faint: rgba(255,255,255,0.05);
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-display: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
+  --font-editorial: 'Cormorant Garamond', 'Cinzel', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -49,7 +50,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .hero-logo { width:clamp(90px,12vw,150px); height:auto; margin-bottom:48px; opacity:0; animation:heroFade 1.4s var(--ease) 0.2s forwards; filter:drop-shadow(0 0 60px rgba(212,175,55,0.15)); }
 @keyframes heroFade { from { opacity:0; transform:translateY(24px) scale(0.96); } to { opacity:1; transform:translateY(0) scale(1); } }
 
-.hero-overline { font-family:var(--font-body); font-size:10px; font-weight:500; letter-spacing:8px; text-transform:uppercase; color:var(--gold); margin-bottom:28px; opacity:0; animation:heroFade 1s var(--ease) 0.6s forwards; display:flex; align-items:center; gap:20px; }
+.hero-overline { font-family:var(--font-body); font-size:10px; font-weight:600; letter-spacing:10px; text-transform:uppercase; color:var(--gold); margin-bottom:28px; opacity:0; animation:heroFade 1s var(--ease) 0.6s forwards; display:flex; align-items:center; gap:20px; }
 .hero-overline::before, .hero-overline::after { content:''; width:40px; height:1px; background:linear-gradient(90deg, transparent, var(--gold-dim)); }
 .hero-overline::after { background:linear-gradient(90deg, var(--gold-dim), transparent); }
 
@@ -73,6 +74,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 
 /* ═══════ TRUST MARQUEE — SEAMLESS INFINITE ═══════ */
 .trust-section { position:relative; z-index:1; padding:60px 0; overflow:hidden; }
+@media(max-width:768px){.trust-section{padding:24px 0}}
 .trust-section::before, .trust-section::after { content:''; position:absolute; top:0; bottom:0; width:120px; z-index:2; pointer-events:none; }
 .trust-section::before { left:0; background:linear-gradient(to right, var(--black), transparent); }
 .trust-section::after { right:0; background:linear-gradient(to left, var(--black), transparent); }
@@ -171,7 +173,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="showcase"] .pkg-tier-name { color:var(--text-primary); }
 .pkg-card[data-tier="signature"] .pkg-tier-name { color:#8AA0E0; }
 
-.pkg-price { font-family:var(--font-display); font-weight:700; font-size:clamp(38px,4vw,52px); line-height:1; margin-bottom:4px; }
+.pkg-price { font-family:var(--font-editorial); font-weight:700; font-size:clamp(38px,4vw,52px); line-height:1; margin-bottom:4px; }
 .pkg-card[data-tier="starter"] .pkg-price { color:var(--text-secondary); }
 .pkg-card[data-tier="essential"] .pkg-price { color:var(--text-primary); }
 .pkg-card[data-tier="authority"] .pkg-price { background:linear-gradient(135deg, var(--gold-light), var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
@@ -206,7 +208,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 /* EXPAND */
 .pkg-expand { max-height:0; overflow:hidden; transition:max-height 0.5s var(--ease); }
 .pkg-expand-inner { padding:0 26px 26px; }
-.pkg-expand-inner h4 { font-family:var(--font-display); font-size:17px; font-weight:500; color:var(--cream); margin-bottom:18px; }
+.pkg-expand-inner h4 { font-family:var(--font-editorial); font-size:18px; font-weight:500; font-style:italic; color:var(--cream); margin-bottom:18px; }
 .detail-block { margin-bottom:16px; }
 .detail-label { font-size:9px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--gold-dim); margin-bottom:5px; display:block; }
 .detail-block p, .detail-block ul { font-size:12.5px; font-weight:300; color:var(--text-secondary); line-height:1.7; }
@@ -232,11 +234,11 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .addon-card:hover { border-color:var(--border-gold); }
 .addon-emoji { font-size:26px; flex-shrink:0; }
 .addon-info { flex:1; }
-.addon-name { font-family:var(--font-display); font-size:17px; font-weight:500; color:var(--cream); margin-bottom:3px; }
+.addon-name { font-family:var(--font-editorial); font-size:18px; font-weight:500; color:var(--cream); margin-bottom:3px; }
 .addon-applies { font-size:10px; font-weight:500; letter-spacing:1px; color:var(--gold-dim); margin-bottom:7px; text-transform:uppercase; }
 .addon-desc { font-size:12.5px; font-weight:300; color:var(--text-secondary); line-height:1.6; }
 .addon-price-col { text-align:center; flex-shrink:0; }
-.addon-price { font-family:var(--font-display); font-size:26px; font-weight:600; color:var(--gold); margin-bottom:10px; }
+.addon-price { font-family:var(--font-editorial); font-size:28px; font-weight:500; color:var(--gold); margin-bottom:10px; }
 .addon-price span { font-size:13px; font-weight:400; opacity:0.7; }
 .btn-addon { display:inline-block; padding:10px 22px; border-radius:10px; font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; text-decoration:none; background:rgba(212,175,55,0.06); color:var(--gold); border:1px solid rgba(212,175,55,0.15); transition:all 0.3s ease; }
 .btn-addon:hover { background:rgba(212,175,55,0.14); border-color:var(--gold); }
@@ -284,7 +286,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .modal-header { padding:28px 28px 0; text-align:center; flex-shrink:0; }
 .modal-tier-row { display:flex; justify-content:center; align-items:baseline; gap:12px; margin-bottom:6px; }
 .modal-tier-name { font-size:9px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:var(--gold-dim); }
-.modal-tier-price { font-family:var(--font-display); font-size:28px; font-weight:600; color:var(--cream); }
+.modal-tier-price { font-family:var(--font-editorial); font-size:28px; font-weight:600; color:var(--cream); }
 .modal-tagline { font-size:13px; color:var(--text-muted); font-weight:300; padding-bottom:20px; border-bottom:1px solid var(--border-faint); }
 .modal-notice { padding:14px 28px; text-align:center; flex-shrink:0; }
 .modal-notice p { font-size:11px; color:var(--text-muted); font-weight:300; }
@@ -513,8 +515,6 @@ section{transform:translateZ(0)}
 .addon-item{transform:translateX(-30px);opacity:0;transition:transform .6s cubic-bezier(.16,1,.3,1) calc(var(--i,0) * .1s),opacity .6s ease calc(var(--i,0) * .1s)!important}
 .addon-item.mob-reveal{transform:translateX(0);opacity:1}
 }
-/* ── ESSENTIAL OIL MIST / AMBIENT PARTICLE FLOAT ── */
-.mist-particle{position:fixed;border-radius:50%;pointer-events:none;z-index:9988;background:radial-gradient(circle,rgba(245,240,232,.15),rgba(212,175,55,.05));filter:blur(20px);opacity:0}
 /* ── TOUCH RIPPLE (mobile tap feedback, warm energy) ── */
 .touch-ripple{position:fixed;border-radius:50%;pointer-events:none;z-index:99997;background:radial-gradient(circle,rgba(212,175,55,.15),rgba(244,213,141,.05),transparent 70%);transform:translate(-50%,-50%) scale(0);opacity:1}
 @keyframes touchRippleExpand{0%{transform:translate(-50%,-50%) scale(0);opacity:.6}100%{transform:translate(-50%,-50%) scale(1);opacity:0}}
@@ -547,6 +547,61 @@ html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
 .wellness-symbol{position:fixed;pointer-events:none;z-index:9985;opacity:0;font-size:clamp(12px,2vw,20px);color:rgba(212,175,55,.04);transition:opacity 3s ease;filter:blur(.5px)}
 .wellness-symbol.active{opacity:1}
 
+/* ═══════ $2M ULTRA-PREMIUM LAYER ═══════ */
+/* ── CINEMATIC TYPOGRAPHY MICRO-ANIMATIONS ── */
+@keyframes titleRevealChar{0%{opacity:0;transform:translateY(30px) rotateX(-40deg)}60%{opacity:1;transform:translateY(-3px) rotateX(2deg)}100%{opacity:1;transform:translateY(0) rotateX(0)}}
+.char-reveal{display:inline-block;opacity:0;animation:titleRevealChar .8s var(--ease) forwards}
+/* ── PREMIUM UNDERLINE SWEEP ── */
+.packages-header h2,.addons-title{position:relative;display:inline-block}
+.packages-header h2::after,.addons-title::after{content:'';position:absolute;bottom:-8px;left:0;width:0;height:1px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));transition:width 1.2s cubic-bezier(.16,1,.3,1)}
+.packages-header h2.visible::after,.addons-title.visible::after{width:100%}
+/* ── CRYSTALLINE CARD GLASS ── */
+.pkg-card{backdrop-filter:blur(12px) saturate(1.2);-webkit-backdrop-filter:blur(12px) saturate(1.2)}
+/* ── PREMIUM MICRO-INTERACTIONS ── */
+@keyframes gentleBreathe{0%,100%{box-shadow:0 4px 30px rgba(0,0,0,.3),0 0 0 0 rgba(212,175,55,0)}50%{box-shadow:0 8px 40px rgba(0,0,0,.4),0 0 40px -10px rgba(212,175,55,.05)}}
+.pkg-card.visible{animation:gentleBreathe 8s ease-in-out infinite}
+/* ── SCROLL-DRIVEN GOLDEN THREAD (replaces mist) ── */
+.golden-thread{position:fixed;top:0;left:50%;width:1px;height:100vh;pointer-events:none;z-index:9994;transform:translateX(-50%)}
+.golden-thread::before{content:'';position:absolute;top:0;left:0;width:1px;height:0;background:linear-gradient(180deg,transparent,rgba(212,175,55,.15),rgba(244,213,141,.08),transparent);transition:height .6s ease}
+.golden-thread.active::before{height:100%}
+/* ── AWARD SEAL SHIMMER ── */
+@keyframes sealShimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+.trust-icon{background:linear-gradient(120deg,transparent 30%,rgba(212,175,55,.1) 50%,transparent 70%);background-size:200% 100%;animation:sealShimmer 4s ease-in-out infinite}
+/* ── MOBILE DEPTH LAYERS ── */
+@media(max-width:768px){
+.packages{transform-style:preserve-3d;perspective:1000px}
+.pkg-card{transition:transform .7s cubic-bezier(.16,1,.3,1),opacity .7s ease!important}
+.pkg-card.mob-reveal{transform:translateY(0) scale(1)!important}
+.capacity-section{transform:translateY(20px);opacity:0;transition:transform .8s var(--ease),opacity .8s ease}
+.capacity-section.mob-reveal{transform:translateY(0);opacity:1}
+.hero-section{min-height:100svh}
+}
+/* ── CINZEL KERNING REFINEMENT ── */
+.hero-title{letter-spacing:.03em;text-rendering:optimizeLegibility}
+.packages-header h2{letter-spacing:.04em}
+.pkg-name{letter-spacing:.02em}
+.addons-title{letter-spacing:.04em}
+/* ── EDITORIAL ITALIC ACCENTS ── */
+.pkg-subtitle{font-family:var(--font-editorial);font-style:italic;font-weight:300}
+.capacity-text{font-family:var(--font-editorial);font-style:italic;font-weight:300;font-size:14px;letter-spacing:.02em}
+/* ── PREMIUM NAV DOTS TYPOGRAPHY ── */
+.nav-dot-label{font-family:var(--font-body);font-weight:300;letter-spacing:.08em;font-size:9px}
+/* ── SCROLL PROGRESS WARMTH ── */
+.scroll-progress{background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-light))!important}
+/* ── SMOOTH ENTRANCE STAGGER SYSTEM ── */
+@keyframes premiumFadeUp{0%{opacity:0;transform:translateY(24px)}100%{opacity:1;transform:translateY(0)}}
+.premium-reveal{opacity:0;transform:translateY(24px)}
+.premium-reveal.visible{animation:premiumFadeUp .8s var(--ease) forwards}
+/* ── ADDON CARD HOVER LIFT ── */
+.addon-item{transition:transform .4s var(--ease),box-shadow .4s ease!important}
+.addon-item:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3),0 0 0 1px rgba(212,175,55,.08)}
+/* ── HERO TEXT SHADOW DEPTH ── */
+.hero-title{text-shadow:0 2px 40px rgba(0,0,0,.5),0 0 80px rgba(212,175,55,.03)}
+/* ── MOBILE HERO OVERLINE ENTRANCE ── */
+@media(max-width:768px){
+.hero-overline{letter-spacing:6px;font-size:9px}
+}
+
 </style>
 </head>
 <body>
@@ -570,6 +625,7 @@ html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
 <div class="section-warmth" id="sectionWarmth"></div>
 <div class="golden-hour-overlay" id="goldenHourOverlay"></div>
 <div class="scroll-glow" id="scrollGlow"></div>
+<div class="golden-thread" id="goldenThread"></div>
 
 <!-- CINEMATIC LETTERBOX -->
 <div class="letterbox-top"></div>
@@ -902,7 +958,7 @@ html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
 
 <!-- ═══════ JAVASCRIPT ═══════ -->
 <script>
-/* ═══════ iCONSTANTINE $1.5M WELLNESS-CINEMA FUSION ENGINE ═══════ */
+/* ═══════ iCONSTANTINE $2M WELLNESS-CINEMA FUSION ENGINE ═══════ */
 ;(function CINEMA(){
 'use strict';
 var isFine=matchMedia('(pointer:fine)').matches,isMobile=/Mobi|Android/i.test(navigator.userAgent),reducedMotion=matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -1309,21 +1365,6 @@ style.textContent='@keyframes cardShimmerSweep{0%{background-position:200% 0}100
 document.head.appendChild(style)
 })();
 
-/* ─── 38. SCROLL-TRIGGERED SHUTTER TRANSITION ─── */
-(function(){
-var lastSection='';
-var obs=new IntersectionObserver(function(es){es.forEach(function(e){
-if(e.isIntersecting){
-var sec=e.target.getAttribute('data-section');
-if(sec&&sec!==lastSection&&lastSection!==''){
-var flash=document.createElement('div');flash.className='shutter-flash';
-flash.style.animationDuration='.3s';document.body.appendChild(flash);
-setTimeout(function(){if(flash.parentNode)flash.parentNode.removeChild(flash)},350)
-}lastSection=sec||lastSection}
-})},{threshold:.5});
-document.querySelectorAll('[data-section]').forEach(function(s){obs.observe(s)})
-})();
-
 /* ─── 39. DYNAMIC LETTERBOX ASPECT RATIO ─── */
 (function(){
 addEventListener('scroll',function(){
@@ -1470,33 +1511,6 @@ document.querySelectorAll('section,.packages,.addons-section,.footer-section').f
 (function(){
 var el=document.getElementById('goldenHourOverlay');if(!el)return;
 setTimeout(function(){el.classList.add('active')},4000)
-})();
-
-/* ─── 46. ESSENTIAL OIL MIST (floating ambient particles) ─── */
-(function(){
-if(isMobile&&innerWidth<500)return;
-var NUM=isMobile?6:14;
-for(var i=0;i<NUM;i++){
-var p=document.createElement('div');
-p.className='mist-particle';
-var size=30+Math.random()*80;
-p.style.cssText='position:fixed;width:'+size+'px;height:'+size+'px;border-radius:50%;pointer-events:none;z-index:9988;background:radial-gradient(circle,rgba(245,240,232,'+(0.04+Math.random()*.06)+'),rgba(212,175,55,'+(0.01+Math.random()*.02)+'));filter:blur('+(15+Math.random()*25)+'px);opacity:0;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%';
-document.body.appendChild(p);
-(function(el,delay){
-setTimeout(function(){
-el.style.transition='opacity 4s ease';el.style.opacity='1';
-var baseX=parseFloat(el.style.left),baseY=parseFloat(el.style.top);
-var phase=Math.random()*Math.PI*2,speed=.0005+Math.random()*.001;
-var t=0;
-function drift(){
-t+=speed;
-el.style.left=(baseX+Math.sin(t+phase)*8)+'%';
-el.style.top=(baseY+Math.cos(t*0.7+phase)*5)+'%';
-requestAnimationFrame(drift)
-}drift()
-},delay)
-})(p,3000+i*400)
-}
 })();
 
 /* ─── 47. MOBILE TOUCH RIPPLE (warm energy on tap) ─── */
@@ -1679,6 +1693,184 @@ e.target.style.transform='scale(1)'
 })
 },{threshold:.4});
 sections.forEach(function(s){obs.observe(s)})
+})();
+
+
+/* ═══════════════════════════════════════════════════════════════
+   $2M ULTRA-PREMIUM SYSTEMS (57-68)
+   Cinematic Typography + Premium Micro-Interactions
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── 57. CINEMATIC TITLE CHARACTER REVEAL ─── */
+(function(){
+var title=document.querySelector('.hero-title');if(!title)return;
+var text=title.textContent;
+title.innerHTML='';
+var spans=[];
+for(var i=0;i<text.length;i++){
+var span=document.createElement('span');
+span.textContent=text[i]===' '?'\u00A0':text[i];
+span.className='char-reveal';
+span.style.animationDelay=(1.2+i*.04)+'s';
+title.appendChild(span);
+spans.push(span)
+}
+})();
+
+/* ─── 58. HEADING UNDERLINE SWEEP ON SCROLL ─── */
+(function(){
+var headings=document.querySelectorAll('.packages-header h2,.addons-title');
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){
+if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
+})},{threshold:.5});
+headings.forEach(function(h){obs.observe(h)})
+})();
+
+/* ─── 59. GOLDEN THREAD SCROLL PROGRESS (replaces mist) ─── */
+(function(){
+var thread=document.getElementById('goldenThread');if(!thread)return;
+setTimeout(function(){thread.classList.add('active')},3000);
+addEventListener('scroll',function(){
+var pct=pageYOffset/(document.documentElement.scrollHeight-innerHeight);
+var before=thread.querySelector(':before')||thread;
+thread.style.background='linear-gradient(180deg,transparent '+Math.max(0,(pct-.05))*100+'%,rgba(212,175,55,'+(0.04+pct*.08)+') '+pct*100+'%,transparent '+(pct+.15)*100+'%)';
+thread.style.opacity=.4+pct*.6
+},{passive:true})
+})();
+
+/* ─── 60. PREMIUM SECTION REVEAL (replaces shutter) ─── */
+(function(){
+var items=document.querySelectorAll('.packages-header,.addons-header,.capacity-section,.footer-section,.social-section');
+items.forEach(function(el){el.classList.add('premium-reveal')});
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){
+if(e.isIntersecting){
+e.target.classList.add('visible');
+obs.unobserve(e.target)
+}
+})},{threshold:.2});
+items.forEach(function(el){obs.observe(el)})
+})();
+
+/* ─── 61. MOBILE CAPACITY SECTION REVEAL ─── */
+(function(){
+if(!isMobile)return;
+var cap=document.querySelector('.capacity-section');if(!cap)return;
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){
+if(e.isIntersecting){e.target.classList.add('mob-reveal');obs.unobserve(e.target)}
+})},{threshold:.3});
+obs.observe(cap)
+})();
+
+/* ─── 62. PREMIUM CARD GLASS REFLECTION (mouse-reactive) ─── */
+(function(){
+if(isMobile)return;
+document.querySelectorAll('.pkg-card').forEach(function(card){
+var reflection;
+card.addEventListener('mouseenter',function(){
+reflection=document.createElement('div');
+reflection.style.cssText='position:absolute;inset:0;pointer-events:none;z-index:10;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.03) 0%,transparent 50%,rgba(212,175,55,.02) 100%);opacity:0;transition:opacity .6s ease';
+card.style.position='relative';
+card.appendChild(reflection);
+setTimeout(function(){if(reflection)reflection.style.opacity='1'},10)
+});
+card.addEventListener('mousemove',function(e){
+if(!reflection)return;
+var rect=card.getBoundingClientRect();
+var x=(e.clientX-rect.left)/rect.width*100;
+var y=(e.clientY-rect.top)/rect.height*100;
+reflection.style.background='radial-gradient(circle at '+x+'% '+y+'%,rgba(255,255,255,.06) 0%,transparent 50%),linear-gradient(135deg,rgba(255,255,255,.01) 0%,transparent 60%)'
+});
+card.addEventListener('mouseleave',function(){
+if(reflection){reflection.style.opacity='0';var r=reflection;reflection=null;setTimeout(function(){if(r.parentNode)r.parentNode.removeChild(r)},600)}
+})
+})
+})();
+
+/* ─── 63. HERO SCROLL DISSOLVE (premium depth on scroll) ─── */
+(function(){
+var hero=document.querySelector('.hero-section');if(!hero)return;
+var overline=hero.querySelector('.hero-overline');
+addEventListener('scroll',function(){
+var sy=pageYOffset,vh=innerHeight;
+if(sy<vh){
+var p=sy/vh;
+if(overline){overline.style.opacity=Math.max(0,1-p*2);overline.style.transform='translateY('+sy*.15+'px)'}
+}
+},{passive:true})
+})();
+
+/* ─── 64. TRUST MARQUEE SUBTLE PARALLAX ─── */
+(function(){
+var trust=document.querySelector('.trust-section');if(!trust)return;
+addEventListener('scroll',function(){
+var rect=trust.getBoundingClientRect();
+if(rect.top<innerHeight&&rect.bottom>0){
+var p=(innerHeight-rect.top)/(innerHeight+rect.height);
+var wrap=trust.querySelector('.trust-track-wrap');
+if(wrap)wrap.style.transform='translateX('+(-(Date.now()/35)%trust.scrollWidth)+'px) translateY('+((p-.5)*8)+'px)'
+}
+},{passive:true})
+})();
+
+/* ─── 65. ADDON ITEM STAGGER ENTRANCE ─── */
+(function(){
+var addons=document.querySelectorAll('.addon-item');
+addons.forEach(function(a,i){a.classList.add('premium-reveal');a.style.animationDelay=(i*.08)+'s'});
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){
+if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
+})},{threshold:.2,rootMargin:'0px 0px -30px 0px'});
+addons.forEach(function(a){obs.observe(a)})
+})();
+
+/* ─── 66. MOBILE SCROLL VELOCITY HAPTIC (enhanced) ─── */
+(function(){
+if(!isMobile)return;
+var lastY=pageYOffset,lastT=Date.now();
+var letterboxT=document.querySelector('.letterbox-top'),letterboxB=document.querySelector('.letterbox-bot');
+addEventListener('scroll',function(){
+var now=Date.now(),dt=now-lastT;if(dt<16)return;
+var vel=Math.abs(pageYOffset-lastY)/(dt/16);
+lastY=pageYOffset;lastT=now;
+var warmth=Math.min(vel/6,1);
+if(letterboxT&&document.body.classList.contains('letterbox-active')){
+var h=20+warmth*10;
+letterboxT.style.height=h+'px';
+letterboxB.style.height=h+'px'
+}
+},{passive:true})
+})();
+
+/* ─── 67. PREMIUM CURSOR TRAIL (desktop, subtle gold dots) ─── */
+(function(){
+if(isMobile)return;
+var POOL=8,trail=[],mx=0,my=0;
+for(var i=0;i<POOL;i++){
+var dot=document.createElement('div');
+dot.style.cssText='position:fixed;width:3px;height:3px;border-radius:50%;pointer-events:none;z-index:99996;background:rgba(212,175,55,.25);opacity:0;transition:opacity .5s ease;transform:translate(-50%,-50%)';
+document.body.appendChild(dot);
+trail.push({el:dot,x:0,y:0})
+}
+addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY});
+var idx=0;
+setInterval(function(){
+var dot=trail[idx%POOL];
+dot.el.style.left=mx+'px';dot.el.style.top=my+'px';
+dot.el.style.opacity='.35';dot.el.style.width='3px';dot.el.style.height='3px';
+dot.x=mx;dot.y=my;
+setTimeout(function(){dot.el.style.opacity='0'},300);
+idx++
+},50)
+})();
+
+/* ─── 68. FONT LOADING OPTIMIZATION ─── */
+(function(){
+if(document.fonts&&document.fonts.ready){
+document.fonts.ready.then(function(){
+document.body.classList.add('fonts-loaded');
+var title=document.querySelector('.hero-title');
+if(title)title.style.opacity='1'
+})
+}
 })();
 
 })();/* END CINEMA ENGINE */
