@@ -1045,36 +1045,51 @@ document.querySelectorAll('.social-link').forEach(function(link){
 link.addEventListener('mouseenter',function(){var ring=document.createElement('div');ring.className='card-ring';ring.style.inset='-4px';ring.style.borderRadius='50%';link.appendChild(ring);setTimeout(function(){if(ring.parentNode)ring.parentNode.removeChild(ring)},650)})
 })})();
 
-/* ─── 23. PRICE CIPHER DECODE ─── */
+/* ─── 23. PRICE GLITCH DECODE ─── */
 (function(){
-var CHARS='0123456789';
-function decode(el){
+var H='0123456789ABCDEF';
+var B='█▓▒░';
+function glitch(el){
   var fc=el.childNodes[0];if(!fc)return;
-  var original=fc.nodeValue.trim();
-  var digits=original.replace(/[^\d,]/g,'');
-  var pre=original.substring(0,original.search(/[\d,]/));
-  var post=original.substring(original.search(/[\d,]/)+digits.length);
+  var orig=fc.nodeValue.trim();
+  var digits=orig.replace(/[^\d,]/g,'');
+  if(!digits)return;
+  var start=orig.search(/[\d,]/);
+  var pre=orig.substring(0,start);
+  var post=orig.substring(start+digits.length);
   var len=digits.length;
+  var cur=digits.split('').map(function(){return B[Math.floor(Math.random()*4)]});
   var locks=new Array(len).fill(false);
-  var current=digits.split('').map(function(){return CHARS[Math.floor(Math.random()*10)]});
-  fc.nodeValue=pre+current.join('')+post;
-  var lockOrder=digits.split('').map(function(_,i){return i}).sort(function(){return Math.random()-.5});
-  var lockIdx=0;
-  var shuffleInterval=setInterval(function(){
+  var order=digits.split('').map(function(_,i){return i}).sort(function(){return Math.random()-.5});
+  var idx=0,tick=0;
+  el.classList.add('price-glitching');
+  fc.nodeValue=pre+cur.join('')+post;
+  var iv=setInterval(function(){
+    tick++;
     for(var i=0;i<len;i++){
-      if(!locks[i]){current[i]=CHARS[Math.floor(Math.random()*10)]}
+      if(!locks[i]){cur[i]=tick<7?B[Math.floor(Math.random()*4)]:H[Math.floor(Math.random()*16)]}
     }
-    if(lockIdx<lockOrder.length&&Math.random()<0.35){
-      var li=lockOrder[lockIdx];locks[li]=true;current[li]=digits[li];lockIdx++
+    if(tick>=5&&idx<order.length&&Math.random()<0.28+(idx/len)*0.45){
+      var li=order[idx];locks[li]=true;cur[li]=digits[li];idx++;
+      if(Math.random()<0.25&&idx>1){
+        var ri=order[idx-2];
+        setTimeout(function(i,c){cur[i]=H[Math.floor(Math.random()*16)];setTimeout(function(){cur[i]=c},55)}.bind(null,ri,digits[ri]),45)
+      }
     }
-    fc.nodeValue=pre+current.join('')+post;
-    if(lockIdx>=len&&locks.every(Boolean)){clearInterval(shuffleInterval);fc.nodeValue=pre+digits+post}
-  },55)
+    fc.nodeValue=pre+cur.join('')+post;
+    if(idx>=len&&locks.every(Boolean)){
+      clearInterval(iv);
+      fc.nodeValue=pre+digits+post;
+      el.classList.remove('price-glitching');
+      el.classList.add('price-settled');
+      setTimeout(function(){el.classList.remove('price-settled')},550)
+    }
+  },30)
 }
 var obs=new IntersectionObserver(function(es){es.forEach(function(e){
   if(!e.isIntersecting)return;obs.unobserve(e.target);
-  setTimeout(function(){decode(e.target)},120)
-})},{threshold:.6});
+  setTimeout(function(){glitch(e.target)},80)
+})},{threshold:.5});
 document.querySelectorAll('.pkg-price').forEach(function(el){obs.observe(el)})
 })();
 
