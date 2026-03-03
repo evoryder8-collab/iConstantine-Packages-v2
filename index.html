@@ -550,7 +550,8 @@ html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
 /* ═══════ $2M ULTRA-PREMIUM LAYER ═══════ */
 /* ── CINEMATIC TYPOGRAPHY MICRO-ANIMATIONS ── */
 @keyframes titleRevealChar{0%{opacity:0;transform:translateY(30px) rotateX(-40deg)}60%{opacity:1;transform:translateY(-3px) rotateX(2deg)}100%{opacity:1;transform:translateY(0) rotateX(0)}}
-.char-reveal{display:inline-block;opacity:0;animation:titleRevealChar .8s var(--ease) forwards}
+.word-reveal{display:inline-block;white-space:nowrap}
+.char-reveal{display:inline-block;opacity:0;animation:titleRevealChar .8s var(--ease) forwards;will-change:transform,opacity}
 /* ── PREMIUM UNDERLINE SWEEP ── */
 .packages-header h2,.addons-title{position:relative;display:inline-block}
 .packages-header h2::after,.addons-title::after{content:'';position:absolute;bottom:-8px;left:0;width:0;height:1px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));transition:width 1.2s cubic-bezier(.16,1,.3,1)}
@@ -596,11 +597,65 @@ html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
 .addon-item{transition:transform .4s var(--ease),box-shadow .4s ease!important}
 .addon-item:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3),0 0 0 1px rgba(212,175,55,.08)}
 /* ── HERO TEXT SHADOW DEPTH ── */
-.hero-title{text-shadow:0 2px 40px rgba(0,0,0,.5),0 0 80px rgba(212,175,55,.03)}
+/* text-shadow now in titleGlow animation */
 /* ── MOBILE HERO OVERLINE ENTRANCE ── */
 @media(max-width:768px){
 .hero-overline{letter-spacing:6px;font-size:9px}
 }
+
+/* ── MOBILE TOUCH RIPPLE ── */
+@keyframes touchRippleGold{0%{transform:scale(.5);opacity:1}100%{transform:scale(3);opacity:0}}
+/* ═══════ $2.5M APEX LAYER ═══════ */
+/* ── AURORA BOREALIS BORDER ON HERO ── */
+@keyframes auroraShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.hero-section::after{content:'';position:absolute;bottom:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.3),rgba(244,213,141,.2),rgba(212,175,55,.3),transparent);background-size:200% 100%;animation:auroraShift 8s ease-in-out infinite;z-index:10;pointer-events:none}
+/* ── DIAMOND DUST PARTICLE FIELD ── */
+@keyframes diamondFloat{0%{transform:translateY(0) scale(1);opacity:0}15%{opacity:.6}85%{opacity:.6}100%{transform:translateY(-100vh) scale(.3);opacity:0}}
+.diamond-particle{position:fixed;width:2px;height:2px;background:var(--gold-light);border-radius:50%;pointer-events:none;z-index:9986;opacity:0;animation:diamondFloat linear infinite;box-shadow:0 0 3px rgba(212,175,55,.4)}
+/* ── VELVET GRADIENT ON SECTIONS ── */
+.packages-section::before{content:'';position:absolute;top:-60px;left:0;right:0;height:60px;background:linear-gradient(180deg,transparent,rgba(2,2,4,.95));pointer-events:none;z-index:1}
+/* ── LUXURY CARD BORDER GLOW ── */
+@keyframes borderPulse{0%,100%{border-color:rgba(212,175,55,.06)}50%{border-color:rgba(212,175,55,.15)}}
+.pkg-card{border:1px solid rgba(212,175,55,.06);animation:borderPulse 6s ease-in-out infinite}
+/* ── HERO SUBTITLE GRADIENT TEXT ── */
+.hero-sub{background:linear-gradient(135deg,rgba(245,240,232,.9),rgba(245,240,232,.6),rgba(212,175,55,.4));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* ── SECTION DIVIDER DIAMONDS ── */
+.section-diamond{display:flex;justify-content:center;gap:12px;padding:20px 0;pointer-events:none}
+.section-diamond span{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);opacity:.3}
+.section-diamond span:nth-child(2){opacity:.6;width:8px;height:8px}
+/* ── PREMIUM SCROLLBAR ── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--black)}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--gold-dim),var(--gold));border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--gold-light)}
+/* ── TRUST BADGE ELEGANT GLOW ── */
+.trust-icon{position:relative}
+.trust-icon::after{content:'';position:absolute;inset:-4px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.08),transparent 70%);pointer-events:none}
+/* ── MOBILE HERO TEXT SIZE REFINEMENT ── */
+@media(max-width:480px){
+.hero-title{font-size:clamp(36px,11vw,52px);letter-spacing:.01em}
+.hero-title .line{line-height:1.05}
+}
+@media(min-width:481px) and (max-width:768px){
+.hero-title{font-size:clamp(44px,9vw,70px);letter-spacing:.02em}
+}
+/* ── PACKAGE NAME SHIMMER ── */
+@keyframes nameShimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+.pkg-name{background:linear-gradient(120deg,var(--gold) 30%,var(--gold-light) 50%,var(--gold) 70%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:nameShimmer 6s linear infinite}
+/* ── OVERLINE ELEGANT DASH ── */
+.hero-overline::before,.hero-overline::after{content:'';display:inline-block;width:30px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim));vertical-align:middle;margin:0 12px}
+.hero-overline::after{background:linear-gradient(90deg,var(--gold-dim),transparent)}
+/* ── ADDON LUXURY BORDER ── */
+.addon-item{border:1px solid rgba(212,175,55,.04);position:relative;overflow:hidden}
+.addon-item::before{content:'';position:absolute;top:0;left:-100%;width:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.3),transparent);transition:left 1.2s ease}
+.addon-item:hover::before{left:150%}
+/* ── FOOTER LUXURY GRADIENT ── */
+footer{background:linear-gradient(180deg,var(--black) 0%,rgba(6,6,9,.98) 50%,rgba(10,10,16,.95) 100%)}
+/* ── TITLE GLOW PULSE ── */
+@keyframes titleGlow{0%,100%{text-shadow:0 2px 40px rgba(0,0,0,.5),0 0 80px rgba(212,175,55,.03)}50%{text-shadow:0 2px 50px rgba(0,0,0,.6),0 0 100px rgba(212,175,55,.06),0 0 200px rgba(212,175,55,.02)}}
+.hero-title{animation:titleGlow 8s ease-in-out infinite}
+/* ── CAPACITY CARD PREMIUM ── */
+.capacity-section{border:1px solid rgba(212,175,55,.04);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 
 </style>
 </head>
@@ -626,6 +681,8 @@ html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
 <div class="golden-hour-overlay" id="goldenHourOverlay"></div>
 <div class="scroll-glow" id="scrollGlow"></div>
 <div class="golden-thread" id="goldenThread"></div>
+<!-- DIAMOND DUST FIELD -->
+<div id="diamondField" aria-hidden="true"></div>
 
 <!-- CINEMATIC LETTERBOX -->
 <div class="letterbox-top"></div>
@@ -1701,20 +1758,33 @@ sections.forEach(function(s){obs.observe(s)})
    Cinematic Typography + Premium Micro-Interactions
    ═══════════════════════════════════════════════════════════════ */
 
-/* ─── 57. CINEMATIC TITLE CHARACTER REVEAL ─── */
+/* ─── 57. CINEMATIC TITLE WORD REVEAL ─── */
 (function(){
-var title=document.querySelector('.hero-title');if(!title)return;
-var text=title.textContent;
-title.innerHTML='';
-var spans=[];
-for(var i=0;i<text.length;i++){
-var span=document.createElement('span');
-span.textContent=text[i]===' '?'\u00A0':text[i];
-span.className='char-reveal';
-span.style.animationDelay=(1.2+i*.04)+'s';
-title.appendChild(span);
-spans.push(span)
+var lines=document.querySelectorAll('.hero-title .line');if(!lines.length)return;
+var charIdx=0;
+lines.forEach(function(line){
+var inner=line.querySelector('span')||line.querySelector('em');
+if(!inner)return;
+var isEm=inner.tagName==='EM'||inner.querySelector('em');
+var rawText=inner.textContent.trim();
+var words=rawText.split(/\s+/);
+inner.innerHTML='';
+words.forEach(function(word,wi){
+var wordSpan=document.createElement('span');
+wordSpan.className='word-reveal';
+wordSpan.style.display='inline-block';
+for(var ci=0;ci<word.length;ci++){
+var ch=document.createElement('span');
+ch.textContent=word[ci];
+ch.className='char-reveal';
+ch.style.animationDelay=(1.2+charIdx*.035)+'s';
+wordSpan.appendChild(ch);
+charIdx++
 }
+inner.appendChild(wordSpan);
+if(wi<words.length-1){inner.appendChild(document.createTextNode(' '));charIdx++}
+})
+})
 })();
 
 /* ─── 58. HEADING UNDERLINE SWEEP ON SCROLL ─── */
@@ -1871,6 +1941,222 @@ var title=document.querySelector('.hero-title');
 if(title)title.style.opacity='1'
 })
 }
+})();
+
+
+/* ═══════════════════════════════════════════════════════════════
+   $2.5M APEX EXPERIENCE SYSTEMS (69-80)
+   Diamond Dust + Magnetic Cards + Depth Parallax + More
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── 69. DIAMOND DUST PARTICLE FIELD ─── */
+(function(){
+var field=document.getElementById('diamondField');if(!field)return;
+var count=window.innerWidth<768?8:15;
+function spawn(){
+var p=document.createElement('div');
+p.className='diamond-particle';
+p.style.left=Math.random()*100+'%';
+p.style.animationDuration=(8+Math.random()*12)+'s';
+p.style.animationDelay=Math.random()*5+'s';
+p.style.width=p.style.height=(1+Math.random()*2)+'px';
+field.appendChild(p);
+p.addEventListener('animationiteration',function(){
+p.style.left=Math.random()*100+'%'
+})
+}
+for(var i=0;i<count;i++)spawn()
+})();
+
+/* ─── 70. MAGNETIC CARD ATTRACTION (desktop) ─── */
+(function(){
+if(window.innerWidth<1024)return;
+var cards=document.querySelectorAll('.pkg-card');
+cards.forEach(function(card){
+card.addEventListener('mousemove',function(e){
+var r=card.getBoundingClientRect();
+var x=(e.clientX-r.left)/r.width-.5;
+var y=(e.clientY-r.top)/r.height-.5;
+card.style.transform='perspective(800px) rotateY('+x*4+'deg) rotateX('+-y*4+'deg) translateY(-6px) scale(1.01)';
+card.style.transition='transform .1s ease-out'
+});
+card.addEventListener('mouseleave',function(){
+card.style.transform='perspective(800px) rotateY(0) rotateX(0) translateY(0) scale(1)';
+card.style.transition='transform .6s var(--ease)'
+})
+})
+})();
+
+/* ─── 71. HERO PARALLAX DEPTH LAYERS ─── */
+(function(){
+var hero=document.querySelector('.hero-section');
+var title=document.querySelector('.hero-title');
+var sub=document.querySelector('.hero-sub');
+var overline=document.querySelector('.hero-overline');
+if(!hero||!title)return;
+var ticking=false;
+window.addEventListener('scroll',function(){
+if(!ticking){requestAnimationFrame(function(){
+var s=window.pageYOffset;
+var h=window.innerHeight;
+if(s<h*1.2){
+var r=s/h;
+if(title)title.style.transform='translateY('+s*.15+'px) scale('+(1-r*.04)+')';
+if(sub)sub.style.transform='translateY('+s*.08+'px)';
+if(overline)overline.style.transform='translateY('+s*.05+'px)';
+title.style.opacity=Math.max(0,1-r*1.1);
+if(sub)sub.style.opacity=Math.max(0,1-r*1.3)
+}
+ticking=false
+});ticking=true}
+})
+})();
+
+/* ─── 72. LUXURY ENTRANCE STAGGER (packages appear with offset) ─── */
+(function(){
+var cards=document.querySelectorAll('.pkg-card');
+var obs=new IntersectionObserver(function(entries){
+entries.forEach(function(e){
+if(e.isIntersecting){
+var idx=Array.from(cards).indexOf(e.target);
+e.target.style.transitionDelay=(idx*.12)+'s';
+e.target.classList.add('visible');
+obs.unobserve(e.target)
+}
+})
+},{threshold:.15});
+cards.forEach(function(c){obs.observe(c)})
+})();
+
+/* ─── 73. SMOOTH SCROLL MOMENTUM INDICATOR ─── */
+(function(){
+var bar=document.querySelector('.scroll-progress');if(!bar)return;
+var last=0;var velocity=0;
+function tick(){
+var curr=window.pageYOffset;
+velocity=velocity*.85+(curr-last)*.15;
+last=curr;
+var glow=Math.min(Math.abs(velocity)*2,30);
+bar.style.boxShadow='0 0 '+glow+'px rgba(212,175,55,'+(glow/60)+')';
+requestAnimationFrame(tick)
+}
+tick()
+})();
+
+/* ─── 74. AMBIENT LIGHT REACTIVE TINT (time-based) ─── */
+(function(){
+var tint=document.getElementById('ambientTint');if(!tint)return;
+function updateTint(){
+var h=new Date().getHours();
+var warmth=0;
+if(h>=18||h<6)warmth=.04;
+else if(h>=6&&h<10)warmth=.02;
+else if(h>=16&&h<18)warmth=.03;
+tint.style.background='radial-gradient(ellipse at 50% 30%,rgba(212,175,55,'+warmth+'),transparent 70%)';
+}
+updateTint();setInterval(updateTint,60000)
+})();
+
+/* ─── 75. TRUST MARQUEE ENTRANCE ANIMATION ─── */
+(function(){
+var trust=document.querySelector('.trust-section');if(!trust)return;
+trust.style.opacity='0';trust.style.transform='translateY(15px)';
+var obs=new IntersectionObserver(function(es){
+if(es[0].isIntersecting){
+trust.style.transition='opacity .8s ease,transform .8s var(--ease)';
+trust.style.opacity='1';trust.style.transform='translateY(0)';
+obs.unobserve(trust)
+}
+},{threshold:.3});
+obs.observe(trust)
+})();
+
+/* ─── 76. HERO LOGO SUBTLE FLOAT ─── */
+(function(){
+var logo=document.getElementById('siteLogo');if(!logo)return;
+var t=0;
+function float(){
+t+=.015;
+logo.style.transform='translateY('+Math.sin(t)*3+'px)';
+requestAnimationFrame(float)
+}
+float()
+})();
+
+/* ─── 77. ADDON ITEM COUNTER REVEAL ─── */
+(function(){
+var addons=document.querySelectorAll('.addon-item');
+var obs=new IntersectionObserver(function(es){
+es.forEach(function(e){
+if(e.isIntersecting){
+var idx=Array.from(addons).indexOf(e.target);
+e.target.style.transitionDelay=(idx*.08)+'s';
+e.target.style.opacity='1';
+e.target.style.transform='translateY(0)';
+obs.unobserve(e.target)
+}
+})
+},{threshold:.2});
+addons.forEach(function(a){
+a.style.opacity='0';a.style.transform='translateY(16px)';
+a.style.transition='opacity .6s ease,transform .6s var(--ease)';
+obs.observe(a)
+})
+})();
+
+/* ─── 78. CINEMATIC VIGNETTE ON SCROLL ─── */
+(function(){
+var vig=document.createElement('div');
+vig.style.cssText='position:fixed;inset:0;pointer-events:none;z-index:9990;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.4) 100%);opacity:0;transition:opacity .5s ease';
+document.body.appendChild(vig);
+var ticking=false;
+window.addEventListener('scroll',function(){
+if(!ticking){requestAnimationFrame(function(){
+var s=window.pageYOffset;
+var h=document.documentElement.scrollHeight-window.innerHeight;
+var r=s/h;
+vig.style.opacity=Math.min(r*1.5,.35);
+ticking=false
+});ticking=true}
+})
+})();
+
+/* ─── 79. MOBILE TOUCH RIPPLE GOLD ─── */
+(function(){
+if(window.innerWidth>768)return;
+document.addEventListener('touchstart',function(e){
+var ripple=document.createElement('div');
+var x=e.touches[0].clientX;
+var y=e.touches[0].clientY;
+ripple.style.cssText='position:fixed;left:'+(x-25)+'px;top:'+(y-25)+'px;width:50px;height:50px;border-radius:50%;border:1px solid rgba(212,175,55,.2);pointer-events:none;z-index:99999;animation:touchRippleGold .8s ease-out forwards';
+document.body.appendChild(ripple);
+setTimeout(function(){ripple.remove()},900)
+},{passive:true})
+})();
+
+/* ─── 80. SCROLL-DRIVEN NAV DOT PULSE ─── */
+(function(){
+var dots=document.querySelectorAll('.nav-dot');if(!dots.length)return;
+var activeDot=null;
+var obs=new IntersectionObserver(function(es){
+es.forEach(function(e){
+if(e.isIntersecting){
+var id=e.target.id;
+dots.forEach(function(d){
+if(d.getAttribute('data-section')===id){
+d.style.boxShadow='0 0 8px rgba(212,175,55,.5)';
+d.style.transform='scale(1.3)';
+if(activeDot&&activeDot!==d){
+activeDot.style.boxShadow='none';
+activeDot.style.transform='scale(1)'
+}
+activeDot=d
+}
+})
+}
+})
+},{threshold:.4});
+document.querySelectorAll('section[id],div[id]').forEach(function(s){obs.observe(s)})
 })();
 
 })();/* END CINEMA ENGINE */
