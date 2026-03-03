@@ -165,7 +165,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 /* CARD INNER */
 .pkg-inner { padding:24px 26px 26px; flex:1; display:flex; flex-direction:column; position:relative; z-index:2; }
 .pkg-emoji { font-size:26px; margin-bottom:14px; line-height:1; }
-.pkg-tier-name { font-size:9px; font-weight:600; letter-spacing:4px; text-transform:uppercase; margin-bottom:10px; }
+.pkg-tier-name { font-size:clamp(14px,1.5vw,18px); font-weight:700; letter-spacing:3px; text-transform:uppercase; margin-bottom:12px; }
 .pkg-card[data-tier="starter"] .pkg-tier-name { color:var(--text-muted); }
 .pkg-card[data-tier="essential"] .pkg-tier-name { color:var(--text-secondary); }
 .pkg-card[data-tier="authority"] .pkg-tier-name { color:var(--gold); }
@@ -189,7 +189,9 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 
 /* BUTTONS */
 .pkg-actions { margin-top:auto; display:flex; flex-direction:column; gap:8px; }
-.btn-book { display:block; text-align:center; padding:14px 20px; border-radius:12px; font-size:12px; font-weight:600; letter-spacing:1.5px; text-decoration:none; text-transform:uppercase; transition:all 0.4s var(--ease); }
+@keyframes btnGleam{0%,65%{left:-120%}100%{left:160%}}
+.btn-book { display:block; text-align:center; padding:14px 20px; border-radius:12px; font-size:12px; font-weight:600; letter-spacing:1.5px; text-decoration:none; text-transform:uppercase; transition:all 0.4s var(--ease); position:relative; overflow:hidden; }
+.btn-book::before { content:''; position:absolute; top:-10%; left:-120%; width:55%; height:120%; background:linear-gradient(105deg, transparent 30%, rgba(212,175,55,0.18) 50%, rgba(244,213,141,0.22) 55%, rgba(212,175,55,0.18) 60%, transparent 80%); transform:skewX(-15deg); animation:btnGleam 4.5s ease-in-out infinite; pointer-events:none; border-radius:0; }
 .pkg-card[data-tier="starter"] .btn-book,
 .pkg-card[data-tier="essential"] .btn-book { background:rgba(255,255,255,0.04); color:var(--cream); border:1px solid rgba(255,255,255,0.08); }
 .pkg-card[data-tier="starter"] .btn-book:hover,
@@ -1055,15 +1057,36 @@ document.querySelectorAll('.social-link').forEach(function(link){
 link.addEventListener('mouseenter',function(){var ring=document.createElement('div');ring.className='card-ring';ring.style.inset='-4px';ring.style.borderRadius='50%';link.appendChild(ring);setTimeout(function(){if(ring.parentNode)ring.parentNode.removeChild(ring)},650)})
 })})();
 
-/* ─── 23. PRICE COUNTER ROLL-UP ─── */
+/* ─── 23. PRICE CIPHER DECODE ─── */
 (function(){
-var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;obs.unobserve(e.target);
-var el=e.target,raw=el.textContent.trim(),match=raw.match(/(\d[\d,]*)/);if(!match)return;
-var target=parseInt(match[1].replace(/,/g,''),10),prefix=raw.substring(0,raw.indexOf(match[1])),suffix=raw.substring(raw.indexOf(match[1])+match[1].length);
-var start=performance.now(),dur=1400;
-requestAnimationFrame(function anim(t){var p=Math.min((t-start)/dur,1);var ease=1-Math.pow(1-p,3);var v=Math.round(target*ease);
-var fc=el.childNodes[0];if(fc)fc.nodeValue=prefix+v.toLocaleString()+suffix;if(p<1)requestAnimationFrame(anim)})
-})},{threshold:.5});
+var CHARS='0123456789';
+function decode(el){
+  var fc=el.childNodes[0];if(!fc)return;
+  var original=fc.nodeValue.trim();
+  var digits=original.replace(/[^\d,]/g,'');
+  var pre=original.substring(0,original.search(/[\d,]/));
+  var post=original.substring(original.search(/[\d,]/)+digits.length);
+  var len=digits.length;
+  var locks=new Array(len).fill(false);
+  var current=digits.split('').map(function(){return CHARS[Math.floor(Math.random()*10)]});
+  fc.nodeValue=pre+current.join('')+post;
+  var lockOrder=digits.split('').map(function(_,i){return i}).sort(function(){return Math.random()-.5});
+  var lockIdx=0;
+  var shuffleInterval=setInterval(function(){
+    for(var i=0;i<len;i++){
+      if(!locks[i]){current[i]=CHARS[Math.floor(Math.random()*10)]}
+    }
+    if(lockIdx<lockOrder.length&&Math.random()<0.35){
+      var li=lockOrder[lockIdx];locks[li]=true;current[li]=digits[li];lockIdx++
+    }
+    fc.nodeValue=pre+current.join('')+post;
+    if(lockIdx>=len&&locks.every(Boolean)){clearInterval(shuffleInterval);fc.nodeValue=pre+digits+post}
+  },55)
+}
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){
+  if(!e.isIntersecting)return;obs.unobserve(e.target);
+  setTimeout(function(){decode(e.target)},120)
+})},{threshold:.6});
 document.querySelectorAll('.pkg-price').forEach(function(el){obs.observe(el)})
 })();
 
