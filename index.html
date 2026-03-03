@@ -115,7 +115,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .packages-header .pkg-hint strong { color:var(--text-secondary); font-weight:500; }
 
 /* ── TOP ROW: 3 cards (Starter, Essential, Authority featured) ── */
-.pkg-row-top { display:grid; grid-template-columns:1fr 1fr 1.15fr; gap:18px; margin-bottom:18px; }
+.pkg-row-top { display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-bottom:18px; }
 /* ── BOTTOM ROW: 2 cards centered ── */
 .pkg-row-bot { display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:880px; margin:0 auto 80px; }
 
@@ -194,8 +194,9 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="essential"] .btn-book { background:rgba(255,255,255,0.04); color:var(--cream); border:1px solid rgba(255,255,255,0.08); }
 .pkg-card[data-tier="starter"] .btn-book:hover,
 .pkg-card[data-tier="essential"] .btn-book:hover { background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.15); }
-.pkg-card[data-tier="authority"] .btn-book { background:linear-gradient(135deg, var(--gold-dim), var(--gold)); color:var(--black); border:none; box-shadow:0 4px 24px rgba(212,175,55,0.2); font-weight:700; }
-.pkg-card[data-tier="authority"] .btn-book:hover { box-shadow:0 8px 40px rgba(212,175,55,0.35); transform:translateY(-2px); }
+.pkg-card[data-tier="authority"] .btn-book { background:rgba(255,255,255,0.04); color:var(--cream); border:1px solid rgba(255,255,255,0.08); }
+.pkg-card[data-tier="authority"] .btn-book:hover { background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.15); }
+.authority-save { display:inline-block; margin-top:6px; padding:4px 12px; border-radius:100px; font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; background:linear-gradient(135deg, var(--gold-dim), var(--gold)); color:var(--black); }
 .pkg-card[data-tier="showcase"] .btn-book { background:rgba(255,255,255,0.05); color:var(--cream); border:1px solid rgba(255,255,255,0.1); }
 .pkg-card[data-tier="showcase"] .btn-book:hover { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.2); }
 .pkg-card[data-tier="signature"] .btn-book { background:linear-gradient(135deg, rgba(100,120,220,0.12), rgba(100,120,220,0.2)); color:#B8C8FF; border:1px solid rgba(100,120,220,0.2); }
@@ -641,6 +642,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
       <div class="pkg-inner">
         <p class="pkg-tier-name">Authority</p>
         <p class="pkg-price">430 <span class="pkg-currency">CHF</span></p>
+        <span class="authority-save">Save 149 CHF (26%)</span>
         <p class="pkg-tagline">Photos + video with priority same day transfer.</p>
         <ul class="pkg-features">
           <li><strong>Everything in Essential</strong></li>
