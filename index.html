@@ -74,11 +74,16 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 
 /* ═══════ TRUST MARQUEE — SEAMLESS INFINITE ═══════ */
 .trust-section { position:relative; z-index:1; padding:60px 0; overflow:hidden; }
-@media(max-width:768px){.trust-section{padding:24px 0}}
+@media(max-width:768px){
+.trust-section{padding:16px 0;border:none!important}
+.capacity-section{padding:20px 24px 40px!important;margin-top:8px!important;border:none!important;box-shadow:none!important}
+.capacity-label{margin-bottom:12px;font-size:8px;letter-spacing:4px}
+.capacity-section .capacity-text{font-size:12px}
+}
 .trust-section::before, .trust-section::after { content:''; position:absolute; top:0; bottom:0; width:120px; z-index:2; pointer-events:none; }
 .trust-section::before { left:0; background:linear-gradient(to right, var(--black), transparent); }
 .trust-section::after { right:0; background:linear-gradient(to left, var(--black), transparent); }
-.trust-divider { position:absolute; top:0; left:5%; right:5%; height:1px; background:linear-gradient(90deg, transparent, var(--border-gold), transparent); }
+/* trust-divider removed */
 
 .trust-track-wrap { display:flex; width:max-content; animation:marquee 35s linear infinite; }
 .trust-track-wrap:hover { animation-play-state:paused; }
@@ -89,7 +94,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .trust-sep { color:var(--gold-dim); opacity:0.3; padding:0 8px; font-size:8px; flex-shrink:0; }
 
 /* ═══════ CAPACITY ═══════ */
-.capacity-section { position:relative; z-index:1; max-width:480px; margin:0 auto; padding:0 24px 80px; text-align:center; }
+.capacity-section { position:relative; z-index:1; max-width:480px; margin:0 auto; padding:0 24px 48px; text-align:center; }
 .capacity-label { font-size:9px; font-weight:600; letter-spacing:5px; text-transform:uppercase; color:var(--gold-dim); margin-bottom:20px; }
 .capacity-visual { display:flex; gap:8px; justify-content:center; margin-bottom:14px; }
 .cap-dot { width:clamp(18px,2.8vw,32px); height:clamp(18px,2.8vw,32px); border-radius:50%; border:1px solid rgba(255,255,255,0.06); transition:all 0.8s var(--ease); position:relative; }
@@ -452,11 +457,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .projector-countdown{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:100001;font-family:'Courier New',monospace;font-size:clamp(48px,10vw,120px);color:var(--gold);pointer-events:none;opacity:0;letter-spacing:4px;text-shadow:0 0 40px rgba(212,175,55,.4)}
 @keyframes countPulse{0%{transform:translate(-50%,-50%) scale(.7);opacity:0}30%{transform:translate(-50%,-50%) scale(1);opacity:1}70%{opacity:1}100%{transform:translate(-50%,-50%) scale(1.15);opacity:0}}
 /* ── ANAMORPHIC LENS STREAK ── */
-.anamorphic-streak{position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:9995;overflow:hidden;opacity:0;transition:opacity .6s ease}
-.anamorphic-streak.active{opacity:1}
-.streak-line{position:absolute;top:50%;left:-20%;width:140%;height:1px;transform:translateY(-50%);background:linear-gradient(90deg,transparent 0%,rgba(140,180,255,.04) 20%,rgba(212,175,55,.08) 45%,rgba(244,213,141,.12) 50%,rgba(212,175,55,.08) 55%,rgba(140,180,255,.04) 80%,transparent 100%);filter:blur(1px)}
-.streak-line:nth-child(2){height:3px;filter:blur(3px);opacity:.5;top:49.5%}
-.streak-line:nth-child(3){height:6px;filter:blur(8px);opacity:.3;top:50.5%}
+/* anamorphic streak removed */
 /* ── COLOR GRADING OVERLAY ── */
 .color-grade{position:fixed;inset:0;pointer-events:none;z-index:9994;mix-blend-mode:color;opacity:0;transition:opacity 2.5s ease,background 2.5s ease}
 .color-grade.active{opacity:1}
@@ -620,9 +621,7 @@ html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
 /* ── HERO SUBTITLE GRADIENT TEXT ── */
 .hero-sub{background:linear-gradient(135deg,rgba(245,240,232,.9),rgba(245,240,232,.6),rgba(212,175,55,.4));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 /* ── SECTION DIVIDER DIAMONDS ── */
-.section-diamond{display:flex;justify-content:center;gap:12px;padding:20px 0;pointer-events:none}
-.section-diamond span{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);opacity:.3}
-.section-diamond span:nth-child(2){opacity:.6;width:8px;height:8px}
+/* section-diamond removed */
 /* ── PREMIUM SCROLLBAR ── */
 ::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-track{background:var(--black)}
@@ -655,7 +654,7 @@ footer{background:linear-gradient(180deg,var(--black) 0%,rgba(6,6,9,.98) 50%,rgb
 /* titleGlow removed — using titleShimmer gradient instead */
 .hero-title{text-shadow:0 2px 40px rgba(0,0,0,.4)}
 /* ── CAPACITY CARD PREMIUM ── */
-.capacity-section{border:1px solid rgba(212,175,55,.04);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+/* capacity border removed for cleaner look */
 
 
 /* ═══════ $3M CINEMATIC DEPTH LAYER ═══════ */
@@ -675,8 +674,7 @@ footer{background:linear-gradient(180deg,var(--black) 0%,rgba(6,6,9,.98) 50%,rgb
 /* ── SMOOTH SCROLL BEHAVIOR ── */
 html{scroll-behavior:smooth}
 /* ── TRUST SECTION TOP FADE ── */
-.trust-section{position:relative}
-.trust-section::before{content:'';position:absolute;top:-30px;left:0;right:0;height:30px;background:linear-gradient(180deg,transparent,var(--black));pointer-events:none;z-index:1}
+/* trust top gradient removed */
 /* ── MOBILE CARD PRESS FEEDBACK ── */
 @media(max-width:768px){
 .pkg-card:active{transform:scale(.985);transition:transform .1s ease}
@@ -687,7 +685,7 @@ html{scroll-behavior:smooth}
 .cinema-bar.bottom{bottom:0}
 /* ── PACKAGE SECTION ENTRANCE GLOW ── */
 .packages-section{position:relative}
-.packages-section::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60%;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.1),transparent);pointer-events:none}
+/* packages top line removed */
 
 </style>
 </head>
@@ -700,7 +698,7 @@ html{scroll-behavior:smooth}
 <div class="projector-countdown" id="projCountdown"></div>
 <div class="countdown-ring" id="countdownRing"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54"/></svg></div>
 <!-- ANAMORPHIC LENS STREAK -->
-<div class="anamorphic-streak" id="anamorphicStreak"><div class="streak-line"></div><div class="streak-line"></div><div class="streak-line"></div></div>
+<!-- anamorphic streak removed -->
 <!-- COLOR GRADING OVERLAY -->
 <div class="color-grade" id="colorGrade"></div>
 <!-- GOLDEN SUN RAYS -->
@@ -766,7 +764,6 @@ html{scroll-behavior:smooth}
 
 <!-- ═══════ TRUST MARQUEE ═══════ -->
 <section class="trust-section reveal">
-  <div class="trust-divider"></div>
   <div class="trust-track-wrap">
     <div class="trust-item"><span class="trust-icon">🏆</span><span class="trust-text">Award winning filmmaker</span></div>
     <span class="trust-sep">·</span>
@@ -1071,7 +1068,7 @@ setTimeout(function(){document.body.classList.add('projector-open')},100);
 setTimeout(function(){document.body.classList.add('letterbox-active')},1200);
 var pT=document.querySelector('.projector-top'),pB=document.querySelector('.projector-bot'),pS=document.querySelector('.projector-seam');
 setTimeout(function(){if(pT)pT.style.display='none';if(pB)pB.style.display='none';if(pS)pS.style.display='none';if(cd)cd.style.display='none';if(ring)ring.style.display='none'},2400);
-setTimeout(function(){var streak=document.getElementById('anamorphicStreak');if(streak)streak.classList.add('active');var rays=document.getElementById('sunRays');if(rays)rays.classList.add('active')},2000);
+setTimeout(function(){var streak=document.getElementById('anamorphicStreak');/* streak removed */var rays=document.getElementById('sunRays');if(rays)rays.classList.add('active')},2000);
 return}
 cd.textContent=nums[i];cd.style.animation='none';void cd.offsetWidth;cd.style.animation='countPulse .65s ease forwards';
 if(ring){var c=ring.querySelector('circle');if(c){c.style.animation='none';void c.offsetWidth;c.style.animation='countdownSweep .65s linear forwards'}}
