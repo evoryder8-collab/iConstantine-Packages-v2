@@ -76,13 +76,21 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .trust-section { position:relative; z-index:1; padding:60px 0; overflow:hidden; }
 @media(max-width:768px){
 .trust-section{padding:16px 0;border:none!important}
-.capacity-section{padding:20px 24px 40px!important;margin-top:8px!important;border:none!important;box-shadow:none!important}
+.capacity-section{padding:20px 24px 40px!important;margin-top:0!important;border:none!important;box-shadow:none!important}
 .capacity-label{margin-bottom:12px;font-size:8px;letter-spacing:4px}
 .capacity-section .capacity-text{font-size:12px}
 }
+/* Left/right fade edges for marquee scroll */
 .trust-section::before, .trust-section::after { content:''; position:absolute; top:0; bottom:0; width:120px; z-index:2; pointer-events:none; }
 .trust-section::before { left:0; background:linear-gradient(to right, var(--black), transparent); }
 .trust-section::after { right:0; background:linear-gradient(to left, var(--black), transparent); }
+/* ── SOFT GRADIENT BLENDS BETWEEN SECTIONS ── */
+.trust-section-fade-top,.trust-section-fade-bot,.capacity-fade-top,.capacity-fade-bot,.packages-fade-top{position:absolute;left:0;right:0;pointer-events:none;z-index:3}
+.trust-section-fade-top{top:0;height:48px;background:linear-gradient(180deg,var(--black) 0%,transparent 100%)}
+.trust-section-fade-bot{bottom:0;height:48px;background:linear-gradient(0deg,var(--black) 0%,transparent 100%)}
+.capacity-fade-top{top:0;height:40px;background:linear-gradient(180deg,var(--black) 0%,transparent 100%)}
+.capacity-fade-bot{bottom:0;height:56px;background:linear-gradient(0deg,var(--black) 0%,transparent 100%)}
+.packages-fade-top{top:0;height:60px;background:linear-gradient(180deg,var(--black) 0%,transparent 100%)}
 /* trust-divider removed */
 
 .trust-track-wrap { display:flex; width:max-content; animation:marquee 35s linear infinite; }
@@ -94,7 +102,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .trust-sep { color:var(--gold-dim); opacity:0.3; padding:0 8px; font-size:8px; flex-shrink:0; }
 
 /* ═══════ CAPACITY ═══════ */
-.capacity-section { position:relative; z-index:1; max-width:480px; margin:0 auto; padding:0 24px 48px; text-align:center; }
+.capacity-section { position:relative; z-index:1; max-width:480px; margin:0 auto; padding:24px 24px 56px; text-align:center; overflow:hidden; }
 .capacity-label { font-size:9px; font-weight:600; letter-spacing:5px; text-transform:uppercase; color:var(--gold-dim); margin-bottom:20px; }
 .capacity-visual { display:flex; gap:8px; justify-content:center; margin-bottom:14px; }
 .cap-dot { width:clamp(18px,2.8vw,32px); height:clamp(18px,2.8vw,32px); border-radius:50%; border:1px solid rgba(255,255,255,0.06); transition:all 0.8s var(--ease); position:relative; }
@@ -469,14 +477,6 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 /* Spotlight glow that bleeds through as curtains part */
 .curtain-glow{position:fixed;top:50%;left:50%;width:0;height:0;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(ellipse,rgba(212,175,55,.15) 0%,rgba(212,175,55,.05) 40%,transparent 70%);z-index:99998;pointer-events:none;opacity:0;transition:width 2.5s ease,height 2.5s ease,opacity 1.5s ease}
 .curtains-open .curtain-glow{width:160vw;height:160vh;opacity:1}
-/* Countdown styling — centered between curtains */
-.curtain-countdown{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:100001;font-family:'Courier New',monospace;font-size:clamp(48px,10vw,120px);color:var(--gold);pointer-events:none;opacity:0;letter-spacing:4px;text-shadow:0 0 40px rgba(212,175,55,.4),0 0 80px rgba(212,175,55,.2)}
-@keyframes countPulse{0%{transform:translate(-50%,-50%) scale(.7);opacity:0}30%{transform:translate(-50%,-50%) scale(1);opacity:1}70%{opacity:1}100%{transform:translate(-50%,-50%) scale(1.15);opacity:0}}
-/* Countdown ring */
-.countdown-ring{position:fixed;top:50%;left:50%;width:120px;height:120px;transform:translate(-50%,-50%);z-index:100002;pointer-events:none;opacity:0}
-.countdown-ring svg{width:100%;height:100%}
-.countdown-ring circle{fill:none;stroke:var(--gold);stroke-width:2;stroke-dasharray:340;stroke-dashoffset:340;transform-origin:center;transform:rotate(-90deg)}
-@keyframes countdownSweep{to{stroke-dashoffset:0}}
 /* ── ANAMORPHIC LENS STREAK ── */
 /* anamorphic streak removed */
 /* ── COLOR GRADING OVERLAY ── */
@@ -630,7 +630,7 @@ html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
 @keyframes diamondFloat{0%{transform:translateY(0) scale(1);opacity:0}15%{opacity:.6}85%{opacity:.6}100%{transform:translateY(-100vh) scale(.3);opacity:0}}
 .diamond-particle{position:fixed;width:2px;height:2px;background:var(--gold-light);border-radius:50%;pointer-events:none;z-index:9986;opacity:0;animation:diamondFloat linear infinite;box-shadow:0 0 3px rgba(212,175,55,.4)}
 /* ── VELVET GRADIENT ON SECTIONS ── */
-.packages-section::before{content:'';position:absolute;top:-60px;left:0;right:0;height:60px;background:linear-gradient(180deg,transparent,rgba(2,2,4,.95));pointer-events:none;z-index:1}
+/* packages top gradient now handled by .packages-fade-top element */
 /* ── LUXURY CARD BORDER GLOW ── */
 @keyframes borderPulse{0%,100%{border-color:rgba(212,175,55,.06)}50%{border-color:rgba(212,175,55,.15)}}
 .pkg-card{border:1px solid rgba(212,175,55,.06);animation:borderPulse 6s ease-in-out infinite}
@@ -711,8 +711,6 @@ html{scroll-behavior:smooth}
 <div class="curtain-left"><div class="curtain-fabric"></div><div class="curtain-trim"></div></div>
 <div class="curtain-right"><div class="curtain-fabric"></div><div class="curtain-trim"></div></div>
 <div class="curtain-glow"></div>
-<div class="curtain-countdown" id="projCountdown"></div>
-<div class="countdown-ring" id="countdownRing"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54"/></svg></div>
 <!-- ANAMORPHIC LENS STREAK -->
 <!-- anamorphic streak removed -->
 <!-- COLOR GRADING OVERLAY -->
@@ -780,6 +778,8 @@ html{scroll-behavior:smooth}
 
 <!-- ═══════ TRUST MARQUEE ═══════ -->
 <section class="trust-section reveal">
+  <div class="trust-section-fade-top"></div>
+  <div class="trust-section-fade-bot"></div>
   <div class="trust-track-wrap">
     <div class="trust-item"><span class="trust-icon">🏆</span><span class="trust-text">Award winning filmmaker</span></div>
     <span class="trust-sep">·</span>
@@ -807,6 +807,8 @@ html{scroll-behavior:smooth}
 
 <!-- ═══════ CAPACITY ═══════ -->
 <section class="capacity-section reveal">
+  <div class="capacity-fade-top"></div>
+  <div class="capacity-fade-bot"></div>
   <p class="capacity-label">Event Capacity</p>
   <div class="capacity-visual">
     <div class="cap-dot filled"></div>
@@ -825,6 +827,7 @@ html{scroll-behavior:smooth}
 
 <!-- ═══════ PACKAGES ═══════ -->
 <section class="packages-section" id="packages" data-section="packages">
+  <div class="packages-fade-top"></div>
   <div class="packages-header reveal">
     <p class="section-overline">Select Your Experience</p>
     <h2>Five Tiers of <em>Excellence</em></h2>
@@ -1077,29 +1080,14 @@ var isFine=matchMedia('(pointer:fine)').matches,isMobile=/Mobi|Android/i.test(na
 function lerp(a,b,n){return(1-n)*a+n*b}
 function clamp(v,mn,mx){return Math.max(mn,Math.min(mx,v))}
 
-/* ─── 1. CINEMA CURTAIN REVEAL + COUNTDOWN ─── */
+/* ─── 1. CINEMA CURTAIN REVEAL (no countdown) ─── */
 (function(){
-var cd=document.getElementById('projCountdown'),ring=document.getElementById('countdownRing');
 var cL=document.querySelector('.curtain-left'),cR=document.querySelector('.curtain-right'),cG=document.querySelector('.curtain-glow');
-var nums=['3','2','1','▶'],i=0;
-if(cd){
-cd.style.opacity='1';
-if(ring){ring.style.opacity='1';var c=ring.querySelector('circle');if(c)c.style.animation='countdownSweep .7s linear forwards'}
-function showNum(){
-if(i>=nums.length){cd.style.opacity='0';if(ring)ring.style.opacity='0';
-setTimeout(function(){document.body.classList.add('curtains-open')},100);
-setTimeout(function(){document.body.classList.add('letterbox-active')},1200);
-setTimeout(function(){if(cL)cL.style.display='none';if(cR)cR.style.display='none';if(cG)cG.style.display='none';if(cd)cd.style.display='none';if(ring)ring.style.display='none'},3000);
+/* Open curtains immediately after brief pause */
+setTimeout(function(){document.body.classList.add('curtains-open')},400);
+setTimeout(function(){document.body.classList.add('letterbox-active')},1400);
+setTimeout(function(){if(cL)cL.style.display='none';if(cR)cR.style.display='none';if(cG)cG.style.display='none'},3200);
 setTimeout(function(){var rays=document.getElementById('sunRays');if(rays)rays.classList.add('active')},2000);
-return}
-cd.textContent=nums[i];cd.style.animation='none';void cd.offsetWidth;cd.style.animation='countPulse .65s ease forwards';
-if(ring){var c=ring.querySelector('circle');if(c){c.style.animation='none';void c.offsetWidth;c.style.animation='countdownSweep .65s linear forwards'}}
-i++;setTimeout(showNum,700)
-}showNum()
-}else{
-setTimeout(function(){document.body.classList.add('curtains-open')},300);
-setTimeout(function(){document.body.classList.add('letterbox-active')},1200)
-}
 })();
 
 /* ─── 2. GOLDEN BOKEH CANVAS (cinema depth-of-field) ─── */
