@@ -446,16 +446,37 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .timecode{position:fixed;top:clamp(16px,2.5vh,28px);right:clamp(60px,5vw,90px);z-index:9997;font-family:'Courier New',monospace;font-size:10px;letter-spacing:1px;color:rgba(212,175,55,.2);pointer-events:none;font-variant-numeric:tabular-nums}
 @media(max-width:768px){.timecode{top:8px;right:8px;font-size:8px}}
 
-/* ── WIDESCREEN PROJECTOR REVEAL (horizontal split) ── */
-.projector-top,.projector-bot{position:fixed;left:0;right:0;height:50%;background:var(--black);z-index:99999;pointer-events:none;transition:transform 1.6s cubic-bezier(.77,0,.18,1)}
-.projector-top{top:0}
-.projector-bot{bottom:0}
-.projector-open .projector-top{transform:translateY(-100%)}
-.projector-open .projector-bot{transform:translateY(100%)}
-.projector-seam{position:fixed;top:50%;left:0;right:0;height:2px;transform:translateY(-50%);background:linear-gradient(90deg,transparent,var(--gold),transparent);z-index:100000;pointer-events:none;opacity:1;transition:opacity .6s ease .8s}
-.projector-open .projector-seam{opacity:0}
-.projector-countdown{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:100001;font-family:'Courier New',monospace;font-size:clamp(48px,10vw,120px);color:var(--gold);pointer-events:none;opacity:0;letter-spacing:4px;text-shadow:0 0 40px rgba(212,175,55,.4)}
+/* ── CINEMA CURTAIN REVEAL (vertical split) ── */
+.curtain-left,.curtain-right{position:fixed;top:0;bottom:0;width:50%;z-index:99999;pointer-events:none;overflow:hidden}
+.curtain-left{left:0}
+.curtain-right{right:0}
+/* Curtain fabric — deep velvet with subtle fold texture */
+.curtain-left .curtain-fabric,.curtain-right .curtain-fabric{position:absolute;inset:0;background:linear-gradient(180deg,#0a0206 0%,#140610 30%,#1a0818 50%,#140610 70%,#0a0206 100%)}
+/* Vertical fold pleats for realism */
+.curtain-left .curtain-fabric::before,.curtain-right .curtain-fabric::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0px,rgba(60,10,30,.3) 12px,transparent 24px,rgba(80,15,40,.15) 36px,transparent 48px);pointer-events:none}
+/* Soft inner shadow for depth between folds */
+.curtain-left .curtain-fabric::after,.curtain-right .curtain-fabric::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(0,0,0,.15) 0px,transparent 6px,rgba(0,0,0,.1) 12px,transparent 18px);pointer-events:none}
+/* Gold trim edge — ornate fringe on the inner curtain edges */
+.curtain-left .curtain-trim{position:absolute;top:0;right:0;width:6px;height:100%;background:linear-gradient(180deg,var(--gold) 0%,var(--gold-light) 15%,var(--gold) 30%,var(--gold-dim) 50%,var(--gold) 70%,var(--gold-light) 85%,var(--gold) 100%);box-shadow:0 0 20px rgba(212,175,55,.4),0 0 60px rgba(212,175,55,.15);z-index:2}
+.curtain-right .curtain-trim{position:absolute;top:0;left:0;width:6px;height:100%;background:linear-gradient(180deg,var(--gold) 0%,var(--gold-light) 15%,var(--gold) 30%,var(--gold-dim) 50%,var(--gold) 70%,var(--gold-light) 85%,var(--gold) 100%);box-shadow:0 0 20px rgba(212,175,55,.4),0 0 60px rgba(212,175,55,.15);z-index:2}
+/* Gold tassel fringe along trim */
+.curtain-trim::before{content:'';position:absolute;top:0;left:50%;width:1px;height:100%;transform:translateX(-50%);background:repeating-linear-gradient(180deg,var(--gold-light) 0px,transparent 4px,var(--gold) 8px,transparent 12px)}
+/* Curtain open animation */
+.curtains-open .curtain-left{animation:curtainSlideLeft 2.2s cubic-bezier(.65,.05,.36,1) forwards}
+.curtains-open .curtain-right{animation:curtainSlideRight 2.2s cubic-bezier(.65,.05,.36,1) forwards}
+@keyframes curtainSlideLeft{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+@keyframes curtainSlideRight{0%{transform:translateX(0)}100%{transform:translateX(100%)}}
+/* Spotlight glow that bleeds through as curtains part */
+.curtain-glow{position:fixed;top:50%;left:50%;width:0;height:0;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(ellipse,rgba(212,175,55,.15) 0%,rgba(212,175,55,.05) 40%,transparent 70%);z-index:99998;pointer-events:none;opacity:0;transition:width 2.5s ease,height 2.5s ease,opacity 1.5s ease}
+.curtains-open .curtain-glow{width:160vw;height:160vh;opacity:1}
+/* Countdown styling — centered between curtains */
+.curtain-countdown{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:100001;font-family:'Courier New',monospace;font-size:clamp(48px,10vw,120px);color:var(--gold);pointer-events:none;opacity:0;letter-spacing:4px;text-shadow:0 0 40px rgba(212,175,55,.4),0 0 80px rgba(212,175,55,.2)}
 @keyframes countPulse{0%{transform:translate(-50%,-50%) scale(.7);opacity:0}30%{transform:translate(-50%,-50%) scale(1);opacity:1}70%{opacity:1}100%{transform:translate(-50%,-50%) scale(1.15);opacity:0}}
+/* Countdown ring */
+.countdown-ring{position:fixed;top:50%;left:50%;width:120px;height:120px;transform:translate(-50%,-50%);z-index:100002;pointer-events:none;opacity:0}
+.countdown-ring svg{width:100%;height:100%}
+.countdown-ring circle{fill:none;stroke:var(--gold);stroke-width:2;stroke-dasharray:340;stroke-dashoffset:340;transform-origin:center;transform:rotate(-90deg)}
+@keyframes countdownSweep{to{stroke-dashoffset:0}}
 /* ── ANAMORPHIC LENS STREAK ── */
 /* anamorphic streak removed */
 /* ── COLOR GRADING OVERLAY ── */
@@ -477,11 +498,6 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .depth-layer{will-change:transform;transition:transform .1s linear}
 /* ── MOUSE-REACTIVE GOLDEN DUST ── */
 .mouse-particle{position:fixed;width:3px;height:3px;border-radius:50%;pointer-events:none;z-index:9999;background:var(--gold);opacity:0;transition:opacity .3s ease}
-/* ── FILM COUNTDOWN CIRCLE ── */
-.countdown-ring{position:fixed;top:50%;left:50%;width:120px;height:120px;transform:translate(-50%,-50%);z-index:100002;pointer-events:none;opacity:0}
-.countdown-ring svg{width:100%;height:100%}
-.countdown-ring circle{fill:none;stroke:var(--gold);stroke-width:2;stroke-dasharray:340;stroke-dashoffset:340;transform-origin:center;transform:rotate(-90deg)}
-@keyframes countdownSweep{to{stroke-dashoffset:0}}
 /* ── SECTION FOCUS PULL (camera-like) ── */
 .section-blur-out{filter:blur(4px);opacity:.4;transition:filter .8s ease,opacity .8s ease}
 .section-blur-out.sharp{filter:blur(0);opacity:1}
@@ -691,11 +707,11 @@ html{scroll-behavior:smooth}
 </head>
 <body>
 
-<!-- WIDESCREEN PROJECTOR REVEAL -->
-<div class="projector-top"></div>
-<div class="projector-bot"></div>
-<div class="projector-seam"></div>
-<div class="projector-countdown" id="projCountdown"></div>
+<!-- CINEMA CURTAIN REVEAL -->
+<div class="curtain-left"><div class="curtain-fabric"></div><div class="curtain-trim"></div></div>
+<div class="curtain-right"><div class="curtain-fabric"></div><div class="curtain-trim"></div></div>
+<div class="curtain-glow"></div>
+<div class="curtain-countdown" id="projCountdown"></div>
 <div class="countdown-ring" id="countdownRing"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54"/></svg></div>
 <!-- ANAMORPHIC LENS STREAK -->
 <!-- anamorphic streak removed -->
@@ -1017,8 +1033,10 @@ html{scroll-behavior:smooth}
   <p><span class="highlight">Book in advance</span> for best possible coverage. Payment must be received before the event. I cannot apply priority coverage retroactively.</p>
   <p>All packages include a <span class="highlight">Personal Commercial License</span> to advertise yourself, your brand, and your private practice freely.</p>
 </div>
-<div class="brand-footer">
-  <p><span>iCONSTANTINE</span> · Championship Media · Filmed on Cinema Grade Cameras</p>
+
+<div class="sumup-tip">
+  <span class="tip-icon">💡</span>
+  <p>On the SumUp payment page, add your <strong>table number</strong>, <strong>category name</strong>, and <strong>category time</strong> in the order notes — if you know them. If you only know your category, that works too.</p>
 </div>
 
 <!-- ═══════ SOCIAL FOLLOW SECTION ═══════ -->
@@ -1046,6 +1064,10 @@ html{scroll-behavior:smooth}
   </div>
 </section>
 
+<div class="brand-footer">
+  <p><span>iCONSTANTINE</span> · Championship Media · Filmed on Cinema Grade Cameras</p>
+</div>
+
 <!-- ═══════ JAVASCRIPT ═══════ -->
 <script>
 /* ═══════ iCONSTANTINE $2M WELLNESS-CINEMA FUSION ENGINE ═══════ */
@@ -1055,27 +1077,27 @@ var isFine=matchMedia('(pointer:fine)').matches,isMobile=/Mobi|Android/i.test(na
 function lerp(a,b,n){return(1-n)*a+n*b}
 function clamp(v,mn,mx){return Math.max(mn,Math.min(mx,v))}
 
-/* ─── 1. WIDESCREEN PROJECTOR REVEAL + COUNTDOWN ─── */
+/* ─── 1. CINEMA CURTAIN REVEAL + COUNTDOWN ─── */
 (function(){
 var cd=document.getElementById('projCountdown'),ring=document.getElementById('countdownRing');
+var cL=document.querySelector('.curtain-left'),cR=document.querySelector('.curtain-right'),cG=document.querySelector('.curtain-glow');
 var nums=['3','2','1','▶'],i=0;
 if(cd){
 cd.style.opacity='1';
 if(ring){ring.style.opacity='1';var c=ring.querySelector('circle');if(c)c.style.animation='countdownSweep .7s linear forwards'}
 function showNum(){
 if(i>=nums.length){cd.style.opacity='0';if(ring)ring.style.opacity='0';
-setTimeout(function(){document.body.classList.add('projector-open')},100);
+setTimeout(function(){document.body.classList.add('curtains-open')},100);
 setTimeout(function(){document.body.classList.add('letterbox-active')},1200);
-var pT=document.querySelector('.projector-top'),pB=document.querySelector('.projector-bot'),pS=document.querySelector('.projector-seam');
-setTimeout(function(){if(pT)pT.style.display='none';if(pB)pB.style.display='none';if(pS)pS.style.display='none';if(cd)cd.style.display='none';if(ring)ring.style.display='none'},2400);
-setTimeout(function(){var streak=document.getElementById('anamorphicStreak');/* streak removed */var rays=document.getElementById('sunRays');if(rays)rays.classList.add('active')},2000);
+setTimeout(function(){if(cL)cL.style.display='none';if(cR)cR.style.display='none';if(cG)cG.style.display='none';if(cd)cd.style.display='none';if(ring)ring.style.display='none'},3000);
+setTimeout(function(){var rays=document.getElementById('sunRays');if(rays)rays.classList.add('active')},2000);
 return}
 cd.textContent=nums[i];cd.style.animation='none';void cd.offsetWidth;cd.style.animation='countPulse .65s ease forwards';
 if(ring){var c=ring.querySelector('circle');if(c){c.style.animation='none';void c.offsetWidth;c.style.animation='countdownSweep .65s linear forwards'}}
 i++;setTimeout(showNum,700)
 }showNum()
 }else{
-setTimeout(function(){document.body.classList.add('projector-open')},300);
+setTimeout(function(){document.body.classList.add('curtains-open')},300);
 setTimeout(function(){document.body.classList.add('letterbox-active')},1200)
 }
 })();
@@ -2354,10 +2376,6 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModa
   </div>
 </div>
 
-<div class="sumup-tip">
-  <span class="tip-icon">💡</span>
-  <p>On the SumUp payment page, add your <strong>table number</strong>, <strong>category name</strong>, and <strong>category time</strong> in the order notes — if you know them. If you only know your category, that works too.</p>
-</div>
 <div class="legal-footer">
   <p>iConstantine / Barbu Media Switzerland &nbsp;&nbsp;|&nbsp;&nbsp; All rights reserved &mdash; &copy; 2026</p>
 </div>
