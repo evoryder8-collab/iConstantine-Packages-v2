@@ -324,74 +324,166 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card { opacity:0; transform:translateY(40px); }
 .pkg-card.visible { opacity:1; transform:translateY(0); transition:opacity 0.7s var(--ease), transform 0.7s var(--ease); }
 
-/* ═══════ $600K OVERHAUL — CUSTOM CURSOR ═══════ */
+/* ═══════════════════════════════════════════════════════════
+   iCONSTANTINE — $700K CINEMA-GRADE VISUAL ENGINE
+   Championship Media · Photography · Videography · Cinema
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── CINEMA CURSOR — Viewfinder crosshair ── */
 @media(pointer:fine){
-.c-cursor{position:fixed;top:0;left:0;pointer-events:none;z-index:99999;mix-blend-mode:difference}
-.c-cursor-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);position:absolute;transform:translate(-50%,-50%)}
-.c-cursor-ring{width:38px;height:38px;border-radius:50%;border:1.2px solid rgba(212,175,55,.55);position:absolute;transform:translate(-50%,-50%);transition:width .25s var(--ease),height .25s var(--ease),border-color .25s ease}
-.c-cursor.hover .c-cursor-ring{width:56px;height:56px;border-color:var(--gold)}
-.c-cursor.click .c-cursor-dot{transform:translate(-50%,-50%) scale(2.2);transition:transform .12s ease}
+.c-cursor{position:fixed;top:0;left:0;pointer-events:none;z-index:99999}
+.c-cursor-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);position:absolute;transform:translate(-50%,-50%);box-shadow:0 0 8px rgba(212,175,55,.6)}
+.c-cursor-ring{width:40px;height:40px;border-radius:50%;border:1px solid rgba(212,175,55,.4);position:absolute;transform:translate(-50%,-50%);transition:width .3s var(--ease),height .3s var(--ease),border-color .3s ease}
+.c-cursor-ring::before,.c-cursor-ring::after{content:'';position:absolute;background:rgba(212,175,55,.3);transition:all .3s ease}
+.c-cursor-ring::before{width:1px;height:10px;left:50%;top:-6px;transform:translateX(-50%)}
+.c-cursor-ring::after{width:10px;height:1px;top:50%;left:-6px;transform:translateY(-50%)}
+.c-cursor.hover .c-cursor-ring{width:60px;height:60px;border-color:var(--gold);border-style:dashed}
+.c-cursor.click .c-cursor-dot{transform:translate(-50%,-50%) scale(3);transition:transform .1s ease}
 }
 
-/* ═══════ GRAIN UPGRADE — ANIMATED ═══════ */
-@keyframes grainShift{0%{transform:translate(0,0)}10%{transform:translate(-2%,-3%)}30%{transform:translate(3%,1%)}50%{transform:translate(-1%,3%)}70%{transform:translate(2%,-2%)}100%{transform:translate(0,0)}}
-.grain{animation:grainShift 0.4s steps(2) infinite}
+/* ── FILM GRAIN — Cinematic 35mm texture ── */
+@keyframes grainShift{0%{transform:translate(0,0)}10%{transform:translate(-2%,-3%)}20%{transform:translate(1%,2%)}30%{transform:translate(3%,1%)}40%{transform:translate(-1%,-2%)}50%{transform:translate(-1%,3%)}60%{transform:translate(2%,0%)}70%{transform:translate(2%,-2%)}80%{transform:translate(-3%,1%)}90%{transform:translate(1%,-1%)}100%{transform:translate(0,0)}}
+.grain{animation:grainShift .3s steps(3) infinite}
 
-/* ═══════ AMBIENT SECTION TINT ═══════ */
-.ambient-tint{position:fixed;inset:0;pointer-events:none;z-index:0;transition:background 1.4s ease;opacity:.55}
+/* ── CINEMATIC LETTERBOX BARS ── */
+.letterbox-top,.letterbox-bot{position:fixed;left:0;right:0;height:0;background:#000;z-index:9998;pointer-events:none;transition:height .8s cubic-bezier(.77,0,.18,1)}
+.letterbox-top{top:0}
+.letterbox-bot{bottom:0}
+.letterbox-active .letterbox-top,.letterbox-active .letterbox-bot{height:clamp(20px,3.5vh,48px)}
 
-/* ═══════ CARD 3D SPOTLIGHT ═══════ */
+/* ── AMBIENT SECTION TINT — Golden hour ── */
+.ambient-tint{position:fixed;inset:0;pointer-events:none;z-index:0;transition:background 1.6s ease;opacity:.6}
+
+/* ── CINEMA LIGHT LEAK OVERLAY ── */
+.light-leak{position:fixed;inset:0;pointer-events:none;z-index:9996;opacity:0;mix-blend-mode:screen;transition:opacity 2s ease}
+.light-leak.active{opacity:1}
+
+/* ── APERTURE IRIS REVEAL ON CARDS ── */
+@keyframes apertureOpen{0%{clip-path:circle(0% at 50% 50%)}100%{clip-path:circle(75% at 50% 50%)}}
+
+/* ── CARD 3D SPOTLIGHT — Cinema key light ── */
 .pkg-card{--mx:50%;--my:50%}
-.pkg-card>.card-spot{position:absolute;inset:0;border-radius:22px;background:radial-gradient(600px circle at var(--mx) var(--my),rgba(212,175,55,.06),transparent 60%);pointer-events:none;z-index:1;opacity:0;transition:opacity .4s ease}
+.pkg-card>.card-spot{position:absolute;inset:0;border-radius:22px;background:radial-gradient(500px circle at var(--mx) var(--my),rgba(212,175,55,.07),transparent 55%);pointer-events:none;z-index:1;opacity:0;transition:opacity .5s ease}
 .pkg-card:hover>.card-spot{opacity:1}
 
-/* ═══════ CARD HOVER RING ═══════ */
-@keyframes cardRingOut{0%{transform:scale(.92);opacity:.5}100%{transform:scale(1.06);opacity:0}}
-.card-ring{position:absolute;inset:-6px;border-radius:28px;border:1.5px solid var(--gold);pointer-events:none;z-index:2;animation:cardRingOut .6s var(--ease) forwards}
+/* ── SHUTTER CLICK FLASH ── */
+@keyframes shutterFlash{0%{opacity:.5;background:#fff}35%{opacity:.08;background:rgba(212,175,55,.2)}100%{opacity:0;background:transparent}}
+.shutter-flash{position:fixed;inset:0;pointer-events:none;z-index:99998;animation:shutterFlash .4s ease-out forwards}
 
-/* ═══════ CLICK PARTICLE ═══════ */
-.click-particle{position:fixed;width:4px;height:4px;border-radius:50%;pointer-events:none;z-index:99998;background:var(--gold)}
+/* ── FOCUS BRACKETS — Camera autofocus ── */
+.focus-bracket{position:absolute;pointer-events:none;z-index:3;opacity:0;transition:opacity .35s ease}
+.pkg-card:hover .focus-bracket{opacity:.7}
+.focus-bracket-tl,.focus-bracket-tr,.focus-bracket-bl,.focus-bracket-br{position:absolute;width:16px;height:16px;border-color:var(--gold);border-style:solid;border-width:0;transition:all .3s ease}
+.focus-bracket-tl{top:8px;left:8px;border-top-width:1.5px;border-left-width:1.5px}
+.focus-bracket-tr{top:8px;right:8px;border-top-width:1.5px;border-right-width:1.5px}
+.focus-bracket-bl{bottom:8px;left:8px;border-bottom-width:1.5px;border-left-width:1.5px}
+.focus-bracket-br{bottom:8px;right:8px;border-bottom-width:1.5px;border-right-width:1.5px}
+.pkg-card:hover .focus-bracket-tl{top:6px;left:6px;width:20px;height:20px}
+.pkg-card:hover .focus-bracket-tr{top:6px;right:6px;width:20px;height:20px}
+.pkg-card:hover .focus-bracket-bl{bottom:6px;left:6px;width:20px;height:20px}
+.pkg-card:hover .focus-bracket-br{bottom:6px;right:6px;width:20px;height:20px}
 
-/* ═══════ HERO GLITCH ═══════ */
-@keyframes heroGlitch{0%{filter:none}15%{filter:hue-rotate(35deg) saturate(2.5) brightness(1.4)}30%{filter:hue-rotate(-20deg) saturate(1.2)}50%{filter:none}100%{filter:none}}
+/* ── FILM STRIP — Left edge scroll indicator ── */
+.film-strip{position:fixed;left:0;top:0;bottom:0;width:24px;z-index:9997;pointer-events:none;opacity:.06}
+.film-strip-inner{width:100%;height:200%;background:repeating-linear-gradient(180deg,transparent 0px,transparent 12px,rgba(212,175,55,.4) 12px,rgba(212,175,55,.4) 14px,transparent 14px,transparent 28px)}
+@media(max-width:768px){.film-strip{display:none}}
 
-/* ═══════ SVG STROKE DRAW-IN ═══════ */
-.trust-icon svg path,.trust-icon svg circle,.trust-icon svg line,.trust-icon svg polyline{transition:stroke-dashoffset 1.2s var(--ease)}
+/* ── VIEWFINDER GRID (hero) ── */
+.viewfinder-grid{position:absolute;inset:0;pointer-events:none;z-index:4;opacity:0;transition:opacity 1.5s ease 2s}
+.viewfinder-grid.active{opacity:.06}
+.viewfinder-grid::before,.viewfinder-grid::after{content:'';position:absolute;background:var(--gold)}
+.viewfinder-grid::before{width:1px;height:100%;left:33.33%}
+.viewfinder-grid::after{width:100%;height:1px;top:33.33%}
+.vg-line-v2{position:absolute;width:1px;height:100%;left:66.66%;background:var(--gold)}
+.vg-line-h2{position:absolute;width:100%;height:1px;top:66.66%;background:var(--gold)}
+.vf-h{position:absolute;width:100%;height:1px;background:var(--gold);opacity:.4}
+.vf-h1{top:33.33%}.vf-h2{top:66.66%}
+.vf-v{position:absolute;height:100%;width:1px;background:var(--gold);opacity:.4}
+.vf-v1{left:33.33%}.vf-v2{left:66.66%}
+/* ── CLICK FOCUS RING ── */
+.click-focus-ring{position:fixed;width:50px;height:50px;border:1.5px solid rgba(212,175,55,.6);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%) scale(.3);animation:clickFocusExpand .65s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes clickFocusExpand{0%{transform:translate(-50%,-50%) scale(.3);opacity:1}100%{transform:translate(-50%,-50%) scale(1.8);opacity:0}}
 
-/* ═══════ NAV DOTS UPGRADE — LABELS ═══════ */
+/* ── GOLDEN BOKEH ORBS ── */
+@keyframes bokehFloat{0%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.08)}100%{transform:translateY(0) scale(1)}}
+.bokeh-orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(212,175,55,.1) 0%,rgba(212,175,55,.02) 40%,transparent 70%);filter:blur(1px)}
+
+/* ── NAV DOTS — Camera mode selector ── */
 .nav-dot{position:relative}
 .nav-dot .nav-label{position:absolute;right:18px;top:50%;transform:translateY(-50%);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);opacity:0;white-space:nowrap;pointer-events:none;transition:opacity .3s ease,transform .3s ease;transform:translateY(-50%) translateX(6px)}
 .nav-dot:hover .nav-label{opacity:1;transform:translateY(-50%) translateX(0)}
+.nav-dot.active{background:var(--gold);box-shadow:0 0 10px rgba(212,175,55,.4)}
 
-/* ═══════ SOCIAL FOLLOW SECTION ═══════ */
+/* ── SOCIAL FOLLOW SECTION ── */
 .social-section{position:relative;z-index:1;text-align:center;padding:56px 24px 20px}
 .social-label{font-size:9px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:24px}
 .social-row{display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
 .social-link{width:46px;height:46px;border-radius:50%;border:1px solid rgba(212,175,55,.12);display:flex;align-items:center;justify-content:center;transition:all .4s var(--ease);color:var(--text-muted);text-decoration:none;position:relative;overflow:hidden}
-.social-link:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px);box-shadow:0 6px 24px rgba(212,175,55,.15)}
+.social-link:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px) scale(1.08);box-shadow:0 6px 28px rgba(212,175,55,.2)}
 .social-link svg{width:18px;height:18px;fill:currentColor;position:relative;z-index:1}
-.social-link::before{content:'';position:absolute;inset:0;background:radial-gradient(circle,rgba(212,175,55,.08),transparent);opacity:0;transition:opacity .3s ease}
+.social-link::before{content:'';position:absolute;inset:0;background:radial-gradient(circle,rgba(212,175,55,.1),transparent);opacity:0;transition:opacity .3s ease}
 .social-link:hover::before{opacity:1}
 
-/* ═══════ SCROLL VELOCITY SKEW ═══════ */
-.velocity-skew{transition:transform .15s ease}
-
-/* ═══════ MAGNETIC BUTTONS ═══════ */
+/* ── MAGNETIC BUTTONS ── */
 .btn-book,.btn-addon{transition:all .4s var(--ease);will-change:transform}
 
-/* ═══════ SECTION TITLE SHIMMER ═══════ */
-@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
-.shimmer-title{background:linear-gradient(90deg,var(--cream) 30%,var(--gold-light) 50%,var(--cream) 70%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s ease-in-out infinite}
+/* ── GOLDEN HOUR SHIMMER ON TITLES ── */
+@keyframes goldenHourShimmer{0%{background-position:-300% center}100%{background-position:300% center}}
+.shimmer-title{background:linear-gradient(90deg,var(--cream) 20%,var(--gold-light) 40%,var(--gold) 50%,var(--gold-light) 60%,var(--cream) 80%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:goldenHourShimmer 6s ease-in-out infinite}
+
+/* ── LENS FLARE (hero) ── */
+.lens-flare{position:absolute;pointer-events:none;z-index:5;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.12) 0%,rgba(244,213,141,.04) 30%,transparent 70%);filter:blur(2px);opacity:0;transition:opacity 1.5s ease 2s}
+.lens-flare.active{opacity:1}
+
+/* ── EXPOSURE HUD ── */
+.exposure-hud{position:fixed;bottom:clamp(12px,2vh,24px);left:clamp(12px,2vw,24px);z-index:9997;font-family:'Courier New',monospace;font-size:9px;letter-spacing:1.5px;color:rgba(212,175,55,.3);pointer-events:none;font-variant-numeric:tabular-nums}
+@media(max-width:768px){.exposure-hud{display:none}}
+
+/* ── REC INDICATOR ── */
+.rec-dot{position:fixed;top:clamp(16px,2.5vh,28px);left:clamp(16px,2.5vw,28px);z-index:9997;display:flex;align-items:center;gap:8px;pointer-events:none}
+.rec-dot-circle{width:8px;height:8px;border-radius:50%;background:#C0392B;animation:recPulse 1.8s ease-in-out infinite}
+@keyframes recPulse{0%,100%{opacity:.6;box-shadow:0 0 4px rgba(192,57,43,.3)}50%{opacity:1;box-shadow:0 0 12px rgba(192,57,43,.6)}}
+.rec-dot-label{font-size:9px;letter-spacing:3px;color:rgba(192,57,43,.5);font-weight:600;font-family:var(--font-body)}
+@media(max-width:768px){.rec-dot{top:8px;left:8px}.rec-dot-label{display:none}}
+
+/* ── TIMECODE ── */
+.timecode{position:fixed;top:clamp(16px,2.5vh,28px);right:clamp(60px,5vw,90px);z-index:9997;font-family:'Courier New',monospace;font-size:10px;letter-spacing:1px;color:rgba(212,175,55,.2);pointer-events:none;font-variant-numeric:tabular-nums}
+@media(max-width:768px){.timecode{top:8px;right:8px;font-size:8px}}
+
+/* ── DRAMATIC CURTAIN REVEAL (page load) ── */
+.curtain-left,.curtain-right{position:fixed;top:0;bottom:0;width:50%;background:var(--black);z-index:99999;pointer-events:none;transition:transform 1.4s cubic-bezier(.77,0,.18,1)}
+.curtain-left{left:0}
+.curtain-right{right:0}
+.curtains-open .curtain-left{transform:translateX(-100%)}
+.curtains-open .curtain-right{transform:translateX(100%)}
+.curtain-gold{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1px;height:60vh;background:linear-gradient(to bottom,transparent,var(--gold),transparent);z-index:100000;pointer-events:none;opacity:1;transition:opacity .8s ease .6s}
+.curtains-open .curtain-gold{opacity:0}
 
 </style>
 </head>
 <body>
+
+<!-- CINEMA CURTAIN REVEAL -->
+<div class="curtain-left"></div>
+<div class="curtain-right"></div>
+<div class="curtain-gold"></div>
+
+<!-- CINEMATIC LETTERBOX -->
+<div class="letterbox-top"></div>
+<div class="letterbox-bot"></div>
 
 <div class="grain"></div>
 <div class="scroll-progress" id="scrollProgress"></div>
 <canvas id="particleCanvas"></canvas>
 <div class="ambient-tint" id="ambientTint"></div>
 <div class="c-cursor" id="cCursor"><div class="c-cursor-dot" id="cDot"></div><div class="c-cursor-ring" id="cRing"></div></div>
+
+<!-- CINEMA HUD ELEMENTS -->
+<div class="film-strip"><div class="film-strip-inner" id="filmStrip"></div></div>
+<div class="rec-dot"><div class="rec-dot-circle"></div><span class="rec-dot-label">REC</span></div>
+<div class="timecode" id="timecode">00:00:00:00</div>
+<div class="exposure-hud" id="exposureHud">ISO 800 · ƒ/2.8 · 1/125</div>
+<div class="light-leak" id="lightLeak"></div>
 
 <nav class="nav-dots" id="navDots">
   <div class="nav-dot active" data-target="hero"><span class="nav-label">Home</span></div>
@@ -414,6 +506,13 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
     <span>Scroll</span>
     <div class="scroll-line"></div>
   </div>
+  <!-- VIEWFINDER GRID (rule-of-thirds) -->
+  <div class="viewfinder-grid" id="viewfinderGrid">
+    <div class="vf-h vf-h1"></div><div class="vf-h vf-h2"></div>
+    <div class="vf-v vf-v1"></div><div class="vf-v vf-v2"></div>
+  </div>
+  <!-- LENS FLARE -->
+  <div class="lens-flare" id="lensFlare"></div>
 </section>
 
 <!-- ═══════ TRUST MARQUEE ═══════ -->
@@ -703,66 +802,160 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 
 <!-- ═══════ JAVASCRIPT ═══════ -->
 <script>
-/* ═══════ iCONSTANTINE $600K ANIMATION ENGINE ═══════ */
-;(function IC(){
+/* ═══════ iCONSTANTINE $700K CINEMA ENGINE ═══════ */
+;(function CINEMA(){
 'use strict';
 var isFine=matchMedia('(pointer:fine)').matches,isMobile=/Mobi|Android/i.test(navigator.userAgent),reducedMotion=matchMedia('(prefers-reduced-motion:reduce)').matches;
 function lerp(a,b,n){return(1-n)*a+n*b}
+function clamp(v,mn,mx){return Math.max(mn,Math.min(mx,v))}
 
-/* ─── 1. GOLD STARDUST CANVAS w/ NEURAL CONNECTIONS ─── */
+/* ─── 1. DRAMATIC CURTAIN REVEAL ─── */
 (function(){
-var c=document.getElementById('particleCanvas'),ctx=c.getContext('2d'),ps=[],N=isMobile?45:85;
+setTimeout(function(){document.body.classList.add('curtains-open')},300);
+setTimeout(function(){document.body.classList.add('letterbox-active')},1600);
+var cL=document.querySelector('.curtain-left'),cR=document.querySelector('.curtain-right'),cG=document.querySelector('.curtain-gold');
+if(cL)setTimeout(function(){cL.style.display='none';cR.style.display='none';if(cG)cG.style.display='none'},2200);
+})();
+
+/* ─── 2. GOLDEN BOKEH CANVAS (cinema depth-of-field) ─── */
+(function(){
+var c=document.getElementById('particleCanvas'),ctx=c.getContext('2d');if(!c)return;
+var bokeh=[],N=isMobile?25:55;
 function resize(){c.width=innerWidth;c.height=innerHeight}
 resize();addEventListener('resize',resize);
-for(var i=0;i<N;i++)ps.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.8+.4,dx:(Math.random()-.5)*.22,dy:(Math.random()-.5)*.22,aBase:Math.random()*.5+.35,phase:Math.random()*Math.PI*2,speed:.025+Math.random()*.035});
+for(var i=0;i<N;i++){
+var r=Math.random()*22+4;
+bokeh.push({x:Math.random()*c.width,y:Math.random()*c.height,r:r,dx:(Math.random()-.5)*.15,dy:-.08-Math.random()*.12,aBase:.02+Math.random()*.06,phase:Math.random()*Math.PI*2,speed:.008+Math.random()*.015,hue:38+Math.random()*12})
+}
 (function draw(){
 ctx.clearRect(0,0,c.width,c.height);
-for(var i=0;i<ps.length;i++){var p=ps[i];
-p.x+=p.dx;p.y+=p.dy;if(p.x<0)p.x=c.width;if(p.x>c.width)p.x=0;if(p.y<0)p.y=c.height;if(p.y>c.height)p.y=0;
-p.phase+=p.speed;var breath=.5+.5*Math.sin(p.phase),a=p.aBase*.05+p.aBase*.95*breath,rN=p.r*(.5+.5*breath);
-ctx.save();ctx.shadowBlur=rN*8;ctx.shadowColor='rgba(212,175,55,'+a*.8+')';
-ctx.beginPath();ctx.arc(p.x,p.y,rN,0,Math.PI*2);ctx.fillStyle='rgba(212,175,55,'+a+')';ctx.fill();ctx.restore();
-for(var j=i+1;j<ps.length;j++){var q=ps[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
-if(d<120){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba(212,175,55,'+((.08*(1-d/120))*breath)+')';ctx.lineWidth=.5;ctx.stroke()}}
+for(var i=0;i<bokeh.length;i++){var b=bokeh[i];
+b.x+=b.dx;b.y+=b.dy;b.phase+=b.speed;
+if(b.y<-b.r*2){b.y=c.height+b.r;b.x=Math.random()*c.width}
+if(b.x<-b.r)b.x=c.width+b.r;if(b.x>c.width+b.r)b.x=-b.r;
+var pulse=.5+.5*Math.sin(b.phase),a=b.aBase*(.3+.7*pulse);
+var grad=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
+grad.addColorStop(0,'hsla('+b.hue+',65%,55%,'+a+')');
+grad.addColorStop(.4,'hsla('+b.hue+',55%,45%,'+a*.5+')');
+grad.addColorStop(1,'hsla('+b.hue+',50%,40%,0)');
+ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fillStyle=grad;ctx.fill();
 }requestAnimationFrame(draw)})()
 })();
 
-/* ─── 2. SCROLL PROGRESS ─── */
-addEventListener('scroll',function(){var h=document.documentElement;document.getElementById('scrollProgress').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
-
-/* ─── 3. HERO PARALLAX ─── */
-(function(){var hero=document.querySelector('.hero-section');if(!hero||isMobile)return;addEventListener('scroll',function(){var sy=pageYOffset;if(sy<innerHeight*1.2){hero.style.transform='translateY('+sy*.22+'px)';hero.style.opacity=1-sy/(innerHeight*1.1)}})})();
-
-/* ─── 4. STAGGER SCROLL REVEALS ─── */
+/* ─── 3. SCROLL PROGRESS (film strip sync) ─── */
 (function(){
-var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var els=e.target.parentElement?Array.from(e.target.parentElement.querySelectorAll('.reveal')):[];var idx=els.indexOf(e.target);setTimeout(function(){e.target.classList.add('visible')},Math.max(0,idx)*90);ro.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+var strip=document.getElementById('filmStrip'),bar=document.getElementById('scrollProgress');
+addEventListener('scroll',function(){
+var h=document.documentElement,pct=h.scrollTop/(h.scrollHeight-h.clientHeight);
+if(bar)bar.style.width=pct*100+'%';
+if(strip)strip.style.transform='translateY('+(-pct*50)+'%)'
+})})();
+
+/* ─── 4. RUNNING TIMECODE ─── */
+(function(){
+var el=document.getElementById('timecode');if(!el)return;
+var start=Date.now();
+setInterval(function(){
+var ms=Date.now()-start,s=Math.floor(ms/1000),m=Math.floor(s/60),h=Math.floor(m/60);
+var fr=Math.floor((ms%1000)/41.67);
+el.textContent=String(h).padStart(2,'0')+':'+String(m%60).padStart(2,'0')+':'+String(s%60).padStart(2,'0')+':'+String(fr).padStart(2,'0')
+},42)
+})();
+
+/* ─── 5. EXPOSURE HUD (changes per section) ─── */
+(function(){
+var hud=document.getElementById('exposureHud');if(!hud)return;
+var settings={hero:'ISO 400 · ƒ/1.4 · 1/60',packages:'ISO 800 · ƒ/2.8 · 1/125',addons:'ISO 1600 · ƒ/4.0 · 1/250',social:'ISO 3200 · ƒ/1.8 · 1/30'};
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){
+if(e.isIntersecting){var sec=e.target.getAttribute('data-section');if(sec&&settings[sec])hud.textContent=settings[sec]}
+})},{threshold:.3});
+document.querySelectorAll('[data-section]').forEach(function(s){obs.observe(s)})
+})();
+
+/* ─── 6. LIGHT LEAK TRANSITIONS ─── */
+(function(){
+var leak=document.getElementById('lightLeak');if(!leak)return;
+var hues=['linear-gradient(125deg,rgba(212,175,55,.12),transparent 60%)','linear-gradient(225deg,rgba(244,213,141,.1),transparent 55%)','linear-gradient(45deg,rgba(100,120,220,.08),transparent 50%)','linear-gradient(315deg,rgba(212,175,55,.1),transparent 60%)'];
+var idx=0;
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){
+if(e.isIntersecting){leak.style.background=hues[idx%hues.length];leak.classList.add('active');idx++;
+setTimeout(function(){leak.classList.remove('active')},2500)}
+})},{threshold:.35});
+document.querySelectorAll('[data-section]').forEach(function(s){obs.observe(s)})
+})();
+
+/* ─── 7. SHUTTER CLICK FLASH ─── */
+(function(){
+addEventListener('click',function(e){
+if(e.target.closest('.modal-overlay'))return;
+var flash=document.createElement('div');flash.className='shutter-flash';document.body.appendChild(flash);
+setTimeout(function(){if(flash.parentNode)flash.parentNode.removeChild(flash)},500);
+var bracket=document.createElement('div');bracket.className='click-focus-ring';
+bracket.style.left=e.clientX+'px';bracket.style.top=e.clientY+'px';document.body.appendChild(bracket);
+setTimeout(function(){if(bracket.parentNode)bracket.parentNode.removeChild(bracket)},700)
+})})();
+
+/* ─── 8. CINEMATIC HERO PARALLAX + DEPTH BLUR ─── */
+(function(){
+var hero=document.querySelector('.hero-section');if(!hero)return;
+var logo=document.getElementById('siteLogo');
+var vf=document.getElementById('viewfinderGrid');
+if(vf)setTimeout(function(){vf.style.opacity='.18'},2000);
+if(isMobile)return;
+addEventListener('scroll',function(){
+var sy=pageYOffset,vh=innerHeight;
+if(sy<vh*1.5){
+var ratio=sy/vh;
+hero.style.transform='translateY('+sy*.18+'px)';
+hero.style.opacity=clamp(1-ratio*.85,0,1);
+if(logo)logo.style.filter='blur('+ratio*2+'px)';
+if(vf)vf.style.opacity=clamp(.18-ratio*.5,0,.18)
+}})
+})();
+
+/* ─── 9. STAGGER SCROLL REVEALS (cinematic fade-up) ─── */
+(function(){
+var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+var els=e.target.parentElement?Array.from(e.target.parentElement.querySelectorAll('.reveal')):[];var idx=els.indexOf(e.target);
+setTimeout(function(){e.target.classList.add('visible')},Math.max(0,idx)*110);ro.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el)});
-var co=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var cards=Array.from(document.querySelectorAll('.pkg-card'));var idx=cards.indexOf(e.target);setTimeout(function(){e.target.classList.add('visible')},idx*130);co.unobserve(e.target)}})},{threshold:.08});
+var co=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+var cards=Array.from(document.querySelectorAll('.pkg-card'));var idx=cards.indexOf(e.target);
+setTimeout(function(){e.target.classList.add('visible')},idx*160);co.unobserve(e.target)}})},{threshold:.08});
 document.querySelectorAll('.pkg-card').forEach(function(c){co.observe(c)})
 })();
 
-/* ─── 5. SECTION TITLE SHIMMER ─── */
+/* ─── 10. GOLDEN HOUR SHIMMER ON TITLES ─── */
 (function(){
 var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('shimmer-title');obs.unobserve(e.target)}})},{threshold:.3});
 document.querySelectorAll('.packages-header h2, .addons-title').forEach(function(el){obs.observe(el)})
 })();
 
-/* ─── 6. 3D CARD TILT + SPOTLIGHT ─── */
+/* ─── 11. 3D CARD TILT + CINEMA SPOTLIGHT ─── */
 (function(){if(!isFine)return;
 document.querySelectorAll('.pkg-card').forEach(function(card){
 var spot=document.createElement('div');spot.className='card-spot';card.appendChild(spot);
-card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect();var x=((e.clientX-r.left)/r.width)*100;var y=((e.clientY-r.top)/r.height)*100;card.style.setProperty('--mx',x+'%');card.style.setProperty('--my',y+'%');var rx=(y-50)/8;var ry=(x-50)/-8;card.style.transform='perspective(800px) rotateX('+rx+'deg) rotateY('+ry+'deg) translateY(-6px)';card.style.transition='none'});
-card.addEventListener('mouseleave',function(){card.style.transform='';card.style.transition='transform 0.6s var(--ease)'});
-card.addEventListener('mouseenter',function(){var ring=document.createElement('div');ring.className='card-ring';card.appendChild(ring);setTimeout(function(){if(ring.parentNode)ring.parentNode.removeChild(ring)},650)})
+card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect();
+var x=((e.clientX-r.left)/r.width)*100,y=((e.clientY-r.top)/r.height)*100;
+card.style.setProperty('--mx',x+'%');card.style.setProperty('--my',y+'%');
+var rx=(y-50)/8,ry=(x-50)/-8;
+card.style.transform='perspective(800px) rotateX('+rx+'deg) rotateY('+ry+'deg) translateY(-6px)';card.style.transition='none'});
+card.addEventListener('mouseleave',function(){card.style.transform='';card.style.transition='transform 0.6s var(--ease)'})
 })})();
 
-/* ─── 7. MAGNETIC CURSOR ─── */
+/* ─── 12. FOCUS BRACKETS ON CARDS ─── */
+(function(){
+document.querySelectorAll('.pkg-card').forEach(function(card){
+['tl','tr','bl','br'].forEach(function(pos){
+var b=document.createElement('div');b.className='focus-bracket-'+pos;card.appendChild(b)})
+})})();
+
+/* ─── 13. VIEWFINDER CURSOR (crosshair) ─── */
 (function(){if(!isFine)return;
-var cursor=document.getElementById('cCursor'),dot=document.getElementById('cDot'),ring=document.getElementById('cRing');
-if(!cursor)return;
+var cursor=document.getElementById('cCursor'),dot=document.getElementById('cDot'),ring=document.getElementById('cRing');if(!cursor)return;
 var mx=0,my=0,dx=0,dy=0,rx=0,ry=0;
 addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY});
-(function loop(){dx=lerp(dx,mx,.18);dy=lerp(dy,my,.18);rx=lerp(rx,mx,.09);ry=lerp(ry,my,.09);
+(function loop(){dx=lerp(dx,mx,.18);dy=lerp(dy,my,.18);rx=lerp(rx,mx,.08);ry=lerp(ry,my,.08);
 dot.style.left=dx+'px';dot.style.top=dy+'px';ring.style.left=rx+'px';ring.style.top=ry+'px';
 requestAnimationFrame(loop)})();
 document.querySelectorAll('a,button,.btn-book,.btn-addon,.btn-details,.social-link').forEach(function(el){
@@ -772,23 +965,16 @@ addEventListener('mousedown',function(){cursor.classList.add('click')});
 addEventListener('mouseup',function(){cursor.classList.remove('click')})
 })();
 
-/* ─── 8. MAGNETIC BUTTONS ─── */
+/* ─── 14. MAGNETIC BUTTONS ─── */
 (function(){if(!isFine)return;
 document.querySelectorAll('.btn-book,.btn-addon,.social-link').forEach(function(btn){
-btn.addEventListener('mousemove',function(e){var r=btn.getBoundingClientRect();var cx=r.left+r.width/2,cy=r.top+r.height/2;var dx=e.clientX-cx,dy=e.clientY-cy;var d=Math.sqrt(dx*dx+dy*dy);if(d<90){var s=.42*(1-d/90);btn.style.transform='translate('+dx*s+'px,'+dy*s+'px)'}});
+btn.addEventListener('mousemove',function(e){var r=btn.getBoundingClientRect();var cx=r.left+r.width/2,cy=r.top+r.height/2;
+var dx=e.clientX-cx,dy=e.clientY-cy;var d=Math.sqrt(dx*dx+dy*dy);
+if(d<90){var s=.42*(1-d/90);btn.style.transform='translate('+dx*s+'px,'+dy*s+'px)'}});
 btn.addEventListener('mouseleave',function(){btn.style.transform=''})})
 })();
 
-/* ─── 9. CLICK PARTICLE BURST ─── */
-(function(){
-addEventListener('click',function(e){
-for(var i=0;i<12;i++){var p=document.createElement('div');p.className='click-particle';p.style.left=e.clientX+'px';p.style.top=e.clientY+'px';document.body.appendChild(p);
-var angle=Math.random()*Math.PI*2,v=40+Math.random()*60,gx=Math.cos(angle)*v,gy=Math.sin(angle)*v;
-var start=performance.now();
-(function(el,gx,gy,s){requestAnimationFrame(function anim(t){var pr=Math.min((t-s)/500,1);var ease=1-Math.pow(1-pr,3);el.style.transform='translate('+gx*ease+'px,'+gy*ease+'px)';el.style.opacity=1-pr;if(pr<1)requestAnimationFrame(anim);else if(el.parentNode)el.parentNode.removeChild(el)})})(p,gx,gy,start)}
-})})();
-
-/* ─── 10. NAV DOTS ─── */
+/* ─── 15. NAV DOTS ─── */
 (function(){
 var dots=document.querySelectorAll('.nav-dot'),secs=['hero','packages','addons','footer'];
 dots.forEach(function(d,i){d.addEventListener('click',function(){var el=document.getElementById(secs[i]);if(el)el.scrollIntoView({behavior:'smooth'})})});
@@ -797,38 +983,32 @@ secs.forEach(function(id,i){var el=document.getElementById(id);if(el&&el.offsetT
 dots.forEach(function(d,i){d.classList.toggle('active',i===a)})})
 })();
 
-/* ─── 11. HERO TEXT SCRAMBLE ─── */
+/* ─── 16. CINEMATIC HERO TEXT REVEAL ─── */
 (function(){
 var el=document.querySelector('.hero-title');if(!el)return;
 var lines=el.querySelectorAll('.line span');
-var chars='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&';
-lines.forEach(function(span){
-var orig=span.textContent,len=orig.length,settled=0;
-var iv=setInterval(function(){var out='';for(var i=0;i<len;i++){if(i<settled)out+=orig[i];else out+=chars[Math.floor(Math.random()*chars.length)]}span.textContent=out;settled++;if(settled>len){clearInterval(iv);span.textContent=orig}},40)})
+lines.forEach(function(span,i){
+span.style.opacity='0';span.style.transform='translateY(30px)';span.style.transition='opacity .8s ease '+(.3+i*.2)+'s, transform .8s cubic-bezier(.16,1,.3,1) '+(.3+i*.2)+'s';
+setTimeout(function(){span.style.opacity='1';span.style.transform='translateY(0)'},100)
+})
 })();
 
-/* ─── 12. HERO PERIODIC GLITCH ─── */
-(function(){
-var hero=document.querySelector('.hero-section');if(!hero||reducedMotion)return;
-setInterval(function(){hero.style.animation='heroGlitch .35s ease';setTimeout(function(){hero.style.animation='none'},400)},6000+Math.random()*4000)
-})();
-
-/* ─── 13. CAPACITY DOT PULSE ─── */
+/* ─── 17. CAPACITY DOT PULSE ─── */
 (function(){
 var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.querySelectorAll('.cap-dot.filled').forEach(function(d,i){d.style.animationDelay=(.6+i*.25)+'s'});obs.unobserve(e.target)}})},{threshold:.4});
 var cap=document.querySelector('.capacity-section');if(cap)obs.observe(cap)
 })();
 
-/* ─── 14. SCROLL VELOCITY SKEW ─── */
+/* ─── 18. CINEMATIC SCROLL VELOCITY ─── */
 (function(){if(isMobile)return;
 var lastY=pageYOffset,vel=0;
 var cards=document.querySelectorAll('.pkg-card');
-(function tick(){var sy=pageYOffset;vel=lerp(vel,(sy-lastY)*.04,.08);lastY=sy;
-cards.forEach(function(c,i){c.style.transform+='';var sk=vel*(i%2===0?1:-1);c.querySelector('.pkg-inner').style.transform='translateY('+sk+'px)'});
+(function tick(){var sy=pageYOffset;vel=lerp(vel,(sy-lastY)*.03,.06);lastY=sy;
+cards.forEach(function(c,i){var inner=c.querySelector('.pkg-inner');if(inner){var sk=vel*(i%2===0?1:-1);inner.style.transform='translateY('+sk+'px)'}});
 requestAnimationFrame(tick)})()
 })();
 
-/* ─── 15. AMBIENT SECTION TINT ─── */
+/* ─── 19. AMBIENT SECTION TINT ─── */
 (function(){
 var tint=document.getElementById('ambientTint');if(!tint)return;
 var colors={hero:'radial-gradient(ellipse at 50% 30%,rgba(212,175,55,.04),transparent 70%)',packages:'radial-gradient(ellipse at 50% 50%,rgba(212,175,55,.03),transparent 65%)',addons:'radial-gradient(ellipse at 50% 60%,rgba(100,120,220,.03),transparent 65%)',social:'radial-gradient(ellipse at 50% 80%,rgba(212,175,55,.04),transparent 60%)'};
@@ -836,62 +1016,77 @@ var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isInte
 document.querySelectorAll('[data-section]').forEach(function(s){obs.observe(s)})
 })();
 
-/* ─── 16. LOGO PARALLAX (gyro + mouse) ─── */
+/* ─── 20. LOGO PARALLAX (gyro + mouse) ─── */
 (function(){
 var logo=document.getElementById('siteLogo');if(!logo)return;
 var tx=0,ty=0,supportsGyro=false;
 function apply(){logo.style.transform='translateX('+(tx*14).toFixed(1)+'px) translateY('+(ty*14).toFixed(1)+'px)'}
-if(window.DeviceOrientationEvent){addEventListener('deviceorientation',function(e){if(e.gamma!==null){supportsGyro=true;tx=Math.max(-1,Math.min(1,e.gamma/28));ty=Math.max(-1,Math.min(1,((e.beta||45)-45)/28));apply()}},false)}
+if(window.DeviceOrientationEvent){addEventListener('deviceorientation',function(e){if(e.gamma!==null){supportsGyro=true;tx=clamp(e.gamma/28,-1,1);ty=clamp(((e.beta||45)-45)/28,-1,1);apply()}},false)}
 document.addEventListener('mousemove',function(e){if(supportsGyro)return;tx=((e.clientX/innerWidth)-.5)*2;ty=((e.clientY/innerHeight)-.5)*2;apply()})
 })();
 
-/* ─── 17. TRUST MARQUEE SPEED BOOST ON SCROLL ─── */
+/* ─── 21. TRUST MARQUEE SPEED BOOST ─── */
 (function(){
 var track=document.querySelector('.trust-track-wrap');if(!track)return;
-addEventListener('scroll',function(){var sy=pageYOffset,h=innerHeight;var speed=Math.max(15,35-sy/h*20);track.style.animationDuration=speed+'s'})
+addEventListener('scroll',function(){var speed=Math.max(15,35-pageYOffset/innerHeight*20);track.style.animationDuration=speed+'s'})
 })();
 
-/* ─── 18. SOCIAL LINK HOVER RIPPLE ─── */
+/* ─── 22. SOCIAL LINK HOVER RIPPLE ─── */
 (function(){
 document.querySelectorAll('.social-link').forEach(function(link){
 link.addEventListener('mouseenter',function(){var ring=document.createElement('div');ring.className='card-ring';ring.style.inset='-4px';ring.style.borderRadius='50%';link.appendChild(ring);setTimeout(function(){if(ring.parentNode)ring.parentNode.removeChild(ring)},650)})
 })})();
 
-/* ─── 19. PRICE COUNTER ROLL-UP ─── */
+/* ─── 23. PRICE COUNTER ROLL-UP ─── */
 (function(){
 var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;obs.unobserve(e.target);
 var el=e.target,raw=el.textContent.trim(),match=raw.match(/(\d[\d,]*)/);if(!match)return;
 var target=parseInt(match[1].replace(/,/g,''),10),prefix=raw.substring(0,raw.indexOf(match[1])),suffix=raw.substring(raw.indexOf(match[1])+match[1].length);
 var start=performance.now(),dur=1400;
 requestAnimationFrame(function anim(t){var p=Math.min((t-start)/dur,1);var ease=1-Math.pow(1-p,3);var v=Math.round(target*ease);
-var firstChild=el.childNodes[0];if(firstChild)firstChild.nodeValue=prefix+v.toLocaleString()+suffix;
-if(p<1)requestAnimationFrame(anim)})
+var fc=el.childNodes[0];if(fc)fc.nodeValue=prefix+v.toLocaleString()+suffix;if(p<1)requestAnimationFrame(anim)})
 })},{threshold:.5});
 document.querySelectorAll('.pkg-price').forEach(function(el){obs.observe(el)})
 })();
 
-/* ─── 20. ADDON CARD HOVER GLOW ─── */
+/* ─── 24. ADDON CARD HOVER GLOW ─── */
 (function(){if(!isFine)return;
 document.querySelectorAll('.addon-card').forEach(function(card){
-card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect();var x=e.clientX-r.left,y=e.clientY-r.top;card.style.background='radial-gradient(400px circle at '+x+'px '+y+'px,rgba(212,175,55,.04),rgba(8,8,14,.7) 60%)'});
+card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect();var x=e.clientX-r.left,y=e.clientY-r.top;
+card.style.background='radial-gradient(400px circle at '+x+'px '+y+'px,rgba(212,175,55,.04),rgba(8,8,14,.7) 60%)'});
 card.addEventListener('mouseleave',function(){card.style.background=''})
 })})();
 
-/* ─── 21. HERO SCROLL CUE FADE ─── */
+/* ─── 25. HERO SCROLL CUE FADE ─── */
 (function(){var cue=document.querySelector('.hero-scroll-cue');if(!cue)return;addEventListener('scroll',function(){cue.style.opacity=Math.max(0,1-pageYOffset/300)})})();
 
-/* ─── 22. MOBILE GYROSCOPE PARALLAX ─── */
+/* ─── 26. CINEMATIC APERTURE IRIS (hero entry) ─── */
+(function(){
+var iris=document.querySelector('.aperture-iris');if(!iris)return;
+setTimeout(function(){iris.style.clipPath='circle(100% at 50% 50%)';iris.style.opacity='0'},1800);
+setTimeout(function(){iris.style.display='none'},3200)
+})();
+
+/* ─── 27. LENS FLARE ON HERO ─── */
+(function(){
+var flare=document.getElementById('lensFlare');if(!flare||isMobile)return;
+flare.style.cssText='position:absolute;top:18%;left:55%;width:180px;height:180px;background:radial-gradient(circle,rgba(244,213,141,.15),rgba(212,175,55,.05) 40%,transparent 70%);border-radius:50%;pointer-events:none;z-index:3;filter:blur(30px);opacity:0;transition:opacity 1.5s ease';
+setTimeout(function(){flare.style.opacity='1'},2000);
+addEventListener('scroll',function(){var r=pageYOffset/innerHeight;flare.style.opacity=clamp(1-r*3,0,1);flare.style.transform='translate('+(-r*60)+'px,'+(-r*40)+'px)'})
+})();
+
+/* ─── 28. MOBILE GYROSCOPE PARALLAX ─── */
 (function(){
 if(!isMobile)return;
 function initGyro(){addEventListener('deviceorientation',function(e){
-var b=Math.max(-30,Math.min(30,e.beta-45))/30,g=Math.max(-30,Math.min(30,e.gamma))/30;
+var b=clamp((e.beta-45)/30,-1,1),g=clamp(e.gamma/30,-1,1);
 document.querySelectorAll('.pkg-card').forEach(function(c){c.style.transform='perspective(600px) rotateX('+b*2+'deg) rotateY('+g*2+'deg)'})},false)}
 if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){
 document.addEventListener('touchstart',function once(){DeviceOrientationEvent.requestPermission().then(function(r){if(r==='granted')initGyro()});document.removeEventListener('touchstart',once)},{once:true})}
 else if(window.DeviceOrientationEvent){initGyro()}
 })();
 
-})();/* END IC ENGINE */
+})();/* END CINEMA ENGINE */
 
 /* ═══════ PRESERVED: Toggle Details ═══════ */
 function toggleDetails(btn) {
