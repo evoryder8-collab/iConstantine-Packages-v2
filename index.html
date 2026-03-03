@@ -278,27 +278,25 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 /* ═══════ MODAL ═══════ */
 .modal-overlay { display:none; position:fixed; inset:0; z-index:10001; background:rgba(0,0,0,0.88); backdrop-filter:blur(16px); justify-content:center; align-items:flex-start; padding:40px 16px; overflow-y:auto; }
 .modal-overlay.open { display:flex; }
-.modal-card { background:linear-gradient(180deg, #0A0A12, #050506); border:1px solid rgba(212,175,55,0.08); border-radius:22px; max-width:600px; width:100%; position:relative; overflow:hidden; box-shadow:0 40px 100px rgba(0,0,0,0.7); }
+.modal-card { background:linear-gradient(180deg, #0A0A12, #050506); border:1px solid rgba(212,175,55,0.08); border-radius:22px; max-width:600px; width:100%; position:relative; overflow:hidden; box-shadow:0 40px 100px rgba(0,0,0,0.7); display:flex; flex-direction:column; max-height:min(88vh, 820px); }
 .modal-close-x { position:absolute; top:14px; right:14px; background:none; border:none; color:var(--text-muted); font-size:16px; cursor:pointer; padding:8px; z-index:2; transition:color 0.3s ease; }
 .modal-close-x:hover { color:var(--cream); }
-.modal-header { padding:28px 28px 0; text-align:center; }
+.modal-header { padding:28px 28px 0; text-align:center; flex-shrink:0; }
 .modal-tier-row { display:flex; justify-content:center; align-items:baseline; gap:12px; margin-bottom:6px; }
 .modal-tier-name { font-size:9px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:var(--gold-dim); }
 .modal-tier-price { font-family:var(--font-display); font-size:28px; font-weight:600; color:var(--cream); }
 .modal-tagline { font-size:13px; color:var(--text-muted); font-weight:300; padding-bottom:20px; border-bottom:1px solid var(--border-faint); }
-.modal-notice { padding:14px 28px; text-align:center; }
+.modal-notice { padding:14px 28px; text-align:center; flex-shrink:0; }
 .modal-notice p { font-size:11px; color:var(--text-muted); font-weight:300; }
-.modal-body { padding:0 28px 20px; max-height:280px; overflow-y:auto; border-bottom:1px solid rgba(212,175,55,0.10); margin-bottom:0; position:relative; }
-.modal-body::after { content:''; position:sticky; bottom:0; left:0; right:0; display:block; height:28px; background:linear-gradient(to top, #0A0A12, transparent); pointer-events:none; }
-.modal-body::-webkit-scrollbar { width:3px; }
-.modal-body::-webkit-scrollbar-thumb { background:var(--gold-dim); border-radius:3px; }
-.modal-conditions { padding:16px 28px 20px; border-top:1px solid rgba(255,255,255,0.04); background:rgba(6,6,10,0.6); }
+/* Scrollable wrapper holds body + conditions together */
+.modal-scroll-wrap { flex:1 1 auto; overflow-y:auto; min-height:0; position:relative; }
+.modal-scroll-wrap::-webkit-scrollbar { width:3px; }
+.modal-scroll-wrap::-webkit-scrollbar-thumb { background:var(--gold-dim); border-radius:3px; }
+.modal-body { padding:0 28px 20px; position:relative; }
+.modal-conditions { padding:16px 28px 20px; border-top:1px solid rgba(212,175,55,0.12); background:rgba(6,6,10,0.6); }
+.modal-footer { flex-shrink:0; }
 @media(max-width:768px) {
-  .modal-card { display:flex; flex-direction:column; max-height:92vh; }
-  .modal-body { flex:1 1 auto; max-height:none; overflow-y:auto; min-height:0; }
-  .modal-header, .modal-notice { flex-shrink:0; }
-  .modal-conditions { flex-shrink:0; border-top:1px solid rgba(212,175,55,0.10); }
-  .modal-footer { flex-shrink:0; }
+  .modal-card { max-height:92vh; }
 }
 .cond-heading { font-size:9px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--gold-dim); margin-bottom:14px; }
 .cond-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
@@ -713,7 +711,7 @@ function openPkgModal(tier, payUrl) {
   } else { _mUpgradeUrl = ''; upgradeRow.style.display = 'none'; }
   var modal = document.getElementById('pkgModal');
   modal.classList.add('open'); document.body.style.overflow = 'hidden';
-  modal.querySelector('.modal-card').scrollTop = 0;
+  var sw = modal.querySelector('.modal-scroll-wrap'); if(sw) sw.scrollTop = 0;
 }
 function closeModal() { document.getElementById('pkgModal').classList.remove('open'); document.body.style.overflow = ''; }
 function modalAgree() { window.open(_mPayUrl, '_blank'); closeModal(); }
@@ -748,6 +746,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModa
       <p class="modal-tagline" id="mTagline"></p>
     </div>
     <div class="modal-notice"><p>Review your full package scope &nbsp;·&nbsp; clicking &ldquo;I Agree&rdquo; confirms you understand what is included</p></div>
+    <div class="modal-scroll-wrap">
     <div class="modal-body" id="mBody"></div>
     <div class="modal-conditions">
       <p class="cond-heading">Operating Conditions</p>
@@ -758,6 +757,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModa
         <div class="cond-item"><span class="cond-title">Live Event Conditions</span><p>Coverage may be affected by venue restrictions, lighting, access limitations, or organizer constraints beyond my control. I deliver the best possible result within the conditions of the environment.</p></div>
       </div>
     </div>
+    </div><!-- /modal-scroll-wrap -->
     <div class="modal-footer">
       <button class="modal-btn-agree" id="mBtnAgree" onclick="modalAgree()">&#10003;&nbsp;&nbsp;I Agree &mdash; Proceed to Payment</button>
       <div id="mUpgradeRow" class="modal-upgrade-row" style="display:none;"><button class="modal-btn-upgrade" id="mBtnUpgrade" onclick="modalAgreeWithUpgrade()"></button></div>
