@@ -178,10 +178,8 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="authority"] .pkg-price { background:linear-gradient(135deg, var(--gold-light), var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
 .pkg-card[data-tier="showcase"] .pkg-price { color:var(--cream); }
 .pkg-card[data-tier="signature"] .pkg-price { background:linear-gradient(135deg, #C8D4FF, #8AA0E0); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-@keyframes priceGlitch{0%,100%{filter:none;transform:none}20%{filter:hue-rotate(80deg) brightness(1.6);transform:translateX(-3px) skewX(-4deg)}40%{filter:hue-rotate(-80deg) brightness(0.6) contrast(1.4);transform:translateX(4px) skewX(3deg)}60%{filter:brightness(2) saturate(0);transform:translateX(-2px)}80%{filter:hue-rotate(180deg) brightness(1.3);transform:translateX(1px) skewX(-1deg)}}
-@keyframes priceSettle{0%{filter:brightness(3) saturate(0)}30%{filter:brightness(1.8)}100%{filter:none}}
-.price-glitching{animation:priceGlitch .07s steps(1) infinite}
-.price-settled{animation:priceSettle .5s ease-out forwards}
+@keyframes priceSettle{0%{filter:brightness(2.2) drop-shadow(0 0 18px rgba(212,175,55,0.85))}60%{filter:brightness(1.3) drop-shadow(0 0 8px rgba(212,175,55,0.4))}100%{filter:none}}
+.price-settled{animation:priceSettle .65s ease-out forwards}
 .pkg-currency { font-size:0.35em; font-weight:400; letter-spacing:2px; vertical-align:super; opacity:0.6; }
 .pkg-card[data-tier="authority"] .pkg-currency { -webkit-text-fill-color:var(--gold); color:var(--gold); }
 .pkg-card[data-tier="signature"] .pkg-currency { -webkit-text-fill-color:#8AA0E0; color:#8AA0E0; }
@@ -1049,52 +1047,32 @@ document.querySelectorAll('.social-link').forEach(function(link){
 link.addEventListener('mouseenter',function(){var ring=document.createElement('div');ring.className='card-ring';ring.style.inset='-4px';ring.style.borderRadius='50%';link.appendChild(ring);setTimeout(function(){if(ring.parentNode)ring.parentNode.removeChild(ring)},650)})
 })})();
 
-/* ─── 23. PRICE GLITCH DECODE ─── */
+/* ─── 23. PRICE COUNT-UP REVEAL ─── */
 (function(){
-var H='0123456789ABCDEF';
-var B='█▓▒░';
-function glitch(el){
-  var fc=el.childNodes[0];if(!fc)return;
-  var orig=fc.nodeValue.trim();
-  var digits=orig.replace(/[^\d,]/g,'');
-  if(!digits)return;
-  var start=orig.search(/[\d,]/);
-  var pre=orig.substring(0,start);
-  var post=orig.substring(start+digits.length);
-  var len=digits.length;
-  var cur=digits.split('').map(function(){return B[Math.floor(Math.random()*4)]});
-  var locks=new Array(len).fill(false);
-  var order=digits.split('').map(function(_,i){return i}).sort(function(){return Math.random()-.5});
-  var idx=0,tick=0;
-  el.classList.add('price-glitching');
-  fc.nodeValue=pre+cur.join('')+post;
-  var iv=setInterval(function(){
-    tick++;
-    for(var i=0;i<len;i++){
-      if(!locks[i]){cur[i]=tick<7?B[Math.floor(Math.random()*4)]:H[Math.floor(Math.random()*16)]}
+  function fmt(n){return n>=1000?Math.floor(n/1000)+','+(n%1000<10?'00'+n%1000:n%1000<100?'0'+n%1000:n%1000):String(n)}
+  function ease(t){return 1-Math.pow(1-t,3)}
+  function countUp(el){
+    var fc=el.childNodes[0];if(!fc)return;
+    var orig=fc.nodeValue;
+    var m=orig.match(/[\d,]+/);if(!m)return;
+    var target=parseInt(m[0].replace(/,/g,''),10);if(!target||isNaN(target))return;
+    var pre=orig.substring(0,m.index);
+    var post=orig.substring(m.index+m[0].length);
+    var dur=680,t0=null;
+    function tick(ts){
+      if(!t0)t0=ts;
+      var p=Math.min((ts-t0)/dur,1);
+      fc.nodeValue=pre+fmt(Math.round(ease(p)*target))+post;
+      if(p<1){requestAnimationFrame(tick)}
+      else{fc.nodeValue=pre+m[0]+post;el.classList.add('price-settled');setTimeout(function(){el.classList.remove('price-settled')},700)}
     }
-    if(tick>=5&&idx<order.length&&Math.random()<0.28+(idx/len)*0.45){
-      var li=order[idx];locks[li]=true;cur[li]=digits[li];idx++;
-      if(Math.random()<0.25&&idx>1){
-        var ri=order[idx-2];
-        setTimeout(function(i,c){cur[i]=H[Math.floor(Math.random()*16)];setTimeout(function(){cur[i]=c},55)}.bind(null,ri,digits[ri]),45)
-      }
-    }
-    fc.nodeValue=pre+cur.join('')+post;
-    if(idx>=len&&locks.every(Boolean)){
-      clearInterval(iv);
-      fc.nodeValue=pre+digits+post;
-      el.classList.remove('price-glitching');
-      el.classList.add('price-settled');
-      setTimeout(function(){el.classList.remove('price-settled')},550)
-    }
-  },30)
-}
-var obs=new IntersectionObserver(function(es){es.forEach(function(e){
-  if(!e.isIntersecting)return;obs.unobserve(e.target);
-  setTimeout(function(){glitch(e.target)},80)
-})},{threshold:.5});
-document.querySelectorAll('.pkg-price').forEach(function(el){obs.observe(el)})
+    requestAnimationFrame(tick)
+  }
+  var obs=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return;obs.unobserve(e.target);
+    setTimeout(function(){countUp(e.target)},80)
+  })},{threshold:.5});
+  document.querySelectorAll('.pkg-price').forEach(function(el){obs.observe(el)})
 })();
 
 /* ─── 24. ADDON CARD HOVER GLOW ─── */
