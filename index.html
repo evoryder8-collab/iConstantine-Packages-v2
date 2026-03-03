@@ -389,17 +389,6 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 @media(max-width:768px){.film-strip{display:none}}
 
 /* ── VIEWFINDER GRID (hero) ── */
-.viewfinder-grid{position:absolute;inset:0;pointer-events:none;z-index:4;opacity:0;transition:opacity 1.5s ease 2s}
-.viewfinder-grid.active{opacity:.06}
-.viewfinder-grid::before,.viewfinder-grid::after{content:'';position:absolute;background:var(--gold)}
-.viewfinder-grid::before{width:1px;height:100%;left:33.33%}
-.viewfinder-grid::after{width:100%;height:1px;top:33.33%}
-.vg-line-v2{position:absolute;width:1px;height:100%;left:66.66%;background:var(--gold)}
-.vg-line-h2{position:absolute;width:100%;height:1px;top:66.66%;background:var(--gold)}
-.vf-h{position:absolute;width:100%;height:1px;background:var(--gold);opacity:.4}
-.vf-h1{top:33.33%}.vf-h2{top:66.66%}
-.vf-v{position:absolute;height:100%;width:1px;background:var(--gold);opacity:.4}
-.vf-v1{left:33.33%}.vf-v2{left:66.66%}
 /* ── CLICK FOCUS RING ── */
 .click-focus-ring{position:fixed;width:50px;height:50px;border:1.5px solid rgba(212,175,55,.6);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%) scale(.3);animation:clickFocusExpand .65s cubic-bezier(.16,1,.3,1) forwards}
 @keyframes clickFocusExpand{0%{transform:translate(-50%,-50%) scale(.3);opacity:1}100%{transform:translate(-50%,-50%) scale(1.8);opacity:0}}
@@ -497,6 +486,67 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .sun-rays{position:fixed;top:-20%;left:50%;width:200vw;height:200vh;transform:translateX(-50%);pointer-events:none;z-index:9993;opacity:0;transition:opacity 3s ease;background:conic-gradient(from 0deg at 50% 0%,transparent 0deg,rgba(212,175,55,.02) 5deg,transparent 10deg,transparent 20deg,rgba(212,175,55,.015) 25deg,transparent 30deg,transparent 40deg,rgba(212,175,55,.02) 45deg,transparent 50deg,transparent 60deg,rgba(212,175,55,.01) 65deg,transparent 70deg,transparent 80deg,rgba(212,175,55,.02) 85deg,transparent 90deg,transparent 270deg,rgba(212,175,55,.02) 275deg,transparent 280deg,transparent 290deg,rgba(212,175,55,.015) 295deg,transparent 300deg,transparent 310deg,rgba(212,175,55,.02) 315deg,transparent 320deg,transparent 340deg,rgba(212,175,55,.015) 345deg,transparent 350deg,transparent 360deg)}
 .sun-rays.active{opacity:1}
 
+/* ═══════ $1.5M WELLNESS-CINEMA FUSION ═══════ */
+/* ── WARM AURORA / ENERGY FIELD ── */
+.wellness-aurora{position:fixed;inset:0;pointer-events:none;z-index:9992;opacity:0;transition:opacity 4s ease;mix-blend-mode:soft-light}
+.wellness-aurora.active{opacity:1}
+.wellness-aurora canvas{width:100%;height:100%}
+/* ── HEALING PULSE ON SCROLL (warm glow from center) ── */
+.heal-pulse{position:fixed;top:50%;left:50%;width:0;height:0;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.06) 0%,rgba(245,240,232,.03) 40%,transparent 70%);transform:translate(-50%,-50%);pointer-events:none;z-index:9991;opacity:0}
+/* ── WARM ENERGY LINES (flowing like meridians) ── */
+.energy-meridian{position:fixed;pointer-events:none;z-index:9990;opacity:0;transition:opacity 2s ease}
+.energy-meridian.active{opacity:1}
+.energy-meridian canvas{width:100%;height:100%;position:fixed;inset:0}
+/* ── CARD WARMTH GLOW (wellness touch on hover) ── */
+.pkg-card::after{content:'';position:absolute;inset:-2px;border-radius:calc(var(--radius, 18px) + 2px);background:conic-gradient(from var(--card-glow-angle, 0deg),transparent 0%,rgba(212,175,55,.08) 10%,rgba(244,213,141,.12) 20%,rgba(245,240,232,.06) 30%,transparent 40%);opacity:0;transition:opacity .8s ease;z-index:-1;filter:blur(8px)}
+.pkg-card:hover::after{opacity:1}
+/* ── MOBILE SCROLL MOMENTUM GLOW ── */
+@media(max-width:768px){
+.scroll-glow{position:fixed;bottom:0;left:0;right:0;height:30vh;pointer-events:none;z-index:9989;background:radial-gradient(ellipse at 50% 100%,rgba(212,175,55,.04) 0%,transparent 70%);opacity:0;transition:opacity .4s ease}
+.scroll-glow.active{opacity:1}
+.pkg-card{transform:translateY(40px) scale(.95);opacity:0;transition:transform .7s cubic-bezier(.16,1,.3,1),opacity .7s ease,filter .6s ease!important}
+.pkg-card.mob-reveal{transform:translateY(0) scale(1);opacity:1!important}
+.pkg-card.mob-reveal:nth-child(odd){transform:translateY(0) scale(1) rotate(-.3deg)}
+.pkg-card.mob-reveal:nth-child(even){transform:translateY(0) scale(1) rotate(.3deg)}
+section{transform:translateZ(0)}
+.hero-section .hero-text{transition:transform .5s ease,opacity .5s ease}
+.addon-item{transform:translateX(-30px);opacity:0;transition:transform .6s cubic-bezier(.16,1,.3,1) calc(var(--i,0) * .1s),opacity .6s ease calc(var(--i,0) * .1s)!important}
+.addon-item.mob-reveal{transform:translateX(0);opacity:1}
+}
+/* ── ESSENTIAL OIL MIST / AMBIENT PARTICLE FLOAT ── */
+.mist-particle{position:fixed;border-radius:50%;pointer-events:none;z-index:9988;background:radial-gradient(circle,rgba(245,240,232,.15),rgba(212,175,55,.05));filter:blur(20px);opacity:0}
+/* ── TOUCH RIPPLE (mobile tap feedback, warm energy) ── */
+.touch-ripple{position:fixed;border-radius:50%;pointer-events:none;z-index:99997;background:radial-gradient(circle,rgba(212,175,55,.15),rgba(244,213,141,.05),transparent 70%);transform:translate(-50%,-50%) scale(0);opacity:1}
+@keyframes touchRippleExpand{0%{transform:translate(-50%,-50%) scale(0);opacity:.6}100%{transform:translate(-50%,-50%) scale(1);opacity:0}}
+/* ── SCROLL VELOCITY PARALLAX (depth on mobile) ── */
+@media(max-width:768px){
+.hero-section{transform-style:preserve-3d;perspective:1200px}
+.trust-scroll{transform:translateZ(0);will-change:transform}
+}
+/* ── WARM GRADIENT SHIFT PER SECTION ── */
+.section-warmth{position:fixed;inset:0;pointer-events:none;z-index:9987;opacity:0;transition:background 3s ease,opacity 3s ease;mix-blend-mode:overlay}
+.section-warmth.active{opacity:1}
+/* ── ZEN BREATHING INDICATOR (subtle hero pulse) ── */
+.zen-breathe{position:absolute;top:50%;left:50%;width:300px;height:300px;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(212,175,55,.03) 0%,transparent 70%);animation:zenBreathe 6s ease-in-out infinite}
+@keyframes zenBreathe{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.3}50%{transform:translate(-50%,-50%) scale(1.6);opacity:.08}}
+/* ── GOLDEN HOUR AMBIENT SHIFT ── */
+.golden-hour-overlay{position:fixed;inset:0;pointer-events:none;z-index:9986;background:linear-gradient(135deg,rgba(212,175,55,.01) 0%,transparent 30%,transparent 70%,rgba(139,117,54,.01) 100%);opacity:0;transition:opacity 4s ease;mix-blend-mode:screen}
+.golden-hour-overlay.active{opacity:1}
+/* ── CARD HOVER VITALITY RING ── */
+@keyframes vitalityPulse{0%{box-shadow:0 0 0 0 rgba(212,175,55,.1)}50%{box-shadow:0 0 0 15px rgba(212,175,55,0)}100%{box-shadow:0 0 0 0 rgba(212,175,55,0)}}
+.pkg-card:hover{animation:vitalityPulse 2s ease-in-out infinite}
+/* ── SMOOTH SCROLL SNAP (mobile) ── */
+@media(max-width:768px){
+html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+}
+/* ── MOBILE TILT-CARD DEPTH ── */
+@media(max-width:768px){
+.pkg-card{transform-style:preserve-3d;backface-visibility:hidden}
+}
+/* ── FLOATING WELLNESS SYMBOL (subtle) ── */
+.wellness-symbol{position:fixed;pointer-events:none;z-index:9985;opacity:0;font-size:clamp(12px,2vw,20px);color:rgba(212,175,55,.04);transition:opacity 3s ease;filter:blur(.5px)}
+.wellness-symbol.active{opacity:1}
+
 </style>
 </head>
 <body>
@@ -513,6 +563,13 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 <div class="color-grade" id="colorGrade"></div>
 <!-- GOLDEN SUN RAYS -->
 <div class="sun-rays" id="sunRays"></div>
+<!-- WELLNESS-CINEMA FUSION OVERLAYS -->
+<div class="wellness-aurora" id="wellnessAurora"><canvas id="auroraCanvas"></canvas></div>
+<div class="energy-meridian" id="energyMeridian"><canvas id="meridianCanvas"></canvas></div>
+<div class="heal-pulse" id="healPulse"></div>
+<div class="section-warmth" id="sectionWarmth"></div>
+<div class="golden-hour-overlay" id="goldenHourOverlay"></div>
+<div class="scroll-glow" id="scrollGlow"></div>
 
 <!-- CINEMATIC LETTERBOX -->
 <div class="letterbox-top"></div>
@@ -552,11 +609,8 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
     <span>Scroll</span>
     <div class="scroll-line"></div>
   </div>
-  <!-- VIEWFINDER GRID (rule-of-thirds) -->
-  <div class="viewfinder-grid" id="viewfinderGrid">
-    <div class="vf-h vf-h1"></div><div class="vf-h vf-h2"></div>
-    <div class="vf-v vf-v1"></div><div class="vf-v vf-v2"></div>
-  </div>
+  <!-- ZEN BREATHING PULSE -->
+  <div class="zen-breathe"></div>
   <!-- LENS FLARE -->
   <div class="lens-flare" id="lensFlare"></div>
 </section>
@@ -848,7 +902,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 
 <!-- ═══════ JAVASCRIPT ═══════ -->
 <script>
-/* ═══════ iCONSTANTINE $900K CINEMA ULTRA ENGINE ═══════ */
+/* ═══════ iCONSTANTINE $1.5M WELLNESS-CINEMA FUSION ENGINE ═══════ */
 ;(function CINEMA(){
 'use strict';
 var isFine=matchMedia('(pointer:fine)').matches,isMobile=/Mobi|Android/i.test(navigator.userAgent),reducedMotion=matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -962,8 +1016,6 @@ setTimeout(function(){if(bracket.parentNode)bracket.parentNode.removeChild(brack
 (function(){
 var hero=document.querySelector('.hero-section');if(!hero)return;
 var logo=document.getElementById('siteLogo');
-var vf=document.getElementById('viewfinderGrid');
-if(vf)setTimeout(function(){vf.style.opacity='.18'},2000);
 if(isMobile)return;
 addEventListener('scroll',function(){
 var sy=pageYOffset,vh=innerHeight;
@@ -1297,6 +1349,336 @@ if(p<1)requestAnimationFrame(step)
 })
 })
 })
+})();
+
+
+/* ═══════════════════════════════════════════════════════════════
+   $1.5M WELLNESS-CINEMA FUSION SYSTEMS (41-56)
+   Massage Championship Industry × Cinematic Excellence
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── 41. WELLNESS AURORA CANVAS (flowing energy field) ─── */
+(function(){
+var c=document.getElementById('auroraCanvas'),w=document.getElementById('wellnessAurora');
+if(!c||!w)return;var ctx=c.getContext('2d');
+function resize(){c.width=innerWidth;c.height=innerHeight}
+resize();addEventListener('resize',resize);
+var t=0,active=false;
+setTimeout(function(){w.classList.add('active');active=true},3500);
+var cols=[
+{r:212,g:175,b:55,a:.012},
+{r:244,g:213,b:141,a:.008},
+{r:245,g:240,b:232,a:.006},
+{r:139,g:117,b:54,a:.01}
+];
+function draw(){
+if(!active){requestAnimationFrame(draw);return}
+ctx.clearRect(0,0,c.width,c.height);
+for(var i=0;i<4;i++){
+var col=cols[i];
+var cx=c.width*(.2+.15*i)+Math.sin(t*.3+i*1.5)*c.width*.15;
+var cy=c.height*(.3+.1*i)+Math.cos(t*.2+i*2)*c.height*.2;
+var r=Math.min(c.width,c.height)*(.3+.1*Math.sin(t*.4+i));
+var g=ctx.createRadialGradient(cx,cy,0,cx,cy,r);
+g.addColorStop(0,'rgba('+col.r+','+col.g+','+col.b+','+col.a+')');
+g.addColorStop(1,'rgba('+col.r+','+col.g+','+col.b+',0)');
+ctx.fillStyle=g;ctx.fillRect(0,0,c.width,c.height)
+}
+t+=.008;requestAnimationFrame(draw)
+}
+draw()
+})();
+
+/* ─── 42. ENERGY MERIDIAN LINES (flowing like chi paths) ─── */
+(function(){
+var c=document.getElementById('meridianCanvas'),wrap=document.getElementById('energyMeridian');
+if(!c||!wrap)return;var ctx=c.getContext('2d');
+function resize(){c.width=innerWidth;c.height=innerHeight}
+resize();addEventListener('resize',resize);
+var paths=[],NUM=5,t=0;
+for(var i=0;i<NUM;i++){
+paths.push({
+phase:Math.random()*Math.PI*2,
+speed:.002+Math.random()*.003,
+amp:.15+Math.random()*.1,
+yBase:.15+i*.17,
+width:.3+Math.random()*.4
+})}
+setTimeout(function(){wrap.classList.add('active')},5000);
+function draw(){
+ctx.clearRect(0,0,c.width,c.height);
+paths.forEach(function(p){
+ctx.beginPath();
+ctx.strokeStyle='rgba(212,175,55,.015)';
+ctx.lineWidth=1.5;
+for(var x=0;x<=c.width;x+=3){
+var norm=x/c.width;
+var y=c.height*(p.yBase+p.amp*Math.sin(norm*Math.PI*2*p.width+t+p.phase));
+if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)
+}
+ctx.stroke()
+});
+t+=.015;requestAnimationFrame(draw)
+}
+draw()
+})();
+
+/* ─── 43. HEALING SCROLL PULSE (warm energy burst on scroll) ─── */
+(function(){
+var pulse=document.getElementById('healPulse');if(!pulse)return;
+var lastY=pageYOffset,cooldown=false;
+addEventListener('scroll',function(){
+var dy=Math.abs(pageYOffset-lastY);lastY=pageYOffset;
+if(dy>60&&!cooldown){
+cooldown=true;
+pulse.style.width='0';pulse.style.height='0';pulse.style.opacity='1';
+var size=Math.min(innerWidth,innerHeight)*2;
+pulse.style.transition='width 1.5s ease-out,height 1.5s ease-out,opacity 1.5s ease-out';
+pulse.style.width=size+'px';pulse.style.height=size+'px';pulse.style.opacity='0';
+setTimeout(function(){
+pulse.style.transition='none';pulse.style.width='0';pulse.style.height='0';
+cooldown=false
+},1600)
+}
+})
+})();
+
+/* ─── 44. SECTION WARMTH GRADIENT (wellness color grading) ─── */
+(function(){
+var el=document.getElementById('sectionWarmth');if(!el)return;
+var warmths=[
+'radial-gradient(ellipse at 50% 30%,rgba(212,175,55,.03) 0%,transparent 60%)',
+'radial-gradient(ellipse at 30% 50%,rgba(199,165,85,.025) 0%,transparent 50%)',
+'radial-gradient(ellipse at 70% 40%,rgba(180,150,70,.02) 0%,transparent 55%)',
+'radial-gradient(ellipse at 50% 60%,rgba(220,190,100,.025) 0%,transparent 50%)',
+'radial-gradient(ellipse at 40% 50%,rgba(245,240,232,.02) 0%,transparent 60%)'
+];
+var idx=0;
+var obs=new IntersectionObserver(function(entries){
+entries.forEach(function(e){
+if(e.isIntersecting){
+el.style.background=warmths[idx%warmths.length];
+el.classList.add('active');
+idx++
+}
+})
+},{threshold:.3});
+document.querySelectorAll('section,.packages,.addons-section,.footer-section').forEach(function(s){obs.observe(s)})
+})();
+
+/* ─── 45. GOLDEN HOUR OVERLAY ACTIVATION ─── */
+(function(){
+var el=document.getElementById('goldenHourOverlay');if(!el)return;
+setTimeout(function(){el.classList.add('active')},4000)
+})();
+
+/* ─── 46. ESSENTIAL OIL MIST (floating ambient particles) ─── */
+(function(){
+if(isMobile&&innerWidth<500)return;
+var NUM=isMobile?6:14;
+for(var i=0;i<NUM;i++){
+var p=document.createElement('div');
+p.className='mist-particle';
+var size=30+Math.random()*80;
+p.style.cssText='position:fixed;width:'+size+'px;height:'+size+'px;border-radius:50%;pointer-events:none;z-index:9988;background:radial-gradient(circle,rgba(245,240,232,'+(0.04+Math.random()*.06)+'),rgba(212,175,55,'+(0.01+Math.random()*.02)+'));filter:blur('+(15+Math.random()*25)+'px);opacity:0;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%';
+document.body.appendChild(p);
+(function(el,delay){
+setTimeout(function(){
+el.style.transition='opacity 4s ease';el.style.opacity='1';
+var baseX=parseFloat(el.style.left),baseY=parseFloat(el.style.top);
+var phase=Math.random()*Math.PI*2,speed=.0005+Math.random()*.001;
+var t=0;
+function drift(){
+t+=speed;
+el.style.left=(baseX+Math.sin(t+phase)*8)+'%';
+el.style.top=(baseY+Math.cos(t*0.7+phase)*5)+'%';
+requestAnimationFrame(drift)
+}drift()
+},delay)
+})(p,3000+i*400)
+}
+})();
+
+/* ─── 47. MOBILE TOUCH RIPPLE (warm energy on tap) ─── */
+(function(){
+if(!isMobile)return;
+document.addEventListener('touchstart',function(e){
+var touch=e.touches[0];if(!touch)return;
+var ripple=document.createElement('div');
+ripple.className='touch-ripple';
+ripple.style.left=touch.clientX+'px';ripple.style.top=touch.clientY+'px';
+ripple.style.width='200px';ripple.style.height='200px';
+ripple.style.animation='touchRippleExpand .8s ease-out forwards';
+document.body.appendChild(ripple);
+setTimeout(function(){ripple.remove()},900)
+},{passive:true})
+})();
+
+/* ─── 48. MOBILE CARD REVEAL ON SCROLL (staggered) ─── */
+(function(){
+if(!isMobile)return;
+var cards=document.querySelectorAll('.pkg-card,.addon-item');
+cards.forEach(function(c,i){c.style.setProperty('--i',i)});
+var obs=new IntersectionObserver(function(entries){
+entries.forEach(function(e){
+if(e.isIntersecting){
+e.target.classList.add('mob-reveal');obs.unobserve(e.target)
+}
+})
+},{threshold:.15,rootMargin:'0px 0px -50px 0px'});
+cards.forEach(function(c){obs.observe(c)})
+})();
+
+/* ─── 49. MOBILE SCROLL GLOW (bottom warm glow on scroll) ─── */
+(function(){
+var glow=document.getElementById('scrollGlow');if(!glow)return;
+if(!isMobile)return;
+var lastY=pageYOffset,timer;
+addEventListener('scroll',function(){
+var dy=Math.abs(pageYOffset-lastY);lastY=pageYOffset;
+if(dy>5){
+glow.classList.add('active');
+clearTimeout(timer);
+timer=setTimeout(function(){glow.classList.remove('active')},600)
+}
+},{passive:true})
+})();
+
+/* ─── 50. MOBILE HERO PARALLAX DEPTH ─── */
+(function(){
+if(!isMobile)return;
+var hero=document.querySelector('.hero-section');if(!hero)return;
+var text=hero.querySelector('.hero-text');
+var logo=document.getElementById('siteLogo');
+addEventListener('scroll',function(){
+var sy=pageYOffset,vh=innerHeight;
+if(sy<vh){
+var p=sy/vh;
+if(text){text.style.transform='translateY('+sy*.25+'px) scale('+(1-p*.08)+')';text.style.opacity=1-p*.7}
+if(logo)logo.style.transform='translateY('+(-sy*.1)+'px) scale('+(1+p*.05)+')'
+}
+},{passive:true})
+})();
+
+/* ─── 51. WELLNESS FLOATING SYMBOLS (subtle industry nods) ─── */
+(function(){
+if(isMobile&&innerWidth<500)return;
+var symbols=['✦','❋','◈','✧','❖'];
+var NUM=isMobile?3:7;
+for(var i=0;i<NUM;i++){
+var s=document.createElement('div');
+s.className='wellness-symbol';
+s.textContent=symbols[i%symbols.length];
+s.style.left=10+Math.random()*80+'%';
+s.style.top=15+Math.random()*70+'%';
+s.style.fontSize=(10+Math.random()*14)+'px';
+document.body.appendChild(s);
+(function(el,delay){
+setTimeout(function(){
+el.classList.add('active');
+var baseX=parseFloat(el.style.left),baseY=parseFloat(el.style.top);
+var phase=Math.random()*Math.PI*2,t=0;
+function float(){
+t+=.0008;
+el.style.left=(baseX+Math.sin(t+phase)*3)+'%';
+el.style.top=(baseY+Math.cos(t*.6+phase)*2)+'%';
+el.style.transform='rotate('+(Math.sin(t*.5)*15)+'deg)';
+requestAnimationFrame(float)
+}float()
+},delay)
+})(s,5000+i*800)
+}
+})();
+
+/* ─── 52. CARD GLOW ANGLE TRACKING (conic gradient follows mouse) ─── */
+(function(){
+if(isMobile)return;
+document.querySelectorAll('.pkg-card').forEach(function(card){
+card.addEventListener('mousemove',function(e){
+var rect=card.getBoundingClientRect();
+var cx=rect.left+rect.width/2,cy=rect.top+rect.height/2;
+var angle=Math.atan2(e.clientY-cy,e.clientX-cx)*(180/Math.PI)+180;
+card.style.setProperty('--card-glow-angle',angle+'deg')
+})
+})
+})();
+
+/* ─── 53. MOBILE GYROSCOPE CARD TILT (device motion) ─── */
+(function(){
+if(!isMobile)return;
+if(!window.DeviceOrientationEvent)return;
+var cards=document.querySelectorAll('.pkg-card');
+window.addEventListener('deviceorientation',function(e){
+if(e.gamma===null)return;
+var tiltX=Math.max(-15,Math.min(15,e.gamma))*.3;
+var tiltY=Math.max(-15,Math.min(15,e.beta-45))*.3;
+cards.forEach(function(card){
+var rect=card.getBoundingClientRect();
+if(rect.top>-100&&rect.bottom<innerHeight+100){
+card.style.transform='perspective(800px) rotateY('+tiltX+'deg) rotateX('+(-tiltY)+'deg)'
+}
+})
+},{passive:true})
+})();
+
+/* ─── 54. WARM SCROLL VELOCITY INDICATOR ─── */
+(function(){
+var lastY=pageYOffset,lastT=Date.now();
+var strip=document.querySelector('.film-strip');
+addEventListener('scroll',function(){
+var now=Date.now(),dt=now-lastT;if(dt<16)return;
+var vel=Math.abs(pageYOffset-lastY)/(dt/16);
+lastY=pageYOffset;lastT=now;
+var warmth=Math.min(vel/8,1);
+if(strip){
+strip.style.borderColor='rgba(212,175,55,'+(0.06+warmth*.08)+')';
+strip.style.filter='brightness('+(1+warmth*.15)+')'
+}
+document.body.style.setProperty('--scroll-warmth',warmth)
+},{passive:true})
+})();
+
+/* ─── 55. INTERSECTION CARD VITALITY (progressive reveal with scale bounce) ─── */
+(function(){
+var cards=document.querySelectorAll('.pkg-card');
+var obs=new IntersectionObserver(function(entries){
+entries.forEach(function(e){
+if(e.isIntersecting){
+var delay=Array.prototype.indexOf.call(cards,e.target)*.12;
+e.target.style.transition='transform .8s cubic-bezier(.34,1.56,.64,1) '+delay+'s,opacity .6s ease '+delay+'s';
+e.target.style.transform='scale(1)';
+e.target.style.opacity='1'
+}
+})
+},{threshold:.2});
+cards.forEach(function(c){
+if(!isMobile){c.style.transform='scale(.92)';c.style.opacity='.3'}
+obs.observe(c)
+})
+})();
+
+/* ─── 56. MOBILE HAPTIC SCROLL SECTIONS (visual snap feedback) ─── */
+(function(){
+if(!isMobile)return;
+var sections=document.querySelectorAll('section,.packages,.addons-section');
+var current=-1;
+var obs=new IntersectionObserver(function(entries){
+entries.forEach(function(e){
+if(e.isIntersecting){
+var idx=Array.prototype.indexOf.call(sections,e.target);
+if(idx!==current){
+current=idx;
+e.target.style.transition='none';
+e.target.style.transform='scale(.99)';
+setTimeout(function(){
+e.target.style.transition='transform .4s cubic-bezier(.34,1.56,.64,1)';
+e.target.style.transform='scale(1)'
+},50)
+}
+}
+})
+},{threshold:.4});
+sections.forEach(function(s){obs.observe(s)})
 })();
 
 })();/* END CINEMA ENGINE */
