@@ -178,6 +178,10 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="authority"] .pkg-price { background:linear-gradient(135deg, var(--gold-light), var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
 .pkg-card[data-tier="showcase"] .pkg-price { color:var(--cream); }
 .pkg-card[data-tier="signature"] .pkg-price { background:linear-gradient(135deg, #C8D4FF, #8AA0E0); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+@keyframes priceGlitch{0%,100%{filter:none;transform:none}20%{filter:hue-rotate(80deg) brightness(1.6);transform:translateX(-3px) skewX(-4deg)}40%{filter:hue-rotate(-80deg) brightness(0.6) contrast(1.4);transform:translateX(4px) skewX(3deg)}60%{filter:brightness(2) saturate(0);transform:translateX(-2px)}80%{filter:hue-rotate(180deg) brightness(1.3);transform:translateX(1px) skewX(-1deg)}}
+@keyframes priceSettle{0%{filter:brightness(3) saturate(0)}30%{filter:brightness(1.8)}100%{filter:none}}
+.price-glitching{animation:priceGlitch .07s steps(1) infinite}
+.price-settled{animation:priceSettle .5s ease-out forwards}
 .pkg-currency { font-size:0.35em; font-weight:400; letter-spacing:2px; vertical-align:super; opacity:0.6; }
 .pkg-card[data-tier="authority"] .pkg-currency { -webkit-text-fill-color:var(--gold); color:var(--gold); }
 .pkg-card[data-tier="signature"] .pkg-currency { -webkit-text-fill-color:#8AA0E0; color:#8AA0E0; }
@@ -1160,7 +1164,7 @@ function openPkgModal(tier, payUrl) {
   var priceEl = inner.querySelector('.pkg-price');
   var priceStr = priceEl.childNodes[0].nodeValue.trim()+' CHF';
   document.getElementById('mTierPrice').textContent = priceEl.textContent.trim();
-  document.getElementById('mBtnAgree').textContent = '\u2713\u00a0\u00a0I Agree \u2014 '+priceStr;
+  document.getElementById('mBtnAgree').textContent = '\u2713\u00a0\u00a0I Agree  \u00b7  '+priceStr;
   document.getElementById('mTagline').textContent = inner.querySelector('.pkg-tagline').textContent;
   document.getElementById('mBody').innerHTML = expandInner ? expandInner.innerHTML : '';
   document.querySelectorAll('#mBody .upgrade-note').forEach(function(el){ el.style.display='none'; });
@@ -1223,7 +1227,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModa
     </div>
     </div><!-- /modal-scroll-wrap -->
     <div class="modal-footer">
-      <button class="modal-btn-agree" id="mBtnAgree" onclick="modalAgree()">&#10003;&nbsp;&nbsp;I Agree &mdash; Proceed to Payment</button>
+      <button class="modal-btn-agree" id="mBtnAgree" onclick="modalAgree()">&#10003;&nbsp;&nbsp;I Agree &nbsp;&middot;&nbsp; Proceed to Payment</button>
       <div id="mUpgradeRow" class="modal-upgrade-row" style="display:none;"><button class="modal-btn-upgrade" id="mBtnUpgrade" onclick="modalAgreeWithUpgrade()"></button></div>
       <button class="modal-btn-back" onclick="closeModal()">&#8592;&nbsp;&nbsp;Take Me Back to Packages</button>
     </div>
