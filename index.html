@@ -549,9 +549,8 @@ html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
 
 /* ═══════ $2M ULTRA-PREMIUM LAYER ═══════ */
 /* ── CINEMATIC TYPOGRAPHY MICRO-ANIMATIONS ── */
-@keyframes titleRevealChar{0%{opacity:0;transform:translateY(30px) rotateX(-40deg)}60%{opacity:1;transform:translateY(-3px) rotateX(2deg)}100%{opacity:1;transform:translateY(0) rotateX(0)}}
-.word-reveal{display:inline-block;white-space:nowrap}
-.char-reveal{display:inline-block;opacity:0;animation:titleRevealChar .8s var(--ease) forwards;will-change:transform,opacity}
+/* titleRevealChar removed */
+/* char-reveal removed — using original line-based slideUp */
 /* ── PREMIUM UNDERLINE SWEEP ── */
 .packages-header h2,.addons-title{position:relative;display:inline-block}
 .packages-header h2::after,.addons-title::after{content:'';position:absolute;bottom:-8px;left:0;width:0;height:1px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));transition:width 1.2s cubic-bezier(.16,1,.3,1)}
@@ -1758,34 +1757,7 @@ sections.forEach(function(s){obs.observe(s)})
    Cinematic Typography + Premium Micro-Interactions
    ═══════════════════════════════════════════════════════════════ */
 
-/* ─── 57. CINEMATIC TITLE WORD REVEAL ─── */
-(function(){
-var lines=document.querySelectorAll('.hero-title .line');if(!lines.length)return;
-var charIdx=0;
-lines.forEach(function(line){
-var inner=line.querySelector('span')||line.querySelector('em');
-if(!inner)return;
-var isEm=inner.tagName==='EM'||inner.querySelector('em');
-var rawText=inner.textContent.trim();
-var words=rawText.split(/\s+/);
-inner.innerHTML='';
-words.forEach(function(word,wi){
-var wordSpan=document.createElement('span');
-wordSpan.className='word-reveal';
-wordSpan.style.display='inline-block';
-for(var ci=0;ci<word.length;ci++){
-var ch=document.createElement('span');
-ch.textContent=word[ci];
-ch.className='char-reveal';
-ch.style.animationDelay=(1.2+charIdx*.035)+'s';
-wordSpan.appendChild(ch);
-charIdx++
-}
-inner.appendChild(wordSpan);
-if(wi<words.length-1){inner.appendChild(document.createTextNode(' '));charIdx++}
-})
-})
-})();
+/* ─── 57. (REMOVED — using original line-based slideUp) ─── */
 
 /* ─── 58. HEADING UNDERLINE SWEEP ON SCROLL ─── */
 (function(){
@@ -1938,7 +1910,7 @@ if(document.fonts&&document.fonts.ready){
 document.fonts.ready.then(function(){
 document.body.classList.add('fonts-loaded');
 var title=document.querySelector('.hero-title');
-if(title)title.style.opacity='1'
+/* title opacity handled by slideUp animation */
 })
 }
 })();
