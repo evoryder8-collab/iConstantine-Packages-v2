@@ -158,13 +158,13 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-thumb img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.7s var(--ease), filter 0.7s ease; filter:brightness(0.65) saturate(0.8); }
 .pkg-card[data-tier="starter"] .pkg-thumb img { object-position:center 35%; }
 .pkg-card[data-tier="authority"] .pkg-thumb img { object-position:center 30%; }
-.pkg-card[data-tier="essential"] .pkg-thumb img,
-.pkg-card[data-tier="showcase"] .pkg-thumb img,
 .pkg-card[data-tier="signature"] .pkg-thumb img { transform:scale(1.5) translateY(-14%); }
+.pkg-card[data-tier="essential"] .pkg-thumb img,
+.pkg-card[data-tier="showcase"] .pkg-thumb img { transform:scale(1.5) translateY(20%); }
 .pkg-card:hover .pkg-thumb img { transform:scale(1.06); filter:brightness(0.8) saturate(1); }
-.pkg-card[data-tier="essential"]:hover .pkg-thumb img,
-.pkg-card[data-tier="showcase"]:hover .pkg-thumb img,
 .pkg-card[data-tier="signature"]:hover .pkg-thumb img { transform:scale(1.56) translateY(-14%); filter:brightness(0.8) saturate(1); }
+.pkg-card[data-tier="essential"]:hover .pkg-thumb img,
+.pkg-card[data-tier="showcase"]:hover .pkg-thumb img { transform:scale(1.56) translateY(20%); filter:brightness(0.8) saturate(1); }
 .pkg-thumb::after { content:''; position:absolute; bottom:0; left:0; right:0; height:75%; background:linear-gradient(to top, var(--black-card) 0%, rgba(6,6,9,0.4) 50%, transparent 100%); pointer-events:none; }
 .pkg-card[data-tier="authority"] .pkg-thumb::after { background:linear-gradient(to top, rgba(25,22,8,0.95) 0%, rgba(25,22,8,0.3) 50%, transparent 100%); }
 
