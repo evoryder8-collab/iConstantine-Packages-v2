@@ -284,6 +284,26 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .legal-footer { position:relative; z-index:1; text-align:center; padding:16px 24px 48px; }
 .legal-footer p { font-size:10px; color:var(--text-muted); letter-spacing:0.5px; }
 
+
+/* ═══════ FILMMAKER PORTRAIT ═══════ */
+.filmmaker-section { position:relative; z-index:1; overflow:hidden; padding:40px 24px 0; }
+.filmmaker-inner { position:relative; max-width:1100px; margin:0 auto; display:flex; align-items:flex-end; justify-content:space-between; gap:40px; }
+.filmmaker-copy { flex:1; max-width:420px; padding-bottom:80px; }
+.filmmaker-eyebrow { font-size:9px; font-weight:600; letter-spacing:6px; text-transform:uppercase; color:var(--gold-dim); margin-bottom:18px; display:flex; align-items:center; gap:12px; }
+.filmmaker-eyebrow::before { content:''; flex:0 0 32px; height:1px; background:linear-gradient(90deg, var(--gold-dim), transparent); }
+.filmmaker-name { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:400; color:var(--cream); line-height:1.1; margin-bottom:16px; }
+.filmmaker-name em { font-style:italic; background:linear-gradient(135deg, var(--gold-light), var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.filmmaker-role { font-size:13px; font-weight:300; color:var(--text-secondary); line-height:1.7; max-width:340px; }
+.filmmaker-portrait-wrap { position:relative; flex:0 0 auto; width:clamp(260px,30vw,400px); }
+.filmmaker-portrait-wrap::before { content:''; position:absolute; bottom:0; left:-40px; right:-40px; height:280px; background:radial-gradient(ellipse 70% 50% at 50% 100%, rgba(212,175,55,0.12) 0%, transparent 70%); pointer-events:none; z-index:0; }
+.filmmaker-portrait { position:relative; z-index:1; width:100%; display:block; -webkit-mask-image:linear-gradient(to bottom, black 55%, transparent 100%); mask-image:linear-gradient(to bottom, black 55%, transparent 100%); filter:drop-shadow(0 -20px 60px rgba(212,175,55,0.08)); }
+@media(max-width:680px){
+  .filmmaker-inner { flex-direction:column; align-items:center; text-align:center; gap:0; }
+  .filmmaker-copy { max-width:100%; padding-bottom:0; order:2; }
+  .filmmaker-eyebrow { justify-content:center; }
+  .filmmaker-eyebrow::before { display:none; }
+  .filmmaker-portrait-wrap { width:clamp(200px,60vw,300px); order:1; margin-bottom:32px; }
+}
 /* ═══════ MODAL ═══════ */
 .modal-overlay { display:none; position:fixed; inset:0; z-index:10001; background:rgba(0,0,0,0.88); backdrop-filter:blur(16px); justify-content:center; align-items:flex-start; padding:40px 16px; overflow-y:auto; }
 .modal-overlay.open { display:flex; }
@@ -573,6 +593,20 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
     <div class="cap-dot"></div>
   </div>
   <p class="capacity-text"><strong>3 of 10</strong> slots booked · secure yours before coverage begins</p>
+</section>
+
+<!-- ═══════ FILMMAKER PORTRAIT ═══════ -->
+<section class="filmmaker-section reveal">
+  <div class="filmmaker-inner">
+    <div class="filmmaker-copy">
+      <p class="filmmaker-eyebrow">Behind the Lens</p>
+      <h2 class="filmmaker-name">Constantin<br><em>Barbu</em></h2>
+      <p class="filmmaker-role">Championship filmmaker. Every frame engineered for impact. Every athlete treated as the protagonist of their own story.</p>
+    </div>
+    <div class="filmmaker-portrait-wrap">
+      <img class="filmmaker-portrait" src="iC%20Portrait%20Transparent.png" alt="Constantin Barbu — Championship Filmmaker" loading="lazy">
+    </div>
+  </div>
 </section>
 
 <!-- ═══════ PACKAGES ═══════ -->
