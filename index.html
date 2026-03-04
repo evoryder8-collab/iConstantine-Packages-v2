@@ -444,6 +444,8 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .trust-section-fade-bot{bottom:0;height:48px;background:linear-gradient(0deg,var(--black) 0%,transparent 100%)}
 .capacity-fade-top{top:0;height:40px;background:linear-gradient(180deg,var(--black) 0%,transparent 100%)}
 .capacity-fade-bot{bottom:0;height:56px;background:linear-gradient(0deg,var(--black) 0%,transparent 100%)}
+.cap-film-bridge{display:none}
+@media(max-width:680px){.capacity-section{overflow:visible}.cap-film-bridge{display:block;height:100px;margin-top:-100px;position:relative;z-index:3;background:linear-gradient(to bottom,var(--black) 0%,transparent 100%);pointer-events:none}}
 .packages-fade-top{top:0;height:60px;background:linear-gradient(180deg,var(--black) 0%,transparent 100%)}
 .social-section{position:relative;z-index:1;text-align:center;padding:56px 24px 20px}
 .social-label{font-size:9px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:24px}
@@ -594,6 +596,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
   </div>
   <p class="capacity-text"><strong>3 of 10</strong> slots booked · secure yours before coverage begins</p>
 </section>
+<div class="cap-film-bridge" aria-hidden="true"></div>
 
 <!-- ═══════ FILMMAKER PORTRAIT ═══════ -->
 <section class="filmmaker-section reveal">
