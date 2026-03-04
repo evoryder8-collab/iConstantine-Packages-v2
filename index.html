@@ -295,8 +295,8 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .filmmaker-name em { font-style:italic; background:linear-gradient(135deg, var(--gold-light), var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
 .filmmaker-role { font-size:13px; font-weight:300; color:var(--text-secondary); line-height:1.7; max-width:340px; }
 .filmmaker-portrait-wrap { position:relative; flex:0 0 auto; width:clamp(260px,30vw,400px); }
-.filmmaker-portrait-wrap::before { content:''; position:absolute; bottom:0; left:-40px; right:-40px; height:280px; background:radial-gradient(ellipse 70% 50% at 50% 100%, rgba(212,175,55,0.12) 0%, transparent 70%); pointer-events:none; z-index:0; }
-.filmmaker-portrait { position:relative; z-index:1; width:100%; display:block; -webkit-mask-image:linear-gradient(to bottom, black 55%, transparent 100%); mask-image:linear-gradient(to bottom, black 55%, transparent 100%); filter:drop-shadow(0 -20px 60px rgba(212,175,55,0.08)); }
+.filmmaker-portrait-wrap::before { display:none; }
+.filmmaker-portrait { position:relative; z-index:1; width:100%; display:block; -webkit-mask-image:radial-gradient(ellipse 80% 90% at 50% 28%, black 0%, black 38%, rgba(0,0,0,0.85) 52%, rgba(0,0,0,0.4) 68%, transparent 82%); mask-image:radial-gradient(ellipse 80% 90% at 50% 28%, black 0%, black 38%, rgba(0,0,0,0.85) 52%, rgba(0,0,0,0.4) 68%, transparent 82%); }
 @media(max-width:680px){
   .filmmaker-inner { flex-direction:column; align-items:center; text-align:center; gap:0; }
   .filmmaker-copy { max-width:100%; padding-bottom:0; order:2; }
@@ -601,10 +601,10 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
     <div class="filmmaker-copy">
       <p class="filmmaker-eyebrow">Behind the Lens</p>
       <h2 class="filmmaker-name">Constantin<br><em>Barbu</em></h2>
-      <p class="filmmaker-role">Championship filmmaker. Every frame engineered for impact. Every athlete treated as the protagonist of their own story.</p>
+      <p class="filmmaker-role">Cinematographer for the world's most demanding sports massage championships. Every practitioner who steps onto the competition floor becomes the protagonist of a story worth watching.</p>
     </div>
     <div class="filmmaker-portrait-wrap">
-      <img class="filmmaker-portrait" src="iC%20Portrait%20Transparent.png" alt="Constantin Barbu — Championship Filmmaker" loading="lazy">
+      <img class="filmmaker-portrait" src="iC%20Portrait%20Transparent.png" alt="Constantin Barbu, Championship Filmmaker" loading="lazy">
     </div>
   </div>
 </section>
@@ -821,7 +821,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 </div>
 <div class="sumup-tip">
   <span class="tip-icon"><svg viewBox="0 0 20 20" width="22" height="22" fill="none" stroke="rgba(212,175,55,0.92)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5a5.5 5.5 0 0 1 5.5 5.5c0 2.35-1.4 4.4-3.4 5.35V15h-4.2v-1.65C5.9 12.4 4.5 10.35 4.5 8A5.5 5.5 0 0 1 10 2.5z"/><line x1="7.9" y1="16.2" x2="12.1" y2="16.2"/><line x1="8.7" y1="17.9" x2="11.3" y2="17.9"/><line x1="10" y1="5" x2="10" y2="8.2"/><line x1="10" y1="9.5" x2="10" y2="10.2"/></svg></span>
-  <p>On the SumUp payment page, add your <strong>table number</strong>, <strong>category name</strong>, and <strong>category time</strong> in the order notes — if you know them. If you only know your category, that works too. Additionally, please send a quick selfie via <strong>WhatsApp</strong>, ideally in the attire you intend to compete in, so my team can recognise and prepare for you before the event.</p>
+  <p>On the SumUp payment page, add your <strong>table number</strong>, <strong>category name</strong>, and <strong>category time</strong> in the order notes, if you know them. If you only know your category, that works too. Additionally, please send a quick selfie via <strong>WhatsApp</strong>, ideally in the attire you intend to compete in, so my team can recognise and prepare for you before the event.</p>
 </div>
 
 <!-- ═══════ SOCIAL FOLLOW SECTION ═══════ -->
@@ -1247,7 +1247,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModa
 </div>
 
 <div class="legal-footer">
-  <p>iConstantine / Barbu Media Switzerland &nbsp;&nbsp;|&nbsp;&nbsp; All rights reserved &mdash; &copy; 2026</p>
+  <p>iConstantine / Barbu Media Switzerland &nbsp;&nbsp;|&nbsp;&nbsp; All rights reserved &copy; 2026</p>
 </div>
 </body>
 </html>
