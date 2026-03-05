@@ -71,7 +71,10 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .hero-title em { font-style:italic; background:linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dim)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
 @keyframes slideUp { from { opacity:0; transform:translateY(105%); } to { opacity:1; transform:translateY(0); } }
 
-.hero-divider { width:1px; height:56px; background:linear-gradient(to bottom, transparent, var(--gold-dim), transparent); margin:36px auto 32px; opacity:0; animation:heroFade 1s var(--ease) 1.2s forwards; }
+.hero-flags{display:flex;align-items:center;justify-content:center;gap:7px;margin:30px auto 26px;opacity:0;animation:heroFade 1s var(--ease) 1.2s forwards;flex-wrap:nowrap;overflow:hidden;padding:0 8px}
+.hero-flag{font-size:clamp(13px,3.5vw,19px);line-height:1;cursor:default;transition:transform .25s ease,filter .25s ease;filter:saturate(.75) brightness(.82);-webkit-user-select:none;user-select:none;flex-shrink:0}
+.hero-flag:hover{transform:translateY(-3px) scale(1.22);filter:saturate(1.1) brightness(1)}
+.hero-flag-more{font-family:var(--font-body);font-size:9px;font-weight:700;letter-spacing:2.5px;color:var(--gold-dim);align-self:center;padding-left:1px;flex-shrink:0}
 
 .hero-sub { font-size:clamp(14px,1.6vw,17px); font-weight:300; color:var(--text-secondary); max-width:480px; line-height:1.85; opacity:0; animation:heroFade 1s var(--ease) 1.4s forwards; letter-spacing:0.01em; }
 
@@ -548,6 +551,13 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 
 .ne-date{font-family:var(--font-body);font-size:11px;font-weight:400;letter-spacing:2px;color:rgba(212,175,55,.55);margin-bottom:22px;font-variant-numeric:tabular-nums}
 .ne-date-em{font-style:normal;color:var(--gold);font-weight:600;letter-spacing:1.5px}
+
+/* ═══════ SOCIAL STRIP — FIXED RIGHT ═══════ */
+.social-strip{position:fixed;right:clamp(10px,1.5vw,18px);top:50%;transform:translateY(-50%);z-index:9996;display:flex;flex-direction:column;gap:8px;opacity:0;animation:swissFadeIn 1.2s ease 3.5s forwards}
+.social-strip-link{width:30px;height:30px;border-radius:50%;border:1px solid rgba(212,175,55,.13);display:flex;align-items:center;justify-content:center;color:rgba(212,175,55,.35);text-decoration:none;transition:all .35s var(--ease);background:rgba(2,2,4,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.social-strip-link:hover{border-color:var(--gold);color:var(--gold);transform:scale(1.14);box-shadow:0 0 14px rgba(212,175,55,.22)}
+.social-strip-link svg{width:12px;height:12px;fill:currentColor}
+@media(max-width:480px){.social-strip{display:none}}
 </style>
 </head>
 <body>
@@ -579,6 +589,21 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
   </svg>
   <span>Swiss Based</span>
 </div>
+<!-- SOCIAL STRIP -->
+<div class="social-strip" role="navigation" aria-label="Social media">
+  <a class="social-strip-link" href="https://www.instagram.com/1iconstantine?igsh=ZDBkcG93cmo2OHJq&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+    <svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7ZM17.5 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>
+  </a>
+  <a class="social-strip-link" href="https://www.linkedin.com/in/constantin-barbu-4484022b2?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener" aria-label="LinkedIn">
+    <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 1 1 0-4.123 2.062 2.062 0 0 1 0 4.123ZM6.92 20.452H3.757V9H6.92v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/></svg>
+  </a>
+  <a class="social-strip-link" href="https://www.threads.com/@1iconstantine?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener" aria-label="Threads">
+    <svg viewBox="0 0 24 24"><path d="M12.186 24h-.007C5.965 24 2.615 20.258 2.615 14.817V9.183C2.615 3.742 5.965 0 12.179 0h.007c4.248 0 7.06 1.873 8.404 5.592l-2.77.958c-.863-2.465-2.818-3.876-5.634-3.876-4.26 0-6.437 2.735-6.437 7.509v5.634c0 4.774 2.177 7.509 6.437 7.509 2.816 0 4.771-1.41 5.634-3.876l2.77.958C19.246 22.127 16.434 24 12.186 24Zm3.296-8.375c-.137-3.08-1.694-4.842-4.484-4.842h-.07c-1.629 0-2.972.706-3.734 2.085l2.249 1.144c.452-.78 1.015-1.065 1.825-1.065 1.3 0 1.952.846 1.952 2.529v.43c-.608-.16-1.27-.241-1.975-.241-2.994 0-4.76 1.46-4.76 3.686 0 2.097 1.577 3.516 3.833 3.516 1.584 0 2.82-.612 3.602-1.78v1.593h2.458V15.88c0-.087-.003-.17-.003-.255Zm-4.436 4.436c-1.078 0-1.804-.518-1.804-1.424 0-.952.842-1.555 2.255-1.555.641 0 1.271.086 1.82.254-.153 1.633-1.12 2.725-2.271 2.725Z"/></svg>
+  </a>
+  <a class="social-strip-link" href="https://wa.me/41779821255" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347ZM12.05 21.785c-1.813 0-3.594-.487-5.147-1.41l-.369-.22-3.829 1.005 1.021-3.729-.241-.383A9.723 9.723 0 0 1 2.001 12.05c0-5.532 4.503-10.034 10.038-10.034A9.976 9.976 0 0 1 19.16 4.961a9.976 9.976 0 0 1 2.933 7.103c-.004 5.532-4.504 10.034-10.043 10.034V21.785ZM12.05 0C5.434 0 .065 5.368.065 11.982a11.92 11.92 0 0 0 1.6 5.973L0 24l6.19-1.623A11.942 11.942 0 0 0 12.05 24c6.616 0 11.985-5.369 11.985-11.982C24.035 5.369 18.666 0 12.05 0Z"/></svg>
+  </a>
+</div>
 <div class="light-leak" id="lightLeak"></div>
 
 <nav class="nav-dots" id="navDots">
@@ -596,7 +621,19 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
     <span class="line"><span>Championship</span></span>
     <span class="line"><span><em>Media</em></span></span>
   </h1>
-  <div class="hero-divider"></div>
+  <div class="hero-flags" aria-hidden="true">
+    <span class="hero-flag" title="Japan">🇯🇵</span>
+    <span class="hero-flag" title="Denmark">🇩🇰</span>
+    <span class="hero-flag" title="Italy">🇮🇹</span>
+    <span class="hero-flag" title="France">🇫🇷</span>
+    <span class="hero-flag" title="Germany">🇩🇪</span>
+    <span class="hero-flag" title="Bosnia & Herzegovina">🇧🇦</span>
+    <span class="hero-flag" title="Greece">🇬🇷</span>
+    <span class="hero-flag" title="Romania">🇷🇴</span>
+    <span class="hero-flag" title="Thailand">🇹🇭</span>
+    <span class="hero-flag" title="Switzerland">🇨🇭</span>
+    <span class="hero-flag-more">+</span>
+  </div>
   <p class="hero-sub">Cinema-grade video &amp; photography for massage championships worldwide. Choose the tier that matches your ambition.</p>
   <div class="hero-scroll-cue">
     <span>Scroll</span>
