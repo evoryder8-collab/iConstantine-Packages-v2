@@ -71,10 +71,12 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .hero-title em { font-style:italic; background:linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dim)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
 @keyframes slideUp { from { opacity:0; transform:translateY(105%); } to { opacity:1; transform:translateY(0); } }
 
-.hero-flags{display:flex;align-items:center;justify-content:center;gap:7px;margin:30px auto 26px;opacity:0;animation:heroFade 1s var(--ease) 1.2s forwards;flex-wrap:nowrap;overflow:hidden;padding:0 8px}
-.hero-flag{font-size:clamp(13px,3.5vw,19px);line-height:1;cursor:default;transition:transform .25s ease,filter .25s ease;filter:saturate(.75) brightness(.82);-webkit-user-select:none;user-select:none;flex-shrink:0}
-.hero-flag:hover{transform:translateY(-3px) scale(1.22);filter:saturate(1.1) brightness(1)}
-.hero-flag-more{font-family:var(--font-body);font-size:9px;font-weight:700;letter-spacing:2.5px;color:var(--gold-dim);align-self:center;padding-left:1px;flex-shrink:0}
+.hero-flags{display:flex;align-items:center;justify-content:center;gap:6px;margin:30px auto 26px;opacity:0;animation:heroFade 1s var(--ease) 1.2s forwards;flex-wrap:nowrap;padding:0 8px}
+.hero-flag{position:relative;display:inline-flex;flex-shrink:0;border-radius:2px;overflow:hidden;box-shadow:0 0 0 0.5px rgba(255,255,255,0.1),0 2px 6px rgba(0,0,0,0.5);opacity:.72;transition:opacity .3s ease,transform .3s ease,box-shadow .3s ease;cursor:default}
+.hero-flag:hover{opacity:1;transform:translateY(-3px) scale(1.18);box-shadow:0 4px 12px rgba(0,0,0,0.6),0 0 0 0.5px rgba(255,255,255,0.22);z-index:2}
+.hero-flag svg{display:block;width:22px;height:15px;filter:saturate(.82) brightness(.88)}
+.hero-flag:hover svg{filter:saturate(1.0) brightness(1.0)}
+.hero-flag-more{font-family:var(--font-body);font-size:9px;font-weight:700;letter-spacing:2.5px;color:var(--gold-dim);align-self:center;padding-left:3px;flex-shrink:0}
 
 .hero-sub { font-size:clamp(14px,1.6vw,17px); font-weight:300; color:var(--text-secondary); max-width:480px; line-height:1.85; opacity:0; animation:heroFade 1s var(--ease) 1.4s forwards; letter-spacing:0.01em; }
 
@@ -189,7 +191,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="showcase"] .pkg-tier-name { color:var(--text-primary); }
 .pkg-card[data-tier="signature"] .pkg-tier-name { color:#8AA0E0; }
 
-.pkg-price { font-family:'Plus Jakarta Sans', var(--font-body); font-weight:700; font-size:clamp(38px,4vw,52px); line-height:1; margin-bottom:4px; }
+.pkg-price { font-family:var(--font-display); font-weight:600; font-size:clamp(38px,4vw,52px); line-height:1; margin-bottom:4px; letter-spacing:0.02em; }
 .pkg-card[data-tier="starter"] .pkg-price { color:var(--text-secondary); }
 .pkg-card[data-tier="essential"] .pkg-price { color:var(--text-primary); }
 .pkg-card[data-tier="authority"] .pkg-price { background:linear-gradient(135deg, var(--gold-light), var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
@@ -553,11 +555,12 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .ne-date-em{font-style:normal;color:var(--gold);font-weight:600;letter-spacing:1.5px}
 
 /* ═══════ SOCIAL STRIP — FIXED RIGHT ═══════ */
-.social-strip{position:fixed;right:clamp(10px,1.5vw,18px);top:50%;transform:translateY(-50%);z-index:9996;display:flex;flex-direction:column;gap:8px;opacity:0;animation:swissFadeIn 1.2s ease 3.5s forwards}
-.social-strip-link{width:30px;height:30px;border-radius:50%;border:1px solid rgba(212,175,55,.13);display:flex;align-items:center;justify-content:center;color:rgba(212,175,55,.35);text-decoration:none;transition:all .35s var(--ease);background:rgba(2,2,4,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.social-strip{position:fixed;right:clamp(10px,1.5vw,18px);top:50%;transform:translateY(-50%);z-index:9996;display:flex;flex-direction:column;gap:8px;opacity:0;animation:swissFadeIn 1.2s ease 2s forwards}
+.social-strip-link{width:30px;height:30px;border-radius:50%;border:1px solid rgba(212,175,55,.13);display:flex;align-items:center;justify-content:center;color:rgba(212,175,55,.35);text-decoration:none;transition:border-color .35s var(--ease),color .35s var(--ease),transform .35s var(--ease),box-shadow .35s var(--ease);background:rgba(6,6,9,.7)}
 .social-strip-link:hover{border-color:var(--gold);color:var(--gold);transform:scale(1.14);box-shadow:0 0 14px rgba(212,175,55,.22)}
 .social-strip-link svg{width:12px;height:12px;fill:currentColor}
-@media(max-width:480px){.social-strip{display:none}}
+@media(prefers-reduced-motion:reduce){.social-strip{opacity:1;animation:none}}
+@media(max-width:480px){.social-strip{top:auto;bottom:clamp(12px,2vh,24px);left:clamp(16px,2vw,28px);right:auto;transform:none;flex-direction:row;gap:6px}}
 </style>
 </head>
 <body>
@@ -622,16 +625,16 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
     <span class="line"><span><em>Media</em></span></span>
   </h1>
   <div class="hero-flags" aria-hidden="true">
-    <span class="hero-flag" title="Japan">🇯🇵</span>
-    <span class="hero-flag" title="Denmark">🇩🇰</span>
-    <span class="hero-flag" title="Italy">🇮🇹</span>
-    <span class="hero-flag" title="France">🇫🇷</span>
-    <span class="hero-flag" title="Germany">🇩🇪</span>
-    <span class="hero-flag" title="Bosnia & Herzegovina">🇧🇦</span>
-    <span class="hero-flag" title="Greece">🇬🇷</span>
-    <span class="hero-flag" title="Romania">🇷🇴</span>
-    <span class="hero-flag" title="Thailand">🇹🇭</span>
-    <span class="hero-flag" title="Switzerland">🇨🇭</span>
+    <span class="hero-flag" title="Japan"><svg viewBox="0 0 22 15" xmlns="http://www.w3.org/2000/svg"><rect width="22" height="15" fill="#fff"/><circle cx="11" cy="7.5" r="4" fill="#BC002D"/></svg></span>
+    <span class="hero-flag" title="Denmark"><svg viewBox="0 0 22 15" xmlns="http://www.w3.org/2000/svg"><rect width="22" height="15" fill="#C60C30"/><rect x="6" y="0" width="2.5" height="15" fill="#fff"/><rect x="0" y="6.25" width="22" height="2.5" fill="#fff"/></svg></span>
+    <span class="hero-flag" title="Italy"><svg viewBox="0 0 22 15" xmlns="http://www.w3.org/2000/svg"><rect width="7.34" height="15" fill="#009246"/><rect x="7.34" width="7.33" height="15" fill="#fff"/><rect x="14.67" width="7.33" height="15" fill="#CE2B37"/></svg></span>
+    <span class="hero-flag" title="France"><svg viewBox="0 0 22 15" xmlns="http://www.w3.org/2000/svg"><rect width="7.34" height="15" fill="#002395"/><rect x="7.34" width="7.33" height="15" fill="#fff"/><rect x="14.67" width="7.33" height="15" fill="#ED2939"/></svg></span>
+    <span class="hero-flag" title="Germany"><svg viewBox="0 0 22 15" xmlns="http://www.w3.org/2000/svg"><rect width="22" height="5" fill="#000"/><rect y="5" width="22" height="5" fill="#DD0000"/><rect y="10" width="22" height="5" fill="#FFCE00"/></svg></span>
+    <span class="hero-flag" title="Bosnia &amp; Herzegovina"><svg viewBox="0 0 22 15" xmlns="http://www.w3.org/2000/svg"><rect width="22" height="15" fill="#003DA5"/><polygon points="5,0 22,0 22,15" fill="#FECC02"/></svg></span>
+    <span class="hero-flag" title="Greece"><svg viewBox="0 0 22 15" xmlns="http://www.w3.org/2000/svg"><rect width="22" height="15" fill="#0D5EAF"/><rect y="1.67" width="22" height="1.66" fill="#fff"/><rect y="5" width="22" height="1.66" fill="#fff"/><rect y="8.33" width="22" height="1.67" fill="#fff"/><rect y="11.67" width="22" height="1.66" fill="#fff"/><rect width="9" height="8.33" fill="#0D5EAF"/><rect x="3.75" y="0" width="1.5" height="8.33" fill="#fff"/><rect x="0" y="3.42" width="9" height="1.5" fill="#fff"/></svg></span>
+    <span class="hero-flag" title="Romania"><svg viewBox="0 0 22 15" xmlns="http://www.w3.org/2000/svg"><rect width="7.34" height="15" fill="#002B7F"/><rect x="7.34" width="7.33" height="15" fill="#FCD116"/><rect x="14.67" width="7.33" height="15" fill="#CE1126"/></svg></span>
+    <span class="hero-flag" title="Thailand"><svg viewBox="0 0 22 15" xmlns="http://www.w3.org/2000/svg"><rect width="22" height="2.5" fill="#A51931"/><rect y="2.5" width="22" height="2.5" fill="#fff"/><rect y="5" width="22" height="5" fill="#2D2A4A"/><rect y="10" width="22" height="2.5" fill="#fff"/><rect y="12.5" width="22" height="2.5" fill="#A51931"/></svg></span>
+    <span class="hero-flag" title="Switzerland"><svg viewBox="0 0 22 15" xmlns="http://www.w3.org/2000/svg"><rect width="22" height="15" fill="#FF0000"/><rect x="9.5" y="3" width="3" height="9" fill="#fff"/><rect x="6.5" y="6" width="9" height="3" fill="#fff"/></svg></span>
     <span class="hero-flag-more">+</span>
   </div>
   <p class="hero-sub">Cinema-grade video &amp; photography for massage championships worldwide. Choose the tier that matches your ambition.</p>
@@ -687,7 +690,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
   </div>
   <h2 class="ne-title">GGMC 2026 · München</h2>
   <p class="ne-subtitle">German Global Massage Championship</p>
-  <p class="ne-date"><em class="ne-date-em">6–8 March</em>&thinsp;&middot;&thinsp;2026</p>
+  <p class="ne-date"><em class="ne-date-em">6–8 March</em></p>
   <div class="ne-meta">
     <span>2026</span>
     <span class="ne-meta-dot"></span>
@@ -706,15 +709,15 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
     <div class="cap-dot filled"></div>
     <div class="cap-dot filled"></div>
     <div class="cap-dot filled"></div>
-    <div class="cap-dot"></div>
-    <div class="cap-dot"></div>
-    <div class="cap-dot"></div>
+    <div class="cap-dot filled"></div>
+    <div class="cap-dot filled"></div>
+    <div class="cap-dot filled"></div>
     <div class="cap-dot"></div>
     <div class="cap-dot"></div>
     <div class="cap-dot"></div>
     <div class="cap-dot"></div>
   </div>
-  <p class="capacity-text"><strong>3 of 10</strong> slots booked · secure yours before coverage begins</p>
+  <p class="capacity-text"><strong>6 of 10</strong> slots booked · secure yours before coverage begins</p>
 </section>
 <div class="cap-film-bridge" aria-hidden="true"></div>
 
