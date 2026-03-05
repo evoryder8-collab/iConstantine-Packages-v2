@@ -539,11 +539,11 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 @media(prefers-reduced-motion:reduce){.ne-logo-wrap::before{animation:none!important;opacity:.08!important}}
 
 /* ═══════ SWISS MADE BADGE ═══════ */
-.swiss-made-badge{position:fixed;bottom:clamp(12px,2vh,24px);right:clamp(16px,2vw,28px);z-index:9997;display:flex;align-items:center;gap:6px;padding:5px 10px 5px 8px;background:rgba(2,2,4,0.55);border:1px solid rgba(212,175,55,0.14);border-radius:20px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);pointer-events:none;opacity:0;animation:swissFadeIn 1.2s ease 2.8s forwards}
+.swiss-made-badge{position:fixed;bottom:clamp(12px,2vh,24px);right:clamp(16px,2vw,28px);z-index:9997;display:flex;align-items:center;gap:7px;padding:5px 11px 5px 9px;background:#D52B1E;border:none;border-radius:20px;box-shadow:0 2px 14px rgba(213,43,30,0.35),0 1px 4px rgba(0,0,0,0.5);pointer-events:none;opacity:0;animation:swissFadeIn 1.2s ease 2.8s forwards}
 @keyframes swissFadeIn{to{opacity:1}}
 .swiss-cross{width:11px;height:11px;flex-shrink:0}
-.swiss-made-badge span{font-family:var(--font-body);font-size:8px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(212,175,55,.42);white-space:nowrap}
-@media(max-width:480px){.swiss-made-badge{bottom:8px;right:8px;padding:4px 8px 4px 6px}}
+.swiss-made-badge span{font-family:var(--font-body);font-size:8px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.92);white-space:nowrap}
+@media(max-width:480px){.swiss-made-badge{bottom:8px;right:8px;padding:4px 9px 4px 7px}}
 @media(prefers-reduced-motion:reduce){.swiss-made-badge{animation:none!important;opacity:1!important}}
 
 .ne-date{font-family:var(--font-body);font-size:11px;font-weight:400;letter-spacing:2px;color:rgba(212,175,55,.55);margin-bottom:22px;font-variant-numeric:tabular-nums}
@@ -574,8 +574,8 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 <div class="exposure-hud" id="exposureHud">ISO 800 · ƒ/2.8 · 1/125</div>
 <div class="swiss-made-badge" aria-hidden="true">
   <svg class="swiss-cross" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-    <rect x="4.5" y="1" width="3" height="10" rx=".4" fill="rgba(212,175,55,.55)"/>
-    <rect x="1" y="4.5" width="10" height="3" rx=".4" fill="rgba(212,175,55,.55)"/>
+    <rect x="4.5" y="1" width="3" height="10" rx=".4" fill="rgba(255,255,255,0.95)"/>
+    <rect x="1" y="4.5" width="10" height="3" rx=".4" fill="rgba(255,255,255,0.95)"/>
   </svg>
   <span>Swiss Made</span>
 </div>
