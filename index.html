@@ -51,12 +51,13 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 
 /* Wrapper handles fade-in + layout */
 .hero-logo-wrap { position:relative; display:inline-block; margin-bottom:48px; opacity:0; animation:heroFade 1.4s var(--ease) 0.2s forwards; }
-/* Glow lives on ::before — a radial gradient circle, never touches the image pixels */
-.hero-logo-wrap::before { content:''; position:absolute; top:50%; left:50%; width:240%; height:240%; border-radius:50%; background:radial-gradient(circle, rgba(212,175,55,0.75) 0%, rgba(212,175,55,0.38) 28%, rgba(212,175,55,0.14) 52%, transparent 70%); transform:translate(-50%,-50%) scale(0.7); opacity:0.2; pointer-events:none; z-index:0; animation:logoAura 3.5s ease-in-out 1.7s infinite alternate; will-change:transform,opacity; }
-/* Image is clean — no filter animation */
-.hero-logo { width:clamp(135px,18vw,225px); height:auto; position:relative; z-index:1; display:block; }
+/* Multi-stop radial gradient — bright tight core fading to a soft wide halo */
+.hero-logo-wrap::before { content:''; position:absolute; top:50%; left:50%; width:180%; height:180%; border-radius:50%; background:radial-gradient(circle, rgba(212,175,55,0.92) 0%, rgba(212,175,55,0.65) 18%, rgba(212,175,55,0.28) 38%, rgba(212,175,55,0.10) 58%, transparent 72%); transform:translate(-50%,-50%) scale(0.88); opacity:0.25; pointer-events:none; z-index:0; animation:logoAura 3.5s ease-in-out 1.7s infinite alternate; will-change:transform,opacity; }
+/* Static single drop-shadow on img — hugs logo shape for depth, zero artifacts since it never animates */
+.hero-logo { width:clamp(135px,18vw,225px); height:auto; position:relative; z-index:1; display:block; filter:drop-shadow(0 0 10px rgba(212,175,55,0.45)); }
 @keyframes heroFade { from { opacity:0; transform:translateY(24px) scale(0.96); } to { opacity:1; transform:translateY(0) scale(1); } }
-@keyframes logoAura { from { opacity:0.2; transform:translate(-50%,-50%) scale(0.72); } to { opacity:1; transform:translate(-50%,-50%) scale(1.5); } }
+/* Tight scale range — glow breathes close to logo, never balloons outward */
+@keyframes logoAura { from { opacity:0.25; transform:translate(-50%,-50%) scale(0.88); } to { opacity:1; transform:translate(-50%,-50%) scale(1.18); } }
 
 .hero-overline { font-family:var(--font-body); font-size:10px; font-weight:500; letter-spacing:8px; text-transform:uppercase; color:var(--gold); margin-bottom:28px; opacity:0; animation:heroFade 1s var(--ease) 0.6s forwards; display:flex; align-items:center; gap:20px; }
 .hero-overline::before, .hero-overline::after { content:''; width:40px; height:1px; background:linear-gradient(90deg, transparent, var(--gold-dim)); }
