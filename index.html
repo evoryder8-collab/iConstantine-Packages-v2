@@ -97,7 +97,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .trust-sep { color:var(--gold-dim); opacity:0.3; padding:0 8px; font-size:8px; flex-shrink:0; }
 
 /* ═══════ CAPACITY ═══════ */
-.capacity-section { position:relative; z-index:1; max-width:480px; margin:0 auto; padding:48px 24px 40px; text-align:center; overflow:hidden; }
+.capacity-section { position:relative; z-index:1; max-width:480px; margin:0 auto; padding:16px 24px 40px; text-align:center; overflow:hidden; }
 .capacity-label { font-size:9px; font-weight:600; letter-spacing:5px; text-transform:uppercase; color:var(--gold-dim); margin-bottom:20px; }
 .capacity-visual { display:flex; gap:8px; justify-content:center; margin-bottom:14px; }
 .cap-dot { width:clamp(18px,2.8vw,32px); height:clamp(18px,2.8vw,32px); border-radius:50%; border:1px solid rgba(255,255,255,0.06); transition:all 0.8s var(--ease); position:relative; }
@@ -464,7 +464,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .trust-section-fade-top,.trust-section-fade-bot,.capacity-fade-top,.capacity-fade-bot,.packages-fade-top{position:absolute;left:0;right:0;pointer-events:none;z-index:3}
 .trust-section-fade-top{top:0;height:48px;background:linear-gradient(180deg,var(--black) 0%,transparent 100%)}
 .trust-section-fade-bot{bottom:0;height:48px;background:linear-gradient(0deg,var(--black) 0%,transparent 100%)}
-.capacity-fade-top{top:0;height:40px;background:linear-gradient(180deg,var(--black) 0%,transparent 100%)}
+.capacity-fade-top{top:0;height:18px;background:linear-gradient(180deg,var(--black) 0%,transparent 100%)}
 .capacity-fade-bot{bottom:0;height:56px;background:linear-gradient(0deg,var(--black) 0%,transparent 100%)}
 .cap-film-bridge{display:none}
 @media(max-width:680px){.cap-film-bridge{display:block;height:55px;margin-top:-22px;position:relative;z-index:3;background:linear-gradient(to bottom,transparent 0%,var(--black) 40%,var(--black) 55%,transparent 100%);pointer-events:none}}
@@ -522,7 +522,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 }
 
 /* ═══════ NEXT EVENT SPOTLIGHT ═══════ */
-.next-event-section{position:relative;z-index:1;padding:72px 24px 60px;text-align:center;overflow:hidden}
+.next-event-section{position:relative;z-index:1;padding:72px 24px 16px;text-align:center;overflow:hidden}
 
 .ne-overline{font-family:var(--font-body);font-size:9px;font-weight:600;letter-spacing:6px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:40px;display:flex;align-items:center;justify-content:center;gap:16px}
 
