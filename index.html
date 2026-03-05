@@ -49,12 +49,14 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .hero-section::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(212,175,55,0.04) 0%, transparent 65%); pointer-events:none; }
 .hero-section::after { content:''; position:absolute; bottom:0; left:0; right:0; height:240px; background:linear-gradient(to top, var(--black), transparent); pointer-events:none; z-index:2; }
 
-.hero-logo { width:clamp(135px,18vw,225px); height:auto; margin-bottom:48px; opacity:0; animation:heroFade 1.4s var(--ease) 0.2s forwards, logoAura 3.5s ease-in-out 1.7s infinite alternate; }
+/* Wrapper handles fade-in + layout */
+.hero-logo-wrap { position:relative; display:inline-block; margin-bottom:48px; opacity:0; animation:heroFade 1.4s var(--ease) 0.2s forwards; }
+/* Glow lives on ::before — a radial gradient circle, never touches the image pixels */
+.hero-logo-wrap::before { content:''; position:absolute; top:50%; left:50%; width:240%; height:240%; border-radius:50%; background:radial-gradient(circle, rgba(212,175,55,0.75) 0%, rgba(212,175,55,0.38) 28%, rgba(212,175,55,0.14) 52%, transparent 70%); transform:translate(-50%,-50%) scale(0.7); opacity:0.2; pointer-events:none; z-index:0; animation:logoAura 3.5s ease-in-out 1.7s infinite alternate; will-change:transform,opacity; }
+/* Image is clean — no filter animation */
+.hero-logo { width:clamp(135px,18vw,225px); height:auto; position:relative; z-index:1; display:block; }
 @keyframes heroFade { from { opacity:0; transform:translateY(24px) scale(0.96); } to { opacity:1; transform:translateY(0) scale(1); } }
-@keyframes logoAura {
-  from { filter: drop-shadow(0 0 18px rgba(212,175,55,0.25)) drop-shadow(0 0 50px rgba(212,175,55,0.12)) drop-shadow(0 0 90px rgba(212,175,55,0.05)); }
-  to   { filter: drop-shadow(0 0 28px rgba(212,175,55,0.95)) drop-shadow(0 0 80px rgba(212,175,55,0.55)) drop-shadow(0 0 150px rgba(212,175,55,0.28)) drop-shadow(0 0 220px rgba(212,175,55,0.10)); }
-}
+@keyframes logoAura { from { opacity:0.2; transform:translate(-50%,-50%) scale(0.72); } to { opacity:1; transform:translate(-50%,-50%) scale(1.5); } }
 
 .hero-overline { font-family:var(--font-body); font-size:10px; font-weight:500; letter-spacing:8px; text-transform:uppercase; color:var(--gold); margin-bottom:28px; opacity:0; animation:heroFade 1s var(--ease) 0.6s forwards; display:flex; align-items:center; gap:20px; }
 .hero-overline::before, .hero-overline::after { content:''; width:40px; height:1px; background:linear-gradient(90deg, transparent, var(--gold-dim)); }
@@ -545,7 +547,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 
 <!-- ═══════ HERO ═══════ -->
 <section class="hero-section" id="hero" data-section="hero">
-  <img class="hero-logo" id="siteLogo" src="logo%20golden%20iconstantine%20eye%20small.png" alt="iConstantine Championship Media">
+  <div class="hero-logo-wrap"><img class="hero-logo" id="siteLogo" src="logo%20golden%20iconstantine%20eye%20small.png" alt="iConstantine Championship Media"></div>
   <p class="hero-overline">iConstantine</p>
   <h1 class="hero-title">
     <span class="line"><span>Championship</span></span>
