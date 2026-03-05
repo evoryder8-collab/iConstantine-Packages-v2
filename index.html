@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>iCONSTANTINE | Championship Media Packages</title>
+<link rel="icon" type="image/png" href="logo%20golden%20iconstantine%20eye%20small.png">
+<link rel="apple-touch-icon" href="logo%20golden%20iconstantine%20eye%20small.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
 <style>
@@ -47,8 +49,12 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .hero-section::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(212,175,55,0.04) 0%, transparent 65%); pointer-events:none; }
 .hero-section::after { content:''; position:absolute; bottom:0; left:0; right:0; height:240px; background:linear-gradient(to top, var(--black), transparent); pointer-events:none; z-index:2; }
 
-.hero-logo { width:clamp(135px,18vw,225px); height:auto; margin-bottom:48px; opacity:0; animation:heroFade 1.4s var(--ease) 0.2s forwards; filter:drop-shadow(0 0 60px rgba(212,175,55,0.15)); }
+.hero-logo { width:clamp(135px,18vw,225px); height:auto; margin-bottom:48px; opacity:0; animation:heroFade 1.4s var(--ease) 0.2s forwards, logoAura 3.5s ease-in-out 1.7s infinite alternate; }
 @keyframes heroFade { from { opacity:0; transform:translateY(24px) scale(0.96); } to { opacity:1; transform:translateY(0) scale(1); } }
+@keyframes logoAura {
+  from { filter: drop-shadow(0 0 18px rgba(212,175,55,0.25)) drop-shadow(0 0 50px rgba(212,175,55,0.12)) drop-shadow(0 0 90px rgba(212,175,55,0.05)); }
+  to   { filter: drop-shadow(0 0 28px rgba(212,175,55,0.95)) drop-shadow(0 0 80px rgba(212,175,55,0.55)) drop-shadow(0 0 150px rgba(212,175,55,0.28)) drop-shadow(0 0 220px rgba(212,175,55,0.10)); }
+}
 
 .hero-overline { font-family:var(--font-body); font-size:10px; font-weight:500; letter-spacing:8px; text-transform:uppercase; color:var(--gold); margin-bottom:28px; opacity:0; animation:heroFade 1s var(--ease) 0.6s forwards; display:flex; align-items:center; gap:20px; }
 .hero-overline::before, .hero-overline::after { content:''; width:40px; height:1px; background:linear-gradient(90deg, transparent, var(--gold-dim)); }
