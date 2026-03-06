@@ -556,11 +556,23 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 
 /* ═══════ SOCIAL STRIP — FIXED RIGHT ═══════ */
 .social-strip{position:fixed;right:clamp(10px,1.5vw,18px);top:50%;transform:translateY(-50%);z-index:9996;display:flex;flex-direction:column;gap:8px;opacity:0;animation:swissFadeIn 1.2s ease 2s forwards}
-.social-strip-link{width:30px;height:30px;border-radius:50%;border:1px solid rgba(212,175,55,.13);display:flex;align-items:center;justify-content:center;color:rgba(212,175,55,.35);text-decoration:none;transition:border-color .35s var(--ease),color .35s var(--ease),transform .35s var(--ease),box-shadow .35s var(--ease);background:rgba(6,6,9,.7)}
+.social-strip-link{width:30px;height:30px;border-radius:50%;border:1px solid rgba(212,175,55,.13);display:flex;align-items:center;justify-content:center;color:rgba(212,175,55,.35);text-decoration:none;transition:border-color .35s var(--ease),color .35s var(--ease),transform .35s var(--ease),box-shadow .35s var(--ease);background:rgba(6,6,9,.7);position:relative;overflow:hidden}
+.social-strip-link::before{content:'';position:absolute;inset:0;background:linear-gradient(125deg,transparent 20%,rgba(255,255,255,.18) 50%,transparent 80%);transform:translateX(-120%);opacity:0;pointer-events:none}
 .social-strip-link:hover{border-color:var(--gold);color:var(--gold);transform:scale(1.14);box-shadow:0 0 14px rgba(212,175,55,.22)}
 .social-strip-link svg{width:12px;height:12px;fill:currentColor}
-@media(prefers-reduced-motion:reduce){.social-strip{opacity:1;animation:none}}
-@media(max-width:480px){.social-strip{top:auto;bottom:clamp(12px,2vh,24px);left:clamp(16px,2vw,28px);right:auto;transform:none;flex-direction:row;gap:6px}}
+@keyframes socialShine{0%,58%{transform:translateX(-120%);opacity:0}63%{opacity:1}73%{transform:translateX(120%);opacity:0}100%{transform:translateX(120%);opacity:0}}
+@media(prefers-reduced-motion:reduce){.social-strip{opacity:1;animation:none}.social-strip-link::before{display:none!important}}
+@media(max-width:480px){
+  .social-strip{top:auto;bottom:clamp(12px,2vh,24px);left:clamp(16px,2vw,28px);right:auto;transform:none;flex-direction:row;gap:8px}
+  .social-strip-link{width:44px;height:44px;border-color:rgba(212,175,55,.32);color:rgba(212,175,55,.72)}
+  .social-strip-link svg{width:18px;height:18px}
+  .social-strip-link:nth-child(1)::before{animation:socialShine 3.4s ease 3.6s infinite}
+  .social-strip-link:nth-child(2)::before{animation:socialShine 3.4s ease 4.5s infinite}
+  .social-strip-link:nth-child(3)::before{animation:socialShine 3.4s ease 5.4s infinite}
+  .social-strip-link:nth-child(4)::before{animation:socialShine 3.4s ease 6.3s infinite}
+  .social-strip-link:nth-child(5)::before{animation:socialShine 3.4s ease 7.2s infinite}
+  .social-strip-link:nth-child(6)::before{animation:socialShine 3.4s ease 8.1s infinite}
+}
 </style>
 </head>
 <body>
@@ -686,7 +698,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 <section class="next-event-section reveal">
   <p class="ne-overline">Up Next</p>
   <div class="ne-logo-wrap">
-    <img class="ne-logo" src="LOGO%20SUPA%20GGMC.png" alt="GGMC — German Global Massage Championship" loading="lazy">
+    <img class="ne-logo" src="LOGO.png" alt="GGMC — German Global Massage Championship" loading="lazy">
   </div>
   <h2 class="ne-title">GGMC 2026 · München</h2>
   <p class="ne-subtitle">German Global Massage Championship</p>
