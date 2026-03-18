@@ -556,7 +556,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .ne-connector{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 0}
 .ne-connector-line{width:2px;height:44px;background:linear-gradient(to bottom,rgba(212,175,55,.38),rgba(212,175,55,.10))}
 .ne-connector-label{font-size:8px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dim);opacity:.65}
-.ne-role-tag{display:inline-block;margin-top:14px;padding:5px 16px;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;border:1px solid rgba(212,175,55,.3);border-radius:99px;color:var(--gold-dim)}
+.ne-role-tag{display:inline-block;margin-top:14px;padding:5px 16px;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;border:1px solid rgba(212,175,55,.3);border-radius:99px;color:var(--gold-dim)}.ne-concluded-badge{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:5px 14px;font-size:8px;font-weight:700;letter-spacing:3px;text-transform:uppercase;border:1px solid rgba(212,175,55,.22);border-radius:99px;color:var(--gold-dim);opacity:.75}
 
 /* ═══════ SWISS MADE BADGE ═══════ */
 .swiss-made-badge{position:fixed;bottom:clamp(12px,2vh,24px);right:clamp(16px,2vw,28px);z-index:9997;display:flex;align-items:center;gap:7px;padding:5px 11px 5px 9px;background:#D52B1E;border:none;border-radius:20px;box-shadow:0 2px 14px rgba(213,43,30,0.35),0 1px 4px rgba(0,0,0,0.5);pointer-events:none;opacity:0;animation:swissFadeIn 1.2s ease 2.8s forwards}
@@ -715,7 +715,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
   <h2 class="ne-heading">International Event Circuit</h2>
   <div class="ne-track">
 
-    <!-- ── GGMC · March ── -->
+    <!-- ── GGMC · March (Concluded) ── -->
     <div class="ne-event">
       <div class="ne-card">
         <div class="ne-logo-wrap ne-logo-wrap--card">
@@ -725,6 +725,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
         <h3 class="ne-card-title">GGMC 2026</h3>
         <p class="ne-card-subtitle">German Global Massage Championship</p>
         <p class="ne-date"><em class="ne-date-em">6–8 March</em></p>
+        <span class="ne-concluded-badge">✓ Coverage Concluded</span>
       </div>
     </div>
 
@@ -749,22 +750,6 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
       <span class="ne-connector-label">Then</span>
     </div>
 
-    <!-- ── AMC · June ── -->
-    <div class="ne-event">
-      <div class="ne-card">
-        <img class="ne-card-logo" src="Screenshot 2026-03-18 at 11.40.39.png" alt="Asia Massage Championship 2026 — Tokyo" loading="lazy">
-        <p class="ne-card-overline">Tokyo · Japan</p>
-        <h3 class="ne-card-title">AMC 2026</h3>
-        <p class="ne-card-subtitle">Asia Massage Championship</p>
-        <p class="ne-date"><em class="ne-date-em">2–3 June</em></p>
-      </div>
-    </div>
-
-    <div class="ne-connector">
-      <div class="ne-connector-line"></div>
-      <span class="ne-connector-label">Then</span>
-    </div>
-
     <!-- ── NewMa · May ── -->
     <div class="ne-event">
       <div class="ne-card">
@@ -776,6 +761,22 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
       </div>
     </div>
 
+    <div class="ne-connector">
+      <div class="ne-connector-line"></div>
+      <span class="ne-connector-label">Then</span>
+    </div>
+
+    <!-- ── AMC · June ── -->
+    <div class="ne-event">
+      <div class="ne-card">
+        <img class="ne-card-logo" src="Screenshot 2026-03-18 at 11.40.39.png" alt="Asia Massage Championship 2026 — Tokyo" loading="lazy">
+        <p class="ne-card-overline">Tokyo · Japan</p>
+        <h3 class="ne-card-title">AMC 2026</h3>
+        <p class="ne-card-subtitle">Asia Massage Championship</p>
+        <p class="ne-date"><em class="ne-date-em">2–3 June</em></p>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -783,11 +784,20 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 <section class="capacity-section reveal">
   <div class="capacity-fade-top"></div>
   <div class="capacity-fade-bot"></div>
-  <div class="cap-concluded">
-    <span class="cap-concluded-seal">✓</span>
-    <p class="cap-concluded-label">GGMC 2026 · München</p>
-    <p class="cap-concluded-text">Coverage Concluded</p>
+  <p class="capacity-label">Event Capacity</p>
+  <div class="capacity-visual">
+    <div class="cap-dot filled"></div>
+    <div class="cap-dot filled"></div>
+    <div class="cap-dot filled"></div>
+    <div class="cap-dot filled"></div>
+    <div class="cap-dot filled"></div>
+    <div class="cap-dot filled"></div>
+    <div class="cap-dot"></div>
+    <div class="cap-dot"></div>
+    <div class="cap-dot"></div>
+    <div class="cap-dot"></div>
   </div>
+  <p class="capacity-text"><strong>6 of 10</strong> slots booked · secure yours before coverage begins</p>
 </section>
 <div class="cap-film-bridge" aria-hidden="true"></div>
 
