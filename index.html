@@ -4,147 +4,146 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>iCONSTANTINE</title>
-<meta name="description" content="Championship Media Packages — Cinema-grade video and photography for massage championships worldwide.">
+<meta name="description" content="Championship Media — Cinema-grade video and photography for massage championships worldwide.">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--gold:#d4af37;--gold-dim:#b8960c;--gold-glow:rgba(212,175,55,.5)}
-html,body{width:100%;height:100%;background:#000;overflow:hidden;font-family:'Helvetica Neue',Arial,sans-serif;color:#fff}
+html,body{width:100%;height:100%;overflow:hidden;background:#000;
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#fff}
 
-/* ── CANVAS PARTICLES ── */
-#cvs{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.7}
+/* ── CANVAS LAYERS ── */
+#grain-cvs{position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.042;
+  width:100%;height:100%}
+#iris-cvs{position:fixed;inset:0;z-index:40;pointer-events:none}
 
-/* ── RADIAL BG GLOW ── */
-.bg-glow{position:fixed;inset:0;z-index:1;
-  background:radial-gradient(ellipse 55% 45% at 50% 38%,rgba(180,140,10,.07) 0%,transparent 70%);
-  animation:bgBreath 5s ease-in-out infinite}
-@keyframes bgBreath{0%,100%{opacity:.6}50%{opacity:1}}
+/* ── ATMOSPHERE ── */
+.bg-deep{position:fixed;inset:0;z-index:1;
+  background:radial-gradient(ellipse 60% 50% at 50% 42%,rgba(160,120,8,.055) 0%,transparent 68%)}
+.vignette{position:fixed;inset:0;z-index:6;pointer-events:none;
+  background:radial-gradient(ellipse 90% 85% at 50% 50%,transparent 48%,rgba(0,0,0,.88) 100%)}
+.light-leak{position:fixed;top:0;left:-5%;right:-5%;height:30%;z-index:2;pointer-events:none;
+  background:radial-gradient(ellipse 75% 55% at 50% 0%,rgba(200,150,15,.05) 0%,transparent 70%);
+  animation:leakPulse 9s ease-in-out infinite}
+@keyframes leakPulse{0%,100%{opacity:.55}50%{opacity:1}}
 
-/* ── MAIN LAYOUT ── */
-.stage{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;min-height:100vh;padding:40px 20px 60px;gap:0}
+/* ── LENS FLARE (at iris open moment) ── */
+.flare{position:fixed;inset:0;z-index:38;pointer-events:none;
+  background:radial-gradient(ellipse 28% 22% at 50% 50%,rgba(255,235,170,.82) 0%,rgba(212,175,55,.28) 28%,transparent 62%);
+  opacity:0;animation:flareBurst 1s ease .28s forwards}
+@keyframes flareBurst{0%{opacity:0}7%{opacity:1}100%{opacity:0}}
+
+/* ── MAIN STAGE ── */
+.stage{position:relative;z-index:10;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;min-height:100vh;
+  padding:40px 20px 55px;gap:0}
 
 /* ── EYE LOGO ── */
-.eye-outer{position:relative;width:160px;height:160px;display:flex;align-items:center;
-  justify-content:center;margin-bottom:8px;
-  opacity:0;animation:eyeDrop 1.6s cubic-bezier(.16,1,.3,1) .1s forwards}
-
-@keyframes eyeDrop{
-  0%{opacity:0;transform:scale(.3);filter:brightness(8) blur(18px) saturate(3)}
-  40%{opacity:1;filter:brightness(2.2) blur(4px) saturate(2)}
-  70%{transform:scale(1.06);filter:brightness(1.3) blur(0)}
-  85%{transform:scale(.97)}
-  100%{opacity:1;transform:scale(1);filter:brightness(1) blur(0)}}
-
-/* spinning conic ring */
-.eye-outer::before{content:'';position:absolute;inset:-22px;border-radius:50%;
-  background:conic-gradient(from 0deg,transparent 0%,rgba(212,175,55,.5) 20%,rgba(255,220,80,.6) 35%,transparent 55%,rgba(212,175,55,.3) 75%,transparent 100%);
-  opacity:0;animation:spinRing 7s linear infinite,ringFadeIn 2.4s ease .8s forwards}
-@keyframes spinRing{to{transform:rotate(360deg)}}
-@keyframes ringFadeIn{to{opacity:1}}
-
-/* pulse ring border */
-.eye-outer::after{content:'';position:absolute;inset:-4px;border-radius:50%;
-  border:1px solid rgba(212,175,55,.25);
-  opacity:0;animation:ringPulse 3.5s ease-in-out infinite,ringFadeIn 2s ease 1.2s forwards}
-@keyframes ringPulse{0%,100%{transform:scale(1);opacity:.25}50%{transform:scale(1.1);opacity:.65}}
-
-/* second glow ring */
-.eye-ring2{position:absolute;inset:-14px;border-radius:50%;
-  border:1px solid rgba(212,175,55,.1);
-  opacity:0;animation:ringPulse2 4s ease-in-out 0.5s infinite,ringFadeIn 2.2s ease 1s forwards}
-@keyframes ringPulse2{0%,100%{transform:scale(1);opacity:.1}50%{transform:scale(1.06);opacity:.3}}
-
-.eye-logo{width:120px;height:120px;object-fit:contain;
-  filter:drop-shadow(0 0 14px rgba(212,175,55,.7)) drop-shadow(0 0 40px rgba(212,175,55,.35)) drop-shadow(0 0 80px rgba(212,175,55,.15))}
+.eye-logo{width:108px;height:108px;object-fit:contain;margin-bottom:22px;
+  opacity:0;animation:eyeReveal 1s cubic-bezier(.2,.8,.3,1) 1.38s forwards;
+  will-change:transform,filter}
+@keyframes eyeReveal{
+  0%{opacity:0;transform:scale(.72);filter:brightness(3.5) blur(6px) saturate(2)}
+  55%{filter:brightness(1.4) blur(0) saturate(1.2)}
+  100%{opacity:1;transform:scale(1);filter:brightness(1) blur(0) saturate(1)}}
+.eye-logo.breathe{
+  animation:eyeBreath 4.5s ease-in-out infinite;
+  filter:drop-shadow(0 0 14px rgba(212,175,55,.62)) drop-shadow(0 0 42px rgba(212,175,55,.26))}
+@keyframes eyeBreath{
+  0%,100%{filter:drop-shadow(0 0 13px rgba(212,175,55,.58)) drop-shadow(0 0 38px rgba(212,175,55,.22))}
+  50%{filter:drop-shadow(0 0 22px rgba(212,175,55,.92)) drop-shadow(0 0 58px rgba(212,175,55,.42))}}
 
 /* ── BRAND NAME ── */
-.brand-name{display:flex;gap:0;overflow:hidden;margin-top:22px;
-  opacity:0;animation:fadeSlideUp .7s ease 1.5s forwards}
-@keyframes fadeSlideUp{from{opacity:0;transform:translateY(12px) scaleX(.9);letter-spacing:.08em}
-  to{opacity:1;transform:translateY(0) scaleX(1)}}
-
-.brand-name span{display:inline-block;font-size:12.5px;font-weight:500;
-  letter-spacing:.42em;text-transform:uppercase;color:rgba(212,175,55,.92);
-  opacity:0;animation:letterIn .4s ease forwards}
-.brand-name span:nth-child(1){animation-delay:1.5s}
-.brand-name span:nth-child(2){animation-delay:1.56s}
-.brand-name span:nth-child(3){animation-delay:1.62s}
-.brand-name span:nth-child(4){animation-delay:1.68s}
-.brand-name span:nth-child(5){animation-delay:1.74s}
-.brand-name span:nth-child(6){animation-delay:1.80s}
-.brand-name span:nth-child(7){animation-delay:1.86s}
-.brand-name span:nth-child(8){animation-delay:1.92s}
-.brand-name span:nth-child(9){animation-delay:1.98s}
-.brand-name span:nth-child(10){animation-delay:2.04s}
-.brand-name span:nth-child(11){animation-delay:2.10s}
-.brand-name span:nth-child(12){animation-delay:2.16s}
-@keyframes letterIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.brand{display:flex;margin-bottom:17px}
+.brand span{font-size:12px;font-weight:500;letter-spacing:.44em;text-transform:uppercase;
+  color:rgba(212,175,55,.9);opacity:0;animation:lttrUp .32s ease forwards}
+.brand span:nth-child(1){animation-delay:1.6s}
+.brand span:nth-child(2){animation-delay:1.66s}
+.brand span:nth-child(3){animation-delay:1.72s}
+.brand span:nth-child(4){animation-delay:1.78s}
+.brand span:nth-child(5){animation-delay:1.84s}
+.brand span:nth-child(6){animation-delay:1.90s}
+.brand span:nth-child(7){animation-delay:1.96s}
+.brand span:nth-child(8){animation-delay:2.02s}
+.brand span:nth-child(9){animation-delay:2.08s}
+.brand span:nth-child(10){animation-delay:2.14s}
+.brand span:nth-child(11){animation-delay:2.20s}
+.brand span:nth-child(12){animation-delay:2.26s}
+@keyframes lttrUp{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
 
 /* ── DIVIDER ── */
-.divider{height:1px;width:0;margin:20px 0 16px;
-  background:linear-gradient(90deg,transparent,rgba(212,175,55,.45),transparent);
-  animation:lineGrow .9s ease 2.3s forwards}
-@keyframes lineGrow{to{width:240px}}
+.div-line{height:1px;width:0;margin:0 0 15px;
+  background:linear-gradient(90deg,transparent,rgba(212,175,55,.42),transparent);
+  animation:lineGrow .85s ease 2.45s forwards}
+@keyframes lineGrow{to{width:210px}}
 
 /* ── CHOOSE TITLE ── */
-.choose-title{font-size:10px;letter-spacing:.3em;text-transform:uppercase;
-  color:rgba(255,255,255,.32);margin-bottom:24px;
-  opacity:0;animation:fadeSlideUp .6s ease 2.5s forwards}
+.choose{font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;
+  color:rgba(255,255,255,.28);margin-bottom:21px;
+  opacity:0;animation:upFade .55s ease 2.62s forwards}
 
-/* ── LANGUAGE GRID ── */
+/* ── LANG GRID ── */
 .lang-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;
   max-width:600px;width:94vw;
-  opacity:0;transform:translateY(18px);animation:gridUp .8s ease 2.7s forwards}
-@keyframes gridUp{to{opacity:1;transform:translateY(0)}}
+  opacity:0;transform:translateY(14px);animation:upFade .7s ease 2.82s forwards}
+@keyframes upFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
-.lb{display:flex;flex-direction:column;align-items:center;gap:4px;padding:9px 5px 8px;
-  background:rgba(255,255,255,.025);border:1px solid rgba(212,175,55,.1);border-radius:9px;
-  cursor:pointer;text-decoration:none;color:rgba(255,255,255,.6);
-  transition:background .2s,border-color .25s,color .2s,transform .15s,box-shadow .2s;
-  font-size:10px;text-align:center;line-height:1.3;user-select:none}
-.lb:hover{background:rgba(212,175,55,.1);border-color:rgba(212,175,55,.38);
-  color:rgba(255,255,255,.95);transform:translateY(-3px);
-  box-shadow:0 6px 22px rgba(212,175,55,.15)}
-.lb .f{font-size:20px;line-height:1}
-.lb .n{font-size:9.5px;letter-spacing:.03em;margin-top:2px}
-.lb.en{border-color:rgba(212,175,55,.22);color:rgba(212,175,55,.8)}
-.lb.en:hover{border-color:rgba(212,175,55,.55)}
+.lb{display:flex;flex-direction:column;align-items:center;gap:4px;
+  padding:9px 5px 8px;background:rgba(255,255,255,.022);
+  border:1px solid rgba(212,175,55,.09);border-radius:9px;
+  cursor:pointer;text-decoration:none;color:rgba(255,255,255,.56);
+  transition:background .18s,border-color .22s,color .18s,transform .14s,box-shadow .18s;
+  text-align:center;line-height:1.3;-webkit-tap-highlight-color:transparent}
+.lb:hover{background:rgba(212,175,55,.1);border-color:rgba(212,175,55,.36);
+  color:rgba(255,255,255,.93);transform:translateY(-3px);
+  box-shadow:0 6px 20px rgba(212,175,55,.11)}
+.lb:active{transform:translateY(-1px)}
+.lb .f{font-size:19px;line-height:1}
+.lb .n{font-size:9.5px;letter-spacing:.025em}
+.lb.en{border-color:rgba(212,175,55,.19);color:rgba(212,175,55,.78)}
+.lb.hi{border-color:rgba(212,175,55,.42)!important;background:rgba(212,175,55,.1)!important;
+  color:rgba(255,255,255,.92)!important}
 
-/* ── AUTO-DETECT BAR ── */
-.auto-bar{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);
-  text-align:center;opacity:0;animation:fadeSlideUp .6s ease 3.2s forwards;
-  min-width:300px}
-.auto-msg{font-size:10.5px;color:rgba(255,255,255,.28);letter-spacing:.06em;margin-bottom:7px}
-.auto-msg b{color:rgba(212,175,55,.6);font-weight:400}
-.progress-track{width:260px;height:2px;background:rgba(255,255,255,.06);border-radius:2px;
-  margin:0 auto;overflow:hidden}
-.progress-fill{height:100%;width:0;border-radius:2px;
-  background:linear-gradient(90deg,rgba(212,175,55,.5),rgba(212,175,55,.9));
-  transition:width .1s linear}
+/* ── AUTO BAR ── */
+.auto-bar{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+  text-align:center;opacity:0;animation:upFade .6s ease 3.35s forwards;min-width:260px}
+.auto-msg{font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.07em;margin-bottom:7px}
+.auto-msg b{color:rgba(212,175,55,.55);font-weight:400}
+.prog-track{width:230px;height:1.5px;background:rgba(255,255,255,.05);border-radius:2px;margin:0 auto;overflow:hidden}
+.prog-fill{height:100%;width:0;border-radius:2px;
+  background:linear-gradient(90deg,rgba(212,175,55,.38),rgba(212,175,55,.82));
+  transition:width .08s linear}
 
-/* ── SKIP HINT ── */
-.skip-hint{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);
-  font-size:9px;color:rgba(255,255,255,.15);letter-spacing:.08em;text-transform:uppercase}
+/* ── RESPONSIVE ── */
+@media(max-width:480px){
+  .lang-grid{grid-template-columns:repeat(4,1fr)}
+  .eye-logo{width:90px;height:90px}
+}
+@media(max-width:360px){
+  .lang-grid{grid-template-columns:repeat(3,1fr)}
+}
 </style>
 </head>
 <body>
-<canvas id="cvs"></canvas>
-<div class="bg-glow"></div>
+
+<canvas id="grain-cvs"></canvas>
+<canvas id="iris-cvs"></canvas>
+<div class="bg-deep"></div>
+<div class="light-leak"></div>
+<div class="vignette"></div>
+<div class="flare"></div>
 
 <main class="stage">
-  <div class="eye-outer">
-    <div class="eye-ring2"></div>
-    <img class="eye-logo" src="logo%20golden%20iconstantine%20eye%20small.png" alt="iCONSTANTINE" draggable="false">
-  </div>
+  <img id="eyeLogo" class="eye-logo"
+    src="logo%20golden%20iconstantine%20eye%20small.png" alt="iCONSTANTINE"
+    draggable="false">
 
-  <div class="brand-name" aria-label="iCONSTANTINE">
+  <div class="brand" aria-label="iCONSTANTINE">
     <span>i</span><span>C</span><span>O</span><span>N</span><span>S</span>
     <span>T</span><span>A</span><span>N</span><span>T</span><span>I</span>
     <span>N</span><span>E</span>
   </div>
 
-  <div class="divider"></div>
-  <p class="choose-title">Choose your language</p>
+  <div class="div-line"></div>
+  <p class="choose">Choose your language</p>
 
   <div class="lang-grid">
     <a class="lb en" href="/english"><span class="f">&#127468;&#127463;</span><span class="n">English</span></a>
@@ -172,62 +171,214 @@ html,body{width:100%;height:100%;background:#000;overflow:hidden;font-family:'He
 
 <div class="auto-bar" id="autoBar">
   <p class="auto-msg" id="autoMsg"></p>
-  <div class="progress-track"><div class="progress-fill" id="progFill"></div></div>
+  <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
 </div>
-<p class="skip-hint">click any language to continue</p>
 
 <script>
-// ── Particle Canvas ──────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════
+// FILM GRAIN — small canvas scaled up for performance
+// ═══════════════════════════════════════════════════════
 (function(){
-  var c=document.getElementById('cvs');
-  var ctx=c.getContext('2d');
-  var W,H,particles=[];
-  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight}
+  var c = document.getElementById('grain-cvs');
+  var ctx = c.getContext('2d');
+  var scale = 3; // upscale factor (less pixels to fill = faster)
+  var W, H;
+  function resize(){
+    W = c.width = Math.ceil(window.innerWidth / scale);
+    H = c.height = Math.ceil(window.innerHeight / scale);
+    c.style.width = window.innerWidth + 'px';
+    c.style.height = window.innerHeight + 'px';
+    c.style.imageRendering = 'pixelated';
+  }
   resize();
-  window.addEventListener('resize',resize);
-  function Particle(){
-    this.reset=function(){
-      this.x=W*.3+Math.random()*W*.4;
-      this.y=H*.7+Math.random()*H*.35;
-      this.vx=(Math.random()-.5)*.35;
-      this.vy=-(0.3+Math.random()*0.7);
-      this.r=.8+Math.random()*1.4;
-      this.life=0;
-      this.maxLife=140+Math.random()*180;
-      this.gold=Math.random()>.4;
-    };
-    this.reset();
-    this.life=Math.random()*this.maxLife;
-  }
-  for(var i=0;i<55;i++){var p=new Particle();particles.push(p);}
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    var now=Date.now();
-    particles.forEach(function(p){
-      p.life++;
-      if(p.life>p.maxLife){p.reset();return;}
-      var t=p.life/p.maxLife;
-      var alpha=t<.15?t/.15:t>.75?(1-t)/.25:1;
-      alpha*=.55;
-      p.x+=p.vx+(Math.sin(now*.001+p.y*.02)*.15);
-      p.y+=p.vy;
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      if(p.gold){
-        ctx.fillStyle='rgba(212,175,55,'+alpha.toFixed(3)+')';
-      } else {
-        ctx.fillStyle='rgba(255,240,180,'+( alpha*.5).toFixed(3)+')';
+  window.addEventListener('resize', resize);
+  var frame = 0;
+  function tick(){
+    frame++;
+    // Update grain every other frame to ease CPU
+    if (frame % 2 === 0){
+      var id = ctx.createImageData(W, H);
+      var d = id.data;
+      for (var i = 0; i < d.length; i += 4){
+        var v = (Math.random() * 255) | 0;
+        d[i] = d[i+1] = d[i+2] = v;
+        d[i+3] = v > 140 ? ((Math.random() * 28)|0) : 0;
       }
-      ctx.fill();
-    });
-    requestAnimationFrame(draw);
+      ctx.putImageData(id, 0, 0);
+    }
+    requestAnimationFrame(tick);
   }
-  draw();
+  tick();
 })();
 
-// ── Auto Language Detect + Countdown ────────────────────────────────────────
+// ═══════════════════════════════════════════════════════
+// CAMERA APERTURE IRIS ANIMATION
+// ═══════════════════════════════════════════════════════
 (function(){
-  var MAP={
+  var c = document.getElementById('iris-cvs');
+  var ctx = c.getContext('2d');
+  var W, H;
+  function resize(){
+    W = c.width = window.innerWidth;
+    H = c.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  var N = 7;           // aperture blades
+  var START = 260;     // ms before iris begins opening
+  var DUR = 1900;      // ms for iris to fully open
+  var FADE_AT = 2300;  // ms when canvas starts fading
+  var FADE_DUR = 480;  // ms to fully fade canvas
+
+  var t0 = null;
+  var done = false;
+
+  function ease(t){
+    // Smooth ease-in-out with slight overshoot feel
+    return t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+  }
+
+  function draw(ts){
+    if(done) return;
+    if(!t0) t0 = ts;
+    var elapsed = ts - t0;
+
+    // Iris open progress 0→1
+    var raw = Math.max(0, Math.min(1, (elapsed - START) / DUR));
+    var p = ease(raw);
+
+    // Canvas fade-out
+    var canvasAlpha = 1;
+    if(elapsed > FADE_AT){
+      canvasAlpha = Math.max(0, 1 - (elapsed - FADE_AT) / FADE_DUR);
+    }
+    if(canvasAlpha <= 0){
+      c.style.opacity = '0';
+      c.style.pointerEvents = 'none';
+      done = true;
+      // Switch eye to breathing glow
+      var eye = document.getElementById('eyeLogo');
+      if(eye) eye.classList.add('breathe');
+      return;
+    }
+    c.style.opacity = canvasAlpha;
+
+    var cx = W/2, cy = H/2;
+    var maxR = Math.hypot(W, H) * 0.56;
+
+    ctx.clearRect(0, 0, W, H);
+
+    // Full black background
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, W, H);
+
+    if(p > 0){
+      // ── Cut iris opening using destination-out ──
+      // The polygon rotates and grows — authentic aperture behavior
+      var openR = p * maxR;
+      // Rotation increases as it opens, like real iris blades pivoting
+      var rot = p * (Math.PI / N) * 1.15;
+
+      ctx.save();
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.beginPath();
+
+      // N-sided polygon with sinusoidal edge modulation
+      // creates the characteristic multi-blade scalloped shape
+      var steps = N * 12; // smooth polygon
+      for(var i = 0; i <= steps; i++){
+        var a = (i / steps) * Math.PI * 2 + rot;
+        // Modulate radius: creates slight concavity at each blade junction
+        var mod = 0.83 + 0.17 * Math.cos(N * a - N * rot + Math.PI / N);
+        var r = openR * mod;
+        var x = cx + r * Math.cos(a);
+        var y = cy + r * Math.sin(a);
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(0,0,0,1)';
+      ctx.fill();
+      ctx.restore();
+
+      // ── Subtle gold edge glow at iris perimeter ──
+      if(p > 0.08){
+        ctx.save();
+        ctx.globalCompositeOperation = 'source-over';
+        var edgeR = openR * 0.88;
+        var grd = ctx.createRadialGradient(cx,cy,edgeR*0.82, cx,cy,edgeR*1.12);
+        grd.addColorStop(0, 'rgba(0,0,0,0)');
+        grd.addColorStop(0.45, 'rgba(212,175,55,0.07)');
+        grd.addColorStop(0.7, 'rgba(180,140,20,0.04)');
+        grd.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = grd;
+        ctx.fillRect(0,0,W,H);
+        ctx.restore();
+      }
+
+      // ── Brief lens flare burst at start of opening ──
+      if(elapsed > START && elapsed < START + 520){
+        var fp = (elapsed - START) / 520;
+        var fa = (1 - fp) * (1 - fp) * 0.72;
+        if(fa > 0.004){
+          ctx.save();
+          ctx.globalCompositeOperation = 'screen';
+          var fr = 15 + 75 * fp;
+          var fgrd = ctx.createRadialGradient(cx,cy,0, cx,cy,fr);
+          fgrd.addColorStop(0, 'rgba(255,245,200,'+(fa*0.95)+')');
+          fgrd.addColorStop(0.25, 'rgba(212,175,55,'+(fa*0.55)+')');
+          fgrd.addColorStop(0.6, 'rgba(180,130,10,'+(fa*0.18)+')');
+          fgrd.addColorStop(1, 'rgba(0,0,0,0)');
+          ctx.fillStyle = fgrd;
+          ctx.beginPath();
+          ctx.arc(cx, cy, fr, 0, Math.PI*2);
+          ctx.fill();
+
+          // Anamorphic streak (horizontal light streak)
+          var streakAlpha = fa * 0.35;
+          var streakW = 180 + 300 * fp;
+          var streakH = 2 + 4 * (1-fp);
+          var sgrd = ctx.createLinearGradient(cx-streakW/2,cy, cx+streakW/2,cy);
+          sgrd.addColorStop(0,'rgba(255,240,180,0)');
+          sgrd.addColorStop(0.35,'rgba(255,240,180,'+streakAlpha+')');
+          sgrd.addColorStop(0.5,'rgba(255,255,220,'+(streakAlpha*1.3)+')');
+          sgrd.addColorStop(0.65,'rgba(255,240,180,'+streakAlpha+')');
+          sgrd.addColorStop(1,'rgba(255,240,180,0)');
+          ctx.fillStyle = sgrd;
+          ctx.fillRect(cx-streakW/2, cy-streakH/2, streakW, streakH);
+          ctx.restore();
+        }
+      }
+
+      // ── Blade shadow detail: dark segments between blades ──
+      // Gives the aperture a sense of metallic depth
+      if(p > 0.05 && p < 0.92){
+        ctx.save();
+        ctx.globalCompositeOperation = 'source-over';
+        for(var b=0; b<N; b++){
+          var bladeAngle = (b/N)*Math.PI*2 + rot;
+          var bx = cx + openR*0.7*Math.cos(bladeAngle);
+          var by = cy + openR*0.7*Math.sin(bladeAngle);
+          var bgrd = ctx.createRadialGradient(bx,by,0, bx,by,openR*0.2);
+          bgrd.addColorStop(0,'rgba(0,0,0,'+(0.12*(1-p*0.9))+')');
+          bgrd.addColorStop(1,'rgba(0,0,0,0)');
+          ctx.fillStyle = bgrd;
+          ctx.fillRect(0,0,W,H);
+        }
+        ctx.restore();
+      }
+    }
+
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+
+// ═══════════════════════════════════════════════════════
+// AUTO LANGUAGE DETECT + COUNTDOWN
+// ═══════════════════════════════════════════════════════
+(function(){
+  var MAP = {
     'de':'german','de-at':'german','de-ch':'german','de-de':'german','de-li':'german',
     'it':'italian','it-it':'italian','it-ch':'italian',
     'es':'spanish','es-es':'spanish','es-mx':'spanish','es-419':'spanish','es-us':'spanish',
@@ -247,9 +398,9 @@ html,body{width:100%;height:100%;background:#000;overflow:hidden;font-family:'He
     'cs':'czech','cs-cz':'czech',
     'sq':'albanian','sq-al':'albanian',
     'fr':'frenchfacts','fr-fr':'frenchfacts','fr-ch':'frenchfacts','fr-be':'frenchfacts','fr-ca':'frenchfacts',
-    'en':'english','en-gb':'english','en-us':'english','en-au':'english','en-ca':'english'
+    'en':'english','en-gb':'english','en-us':'english','en-au':'english','en-ca':'english','en-nz':'english'
   };
-  var NAMES={
+  var NAMES = {
     german:'Deutsch',italian:'Italiano',spanish:'Español',portuguese:'Português',
     romanian:'Română',russian:'Русский',japanese:'日本語',chinese:'中文',
     taiwanese:'繁體中文',hongkong:'廣東話',thai:'ภาษาไทย',vietnamese:'Tiếng Việt',
@@ -258,80 +409,74 @@ html,body{width:100%;height:100%;background:#000;overflow:hidden;font-family:'He
     frenchfacts:'Français',english:'English'
   };
 
-  var cancelled=false;
-  var DELAY=3200; // ms countdown after bar appears (~3s after it becomes visible)
-  var TICK=50;
-  var bar=document.getElementById('autoBar');
-  var msg=document.getElementById('autoMsg');
-  var fill=document.getElementById('progFill');
+  var cancelled = false;
+  var COUNTDOWN = 3200; // ms
+  var TICK = 60;
+  var msg = document.getElementById('autoMsg');
+  var fill = document.getElementById('progFill');
 
-  // Manual click saves preference
+  // Save manual choice + cancel auto-redirect
   document.querySelectorAll('.lb').forEach(function(a){
-    a.addEventListener('click',function(e){
-      cancelled=true;
-      var href=a.getAttribute('href');
-      var slug=href.replace('/','');
-      try{localStorage.setItem('ic_lang',slug==='english'?'':slug);}catch(e2){}
+    a.addEventListener('click', function(){
+      cancelled = true;
+      var slug = a.getAttribute('href').replace('/','');
+      try{ localStorage.setItem('ic_lang', slug==='english'?'':slug); }catch(e){}
     });
   });
 
-  function startCountdown(slug){
-    var dest='/'+slug;
-    var name=NAMES[slug]||slug;
-    var elapsed=0;
-    msg.innerHTML='Detected: <b>'+name+'</b> &mdash; continuing in <b id="secs">3</b>s';
-    function tick(){
-      if(cancelled) return;
-      elapsed+=TICK;
-      var pct=Math.min(100,(elapsed/DELAY)*100);
-      fill.style.width=pct+'%';
-      var secs=Math.max(0,Math.ceil((DELAY-elapsed)/1000));
-      var el=document.getElementById('secs');
-      if(el) el.textContent=secs;
-      if(elapsed>=DELAY){
-        try{localStorage.setItem('ic_lang',slug==='english'?'':slug);}catch(e){}
-        window.location.replace(dest);
-      } else {
-        setTimeout(tick,TICK);
-      }
-    }
-    setTimeout(tick,TICK);
+  function highlightLang(slug){
+    document.querySelectorAll('.lb').forEach(function(a){
+      if(a.getAttribute('href')==='/'+slug) a.classList.add('hi');
+    });
   }
 
-  // Wait for bar animation to finish before starting countdown
+  function runCountdown(slug){
+    var dest = '/'+slug;
+    var name = NAMES[slug]||slug;
+    highlightLang(slug);
+    var elapsed = 0;
+    msg.innerHTML = 'Detected: <b>'+name+'</b> &mdash; continuing in <b id="sn">3</b>s';
+    function tick(){
+      if(cancelled) return;
+      elapsed += TICK;
+      fill.style.width = Math.min(100,(elapsed/COUNTDOWN)*100)+'%';
+      var sn = document.getElementById('sn');
+      if(sn) sn.textContent = Math.max(0, Math.ceil((COUNTDOWN-elapsed)/1000));
+      if(elapsed >= COUNTDOWN){
+        try{ localStorage.setItem('ic_lang', slug==='english'?'':slug); }catch(e){}
+        window.location.replace(dest);
+      } else {
+        setTimeout(tick, TICK);
+      }
+    }
+    setTimeout(tick, TICK);
+  }
+
+  // Wait for the bar animation delay + a bit
   setTimeout(function(){
     if(cancelled) return;
     try{
-      var pref=localStorage.getItem('ic_lang');
-      var slug=pref||'';
+      var pref = localStorage.getItem('ic_lang');
+      var slug = pref||'';
       if(!slug){
-        var langs=navigator.languages||[navigator.language||''];
+        var langs = navigator.languages || [navigator.language||navigator.userLanguage||''];
         for(var i=0;i<langs.length;i++){
-          var l=langs[i].toLowerCase();
+          var l = langs[i].toLowerCase();
           if(MAP[l]){slug=MAP[l];break;}
-          var s=l.split('-')[0];
+          var s = l.split('-')[0];
           if(MAP[s]){slug=MAP[s];break;}
         }
       }
-      if(slug&&slug!==''){
-        // Highlight the matching button
-        document.querySelectorAll('.lb').forEach(function(a){
-          if(a.getAttribute('href')==='/'+slug){
-            a.style.borderColor='rgba(212,175,55,.5)';
-            a.style.background='rgba(212,175,55,.12)';
-            a.style.color='rgba(255,255,255,.95)';
-          }
-        });
-        startCountdown(slug);
+      if(slug){
+        runCountdown(slug);
       } else {
-        // No match, just show a neutral prompt
-        msg.innerHTML='Select your preferred language below';
-        fill.style.display='none';
+        msg.innerHTML = 'Select your preferred language below';
+        fill.style.display = 'none';
       }
-    } catch(e){
-      msg.innerHTML='Select your preferred language below';
+    }catch(e){
+      msg.innerHTML = 'Select your preferred language below';
     }
-  }, 3400); // starts counting after bar fades in
+  }, 3600);
 })();
 </script>
 </body>
