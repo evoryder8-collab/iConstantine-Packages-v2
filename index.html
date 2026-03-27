@@ -1,6 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+/* iC Auto Language Detect — fires before first paint */
+(function(){
+  try {
+    var pref = localStorage.getItem('ic_lang');
+    var map = {
+      'de':'german','de-at':'german','de-ch':'german','de-de':'german',
+      'it':'italian','it-it':'italian','it-ch':'italian',
+      'es':'spanish','es-es':'spanish','es-mx':'spanish','es-419':'spanish',
+      'pt':'portuguese','pt-br':'portuguese','pt-pt':'portuguese',
+      'ro':'romanian','ro-ro':'romanian',
+      'ru':'russian','ru-ru':'russian','uk':'russian',
+      'ja':'japanese','ja-jp':'japanese',
+      'zh-cn':'chinese','zh-sg':'chinese','zh-hans':'chinese',
+      'zh-tw':'taiwanese','zh-hant':'taiwanese',
+      'zh-hk':'hongkong','zh-mo':'hongkong',
+      'th':'thai','th-th':'thai',
+      'vi':'vietnamese','vi-vn':'vietnamese',
+      'id':'indonesian','id-id':'indonesian',
+      'ms':'malaysian','ms-my':'malaysian','ms-sg':'malaysian',
+      'fil':'filipino','tl':'filipino',
+      'el':'greek','el-gr':'greek',
+      'cs':'czech','cs-cz':'czech',
+      'sq':'albanian','sq-al':'albanian',
+      'fr':'frenchfacts','fr-fr':'frenchfacts','fr-ch':'frenchfacts','fr-be':'frenchfacts'
+    };
+    var slug = pref;
+    if(!slug){
+      var langs = navigator.languages || [navigator.language || navigator.userLanguage || ''];
+      for(var i=0;i<langs.length;i++){
+        var l = langs[i].toLowerCase();
+        if(map[l]){slug=map[l];break;}
+        var short = l.split('-')[0];
+        if(map[short]){slug=map[short];break;}
+      }
+    }
+    if(slug && slug !== 'english'){
+      window.location.replace('/'+slug);
+    }
+  } catch(e){}
+})();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>iCONSTANTINE | Championship Media Packages</title>
@@ -1609,6 +1651,15 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModa
   if(!sw||!btn) return;
   btn.addEventListener('click',function(e){e.stopPropagation();sw.classList.toggle('open');});
   document.addEventListener('click',function(){sw.classList.remove('open');});
+  // Save manual language choice to localStorage
+  var links=sw.querySelectorAll('#lang-dropdown a');
+  links.forEach(function(a){
+    a.addEventListener('click',function(){
+      var href=a.getAttribute('href');
+      var slug=href==='/'||href===''?'english':href.replace('/','');
+      try{localStorage.setItem('ic_lang',slug==='english'?'':slug);}catch(e){}
+    });
+  });
 })();
 </script>
 </body>
