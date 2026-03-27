@@ -588,6 +588,14 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
   .social-strip-link:nth-child(5)::before{animation:socialShine 3.4s ease 7.2s infinite}
   .social-strip-link:nth-child(6)::before{animation:socialShine 3.4s ease 8.1s infinite}
 }
+
+/* ── Modal delivery queue grid ── */
+.dq-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;margin-bottom:6px}
+.dq-slot{padding:7px 10px;border-radius:7px;font-size:11px;line-height:1.5}
+.dq-slot strong{display:block;font-size:11.5px;margin-bottom:2px;font-weight:600}
+.dq-slot.ok{background:rgba(109,184,122,.10);color:#6db87a;border:1px solid rgba(109,184,122,.22)}
+.dq-slot.wait{background:rgba(212,175,55,.07);color:var(--gold-dim);border:1px solid rgba(212,175,55,.18)}
+.dq-note{font-size:10.5px;color:var(--text-muted);font-style:italic;line-height:1.55;margin-top:5px}
 </style>
 </head>
 <body>
@@ -845,6 +853,8 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
         <div class="detail-block"><span class="detail-label">What You Get</span><p>Raw individual video files in Vertical Full HD (1080p 9:16), 8 bit. No editing services or finished films included. Designed for clients who wish to edit their own content for Reels or TikTok.</p></div>
         <div class="detail-block"><span class="detail-label">Why It Still Looks Incredible</span><p>Because this footage is derived from 7K and 8K full frame sensors, the color depth and skin tones are far more defined and natural than any mobile phone with smaller sensors.</p></div>
         <div class="detail-block"><span class="detail-label">Delivery</span><p>Cloud download link sent within 48 to 72 hours post event.</p></div>
+        
+        <div class="detail-block"><span class="detail-label">Delivery Queue</span><div class="dq-grid"><div class="dq-slot ok"><strong>Spots 1 to 5</strong>48 to 72 hours post event</div><div class="dq-slot wait"><strong>Spot 6 and beyond</strong>1 to 2 weeks</div></div><p class="dq-note">Guaranteed for the first 5 orders. Book early to secure your spot and lock in this window.</p></div>
         <div class="upgrade-note"><a href="#addons" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between;"><p>⬆ Upgrade to 4K Landscape 10 bit for +99 CHF</p><span style="font-size:10px; font-weight:600; letter-spacing:1px; color:var(--black); background:var(--gold); padding:4px 12px; border-radius:100px; white-space:nowrap; margin-left:12px;">See Details ↓</span></a></div>
       </div></div>
     </div>
@@ -872,6 +882,8 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
         <div class="detail-block"><span class="detail-label">Artistic Approach</span><p>The aesthetic aligns strictly with my established portfolio. You're booking me for my specific eye and reportage style, which thrives on natural light and raw championship energy. Studio style lighting or heavy retouching is not part of this process.</p></div>
         <div class="detail-block"><span class="detail-label">Quantity</span><p>I sell world class imagery, not volume. The final count depends on your activity level: participating in multiple categories or advancing to the podium generates more opportunities for capture. Galleries typically range from 30 elite images to 300+ files.</p></div>
         <div class="detail-block"><span class="detail-label">Delivery</span><p>Cloud download link within 6 to 48 hours post event.</p></div>
+        
+        <div class="detail-block"><span class="detail-label">Delivery Queue</span><div class="dq-grid"><div class="dq-slot ok"><strong>Spots 1 to 5</strong>6 to 48 hours post event</div><div class="dq-slot wait"><strong>Spot 6 and beyond</strong>1 to 2 weeks</div></div><p class="dq-note">Guaranteed for the first 5 orders. Partial photo selects may be delivered same day regardless of queue position.</p></div>
         <div class="upgrade-note"><a href="#addon-retouch" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between;"><p>✦ Add Professional Retouching for +119 CHF</p><span style="font-size:10px; font-weight:600; letter-spacing:1px; color:var(--black); background:var(--gold); padding:4px 12px; border-radius:100px; white-space:nowrap; margin-left:12px;">See Details ↓</span></a></div>
       </div></div>
     </div>
@@ -901,6 +913,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
         <div class="detail-block"><span class="detail-label">Priority Transfer · Speed</span><p>Includes exclusive On Site Transfer for Vertical Full HD files, subject to logistical alignment.</p><ul><li><strong>Scenario A (iPhone):</strong> If schedules align post event, files are AirDropped directly to you on site.</li><li><strong>Scenario B (Android / Rush):</strong> Upload from hotel on high speed WiFi. You receive a SwissTransfer link same evening*.</li></ul><p>Either way, you receive assets days before the standard queue.</p><p style="font-size:11px;color:var(--text-muted);margin-top:8px;line-height:1.65;">* Same evening delivery is subject to your position in the booking queue. Bookings are fulfilled on a first come, first served basis. Regardless of your queue position, Authority clients are always guaranteed the fastest available delivery window, far ahead of both the Starter and Essential packages.</p></div>
         <div class="detail-block"><span class="detail-label">4K Archive · Quality</span><p>The massive 4K Master Files are delivered via cloud link within the first week post event. These are 10 bit Cinema Quality files.</p></div>
         <div class="detail-block"><span class="detail-label">Resolution</span><p>Vertical Full HD (1080p 9:16) 8 bit + 4K Landscape 10 bit (Cinema Quality)</p></div>
+        <div class="detail-block"><span class="detail-label">Delivery Queue</span><div class="dq-grid"><div class="dq-slot ok"><strong>Spots 1 to 5</strong>Video same evening · photos day of event</div><div class="dq-slot wait"><strong>Spot 6 and beyond</strong>1 to 2 weeks</div></div><p class="dq-note">Same evening video transfer guaranteed for the first 5 orders only. Photo gallery delivered day of event for all clients. Book early.</p></div>
       </div></div>
     </div>
   </div>
@@ -932,6 +945,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
         <div class="detail-block"><span class="detail-label">Music</span><p>I hold licenses for 3 premium copyright free music libraries. I can adapt the edit to fit any musical style (Hip Hop, Cinematic, Electronic, etc.) provided we align on the vibe beforehand. Edits are cut rhythmically "on the beat."</p></div>
         <div class="detail-block"><span class="detail-label">Revisions</span><p>2 rounds of refinements: pacing adjustments, specific shot replacements, minor narrative tweaks. A song swap after the edit is complete is NOT a revision. It forces a structural rebuild and incurs a re editing fee.</p></div>
         <div class="detail-block"><span class="detail-label">Delivery</span><p>Edited reel within 7 days of the event. Often sooner, but depends on your position in the booking queue.</p></div>
+        <div class="detail-block"><span class="detail-label">Delivery Queue</span><div class="dq-grid"><div class="dq-slot ok"><strong>Spots 1 to 5</strong>Reel within 7 days · photos day of event</div><div class="dq-slot wait"><strong>Spot 6 and beyond</strong>1 to 2 weeks</div></div><p class="dq-note">Guaranteed for the first 5 orders. Photo gallery delivered day of event for all clients. Reel pushed to 1 to 2 weeks beyond spot 5.</p></div>
       </div></div>
     </div>
 
@@ -964,6 +978,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
         <div class="detail-block"><span class="detail-label">Revisions</span><p>2 rounds of refinements. Requests requiring a full timeline restart or complete narrative change are not revisions. We align on the vibe before the first frame is cut.</p></div>
         <div class="detail-block"><span class="detail-label">Payment</span><p>50% non refundable deposit before the event. 50% balance due upon delivery.</p></div>
         <div class="detail-block"><span class="detail-label">Why Only 2 Slots</span><p>Due to the intense production demands of this narrative format, this tier is strictly limited to 2 client slots per event.</p></div>
+        <div class="detail-block"><span class="detail-label">Delivery Queue</span><div class="dq-grid"><div class="dq-slot ok"><strong>Spots 1 to 5</strong>Individual production calendar agreed at booking</div><div class="dq-slot wait"><strong>Spot 6 and beyond</strong>1 to 2 weeks</div></div><p class="dq-note">Only 2 slots per event. Photo gallery delivered day of event. Documentary timeline agreed individually at booking.</p></div>
       </div></div>
     </div>
   </div>
