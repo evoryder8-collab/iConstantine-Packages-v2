@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forfaits · iConstantine — Couverture Médias Championnats</title>
+<meta name="description" content="Détail complet des forfaits photo et vidéo pour championnats de massage. Conditions, inclusions et processus de réservation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:#D4AF37; --gold-light:#F4D58D; --gold-dim:#8B7536; --gold-deep:#6B5A1E;
+  --black:#020204; --black-card:#060609; --cream:#E8E4DC;
+  --text-primary:#E8E4DC; --text-secondary:#9A958A; --text-muted:#5C5850;
+  --border-gold:rgba(212,175,55,0.22); --border-faint:rgba(255,255,255,0.06);
+  --font-display:'Cormorant Garamond',serif; --font-body:'DM Sans',sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--black);color:var(--text-primary);-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
+
+/* ── SCROLL PROGRESS ── */
+.scroll-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold-dim),var(--gold),var(--gold-light));z-index:10000;width:0%;transition:width .1s linear}
+
+/* ── TOP NAV ── */
+.top-nav{position:sticky;top:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:16px 32px;background:rgba(2,2,4,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--border-faint)}
+.nav-logo{font-family:var(--font-display);font-size:15px;letter-spacing:4px;color:var(--gold-dim);text-decoration:none;text-transform:uppercase}
+.nav-logo span{color:var(--gold)}
+.nav-back{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);text-decoration:none;border:1px solid var(--border-gold);padding:7px 16px;border-radius:8px;transition:all .3s var(--ease)}
+.nav-back:hover{color:var(--gold);border-color:var(--gold)}
+.nav-lang{display:flex;gap:8px;align-items:center}
+.lang-tag{font-size:9px;font-weight:700;letter-spacing:2px;padding:3px 9px;border-radius:6px;text-transform:uppercase}
+.lang-tag.fr{background:var(--gold);color:var(--black)}
+.lang-tag.en{color:var(--text-muted);text-decoration:none;border:1px solid var(--border-faint)}
+
+/* ── HERO ── */
+.page-hero{text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(ellipse,rgba(212,175,55,.05) 0%,transparent 65%);pointer-events:none}
+.hero-overline{font-size:9px;font-weight:600;letter-spacing:6px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:22px;display:flex;align-items:center;justify-content:center;gap:16px}
+.hero-overline::before,.hero-overline::after{content:'';width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim))}
+.hero-overline::after{background:linear-gradient(90deg,var(--gold-dim),transparent)}
+.hero-title{font-family:var(--font-display);font-size:clamp(36px,6vw,72px);font-weight:300;letter-spacing:.06em;line-height:1.1;margin-bottom:20px}
+.hero-title em{font-style:italic;background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-dim));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:clamp(13px,1.5vw,15px);color:var(--text-secondary);max-width:560px;margin:0 auto 36px;line-height:1.8;font-weight:300}
+.hero-divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),transparent);margin:0 auto}
+
+/* ── SECTION SHARED ── */
+.section{max-width:900px;margin:0 auto;padding:64px 24px}
+.section-label{font-size:9px;font-weight:600;letter-spacing:6px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:12px}
+.section-title{font-family:var(--font-display);font-size:clamp(26px,4vw,42px);font-weight:400;letter-spacing:.08em;margin-bottom:24px}
+.section-title em{font-style:italic;color:var(--gold)}
+.sep{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--border-gold),transparent);margin:64px 0}
+
+/* ── NOTICE BOX ── */
+.notice{background:rgba(212,175,55,.04);border:1px solid var(--border-gold);border-radius:16px;padding:28px 32px;margin-bottom:52px}
+.notice-icon{font-size:22px;margin-bottom:12px}
+.notice-title{font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--gold);margin-bottom:10px;letter-spacing:.05em}
+.notice p{font-size:13px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:8px}
+.notice p:last-child{margin-bottom:0}
+.notice strong{color:var(--text-primary);font-weight:500}
+
+/* ── PACKAGE CARDS ── */
+.pkg-grid{display:flex;flex-direction:column;gap:20px}
+.pkg-block{border-radius:20px;background:var(--black-card);border:1px solid var(--border-faint);overflow:hidden;transition:border-color .4s var(--ease)}
+.pkg-block:hover{border-color:var(--border-gold)}
+.pkg-block.featured{border-color:rgba(212,175,55,.28);box-shadow:0 0 40px rgba(212,175,55,.07)}
+.pkg-block.limited{border-color:rgba(100,130,220,.2)}
+.pkg-header{display:grid;grid-template-columns:1fr auto;align-items:start;gap:16px;padding:28px 30px 0}
+.pkg-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.pkg-badge{display:inline-block;padding:3px 10px;border-radius:6px;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.badge-popular{background:linear-gradient(135deg,var(--gold-dim),var(--gold));color:var(--black)}
+.badge-save{background:rgba(212,175,55,.12);color:var(--gold);border:1px solid var(--border-gold)}
+.badge-limited{background:linear-gradient(135deg,#D4AF37,#F4D58D);color:#0a0800;box-shadow:0 0 0 2px #000}
+.pkg-name{font-family:var(--font-display);font-size:clamp(22px,4vw,32px);font-weight:400;letter-spacing:.1em;background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
+.pkg-tagline{font-size:12px;font-weight:300;color:var(--text-muted);font-style:italic}
+.pkg-price-block{text-align:right}
+.pkg-price{font-family:var(--font-display);font-size:clamp(32px,5vw,48px);font-weight:500;background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.pkg-currency{font-size:14px;font-weight:400;opacity:.7}
+.pkg-body{padding:20px 30px 28px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:680px){.pkg-body{grid-template-columns:1fr}}
+.pkg-col-title{font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border-faint)}
+.pkg-includes li{list-style:none;font-size:13px;font-weight:300;color:var(--text-secondary);padding:5px 0;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.pkg-includes li::before{content:'✦';color:var(--gold-dim);font-size:8px;flex-shrink:0;margin-top:4px}
+.pkg-includes li strong{color:var(--text-primary);font-weight:500}
+.pkg-note{font-size:11.5px;font-weight:300;color:var(--text-muted);line-height:1.7;margin-top:12px;padding-top:12px;border-top:1px solid var(--border-faint)}
+.pkg-note strong{color:var(--gold-dim)}
+.pkg-footer{padding:0 30px 28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.btn-book{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:linear-gradient(135deg,var(--gold-dim),var(--gold));color:var(--black);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;border-radius:10px;cursor:pointer;transition:all .3s var(--ease)}
+.btn-book:hover{opacity:.88;transform:translateY(-1px)}
+.btn-book.limited-btn{background:linear-gradient(135deg,#8095d4,#aab8e8)}
+.pkg-deposit-note{font-size:11px;color:var(--text-muted);font-weight:300;font-style:italic}
+
+/* ── UPGRADE PILL ── */
+.upgrade-pill{margin:0 30px 18px;padding:10px 16px;background:rgba(212,175,55,.04);border:1px solid rgba(212,175,55,.12);border-radius:10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.upgrade-pill span{font-size:12px;color:var(--gold);font-weight:400}
+.upgrade-pill-tag{font-size:9px;font-weight:700;letter-spacing:1.5px;color:var(--black);background:var(--gold);padding:3px 10px;border-radius:100px;white-space:nowrap}
+
+/* ── ADD-ONS ── */
+.addons-grid{display:flex;flex-direction:column;gap:16px;margin-top:8px}
+.addon-card{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;padding:24px 26px;border-radius:16px;background:rgba(8,8,14,.7);border:1px solid var(--border-faint);transition:border-color .4s var(--ease)}
+.addon-card:hover{border-color:var(--border-gold)}
+@media(max-width:600px){.addon-card{grid-template-columns:1fr;text-align:center}}
+.addon-emoji{font-size:26px}
+.addon-name{font-family:var(--font-display);font-size:18px;color:var(--cream);margin-bottom:3px}
+.addon-applies{font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px}
+.addon-desc{font-size:12.5px;font-weight:300;color:var(--text-secondary);line-height:1.6}
+.addon-desc ul{margin-left:16px;margin-top:6px}
+.addon-desc li{margin-bottom:3px}
+.addon-price-col{text-align:center}
+.addon-price{font-family:var(--font-display);font-size:30px;font-weight:600;color:var(--gold);white-space:nowrap}
+.addon-price span{font-size:13px;font-weight:400;opacity:.7}
+
+/* ── HOW TO ORDER ── */
+.steps{display:flex;flex-direction:column;gap:0;counter-reset:step;margin-top:8px}
+.step{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:24px 0;border-bottom:1px solid var(--border-faint);position:relative}
+.step:last-child{border-bottom:none}
+.step-num{width:40px;height:40px;border-radius:50%;background:rgba(212,175,55,.08);border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:16px;color:var(--gold);flex-shrink:0;margin-top:2px}
+.step-title{font-family:var(--font-display);font-size:18px;color:var(--cream);margin-bottom:6px;letter-spacing:.05em}
+.step-desc{font-size:13px;font-weight:300;color:var(--text-secondary);line-height:1.7}
+.step-desc strong{color:var(--text-primary);font-weight:500}
+.step-desc a{color:var(--gold);text-decoration:none}
+
+/* ── PAYMENT TERMS ── */
+.pay-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+@media(max-width:580px){.pay-grid{grid-template-columns:1fr}}
+.pay-card{padding:22px;border-radius:14px;background:rgba(8,8,14,.5);border:1px solid var(--border-faint)}
+.pay-label{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px}
+.pay-desc{font-size:12.5px;font-weight:300;color:var(--text-secondary);line-height:1.6}
+
+/* ── FOOTER ── */
+.page-footer{text-align:center;padding:48px 24px;border-top:1px solid var(--border-faint);margin-top:48px}
+.footer-logo{font-family:var(--font-display);font-size:18px;letter-spacing:4px;color:var(--gold-dim);margin-bottom:10px}
+.footer-sub{font-size:11px;color:var(--text-muted);letter-spacing:1px}
+.footer-back{display:inline-block;margin-top:20px;color:var(--gold-dim);font-size:11px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--border-gold);padding-bottom:2px}
+
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(2,2,4,.92);backdrop-filter:blur(12px);z-index:9000;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.active{display:flex}
+.modal{background:var(--black-card);border:1px solid var(--border-gold);border-radius:22px;max-width:680px;width:100%;max-height:88vh;overflow-y:auto;position:relative}
+.modal::-webkit-scrollbar{width:4px}
+.modal::-webkit-scrollbar-track{background:transparent}
+.modal::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:2px}
+.modal-close{position:sticky;top:0;display:flex;justify-content:flex-end;padding:18px 20px 0;background:linear-gradient(to bottom,var(--black-card) 70%,transparent);z-index:2}
+.modal-close button{background:none;border:1px solid var(--border-faint);color:var(--text-muted);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.modal-close button:hover{border-color:var(--gold);color:var(--gold)}
+.modal-body{padding:0 32px 28px}
+.modal-tier{font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px}
+.modal-title{font-family:var(--font-display);font-size:clamp(22px,4vw,32px);font-weight:400;background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;letter-spacing:.1em}
+.modal-price{font-family:var(--font-display);font-size:22px;color:var(--gold);margin-bottom:20px}
+.modal-section{margin-bottom:20px}
+.modal-section-title{font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border-faint)}
+.modal-section p,.modal-section li{font-size:12.5px;font-weight:300;color:var(--text-secondary);line-height:1.75}
+.modal-section ul{margin-left:16px;margin-top:6px}
+.modal-section li{margin-bottom:4px}
+.modal-section strong{color:var(--text-primary);font-weight:500}
+.modal-alert{background:rgba(212,175,55,.06);border:1px solid var(--border-gold);border-radius:10px;padding:14px 16px;margin:16px 0;font-size:12px;color:var(--gold);font-weight:400;line-height:1.6}
+.modal-alert strong{font-weight:700}
+.modal-agreement{margin-top:24px;padding-top:20px;border-top:1px solid var(--border-gold)}
+.agree-box{display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;cursor:pointer}
+.agree-box input[type=checkbox]{appearance:none;width:18px;height:18px;border:1px solid var(--border-gold);border-radius:4px;flex-shrink:0;margin-top:1px;cursor:pointer;position:relative;transition:all .2s}
+.agree-box input[type=checkbox]:checked{background:var(--gold);border-color:var(--gold)}
+.agree-box input[type=checkbox]:checked::after{content:'✓';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:var(--black);font-size:11px;font-weight:700}
+.agree-label{font-size:12px;color:var(--text-secondary);line-height:1.6;font-weight:300}
+.agree-label strong{color:var(--gold);font-weight:500}
+.btn-confirm{width:100%;padding:14px;background:linear-gradient(135deg,var(--gold-dim),var(--gold));color:var(--black);font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;border:none;border-radius:10px;cursor:pointer;transition:all .3s var(--ease);opacity:.45;pointer-events:none}
+.btn-confirm.ready{opacity:1;pointer-events:all}
+.btn-confirm.ready:hover{opacity:.88;transform:translateY(-1px)}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.modal-overlay.active .modal{animation:fadeIn .3s var(--ease)}
+
+@media(max-width:600px){
+  .top-nav{padding:12px 18px}
+  .pkg-header{grid-template-columns:1fr;gap:8px}
+  .pkg-price-block{text-align:left}
+  .pkg-footer{flex-direction:column;align-items:stretch}
+  .btn-book{justify-content:center}
+  .upgrade-pill{flex-direction:column;align-items:flex-start}
+  .modal-body{padding:0 20px 24px}
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-bar" id="scrollBar"></div>
+
+<!-- ── NAV ── -->
+<nav class="top-nav">
+  <a href="https://iconstantine.ch" class="nav-logo">i<span>Constantine</span></a>
+  <div class="nav-lang">
+    <span class="lang-tag fr">FR</span>
+    <a href="https://iconstantine.ch" class="lang-tag en">Site principal →</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<header class="page-hero">
+  <p class="hero-overline">Forfaits Officiels · 2026</p>
+  <h1 class="hero-title">Choisissez Votre<br><em>Expérience</em></h1>
+  <p class="hero-sub">Couverture photo et vidéo cinématographique pour les championnats de massage. Cinq niveaux de prestation, conçus pour s'adapter à vos ambitions et à votre usage professionnel.</p>
+  <div class="hero-divider"></div>
+</header>
+
+<!-- ── IMPORTANT NOTICE ── -->
+<div class="section" style="padding-bottom:0">
+  <div class="notice">
+    <div class="notice-icon">📋</div>
+    <p class="notice-title">À lire avant de réserver</p>
+    <p><strong>Couverture complète de votre participation :</strong> Quel que soit le forfait choisi, la couverture s'applique à l'ensemble des événements et catégories auxquels vous participez lors du championnat. Il n'est pas nécessaire de réserver un forfait par catégorie.</p>
+    <p><strong>Fréquence des passages à votre table :</strong> Le nombre de passages et la durée consacrée à votre table varient selon le forfait. Pour connaître les conditions précises liées à votre niveau, veuillez lire attentivement les détails de votre forfait avant de confirmer votre réservation.</p>
+    <p><strong>Engagement par la réservation :</strong> En cliquant sur <strong>Réserver</strong>, vous accéderez à une fenêtre récapitulative qui fait office d'accord contractuel. Vous devrez confirmer avoir lu et compris l'intégralité des conditions avant de procéder au paiement.</p>
+  </div>
+</div>
+
+<!-- ── PACKAGES ── -->
+<div class="section">
+  <p class="section-label">Les Cinq Niveaux</p>
+  <h2 class="section-title">Détail Complet des <em>Forfaits</em></h2>
+
+  <div class="pkg-grid">
+
+    <!-- ════ STARTER ════ -->
+    <div class="pkg-block">
+      <div class="pkg-header">
+        <div>
+          <p class="pkg-name">Starter</p>
+          <p class="pkg-tagline">Fichiers bruts pour montage personnel</p>
+        </div>
+        <div class="pkg-price-block">
+          <div class="pkg-price">190 <span class="pkg-currency">CHF</span></div>
+        </div>
+      </div>
+      <div class="pkg-body">
+        <div>
+          <p class="pkg-col-title">Ce qui est inclus</p>
+          <ul class="pkg-includes">
+            <li><strong>Fichiers vidéo bruts verticaux</strong> — Full HD 1080p (9:16), 8 bits</li>
+            <li>Aucun montage ni retouche inclus — vous éditez vous-même</li>
+            <li>Idéal pour Reels, TikTok et plateformes verticales</li>
+            <li>Livraison via lien de téléchargement cloud</li>
+            <li><strong>Délai :</strong> 48 à 72 heures après l'événement</li>
+            <li><strong>Licence commerciale personnelle</strong> incluse</li>
+          </ul>
+        </div>
+        <div>
+          <p class="pkg-col-title">À savoir</p>
+          <p class="pkg-note">Les fichiers bruts proviennent de capteurs plein format 7K et 8K. La profondeur colorimétrique et les tons chair sont significativement supérieurs à ce qu'un smartphone peut produire — même sans montage, la qualité reste professionnelle.<br><br><strong>Ce qui n'est PAS inclus :</strong> Photos, montage vidéo, reel finalisé, retouche, fichiers 4K, formats paysage.</p>
+        </div>
+      </div>
+      <div class="upgrade-pill">
+        <span>⬆ Passer en 4K Paysage 10 bits — même résolution que Authority, Showcase &amp; Signature</span>
+        <span class="upgrade-pill-tag">+99 CHF</span>
+      </div>
+      <div class="pkg-footer">
+        <button class="btn-book" onclick="openModal('starter')">Réserver ce forfait</button>
+      </div>
+    </div>
+
+    <!-- ════ ESSENTIAL ════ -->
+    <div class="pkg-block">
+      <div class="pkg-header">
+        <div>
+          <p class="pkg-name">Essential</p>
+          <p class="pkg-tagline">Galerie photo professionnelle avec étalonnage signature</p>
+        </div>
+        <div class="pkg-price-block">
+          <div class="pkg-price">290 <span class="pkg-currency">CHF</span></div>
+        </div>
+      </div>
+      <div class="pkg-body">
+        <div>
+          <p class="pkg-col-title">Ce qui est inclus</p>
+          <ul class="pkg-includes">
+            <li><strong>Galerie photo haute résolution</strong> — images numériques en pleine qualité</li>
+            <li>Étalonnage Lightroom signature — traitement colorimétrique professionnel</li>
+            <li>Livraison via lien de téléchargement cloud</li>
+            <li><strong>Délai :</strong> 6 à 48 heures après l'événement</li>
+            <li><strong>Licence commerciale personnelle</strong> incluse</li>
+          </ul>
+        </div>
+        <div>
+          <p class="pkg-col-title">À savoir</p>
+          <p class="pkg-note"><strong>Approche artistique :</strong> L'esthétique correspond strictement à mon portfolio établi — lumière naturelle et énergie reportage. L'éclairage studio ou le retouche lourd ne font pas partie de ce processus.<br><br><strong>Quantité :</strong> Je vends des images d'exception, pas du volume. Le nombre final dépend de votre niveau d'activité : participer à plusieurs catégories ou atteindre le podium génère davantage d'opportunités. Les galeries vont généralement de 30 images d'élite à 300+ fichiers.<br><br><strong>Ce qui n'est PAS inclus :</strong> Vidéo, montage, retouche portrait (disponible en supplément).</p>
+        </div>
+      </div>
+      <div class="upgrade-pill">
+        <span>✨ Ajouter la Retouche Professionnelle portrait — contouring, Dodge &amp; Burn, correction peau</span>
+        <span class="upgrade-pill-tag">+119 CHF</span>
+      </div>
+      <div class="pkg-footer">
+        <button class="btn-book" onclick="openModal('essential')">Réserver ce forfait</button>
+      </div>
+    </div>
+
+    <!-- ════ AUTHORITY ════ -->
+    <div class="pkg-block featured">
+      <div class="pkg-header">
+        <div>
+          <div class="pkg-badges">
+            <span class="pkg-badge badge-popular">Le plus populaire</span>
+            <span class="pkg-badge badge-save">Économie 26%</span>
+          </div>
+          <p class="pkg-name">Authority</p>
+          <p class="pkg-tagline">Photos + vidéo avec transfert prioritaire le jour même</p>
+        </div>
+        <div class="pkg-price-block">
+          <div class="pkg-price">430 <span class="pkg-currency">CHF</span></div>
+        </div>
+      </div>
+      <div class="pkg-body">
+        <div>
+          <p class="pkg-col-title">Ce qui est inclus</p>
+          <ul class="pkg-includes">
+            <li>Tout ce qui est inclus dans <strong>Essential</strong> (galerie photo complète)</li>
+            <li><strong>Fichiers vidéo verticaux Full HD</strong> (1080p 9:16, 8 bits) pour publication rapide</li>
+            <li><strong>Masters 4K Paysage 10 bits</strong> — qualité cinéma</li>
+            <li><strong>Transfert prioritaire</strong> — Scénario A : AirDrop sur place si les plannings s'alignent. Scénario B : lien SwissTransfer le soir même via WiFi hôtel*</li>
+            <li>Fichiers 4K archive livrés dans la première semaine</li>
+            <li><strong>Licence commerciale personnelle</strong> incluse</li>
+          </ul>
+          <p class="pkg-note" style="margin-top:10px">* La livraison le soir même dépend de votre position dans la file de réservation. Les clients Authority bénéficient toujours de la fenêtre de livraison la plus rapide disponible, bien avant Starter et Essential.</p>
+        </div>
+        <div>
+          <p class="pkg-col-title">À savoir</p>
+          <p class="pkg-note"><strong>Résolution vidéo :</strong> Full HD vertical (1080p 9:16) 8 bits + 4K Paysage 10 bits (qualité cinéma).<br><br><strong>Pourquoi deux formats ?</strong> Le format vertical permet une publication immédiate sur les réseaux sociaux. Le 4K Paysage offre une flexibilité maximale en post-production et convient aux diffusions TV, YouTube et sites web.<br><br><strong>Ce qui n'est PAS inclus :</strong> Reel monté, documentary, voix off. La retouche portrait est disponible en supplément.</p>
+        </div>
+      </div>
+      <div class="upgrade-pill">
+        <span>✨ Ajouter la Retouche Professionnelle portrait à votre galerie</span>
+        <span class="upgrade-pill-tag">+119 CHF</span>
+      </div>
+      <div class="pkg-footer">
+        <button class="btn-book" onclick="openModal('authority')">Réserver ce forfait</button>
+      </div>
+    </div>
+
+    <!-- ════ SHOWCASE ════ -->
+    <div class="pkg-block">
+      <div class="pkg-header">
+        <div>
+          <p class="pkg-name">Showcase</p>
+          <p class="pkg-tagline">Forfait Authority + reel monté professionnel</p>
+        </div>
+        <div class="pkg-price-block">
+          <div class="pkg-price">709 <span class="pkg-currency">CHF</span></div>
+        </div>
+      </div>
+      <div class="pkg-body">
+        <div>
+          <p class="pkg-col-title">Ce qui est inclus</p>
+          <ul class="pkg-includes">
+            <li>Tout ce qui est inclus dans <strong>Authority</strong></li>
+            <li><strong>Reel highlight monté</strong> — 30 à 60 secondes, dynamique</li>
+            <li>Formats Horizontal (Paysage) + Vertical — pour toutes les plateformes</li>
+            <li><strong>Musique sans droits d'auteur</strong> sous licence — adaptable à votre style (Hip-Hop, Cinématique, Électronique, etc.)</li>
+            <li><strong>2 tours de révision</strong> inclus</li>
+            <li>Livraison du reel sous 7 jours après l'événement</li>
+            <li><strong>Licence commerciale personnelle</strong> incluse</li>
+          </ul>
+        </div>
+        <div>
+          <p class="pkg-col-title">À savoir</p>
+          <p class="pkg-note"><strong>Le montage :</strong> Les clips sont coupés rythmiquement "sur le beat". Nous convenons du style musical avant le début du montage.<br><br><strong>Révisions :</strong> 2 tours de raffinement — ajustements de rythme, remplacement de plans, retouches narratives mineures. Un changement de chanson après la finalisation du montage n'est PAS une révision — cela impose une reconstruction structurelle et génère des frais supplémentaires.<br><br><strong>Ce qui n'est PAS inclus :</strong> Documentary long format, voix off. La retouche portrait est disponible en supplément.</p>
+        </div>
+      </div>
+      <div class="upgrade-pill">
+        <span>✨ Ajouter la Retouche Professionnelle portrait à votre galerie</span>
+        <span class="upgrade-pill-tag">+119 CHF</span>
+      </div>
+      <div class="pkg-footer">
+        <button class="btn-book" onclick="openModal('showcase')">Réserver ce forfait</button>
+      </div>
+    </div>
+
+    <!-- ════ SIGNATURE ════ -->
+    <div class="pkg-block limited">
+      <div class="pkg-header">
+        <div>
+          <div class="pkg-badges">
+            <span class="pkg-badge badge-limited">Limité : 2 Places</span>
+          </div>
+          <p class="pkg-name">Signature</p>
+          <p class="pkg-tagline">Documentary de marque cinématographique — seulement 2 par événement</p>
+        </div>
+        <div class="pkg-price-block">
+          <div class="pkg-price">1 209 <span class="pkg-currency">CHF</span></div>
+        </div>
+      </div>
+      <div class="pkg-body">
+        <div>
+          <p class="pkg-col-title">Ce qui est inclus</p>
+          <ul class="pkg-includes">
+            <li>Tout ce qui est inclus dans <strong>Authority</strong> (photos + vidéos brutes)</li>
+            <li><strong>Documentary de marque personnelle cinématographique</strong></li>
+            <li>Voix off professionnelle</li>
+            <li>Durée maximale : 5 minutes — adaptée au flux narratif</li>
+            <li>Formats Horizontal + Vertical</li>
+            <li><strong>2 tours de révision</strong> inclus</li>
+            <li><strong>Licence commerciale personnelle</strong> incluse</li>
+          </ul>
+        </div>
+        <div>
+          <p class="pkg-col-title">À savoir</p>
+          <p class="pkg-note"><strong>Concept narratif :</strong> Le film fusionne l'intensité du championnat en direct avec vos réalisations passées et votre background professionnel, vous positionnant comme une autorité dans votre domaine.<br><br><strong>Direction créative :</strong> Je conserve l'autorité créative finale sur la structure narrative pour garantir des standards cinématographiques de haut niveau. Vous fournissez 1 à 2 références visuelles ou sonores avant le début du montage.<br><br><strong>Révisions :</strong> Les demandes exigeant un redémarrage complet de la timeline ou un changement narratif total ne sont pas des révisions. Nous alignons la vision avant le premier plan.<br><br><strong>Pourquoi seulement 2 places :</strong> Les exigences de production intensive de ce format limitent strictement la disponibilité à 2 clients par événement.</p>
+        </div>
+      </div>
+      <div class="pkg-footer">
+        <button class="btn-book limited-btn" onclick="openModal('signature')">Réserver ce forfait</button>
+        <span class="pkg-deposit-note">50% d'acompte avant l'événement · 50% à la livraison</span>
+      </div>
+    </div>
+
+  </div><!-- /pkg-grid -->
+</div>
+
+<div class="sep"></div>
+
+<!-- ── ADD-ONS ── -->
+<div class="section" style="padding-top:0">
+  <p class="section-label">Suppléments À La Carte</p>
+  <h2 class="section-title">Améliorations <em>Optionnelles</em></h2>
+  <p style="font-size:13px;color:var(--text-muted);font-weight:300;margin-bottom:28px">Ces suppléments s'ajoutent à votre forfait de base et doivent être commandés séparément.</p>
+
+  <div class="addons-grid">
+
+    <div class="addon-card">
+      <div class="addon-emoji">📐</div>
+      <div>
+        <p class="addon-name">Upgrade 4K Cinéma</p>
+        <p class="addon-applies">Exclusivement pour les clients Starter</p>
+        <p class="addon-desc">Passez vos fichiers vidéo verticaux Full HD en <strong>4K Paysage 10 bits</strong> — exactement la même résolution cinéma incluse dans les forfaits Authority, Showcase et Signature. Idéal si vous souhaitez la flexibilité d'un master cinéma sans l'ensemble du forfait Authority.</p>
+      </div>
+      <div class="addon-price-col">
+        <div class="addon-price">+99 <span>CHF</span></div>
+      </div>
+    </div>
+
+    <div class="addon-card">
+      <div class="addon-emoji">✨</div>
+      <div>
+        <p class="addon-name">Retouche Professionnelle</p>
+        <p class="addon-applies">Essential et forfaits supérieurs</p>
+        <p class="addon-desc">Retouche portrait haut de gamme appliquée à l'ensemble de votre galerie. Chaque retouche est subtile et réaliste — l'objectif est la meilleure version de vous-même, pas un look artificiel. Inclut :
+          <ul>
+            <li>Contouring et affinement du visage pour un look naturellement flatteur</li>
+            <li>Lissage de peau Dodge &amp; Burn professionnel en préservant la texture</li>
+            <li>Suppression des imperfections et défauts</li>
+            <li>Restructuration subtile des traits pour un équilibre esthétique</li>
+            <li>Lissage des plis de vêtements et froissures pour un rendu propre et soigné</li>
+          </ul>
+        </p>
+      </div>
+      <div class="addon-price-col">
+        <div class="addon-price">+119 <span>CHF</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ── HOW TO ORDER ── -->
+<div class="section" style="padding-top:0">
+  <p class="section-label">Processus</p>
+  <h2 class="section-title">Comment <em>Commander</em></h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <p class="step-title">Choisissez votre forfait</p>
+        <p class="step-desc">Parcourez les cinq niveaux ci-dessus et identifiez celui qui correspond à vos besoins. Lisez attentivement les inclusions et les exclusions. Si vous souhaitez un supplément (4K ou Retouche), notez-le pour l'étape suivante.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <p class="step-title">Lisez et confirmez les conditions</p>
+        <p class="step-desc">Cliquez sur <strong>Réserver ce forfait</strong>. Une fenêtre s'ouvre avec le récapitulatif complet de votre forfait — inclusions, exclusions, délais, et conditions. <strong>Vous devez cocher la case de confirmation</strong> avant de pouvoir procéder au paiement. Ce geste vaut accord contractuel.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <p class="step-title">Effectuez le paiement via SumUp</p>
+        <p class="step-desc">Vous serez redirigé vers la page de paiement sécurisée SumUp. <strong>Dans les notes de commande, renseignez :</strong> votre numéro de table (si connu), le nom de la catégorie, et l'heure de votre passage. Si vous ne connaissez que la catégorie, c'est suffisant.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <p class="step-title">Envoyez un selfie via WhatsApp</p>
+        <p class="step-desc">Après le paiement, envoyez <strong>un selfie via WhatsApp</strong>, de préférence dans la tenue que vous prévoyez de porter en compétition. Cela permet à l'équipe de vous identifier et de se préparer à votre couverture avant même le début de l'événement.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div>
+        <p class="step-title">Recevez vos fichiers</p>
+        <p class="step-desc">Les délais de livraison varient selon le forfait : de quelques heures (Authority — transfert prioritaire le soir même) à 7 jours (Showcase — reel monté) ou à la livraison finale (Signature — documentary). <a href="#">Voir les délais détaillés par forfait ↑</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ── PAYMENT TERMS ── -->
+<div class="section" style="padding-top:0">
+  <p class="section-label">Paiement</p>
+  <h2 class="section-title">Conditions de <em>Paiement</em></h2>
+  <div class="pay-grid">
+    <div class="pay-card">
+      <p class="pay-label">Starter → Showcase</p>
+      <p class="pay-desc">Paiement intégral requis avant l'événement pour confirmer votre place et activer la priorité de couverture. Le paiement doit être reçu avant le jour J — il n'est pas possible d'appliquer la priorité rétroactivement.</p>
+    </div>
+    <div class="pay-card">
+      <p class="pay-label">Signature</p>
+      <p class="pay-desc">Acompte de 50% non remboursable avant l'événement. Solde de 50% dû à la livraison du documentary finalisé.</p>
+    </div>
+    <div class="pay-card">
+      <p class="pay-label">Réservation anticipée</p>
+      <p class="pay-desc">Réservez le plus tôt possible pour obtenir la meilleure couverture disponible. Les créneaux sont attribués dans l'ordre d'arrivée des paiements.</p>
+    </div>
+    <div class="pay-card">
+      <p class="pay-label">Licence commerciale</p>
+      <p class="pay-desc">Tous les forfaits incluent une Licence Commerciale Personnelle vous autorisant à utiliser les fichiers librement pour vous promouvoir, promouvoir votre marque et votre pratique privée.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="page-footer">
+  <p class="footer-logo">iConstantine</p>
+  <p class="footer-sub">Cinématographe de championnat · Certifié Netflix · Basé en Suisse</p>
+  <a href="https://iconstantine.ch" class="footer-back">← Retour au site principal</a>
+</footer>
+
+<!-- ════════ MODALS ════════ -->
+
+<!-- STARTER MODAL -->
+<div class="modal-overlay" id="modal-starter">
+  <div class="modal">
+    <div class="modal-close"><button onclick="closeModal('starter')" aria-label="Fermer">✕</button></div>
+    <div class="modal-body">
+      <p class="modal-tier">Récapitulatif & Accord</p>
+      <p class="modal-title">Starter</p>
+      <p class="modal-price">190 CHF</p>
+      <div class="modal-section">
+        <p class="modal-section-title">Ce que vous recevez</p>
+        <ul><li>Fichiers vidéo bruts verticaux Full HD 1080p (9:16), 8 bits</li><li>Footage issus de capteurs plein format 7K/8K — qualité professionnelle native</li><li>Lien de téléchargement cloud dans les 48 à 72 heures</li><li>Licence commerciale personnelle incluse</li></ul>
+      </div>
+      <div class="modal-section">
+        <p class="modal-section-title">Ce qui N'EST PAS inclus</p>
+        <ul><li>Aucun montage vidéo ni finition</li><li>Aucune photo</li><li>Aucune retouche</li><li>Aucun fichier 4K ni format paysage (disponible en supplément +99 CHF)</li></ul>
+      </div>
+      <div class="modal-section">
+        <p class="modal-section-title">Couverture & passages à votre table</p>
+        <p>La couverture s'applique à toutes vos catégories de participation. Pour les conditions spécifiques concernant la fréquence et la durée des passages à votre table, référez-vous aux conditions de ce forfait.</p>
+      </div>
+      <div class="modal-alert"><strong>Important :</strong> Réservez en avance. Les créneaux sont attribués dans l'ordre de paiement. Envoyez un selfie via WhatsApp après la réservation dans votre tenue de compétition.</div>
+      <div class="modal-agreement">
+        <label class="agree-box"><input type="checkbox" id="agree-starter" onchange="toggleConfirm('starter')"><span class="agree-label">J'ai lu et compris l'intégralité des conditions du forfait <strong>Starter</strong>. Je reconnais savoir ce qui est inclus et ce qui ne l'est pas, et j'accepte ces termes avant de procéder au paiement.</span></label>
+        <button class="btn-confirm" id="confirm-starter" onclick="window.open('https://iconstantine.ch','_blank')">Procéder au paiement →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ESSENTIAL MODAL -->
+<div class="modal-overlay" id="modal-essential">
+  <div class="modal">
+    <div class="modal-close"><button onclick="closeModal('essential')" aria-label="Fermer">✕</button></div>
+    <div class="modal-body">
+      <p class="modal-tier">Récapitulatif & Accord</p>
+      <p class="modal-title">Essential</p>
+      <p class="modal-price">290 CHF</p>
+      <div class="modal-section">
+        <p class="modal-section-title">Ce que vous recevez</p>
+        <ul><li>Galerie photo haute résolution avec étalonnage Lightroom signature</li><li>Images numériques livrées via cloud dans les 6 à 48 heures</li><li>Licence commerciale personnelle incluse</li></ul>
+      </div>
+      <div class="modal-section">
+        <p class="modal-section-title">Quantité d'images</p>
+        <p>La quantité dépend de votre niveau d'activité. Participer à plusieurs catégories ou atteindre le podium génère davantage d'opportunités de capture. Les galeries vont typiquement de 30 images d'élite à 300+ fichiers.</p>
+      </div>
+      <div class="modal-section">
+        <p class="modal-section-title">Ce qui N'EST PAS inclus</p>
+        <ul><li>Aucune vidéo ni fichier brut</li><li>Aucun reel monté</li><li>Aucune retouche portrait (disponible en supplément +119 CHF)</li><li>Aucun éclairage studio ni retouche lourde — style reportage naturel uniquement</li></ul>
+      </div>
+      <div class="modal-section">
+        <p class="modal-section-title">Couverture & passages à votre table</p>
+        <p>La couverture s'applique à toutes vos catégories de participation. Pour les conditions spécifiques concernant la fréquence des passages à votre table, référez-vous aux conditions de ce forfait.</p>
+      </div>
+      <div class="modal-alert"><strong>Important :</strong> Paiement intégral avant l'événement. Envoyez un selfie via WhatsApp après réservation dans votre tenue de compétition. Renseignez votre numéro de table et catégorie dans les notes de commande SumUp.</div>
+      <div class="modal-agreement">
+        <label class="agree-box"><input type="checkbox" id="agree-essential" onchange="toggleConfirm('essential')"><span class="agree-label">J'ai lu et compris l'intégralité des conditions du forfait <strong>Essential</strong>. Je reconnais savoir ce qui est inclus et ce qui ne l'est pas, et j'accepte ces termes avant de procéder au paiement.</span></label>
+        <button class="btn-confirm" id="confirm-essential" onclick="window.open('https://iconstantine.ch','_blank')">Procéder au paiement →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AUTHORITY MODAL -->
+<div class="modal-overlay" id="modal-authority">
+  <div class="modal">
+    <div class="modal-close"><button onclick="closeModal('authority')" aria-label="Fermer">✕</button></div>
+    <div class="modal-body">
+      <p class="modal-tier">Récapitulatif & Accord</p>
+      <p class="modal-title">Authority</p>
+      <p class="modal-price">430 CHF · Le plus populaire</p>
+      <div class="modal-section">
+        <p class="modal-section-title">Ce que vous recevez</p>
+        <ul><li>Galerie photo haute résolution avec étalonnage Lightroom signature (6 à 48h)</li><li>Fichiers vidéo verticaux Full HD 1080p (9:16), 8 bits</li><li>Masters 4K Paysage 10 bits — qualité cinéma (livrés dans la première semaine)</li><li>Transfert prioritaire : AirDrop sur place ou lien SwissTransfer le soir même*</li><li>Licence commerciale personnelle incluse</li></ul>
+      </div>
+      <div class="modal-section">
+        <p class="modal-section-title">Transfert prioritaire — détail</p>
+        <p><strong>Scénario A (iPhone) :</strong> Si les plannings s'alignent après l'événement, les fichiers sont AirDrop directement sur place.<br><strong>Scénario B (Android / Urgence) :</strong> Upload depuis l'hôtel sur WiFi haut débit — lien SwissTransfer le soir même.<br>* La livraison le soir même dépend de votre position dans la file de réservation. Les clients Authority bénéficient toujours de la fenêtre la plus rapide disponible, avant tous les autres forfaits.</p>
+      </div>
+      <div class="modal-section">
+        <p class="modal-section-title">Ce qui N'EST PAS inclus</p>
+        <ul><li>Reel monté (disponible avec Showcase)</li><li>Documentary de marque (disponible avec Signature)</li><li>Voix off</li><li>Retouche portrait (disponible en supplément +119 CHF)</li></ul>
+      </div>
+      <div class="modal-section">
+        <p class="modal-section-title">Couverture & passages à votre table</p>
+        <p>La couverture s'applique à toutes vos catégories de participation. Pour les conditions spécifiques concernant la fréquence et la durée des passages à votre table, référez-vous aux conditions de ce forfait.</p>
+      </div>
+      <div class="modal-alert"><strong>Important :</strong> Paiement intégral avant l'événement. Envoyez un selfie via WhatsApp après réservation. Renseignez numéro de table, catégorie et heure dans les notes SumUp.</div>
+      <div class="modal-agreement">
+        <label class="agree-box"><input type="checkbox" id="agree-authority" onchange="toggleConfirm('authority')"><span class="agree-label">J'ai lu et compris l'intégralité des conditions du forfait <strong>Authority</strong>. Je reconnais savoir ce qui est inclus et ce qui ne l'est pas, et j'accepte ces termes avant de procéder au paiement.</span></label>
+        <button class="btn-confirm" id="confirm-authority" onclick="window.open('https://iconstantine.ch','_blank')">Procéder au paiement →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SHOWCASE MODAL -->
+<div class="modal-overlay" id="modal-showcase">
+  <div class="modal">
+    <div class="modal-close"><button onclick="closeModal('showcase')" aria-label="Fermer">✕</button></div>
+    <div class="modal-body">
+      <p class="modal-tier">Récapitulatif & Accord</p>
+      <p class="modal-title">Showcase</p>
+      <p class="modal-price">709 CHF</p>
+      <div class="modal-section">
+        <p class="modal-section-title">Ce que vous recevez</p>
+        <ul><li>Tout ce qui est inclus dans Authority (photos + vidéos brutes + transfert prioritaire)</li><li>Reel highlight monté — 30 à 60 secondes, dynamique</li><li>Format Horizontal (Paysage) + Vertical — compatible toutes plateformes</li><li>Musique sans droits d'auteur sous licence (bibliothèques premium)</li><li>2 tours de révision inclus</li><li>Livraison du reel sous 7 jours (souvent plus tôt selon la file)</li><li>Licence commerciale personnelle incluse</li></ul>
+      </div>
+      <div class="modal-section">
+        <p class="modal-section-title">Révisions — ce qui est inclus et exclu</p>
+        <p><strong>Inclus :</strong> Ajustements de rythme, remplacement de plans spécifiques, retouches narratives mineures.<br><strong>Non inclus :</strong> Un changement de chanson après finalisation du montage n'est PAS une révision. Cela implique une reconstruction structurelle complète et génère des frais supplémentaires. Nous convenons du style musical avant le premier cut.</p>
+      </div>
+      <div class="modal-section">
+        <p class="modal-section-title">Ce qui N'EST PAS inclus</p>
+        <ul><li>Documentary long format (disponible avec Signature)</li><li>Voix off</li><li>Retouche portrait (disponible en supplément +119 CHF)</li></ul>
+      </div>
+      <div class="modal-section">
+        <p class="modal-section-title">Couverture & passages à votre table</p>
+        <p>La couverture s'applique à toutes vos catégories de participation. Pour les conditions spécifiques concernant la fréquence et la durée des passages à votre table, référez-vous aux conditions de ce forfait.</p>
+      </div>
+      <div class="modal-alert"><strong>Important :</strong> Paiement intégral avant l'événement. Envoyez un selfie via WhatsApp. Renseignez vos informations dans les notes SumUp.</div>
+      <div class="modal-agreement">
+        <label class="agree-box"><input type="checkbox" id="agree-showcase" onchange="toggleConfirm('showcase')"><span class="agree-label">J'ai lu et compris l'intégralité des conditions du forfait <strong>Showcase</strong>, y compris la politique de révisions. J'accepte ces termes avant de procéder au paiement.</span></label>
+        <button class="btn-confirm" id="confirm-showcase" onclick="window.open('https://iconstantine.ch','_blank')">Procéder au paiement →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SIGNATURE MODAL -->
+<div class="modal-overlay" id="modal-signature">
+  <div class="modal">
+    <div class="modal-close"><button onclick="closeModal('signature')" aria-label="Fermer">✕</button></div>
+    <div class="modal-body">
+      <p class="modal-tier">Récapitulatif & Accord · Places Limitées</p>
+      <p class="modal-title">Signature</p>
+      <p class="modal-price">1 209 CHF · 50% acompte + 50% à la livraison</p>
+      <div class="modal-section">
+        <p class="modal-section-title">Ce que vous recevez</p>
+        <ul><li>Tout ce qui est inclus dans Authority (photos + vidéos brutes + transfert prioritaire)</li><li>Documentary de marque personnelle cinématographique — jusqu'à 5 minutes</li><li>Voix off professionnelle</li><li>Format Horizontal + Vertical</li><li>2 tours de révision inclus</li><li>Licence commerciale personnelle incluse</li></ul>
+      </div>
+      <div class="modal-section">
+        <p class="modal-section-title">Concept narratif</p>
+        <p>Le film fusionne l'intensité du championnat en direct avec vos réalisations passées et votre background professionnel. Il vous positionne comme une autorité dans votre domaine et renforce votre marque personnelle en reliant votre histoire à vos performances actuelles.</p>
+      </div>
+      <div class="modal-section">
+        <p class="modal-section-title">Direction créative & révisions</p>
+        <p>Je conserve l'autorité créative finale sur la structure narrative pour garantir des standards cinématographiques de haut niveau. Vous fournissez 1 à 2 références visuelles ou musicales avant le début du montage.<br><br>Les demandes exigeant un redémarrage complet de la timeline ou un changement de direction narrative total ne sont PAS des révisions. Nous alignons la vision ensemble avant le premier plan.</p>
+      </div>
+      <div class="modal-section">
+        <p class="modal-section-title">Conditions de paiement</p>
+        <p><strong>50% d'acompte non remboursable</strong> avant l'événement pour confirmer votre place.<br><strong>50% du solde</strong> dû à la livraison du documentary finalisé.</p>
+      </div>
+      <div class="modal-section">
+        <p class="modal-section-title">Couverture & passages à votre table</p>
+        <p>La couverture s'applique à toutes vos catégories de participation. Pour les conditions spécifiques concernant la fréquence et la durée des passages à votre table, référez-vous aux conditions de ce forfait.</p>
+      </div>
+      <div class="modal-alert"><strong>Seulement 2 places par événement.</strong> Ce forfait est strictement limité à 2 clients en raison des exigences de production intensive du format documentary. Réservez en avance pour sécuriser votre place.</div>
+      <div class="modal-agreement">
+        <label class="agree-box"><input type="checkbox" id="agree-signature" onchange="toggleConfirm('signature')"><span class="agree-label">J'ai lu et compris l'intégralité des conditions du forfait <strong>Signature</strong>, incluant la politique de paiement en deux fois, la direction créative, la politique de révisions et la limitation à 2 places. J'accepte ces termes avant de procéder au paiement de l'acompte.</span></label>
+        <button class="btn-confirm" id="confirm-signature" onclick="window.open('https://iconstantine.ch','_blank')">Procéder au paiement de l'acompte →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Scroll progress bar
+window.addEventListener('scroll', () => {
+  const d = document.documentElement;
+  const pct = (d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100;
+  document.getElementById('scrollBar').style.width = pct + '%';
+});
+
+// Modal functions
+function openModal(tier) {
+  document.getElementById('modal-' + tier).classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(tier) {
+  document.getElementById('modal-' + tier).classList.remove('active');
+  document.body.style.overflow = '';
+}
+// Close on overlay click
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+});
+// Enable confirm button when checkbox checked
+function toggleConfirm(tier) {
+  const cb  = document.getElementById('agree-' + tier);
+  const btn = document.getElementById('confirm-' + tier);
+  btn.classList.toggle('ready', cb.checked);
+}
+// ESC key closes
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.active').forEach(m => {
+      m.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  }
+});
+</script>
+</body>
+</html>
