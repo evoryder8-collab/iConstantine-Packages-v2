@@ -180,6 +180,16 @@ body{font-family:var(--font-body);background:var(--black);color:var(--text-prima
   .upgrade-pill{flex-direction:column;align-items:flex-start}
   .modal-body{padding:0 20px 24px}
 }
+
+/* ── Delivery Queue boxes ── */
+.pkg-delivery-box{margin:12px 0 0;padding:12px 16px;background:rgba(212,175,55,.04);border-left:3px solid var(--gold-dim);border-radius:0 8px 8px 0}
+.pdb-title{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dim);font-weight:700;margin-bottom:8px}
+.pdb-slots{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px}
+.pdb-slot{padding:6px 10px;border-radius:6px;font-size:11px;line-height:1.4}
+.pdb-slot strong{display:block;font-size:12px;margin-bottom:1px}
+.pdb-slot.guaranteed{background:rgba(109,184,122,.10);color:#6db87a;border:1px solid rgba(109,184,122,.22)}
+.pdb-slot.scaled{background:rgba(212,175,55,.07);color:var(--gold-dim);border:1px solid rgba(212,175,55,.18)}
+.pdb-partial{font-size:10.5px;color:var(--text-muted);font-style:italic;margin-top:4px;line-height:1.5}
 </style>
 </head>
 <body>
@@ -253,6 +263,20 @@ body{font-family:var(--font-body);background:var(--black);color:var(--text-prima
         <span>⬆ Passer en 4K Paysage 10 bits : même résolution que Authority, Showcase &amp; Signature</span>
         <span class="upgrade-pill-tag">+99 CHF</span>
       </div>
+      <div class="pkg-delivery-box">
+        <p class="pdb-title">Livraison estimee</p>
+        <div class="pdb-slots">
+          <div class="pdb-slot guaranteed">
+            <strong>Places 1 a 5</strong>
+            48 a 72 h apres l'evenement
+          </div>
+          <div class="pdb-slot scaled">
+            <strong>Place 6 et +</strong>
+            1 a 2 semaines
+          </div>
+        </div>
+        <p class="pdb-partial">Commandez tot pour etre dans les 5 premieres places et garantir votre delai.</p>
+      </div>
       <div class="pkg-footer">
         <button class="btn-book" onclick="openModal('starter')">Réserver ce forfait</button>
       </div>
@@ -288,6 +312,20 @@ body{font-family:var(--font-body);background:var(--black);color:var(--text-prima
       <div class="upgrade-pill">
         <span>✨ Ajouter la Retouche Professionnelle portrait : contouring, Dodge &amp; Burn, correction peau</span>
         <span class="upgrade-pill-tag">+119 CHF</span>
+      </div>
+      <div class="pkg-delivery-box">
+        <p class="pdb-title">Livraison estimee</p>
+        <div class="pdb-slots">
+          <div class="pdb-slot guaranteed">
+            <strong>Places 1 a 5</strong>
+            6 a 48 h apres l'evenement
+          </div>
+          <div class="pdb-slot scaled">
+            <strong>Place 6 et +</strong>
+            1 a 2 semaines
+          </div>
+        </div>
+        <p class="pdb-partial">Premiers selects photos pouvant etre livres le jour meme, quelle que soit votre position dans la file.</p>
       </div>
       <div class="pkg-footer">
         <button class="btn-book" onclick="openModal('essential')">Réserver ce forfait</button>
@@ -331,6 +369,20 @@ body{font-family:var(--font-body);background:var(--black);color:var(--text-prima
         <span>✨ Ajouter la Retouche Professionnelle portrait à votre galerie</span>
         <span class="upgrade-pill-tag">+119 CHF</span>
       </div>
+      <div class="pkg-delivery-box">
+        <p class="pdb-title">Livraison estimee</p>
+        <div class="pdb-slots">
+          <div class="pdb-slot guaranteed">
+            <strong>Places 1 a 5</strong>
+            Video le soir meme · photos galerie le jour J
+          </div>
+          <div class="pdb-slot scaled">
+            <strong>Place 6 et +</strong>
+            Video sous 1 a 2 semaines · photos le jour J
+          </div>
+        </div>
+        <p class="pdb-partial">La galerie photo est livree le jour de l'evenement pour tous. La video prioritaire le soir meme est garantie uniquement pour les 5 premiers ordres.</p>
+      </div>
       <div class="pkg-footer">
         <button class="btn-book" onclick="openModal('authority')">Réserver ce forfait</button>
       </div>
@@ -369,6 +421,20 @@ body{font-family:var(--font-body);background:var(--black);color:var(--text-prima
         <span>✨ Ajouter la Retouche Professionnelle portrait à votre galerie</span>
         <span class="upgrade-pill-tag">+119 CHF</span>
       </div>
+      <div class="pkg-delivery-box">
+        <p class="pdb-title">Livraison estimee</p>
+        <div class="pdb-slots">
+          <div class="pdb-slot guaranteed">
+            <strong>Places 1 a 5</strong>
+            Reel sous 7 jours · photos galerie le jour J
+          </div>
+          <div class="pdb-slot scaled">
+            <strong>Place 6 et +</strong>
+            Reel sous 1 a 2 semaines · photos le jour J
+          </div>
+        </div>
+        <p class="pdb-partial">La galerie photo est livree le jour de l'evenement pour tous. Le reel monte est garanti sous 7 jours pour les 5 premiers ordres.</p>
+      </div>
       <div class="pkg-footer">
         <button class="btn-book" onclick="openModal('showcase')">Réserver ce forfait</button>
       </div>
@@ -405,6 +471,20 @@ body{font-family:var(--font-body);background:var(--black);color:var(--text-prima
           <p class="pkg-col-title">À savoir</p>
           <p class="pkg-note"><strong>Concept narratif :</strong> Le film fusionne l'intensité du championnat en direct avec vos réalisations passées et votre background professionnel, vous positionnant comme une autorité dans votre domaine.<br><br><strong>Direction créative :</strong> Je conserve l'autorité créative finale sur la structure narrative pour garantir des standards cinématographiques de haut niveau. Vous fournissez 1 à 2 références visuelles ou sonores avant le début du montage.<br><br><strong>Révisions :</strong> Les demandes exigeant un redémarrage complet de la timeline ou un changement narratif total ne sont pas des révisions. Nous alignons la vision avant le premier plan.<br><br><strong>Pourquoi seulement 2 places :</strong> Les exigences de production intensive de ce format limitent strictement la disponibilité à 2 clients par événement.</p>
         </div>
+      </div>
+      <div class="pkg-delivery-box">
+        <p class="pdb-title">Livraison estimee</p>
+        <div class="pdb-slots">
+          <div class="pdb-slot guaranteed">
+            <strong>2 places max</strong>
+            Calendrier individuel convenu a la reservation
+          </div>
+          <div class="pdb-slot scaled">
+            <strong>Photos galerie</strong>
+            Livrees le jour de l'evenement
+          </div>
+        </div>
+        <p class="pdb-partial">Le documentary final est livre selon un calendrier de production convenu individuellement. Reservez tot : seulement 2 places par evenement.</p>
       </div>
       <div class="pkg-footer">
         <button class="btn-book limited-btn" onclick="openModal('signature')">Réserver ce forfait</button>
