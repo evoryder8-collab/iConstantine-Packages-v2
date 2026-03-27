@@ -596,9 +596,49 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .dq-slot.ok{background:rgba(109,184,122,.10);color:#6db87a;border:1px solid rgba(109,184,122,.22)}
 .dq-slot.wait{background:rgba(212,175,55,.07);color:var(--gold-dim);border:1px solid rgba(212,175,55,.18)}
 .dq-note{font-size:10.5px;color:var(--text-muted);font-style:italic;line-height:1.55;margin-top:5px}
+
+/* ── Language Switcher ─────────────────────────────────── */
+#lang-switcher{position:fixed;top:18px;right:24px;z-index:9999;font-family:inherit}
+#lang-btn{background:rgba(18,18,18,.82);border:1px solid rgba(212,175,55,.25);color:var(--gold-dim,#b8960c);padding:7px 12px;border-radius:8px;cursor:pointer;font-size:15px;display:flex;align-items:center;gap:4px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:border-color .2s,background .2s}
+#lang-btn:hover{border-color:rgba(212,175,55,.55);background:rgba(30,30,30,.9)}
+#lang-dropdown{display:none;position:absolute;top:calc(100% + 6px);right:0;background:rgba(14,14,14,.97);border:1px solid rgba(212,175,55,.18);border-radius:10px;min-width:210px;max-height:420px;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+#lang-dropdown a{display:block;padding:9px 16px;color:rgba(255,255,255,.78);text-decoration:none;font-size:13.5px;white-space:nowrap;transition:background .15s,color .15s}
+#lang-dropdown a:first-child{border-radius:10px 10px 0 0}
+#lang-dropdown a:last-child{border-radius:0 0 10px 10px}
+#lang-dropdown a:hover{background:rgba(212,175,55,.1);color:var(--gold-dim,#b8960c)}
+#lang-dropdown a.lang-active{color:var(--gold-dim,#b8960c);background:rgba(212,175,55,.07)}
+#lang-switcher.open #lang-dropdown{display:block}
+
 </style>
 </head>
 <body>
+<div id="lang-switcher">
+  <button id="lang-btn" aria-label="Select language">
+    <span id="lang-current-flag">🇬🇧</span>
+    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left:4px;opacity:.6"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div id="lang-dropdown">
+<a href="/" class="lang-active">🇬🇧 English</a>
+<a href="/german" >🇩🇪 Deutsch</a>
+<a href="/italian" >🇮🇹 Italiano</a>
+<a href="/spanish" >🇪🇸 Español</a>
+<a href="/portuguese" >🇧🇷 Português</a>
+<a href="/romanian" >🇷🇴 Română</a>
+<a href="/russian" >🇷🇺 Русский</a>
+<a href="/japanese" >🇯🇵 日本語</a>
+<a href="/chinese" >🇨🇳 中文</a>
+<a href="/taiwanese" >🇹🇼 繁體中文</a>
+<a href="/hongkong" >🇭🇰 廣東話</a>
+<a href="/thai" >🇹🇭 ภาษาไทย</a>
+<a href="/vietnamese" >🇻🇳 Tiếng Việt</a>
+<a href="/indonesian" >🇮🇩 Bahasa Indonesia</a>
+<a href="/malaysian" >🇲🇾 Bahasa Melayu</a>
+<a href="/filipino" >🇵🇭 Filipino</a>
+<a href="/greek" >🇬🇷 Ελληνικά</a>
+<a href="/czech" >🇨🇿 Čeština</a>
+<a href="/albanian" >🇦🇱 Shqip</a>
+  </div>
+</div>
 
 <!-- CINEMA CURTAIN REVEAL -->
 <div class="curtain-left"></div>
@@ -1561,5 +1601,15 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModa
 <div class="legal-footer">
   <p>iConstantine / Barbu Media Switzerland &nbsp;&nbsp;|&nbsp;&nbsp; All rights reserved &copy; 2026</p>
 </div>
+<script>
+// ── Language Switcher ──
+(function(){
+  var sw=document.getElementById('lang-switcher');
+  var btn=document.getElementById('lang-btn');
+  if(!sw||!btn) return;
+  btn.addEventListener('click',function(e){e.stopPropagation();sw.classList.toggle('open');});
+  document.addEventListener('click',function(){sw.classList.remove('open');});
+})();
+</script>
 </body>
 </html>
