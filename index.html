@@ -127,10 +127,12 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;
 
 /* ── AUTO BAR ── */
 .auto-bar{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
-  text-align:center;opacity:0;animation:upFade .6s ease 3.35s forwards;min-width:260px}
+  text-align:center;opacity:0;animation:upFade .6s ease 3.35s forwards;
+  min-width:260px;max-width:calc(100vw - 32px);width:max-content;box-sizing:border-box;
+  padding:0 8px}
 .auto-msg{font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.07em;margin-bottom:7px}
 .auto-msg b{color:rgba(212,175,55,.55);font-weight:400}
-.prog-track{width:230px;height:1.5px;background:rgba(255,255,255,.05);border-radius:2px;margin:0 auto;overflow:hidden}
+.prog-track{width:min(230px,100%);height:1.5px;background:rgba(255,255,255,.05);border-radius:2px;margin:0 auto;overflow:hidden}
 .prog-fill{height:100%;width:0;border-radius:2px;
   background:linear-gradient(90deg,rgba(212,175,55,.38),rgba(212,175,55,.82));
   transition:width .08s linear}
