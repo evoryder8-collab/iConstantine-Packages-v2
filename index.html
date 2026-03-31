@@ -144,6 +144,9 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;
 @media(max-width:360px){
   .lang-grid{grid-template-columns:repeat(3,1fr)}
 }
+
+/* ── TOUCH FIX: prevents iOS double-tap-to-click on hover elements ── */
+.btn-book, .btn-details, .btn-addon, .modal-btn-agree, .modal-btn-back, .modal-btn-upgrade, .pkg-card, .nav-dot, .btn-details { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 </style>
 </head>
 <body>

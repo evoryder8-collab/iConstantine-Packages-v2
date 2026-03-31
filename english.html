@@ -651,6 +651,9 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 #lang-dropdown a.lang-active{color:var(--gold-dim,#b8960c);background:rgba(212,175,55,.07)}
 #lang-switcher.open #lang-dropdown{display:block}
 
+
+/* ── TOUCH FIX: prevents iOS double-tap-to-click on hover elements ── */
+.btn-book, .btn-details, .btn-addon, .modal-btn-agree, .modal-btn-back, .modal-btn-upgrade, .pkg-card, .nav-dot, .btn-details { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 </style>
 </head>
 <body>
