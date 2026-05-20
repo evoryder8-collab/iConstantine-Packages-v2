@@ -1486,7 +1486,7 @@ function openPkgModal(tier, payUrl) {
   var priceEl = inner.querySelector('.pkg-price');
   var priceStr = priceEl.childNodes[0].nodeValue.trim()+' CHF';
   document.getElementById('mTierPrice').textContent = priceEl.textContent.trim();
-  document.getElementById('mBtnAgree').textContent = '\u2713\u00a0\u00a0Sono d'accordo  \u00b7  '+priceStr;
+  document.getElementById('mBtnAgree').textContent = '\u2713\u00a0\u00a0Sono d\'accordo  \u00b7  '+priceStr;
   document.getElementById('mTagline').textContent = inner.querySelector('.pkg-tagline').textContent;
   document.getElementById('mBody').innerHTML = expandInner ? expandInner.innerHTML : '';
   document.querySelectorAll('#mBody .upgrade-note').forEach(function(el){ el.style.display='none'; });
