@@ -209,6 +209,8 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-badge { position:absolute; top:18px; right:18px; padding:5px 14px; border-radius:8px; font-size:8px; font-weight:700; letter-spacing:2px; text-transform:uppercase; z-index:3; }
 .pkg-badge.limited { background:linear-gradient(135deg,#D4AF37,#F4D58D); color:#0a0800; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.55); backdrop-filter:none; text-shadow:none; }
 .pkg-badge.sold-out { background:linear-gradient(135deg,#5c0000,#b80016); color:#fff; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.6); text-shadow:none; letter-spacing:2.5px; }
+.pkg-card[data-tier="starter"] .btn-book { opacity:0.32; pointer-events:none; cursor:default; background:rgba(255,255,255,0.04)!important; border-color:rgba(255,255,255,0.05)!important; color:rgba(255,255,255,0.28)!important; filter:grayscale(1); animation:none; }
+.pkg-card[data-tier="starter"] .btn-book::before { display:none; }
 
 /* THUMBNAILS */
 .pkg-thumb { position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; }
@@ -938,7 +940,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
           <li>Personal commercial license</li>
         </ul>
         <div class="pkg-actions">
-          <a href="#" class="btn-book" onclick="openPkgModal('starter','https://pay.sumup.com/b2c/QDMH0DTJ');return false;">Book Now</a>
+          <a class="btn-book" aria-disabled="true" tabindex="-1">Book Now</a>
           <button class="btn-details" onclick="toggleDetails(this)">More Info &#9662;</button>
         </div>
       </div>
