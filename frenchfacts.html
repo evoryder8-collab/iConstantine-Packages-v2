@@ -1654,7 +1654,11 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModa
 .icv3-t .who{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#9A958A}
 .icv3-t .who b{color:#F4D58D;font-weight:600}
 @media(max-width:768px){
-.hero-section{min-height:86svh;padding-bottom:70px}
+.hero-section{min-height:88svh;padding-bottom:150px}
+.hero-scroll-cue{bottom:42px}
+.pkg-thumb .authority-ribbon{top:auto;bottom:12px;left:12px;box-shadow:0 2px 14px rgba(0,0,0,.6)}
+.authority-save{padding:10px 14px 11px 13px}
+.authority-save strong{font-size:19px;margin-top:3px}
 .icv3-carwrap{position:relative}
 .icv3-carwrap::before,.icv3-carwrap::after{content:'';position:absolute;top:0;bottom:0;width:24px;z-index:2;pointer-events:none}
 .icv3-carwrap::before{left:0;background:linear-gradient(90deg,rgba(2,2,4,.9),transparent)}
@@ -1695,6 +1699,9 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModa
       var inPk=r&&r.top<innerHeight*.5&&r.bottom>innerHeight*.5;
       pill.classList.toggle('show',past&&!inPk);
     },{passive:true});
+    var rib=document.querySelector('.pkg-card[data-tier="authority"] .authority-ribbon');
+    var athumb=document.querySelector('.pkg-card[data-tier="authority"] .pkg-thumb');
+    if(rib&&athumb)athumb.appendChild(rib);
     var header=document.querySelector('.packages-header');
     var cards=[].slice.call(document.querySelectorAll('.pkg-card'));
     if(header&&cards.length){
