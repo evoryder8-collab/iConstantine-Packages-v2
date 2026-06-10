@@ -5,6 +5,35 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>iCONSTANTINE</title>
 <meta name="description" content="Championship Media — Cinema-grade video and photography for massage championships worldwide.">
+<link rel="canonical" href="https://iconstantine.ch/">
+<link rel="alternate" hreflang="en" href="https://iconstantine.ch/english">
+<link rel="alternate" hreflang="de" href="https://iconstantine.ch/german">
+<link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian">
+<link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish">
+<link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese">
+<link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian">
+<link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian">
+<link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese">
+<link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese">
+<link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese">
+<link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong">
+<link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai">
+<link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese">
+<link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian">
+<link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian">
+<link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino">
+<link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek">
+<link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech">
+<link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian">
+<link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts">
+<link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="iCONSTANTINE | Championship Media Packages">
+<meta property="og:description" content="Cinema-grade video & photography for massage championships worldwide. Five package tiers, priority coverage and fast delivery by filmmaker Constantin Barbu.">
+<meta property="og:url" content="https://iconstantine.ch/">
+<meta property="og:image" content="https://iconstantine.ch/logo%20golden%20iconstantine%20eye%20small.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" href="logo%20golden%20iconstantine%20eye%20small.png">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{width:100%;height:100%;overflow:hidden;background:#000;
@@ -447,7 +476,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;
     a.addEventListener('click', function(){
       cancelled = true;
       var slug = a.getAttribute('href').replace('/','');
-      try{ localStorage.setItem('ic_lang', slug==='english'?'':slug); }catch(e){}
+      try{ localStorage.setItem('ic_lang', slug); }catch(e){}
     });
   });
 
@@ -470,7 +499,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;
       var sn = document.getElementById('sn');
       if(sn) sn.textContent = Math.max(0, Math.ceil((COUNTDOWN-elapsed)/1000));
       if(elapsed >= COUNTDOWN){
-        try{ localStorage.setItem('ic_lang', slug==='english'?'':slug); }catch(e){}
+        try{ localStorage.setItem('ic_lang', slug); }catch(e){}
         window.location.replace(dest);
       } else {
         setTimeout(tick, TICK);
