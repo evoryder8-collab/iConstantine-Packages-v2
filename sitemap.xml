@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://iconstantine.ch/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/english</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/german</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/italian</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/spanish</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/portuguese</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/romanian</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/russian</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/japanese</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/chinese</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/taiwanese</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/hongkong</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/thai</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/vietnamese</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/indonesian</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/malaysian</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/filipino</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/greek</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/czech</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/albanian</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/frenchfacts</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iconstantine.ch/english"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://iconstantine.ch/german"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://iconstantine.ch/italian"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iconstantine.ch/spanish"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://iconstantine.ch/portuguese"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://iconstantine.ch/romanian"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://iconstantine.ch/russian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iconstantine.ch/japanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://iconstantine.ch/chinese"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://iconstantine.ch/taiwanese"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://iconstantine.ch/hongkong"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://iconstantine.ch/thai"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://iconstantine.ch/vietnamese"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://iconstantine.ch/indonesian"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://iconstantine.ch/malaysian"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://iconstantine.ch/filipino"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://iconstantine.ch/greek"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://iconstantine.ch/czech"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://iconstantine.ch/albanian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://iconstantine.ch/frenchfacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/"/>
+  </url>
+  <url>
+    <loc>https://iconstantine.ch/legal</loc>
+    <lastmod>2026-10-29</lastmod>
+  </url>
+</urlset>

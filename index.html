@@ -31,12 +31,13 @@
 <meta property="og:title" content="iCONSTANTINE | Championship Media Packages">
 <meta property="og:description" content="Cinema-grade video & photography for massage championships worldwide. Five package tiers, priority coverage and fast delivery by filmmaker Constantin Barbu.">
 <meta property="og:url" content="https://iconstantine.ch/">
-<meta property="og:image" content="https://iconstantine.ch/logo%20golden%20iconstantine%20eye%20small.png">
+<meta property="og:image" content="https://iconstantine.ch/img/og-image.jpg">
 <meta name="twitter:card" content="summary">
-<link rel="icon" type="image/png" href="logo%20golden%20iconstantine%20eye%20small.png">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;height:100%;overflow:hidden;background:#000;
+html,body{width:100%;min-height:100%;overflow-x:hidden;background:#000;
   font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#fff}
 
 /* ── CANVAS LAYERS ── */
@@ -173,9 +174,21 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;
 @media(max-width:360px){
   .lang-grid{grid-template-columns:repeat(3,1fr)}
 }
-
-/* ── TOUCH FIX: prevents iOS double-tap-to-click on hover elements ── */
-.btn-book, .btn-details, .btn-addon, .modal-btn-agree, .modal-btn-back, .modal-btn-upgrade, .pkg-card, .nav-dot, .btn-details { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+/* ── REDUCED MOTION: skip the intro choreography, show everything at once ── */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;
+    animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+/* Short screens (phones in landscape): compact layout so every language fits */
+@media(max-height:520px) and (min-width:560px){
+  .stage{justify-content:flex-start;padding:18px 20px 64px}
+  .eye-logo{width:58px;height:58px;margin-bottom:10px}
+  .brand{margin-bottom:9px}
+  .div-line{margin-bottom:9px}
+  .choose{margin-bottom:12px}
+  .lang-grid{grid-template-columns:repeat(10,1fr);max-width:880px}
+  .auto-bar{bottom:12px}
+}
 </style>
 </head>
 <body>
@@ -189,7 +202,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;
 
 <main class="stage">
   <img id="eyeLogo" class="eye-logo"
-    src="logo%20golden%20iconstantine%20eye%20small.png" alt="iCONSTANTINE"
+    src="img/logo-eye.webp" width="480" height="480" alt="iCONSTANTINE"
     draggable="false">
 
   <div class="brand" aria-label="iCONSTANTINE">
@@ -238,21 +251,12 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;
   var c = document.getElementById('grain-cvs');
   var ctx = c.getContext('2d');
   var scale = 3; // upscale factor (less pixels to fill = faster)
-  var W, H;
-  function resize(){
-    W = c.width = Math.ceil(window.innerWidth / scale);
-    H = c.height = Math.ceil(window.innerHeight / scale);
-    c.style.width = window.innerWidth + 'px';
-    c.style.height = window.innerHeight + 'px';
-    c.style.imageRendering = 'pixelated';
-  }
-  resize();
-  window.addEventListener('resize', resize);
-  var frame = 0;
-  function tick(){
-    frame++;
-    // Update grain every other frame to ease CPU
-    if (frame % 2 === 0){
+  var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W, H, frames = [], f = 0, rt;
+  // A few pre-rendered noise frames, cycled at ~12fps, instead of fresh noise every frame
+  function makeFrames(){
+    frames = [];
+    for (var n = 0; n < (still ? 1 : 6); n++){
       var id = ctx.createImageData(W, H);
       var d = id.data;
       for (var i = 0; i < d.length; i += 4){
@@ -260,11 +264,26 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;
         d[i] = d[i+1] = d[i+2] = v;
         d[i+3] = v > 140 ? ((Math.random() * 28)|0) : 0;
       }
-      ctx.putImageData(id, 0, 0);
+      frames.push(id);
     }
-    requestAnimationFrame(tick);
+    ctx.putImageData(frames[0], 0, 0);
   }
-  tick();
+  function resize(){
+    W = c.width = Math.ceil(window.innerWidth / scale);
+    H = c.height = Math.ceil(window.innerHeight / scale);
+    c.style.width = window.innerWidth + 'px';
+    c.style.height = window.innerHeight + 'px';
+    c.style.imageRendering = 'pixelated';
+    makeFrames();
+  }
+  resize();
+  window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(resize, 150); });
+  if (still) return;
+  setInterval(function(){
+    if (document.hidden) return;
+    f = (f + 1) % frames.length;
+    ctx.putImageData(frames[f], 0, 0);
+  }, 83);
 })();
 
 // ═══════════════════════════════════════════════════════
@@ -272,6 +291,12 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;
 // ═══════════════════════════════════════════════════════
 (function(){
   var c = document.getElementById('iris-cvs');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){
+    c.style.display = 'none';
+    var eye0 = document.getElementById('eyeLogo');
+    if(eye0) eye0.classList.add('breathe');
+    return;
+  }
   var ctx = c.getContext('2d');
   var W, H;
   function resize(){
@@ -435,27 +460,38 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;
 // ═══════════════════════════════════════════════════════
 (function(){
   var MAP = {
-    'de':'german','de-at':'german','de-ch':'german','de-de':'german','de-li':'german',
-    'it':'italian','it-it':'italian','it-ch':'italian',
-    'es':'spanish','es-es':'spanish','es-mx':'spanish','es-419':'spanish','es-us':'spanish',
-    'pt':'portuguese','pt-br':'portuguese','pt-pt':'portuguese',
-    'ro':'romanian','ro-ro':'romanian',
-    'ru':'russian','ru-ru':'russian','uk':'russian','be':'russian',
-    'ja':'japanese','ja-jp':'japanese',
-    'zh-cn':'chinese','zh-sg':'chinese','zh-hans':'chinese','zh':'chinese',
-    'zh-tw':'taiwanese','zh-hant':'taiwanese',
-    'zh-hk':'hongkong','zh-mo':'hongkong',
-    'th':'thai','th-th':'thai',
-    'vi':'vietnamese','vi-vn':'vietnamese',
-    'id':'indonesian','id-id':'indonesian',
-    'ms':'malaysian','ms-my':'malaysian','ms-sg':'malaysian',
+    'en':'english',
+    'de':'german',
+    'it':'italian',
+    'es':'spanish',
+    'pt':'portuguese',
+    'ro':'romanian',
+    'ru':'russian','be':'russian',
+    'ja':'japanese',
+    'zh':'chinese','zh-hans':'chinese','zh-cn':'chinese','zh-sg':'chinese',
+    'zh-hant':'taiwanese','zh-tw':'taiwanese',
+    'zh-hk':'hongkong','zh-mo':'hongkong','zh-hant-hk':'hongkong','zh-hant-mo':'hongkong',
+    'th':'thai',
+    'vi':'vietnamese',
+    'id':'indonesian',
+    'ms':'malaysian',
     'fil':'filipino','tl':'filipino',
-    'el':'greek','el-gr':'greek',
-    'cs':'czech','cs-cz':'czech',
-    'sq':'albanian','sq-al':'albanian',
-    'fr':'frenchfacts','fr-fr':'frenchfacts','fr-ch':'frenchfacts','fr-be':'frenchfacts','fr-ca':'frenchfacts',
-    'en':'english','en-gb':'english','en-us':'english','en-au':'english','en-ca':'english','en-nz':'english'
+    'el':'greek',
+    'cs':'czech',
+    'sq':'albanian',
+    'fr':'frenchfacts'
   };
+  function pickLang(map){
+    var langs = navigator.languages || [navigator.language || navigator.userLanguage || ''];
+    for(var i=0;i<langs.length;i++){
+      var parts = String(langs[i]||'').toLowerCase().split('-');
+      for(var n=parts.length;n>0;n--){
+        var key = parts.slice(0,n).join('-');
+        if(map[key]) return map[key];
+      }
+    }
+    return '';
+  }
   var NAMES = {
     german:'Deutsch',italian:'Italiano',spanish:'Español',portuguese:'Português',
     romanian:'Română',russian:'Русский',japanese:'日本語',chinese:'中文',
@@ -512,17 +548,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;
   setTimeout(function(){
     if(cancelled) return;
     try{
-      var pref = localStorage.getItem('ic_lang');
-      var slug = pref||'';
-      if(!slug){
-        var langs = navigator.languages || [navigator.language||navigator.userLanguage||''];
-        for(var i=0;i<langs.length;i++){
-          var l = langs[i].toLowerCase();
-          if(MAP[l]){slug=MAP[l];break;}
-          var s = l.split('-')[0];
-          if(MAP[s]){slug=MAP[s];break;}
-        }
-      }
+      var slug = localStorage.getItem('ic_lang') || pickLang(MAP);
       if(slug){
         runCountdown(slug);
       } else {
