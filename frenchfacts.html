@@ -285,6 +285,11 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="ultimate"] .btn-book svg { width:12px; height:12px; flex-shrink:0; }
 .pkg-badge.invite { background:linear-gradient(135deg,#E6E6EC,#9A9AA4); color:#0b0b0d; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.55); }
 @keyframes ultSheen { to { background-position:-250% 0; } }
+.ult-ribbon { position:absolute; top:40px; right:-48px; width:200px; padding:7px 0; transform:rotate(45deg); text-align:center; font-size:8px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; line-height:1.2; white-space:nowrap; color:#0b0b0d; background:linear-gradient(90deg,#8E8E98 0%,#F1F1F5 50%,#8E8E98 100%); box-shadow:0 0 0 1px rgba(0,0,0,0.6), 0 3px 12px rgba(0,0,0,0.55); z-index:4; pointer-events:none; }
+.pkg-card[data-tier="ultimate"] .pkg-badge { right:auto; left:18px; }
+@media(min-width:1025px) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { padding-right:76px; } }
+.icv3-carousel .pkg-card[data-tier="ultimate"] .pkg-badge { top:0; margin-top:calc(56.25% - 25px); left:10px; padding:5px 11px; letter-spacing:1.5px; }
+.icv3-carousel .ult-ribbon { top:26px; right:-54px; width:180px; padding:6px 0; font-size:7px; letter-spacing:2px; }
 @media (prefers-reduced-motion:reduce) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { animation:none; } }
 @media(max-width:1024px) {
   .pkg-card[data-tier="ultimate"] .pkg-thumb img { filter:grayscale(1) brightness(0.7) contrast(1.06) !important; }
@@ -977,19 +982,20 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
   <div class="pkg-row-ult">
     <div class="pkg-card" data-tier="ultimate">
       <span class="pkg-badge invite">Sur invitation</span>
+      <span class="ult-ribbon">Bientôt</span>
       <div class="pkg-thumb"><img src="img/pkg-ultimate.webp" width="1200" height="960" loading="lazy" decoding="async" alt="Ultimate Personal Brand"></div>
       <div class="pkg-inner">
         <p class="pkg-tier-name">Ultimate Personal Brand</p>
         <p class="pkg-price">1,800 <span class="pkg-currency">CHF</span></p>
-        <p class="pkg-tagline">Votre propre site cinématographique, conçu autour de votre histoire. Tout compris.</p>
+        <p class="pkg-tagline">La plupart des gens ne découvrent votre talent qu'une fois sur votre table. Votre site le leur montre au premier regard.</p>
         <ul class="pkg-features">
-          <li><strong>Site personnel entièrement sur mesure</strong></li>
-          <li>Votre histoire, votre philosophie, vos distinctions</li>
-          <li><strong>Vidéo de présentation, preuve sociale à l'appui</strong></li>
-          <li>VFX interactifs et SFX raffinés</li>
-          <li>Son travaillé dans mon studio en Suisse</li>
+          <li><strong>Un site entièrement construit autour de vous</strong></li>
+          <li>Votre histoire, votre philosophie et vos titres, au même endroit</li>
+          <li><strong>Vidéo d'intro qui inspire confiance en quelques secondes</strong></li>
+          <li>VFX et conception sonore réalisés dans mon studio en Suisse</li>
           <li>Message d'accueil avec votre propre voix</li>
-          <li>Multilingue avec détection automatique de la langue</li>
+          <li>Parle automatiquement la langue de chaque visiteur</li>
+          <li><strong>Bon photo + vidéo Authority pour un championnat à venir</strong></li>
           <li><strong>1 an d'hébergement et nom de domaine offerts</strong></li>
         </ul>
         <div class="pkg-actions">
@@ -999,13 +1005,16 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
       </div>
       <div class="pkg-expand"><div class="pkg-expand-inner">
         <h4>Ultimate Personal Brand · Détails complets</h4>
-        <div class="detail-block"><span class="detail-label">Sur Invitation</span><p>Réservé aux praticiens qui ont déjà fait appel à moi au moins une fois pour une couverture photo et vidéo. Les photos et les films que j'ai réalisés de vous deviennent la matière première de votre site : c'est pourquoi ce forfait ne peut pas être réservé sans collaboration préalable. Les places sont limitées et proposées uniquement sur invitation personnelle.</p></div>
+        <div class="detail-block"><span class="detail-label">Pourquoi C'est Important</span><p>Quand quelqu'un entend votre nom, de la bouche d'un ami, lors d'un championnat ou sur Instagram, son premier réflexe est de vous chercher. Ce qu'il trouve, c'est le plus souvent un fil sur les réseaux sociaux, un profil parmi des dizaines d'autres, ou rien du tout. Ce qui vous distingue vraiment, votre formation, vos titres, votre façon de travailler et la personne que vous êtes, ne tient ni dans une légende ni dans un profil. Alors c'est un algorithme qui décide de votre première impression, et l'on ne découvre votre talent qu'une fois sur votre table.</p></div>
+        <div class="detail-block"><span class="detail-label">Ce Qui Change</span><p>Vous disposez d'un espace qui n'appartient qu'à vous, pensé pour donner la première impression que vous méritez. En quelques secondes, on voit qui vous êtes, ce que vous avez accompli et comment vous travaillez, sans algorithme et sans concurrent à portée de pouce. Quand on vous rencontre, la confiance est déjà là, et vos tarifs semblent justes avant même que vous ayez dit un mot. C'est aussi la réponse sereine et professionnelle lorsqu'un spa, une marque, un événement, une école ou un client de l'étranger vous demande&nbsp;: &laquo;&nbsp;Vous avez un site web&nbsp;?&nbsp;&raquo;</p></div>
+        <div class="detail-block"><span class="detail-label">Sur Invitation</span><p>Réservé aux praticiens qui ont déjà fait appel à moi au moins une fois pour une couverture photo et vidéo. Les photos et les films que j'ai réalisés de vous deviennent la matière première de votre site : c'est pourquoi ce forfait ne peut pas être réservé sans collaboration préalable. Les places sont limitées et proposées uniquement sur invitation personnelle, dès l'ouverture de la production.</p></div>
         <div class="detail-block"><span class="detail-label">Ce Que Vous Obtenez</span><p>Un site personnel entièrement sur mesure, conçu et développé de A à Z autour de vous. Aucun modèle. Il raconte votre histoire et votre parcours professionnel, la philosophie qui guide vos soins, ce qui vous passionne, ainsi que les titres et distinctions que vous avez remportés. Vos visiteurs perçoivent la personne derrière les soins, pas une simple liste de prestations.</p></div>
         <div class="detail-block"><span class="detail-label">Vidéo de Présentation</span><p>Une vidéo de présentation dédiée, créée et montée à partir de vos images, qui met en valeur votre activité et installe la preuve sociale dès l'arrivée des visiteurs : vos titres, votre travail et la confiance que d'autres vous accordent déjà.</p></div>
-        <div class="detail-block"><span class="detail-label">L'Expérience</span><p>Des éléments interactifs, des effets visuels et des effets sonores raffinés plongent vos visiteurs dans votre univers. Chaque son est façonné par un véritable travail d'ingénierie sonore dans mon studio en Suisse. Lors de leur première visite, ils peuvent être accueillis par votre propre voix, le temps d'une courte présentation personnelle.</p><p style="margin-top:8px;">Un tel niveau de personnalisation est sans équivalent dans votre secteur et vous fera sortir du lot. Les nouveaux clients ressentent la différence dès la première seconde, et vous gagnez la légitimité nécessaire pour pratiquer des tarifs premium.</p></div>
+        <div class="detail-block"><span class="detail-label">L'Expérience</span><p>Des éléments interactifs, des effets visuels et des effets sonores raffinés plongent vos visiteurs dans votre univers. Chaque son est façonné par un véritable travail d'ingénierie sonore dans mon studio en Suisse. Lors de leur première visite, ils peuvent être accueillis par votre propre voix, le temps d'une courte présentation personnelle.</p><p style="margin-top:8px;">Très peu de praticiens ont quelque chose de comparable, alors on se souvient de vous. Les nouveaux clients ressentent la différence dès la première seconde, et vous gagnez la légitimité nécessaire pour pratiquer des tarifs premium.</p></div>
+        <div class="detail-block"><span class="detail-label">Bon pour un Championnat</span><p>Votre forfait comprend aussi un bon pour mon forfait photo et vidéo Authority, d'une valeur de 430 CHF, valable lors d'un futur championnat de massage auquel vous participerez et où je fais moi aussi partie du spectacle. Vous concourez, j'immortalise ce moment, et votre site reçoit des images fraîches tout droit venues de l'événement, avec transfert prioritaire le jour même.</p></div>
         <div class="detail-block"><span class="detail-label">Multilingue</span><p>Votre site détecte la langue du navigateur de chaque visiteur et affiche la bonne version dès le premier instant. Les langues sont définies avec vous avant le début de la production.</p></div>
         <div class="detail-block"><span class="detail-label">Conçu Avec Vous</span><p>La version finale prend forme à partir de vos retours et de votre vision. J'affine chaque détail jusqu'à ce que le site vous ressemble trait pour trait. Dans votre langue maternelle, vous relisez vous-même les textes clés pour qu'ils sonnent juste, jamais comme une traduction.</p></div>
-        <div class="detail-block"><span class="detail-label">Tout Compris</span><p>1,800 CHF couvrent le design, le développement, votre vidéo de présentation, les effets visuels, la conception sonore, les langues convenues et la mise en ligne, ainsi que votre première année d'hébergement et votre nom de domaine, offerts.</p></div>
+        <div class="detail-block"><span class="detail-label">Tout Compris</span><p>1,800 CHF couvrent le design, le développement, votre vidéo de présentation, les effets visuels, la conception sonore, les langues convenues et la mise en ligne, ainsi que votre première année d'hébergement et votre nom de domaine, offerts, et votre bon Authority pour un championnat.</p></div>
         <div class="detail-block"><span class="detail-label">Révisions</span><p>2 cycles d'ajustements après votre premier aperçu complet. Les demandes qui modifient le concept ou la structure après validation ne sont pas des révisions.</p></div>
         <div class="detail-block"><span class="detail-label">Paiement &amp; Calendrier</span><p>Acompte de 50 % non remboursable pour réserver votre créneau de production. Solde de 50 % avant la mise en ligne. Votre calendrier de production est convenu individuellement.</p></div>
       </div></div>

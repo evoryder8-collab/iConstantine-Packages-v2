@@ -284,6 +284,11 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="ultimate"] .btn-book svg { width:12px; height:12px; flex-shrink:0; }
 .pkg-badge.invite { background:linear-gradient(135deg,#E6E6EC,#9A9AA4); color:#0b0b0d; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.55); }
 @keyframes ultSheen { to { background-position:-250% 0; } }
+.ult-ribbon { position:absolute; top:40px; right:-48px; width:200px; padding:7px 0; transform:rotate(45deg); text-align:center; font-size:8px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; line-height:1.2; white-space:nowrap; color:#0b0b0d; background:linear-gradient(90deg,#8E8E98 0%,#F1F1F5 50%,#8E8E98 100%); box-shadow:0 0 0 1px rgba(0,0,0,0.6), 0 3px 12px rgba(0,0,0,0.55); z-index:4; pointer-events:none; }
+.pkg-card[data-tier="ultimate"] .pkg-badge { right:auto; left:18px; }
+@media(min-width:1025px) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { padding-right:76px; } }
+.icv3-carousel .pkg-card[data-tier="ultimate"] .pkg-badge { top:0; margin-top:calc(56.25% - 25px); left:10px; padding:5px 11px; letter-spacing:1.5px; }
+.icv3-carousel .ult-ribbon { top:26px; right:-54px; width:180px; padding:6px 0; font-size:7px; letter-spacing:2px; }
 @media (prefers-reduced-motion:reduce) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { animation:none; } }
 @media(max-width:1024px) {
   .pkg-card[data-tier="ultimate"] .pkg-thumb img { filter:grayscale(1) brightness(0.7) contrast(1.06) !important; }
@@ -996,19 +1001,20 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
   <div class="pkg-row-ult">
     <div class="pkg-card" data-tier="ultimate">
       <span class="pkg-badge invite">Solo su invito</span>
+      <span class="ult-ribbon">In arrivo</span>
       <div class="pkg-thumb"><img src="img/pkg-ultimate.webp" width="1200" height="960" loading="lazy" decoding="async" alt="Ultimate Personal Brand"></div>
       <div class="pkg-inner">
         <p class="pkg-tier-name">Ultimate Personal Brand</p>
         <p class="pkg-price">1,800 <span class="pkg-currency">CHF</span></p>
-        <p class="pkg-tagline">Il tuo sito cinematografico, costruito attorno alla tua storia. Tutto incluso.</p>
+        <p class="pkg-tagline">La maggior parte delle persone scopre quanto vali solo sul tuo lettino. Il tuo sito glielo mostra al primo sguardo.</p>
         <ul class="pkg-features">
-          <li><strong>Sito personale completamente su misura</strong></li>
-          <li>La tua storia, la tua filosofia, i tuoi premi</li>
-          <li><strong>Video di presentazione con social proof</strong></li>
-          <li>VFX interattivi e SFX raffinati</li>
-          <li>Sound design nel mio studio in Svizzera</li>
+          <li><strong>Un sito costruito interamente attorno a te</strong></li>
+          <li>La tua storia, la tua filosofia e i tuoi titoli in un unico posto</li>
+          <li><strong>Video di presentazione che crea fiducia in pochi secondi</strong></li>
+          <li>VFX e sound design dal mio studio in Svizzera</li>
           <li>Benvenuto con la tua voce</li>
-          <li>Multilingue con rilevamento automatico della lingua</li>
+          <li>Parla automaticamente la lingua di ogni visitatore</li>
+          <li><strong>Buono foto + video Authority per un futuro campionato</strong></li>
           <li><strong>1 anno di hosting e dominio in omaggio</strong></li>
         </ul>
         <div class="pkg-actions">
@@ -1018,13 +1024,16 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
       </div>
       <div class="pkg-expand"><div class="pkg-expand-inner">
         <h4>Ultimate Personal Brand · Dettagli completi</h4>
-        <div class="detail-block"><span class="detail-label">Solo su Invito</span><p>Riservato ai professionisti che hanno già prenotato con me almeno una volta un servizio foto e video. Gli scatti e i video che ho realizzato per te diventano la materia prima del tuo sito: per questo il pacchetto non si può prenotare partendo da zero. I posti sono limitati e vengono offerti su invito personale.</p></div>
+        <div class="detail-block"><span class="detail-label">Perché Conta</span><p>Quando qualcuno sente il tuo nome, da un amico, a un campionato o su Instagram, la prima cosa che fa è cercarti. Quello che trova di solito è una griglia di post sui social, un profilo tra decine di altri, o niente del tutto. Ciò che ti distingue davvero, la tua formazione, i tuoi titoli, il tuo modo di lavorare e chi sei, non entra in una didascalia né in un profilo. Così è un algoritmo a decidere la tua prima impressione, e le persone scoprono quanto vali solo quando sono sul tuo lettino.</p></div>
+        <div class="detail-block"><span class="detail-label">Cosa Cambia</span><p>Hai uno spazio tutto tuo, pensato per dare la prima impressione che meriti. In pochi secondi le persone vedono chi sei, cosa hai raggiunto e come lavori, senza algoritmi e senza concorrenti a portata di pollice. Quando ti incontrano si fidano già di te, e i tuoi prezzi appaiono giusti prima ancora che tu dica una parola. È anche la risposta tranquilla e professionale quando una spa, un marchio, un evento, una scuola o un cliente dall'estero ti chiede: &laquo;Hai un sito web?&raquo;</p></div>
+        <div class="detail-block"><span class="detail-label">Solo su Invito</span><p>Riservato ai professionisti che hanno già prenotato con me almeno una volta un servizio foto e video. Gli scatti e i video che ho realizzato per te diventano la materia prima del tuo sito: per questo il pacchetto non si può prenotare partendo da zero. I posti sono limitati e vengono offerti su invito personale non appena parte la produzione.</p></div>
         <div class="detail-block"><span class="detail-label">Cosa Ottieni</span><p>Un sito personale completamente su misura, progettato e realizzato da zero attorno a te. Nessun template. Racconta la tua storia e il tuo percorso professionale, la filosofia dietro i tuoi trattamenti, ciò che ami e i titoli e i premi che hai conquistato. Chi lo visita percepisce la persona dietro i trattamenti, non un semplice elenco di servizi.</p></div>
         <div class="detail-block"><span class="detail-label">Video di Presentazione</span><p>Un video di presentazione dedicato, creato e montato con il tuo materiale, che racconta la tua attività e crea social proof non appena i visitatori arrivano sul sito: i tuoi titoli, il tuo lavoro e la fiducia che gli altri già ripongono in te.</p></div>
-        <div class="detail-block"><span class="detail-label">L'Esperienza</span><p>Elementi interattivi, effetti visivi ed effetti sonori raffinati portano i visitatori dentro il tuo mondo. Ogni suono nasce da un vero lavoro di ingegneria del suono nel mio studio in Svizzera. Chi arriva per la prima volta può essere accolto dalla tua voce, con una breve presentazione personale.</p><p style="margin-top:8px;">Un livello di personalizzazione così non ha eguali nel tuo settore e ti distingue da chiunque altro. I nuovi clienti sentono la differenza dal primo secondo, e tu hai l'autorevolezza per proporre prezzi premium.</p></div>
+        <div class="detail-block"><span class="detail-label">L'Esperienza</span><p>Elementi interattivi, effetti visivi ed effetti sonori raffinati portano i visitatori dentro il tuo mondo. Ogni suono nasce da un vero lavoro di ingegneria del suono nel mio studio in Svizzera. Chi arriva per la prima volta può essere accolto dalla tua voce, con una breve presentazione personale.</p><p style="margin-top:8px;">Pochissimi professionisti hanno qualcosa di simile, così le persone si ricordano di te. I nuovi clienti sentono la differenza dal primo secondo, e tu hai l'autorevolezza per proporre prezzi premium.</p></div>
+        <div class="detail-block"><span class="detail-label">Buono Campionato</span><p>Nel tuo pacchetto è incluso anche un buono per il mio pacchetto foto e video Authority, del valore di 430 CHF, valido per un futuro campionato di massaggio a cui parteciperai, dove anch'io faccio parte dello show. Tu gareggi, io immortalo la gara, e il tuo sito riceve materiale fresco direttamente dall'evento, con trasferimento prioritario in giornata.</p></div>
         <div class="detail-block"><span class="detail-label">Multilingue</span><p>Il tuo sito legge la lingua del browser di ogni visitatore e propone la versione giusta fin dal primo momento. Le lingue vengono concordate con te prima dell'inizio della produzione.</p></div>
         <div class="detail-block"><span class="detail-label">Creato con Te</span><p>La versione finale prende forma dal tuo feedback e dalla tua visione. Rifinisco i dettagli finché il sito non ti rispecchia in tutto e per tutto. Per la tua lingua madre sei tu a rivedere i testi chiave, così suonano naturali e mai come una traduzione.</p></div>
-        <div class="detail-block"><span class="detail-label">Tutto Incluso</span><p>1,800 CHF comprendono design, sviluppo, il tuo video di presentazione, effetti visivi, sound design, le lingue concordate e la messa online, più il primo anno di hosting e il dominio, in omaggio.</p></div>
+        <div class="detail-block"><span class="detail-label">Tutto Incluso</span><p>1,800 CHF comprendono design, sviluppo, il tuo video di presentazione, effetti visivi, sound design, le lingue concordate e la messa online, più il primo anno di hosting e il dominio, in omaggio, e il tuo buono Authority per il campionato.</p></div>
         <div class="detail-block"><span class="detail-label">Revisioni</span><p>2 giri di modifiche dopo la tua prima anteprima completa. Le richieste che cambiano il concept o la struttura dopo l'approvazione non sono modifiche.</p></div>
         <div class="detail-block"><span class="detail-label">Pagamento &amp; Tempistiche</span><p>50% di deposito non rimborsabile per riservare il tuo slot di produzione. 50% del saldo prima della messa online. Il tuo calendario di produzione viene concordato individualmente.</p></div>
       </div></div>

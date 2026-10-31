@@ -284,6 +284,11 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="ultimate"] .btn-book svg { width:12px; height:12px; flex-shrink:0; }
 .pkg-badge.invite { background:linear-gradient(135deg,#E6E6EC,#9A9AA4); color:#0b0b0d; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.55); }
 @keyframes ultSheen { to { background-position:-250% 0; } }
+.ult-ribbon { position:absolute; top:40px; right:-48px; width:200px; padding:7px 0; transform:rotate(45deg); text-align:center; font-size:8px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; line-height:1.2; white-space:nowrap; color:#0b0b0d; background:linear-gradient(90deg,#8E8E98 0%,#F1F1F5 50%,#8E8E98 100%); box-shadow:0 0 0 1px rgba(0,0,0,0.6), 0 3px 12px rgba(0,0,0,0.55); z-index:4; pointer-events:none; }
+.pkg-card[data-tier="ultimate"] .pkg-badge { right:auto; left:18px; }
+@media(min-width:1025px) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { padding-right:76px; } }
+.icv3-carousel .pkg-card[data-tier="ultimate"] .pkg-badge { top:0; margin-top:calc(56.25% - 25px); left:10px; padding:5px 11px; letter-spacing:1.5px; }
+.icv3-carousel .ult-ribbon { top:26px; right:-54px; width:180px; padding:6px 0; font-size:7px; letter-spacing:2px; }
 @media (prefers-reduced-motion:reduce) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { animation:none; } }
 @media(max-width:1024px) {
   .pkg-card[data-tier="ultimate"] .pkg-thumb img { filter:grayscale(1) brightness(0.7) contrast(1.06) !important; }
@@ -996,19 +1001,20 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
   <div class="pkg-row-ult">
     <div class="pkg-card" data-tier="ultimate">
       <span class="pkg-badge invite">Sa Imbitasyon Lamang</span>
+      <span class="ult-ribbon">Malapit Na</span>
       <div class="pkg-thumb"><img src="img/pkg-ultimate.webp" width="1200" height="960" loading="lazy" decoding="async" alt="Ultimate Personal Brand"></div>
       <div class="pkg-inner">
         <p class="pkg-tier-name">Ultimate Personal Brand</p>
         <p class="pkg-price">1,800 <span class="pkg-currency">CHF</span></p>
-        <p class="pkg-tagline">Ang sarili mong cinematic website, hinubog mula sa kuwento mo. All inclusive.</p>
+        <p class="pkg-tagline">Karamihan ng tao, sa massage table mo pa lang nalalaman kung gaano ka kagaling. Ipinapakita ito ng website sa kanila mula sa unang tingin.</p>
         <ul class="pkg-features">
-          <li><strong>Fully custom na personal website</strong></li>
-          <li>Ang kuwento, pilosopiya at mga award mo</li>
-          <li><strong>Business intro video para sa social proof</strong></li>
-          <li>Interactive VFX at eleganteng SFX</li>
-          <li>Sound engineering sa studio ko sa Switzerland</li>
+          <li><strong>Website na ikaw ang buong sentro</strong></li>
+          <li>Ang kuwento, pilosopiya at mga titulo mo sa iisang lugar</li>
+          <li><strong>Intro video na nakakakuha ng tiwala sa ilang segundo</strong></li>
+          <li>VFX at sound design mula sa studio ko sa Switzerland</li>
           <li>Welcome intro gamit ang sarili mong boses</li>
-          <li>Multilingual na may automatic language detection</li>
+          <li>Awtomatikong nagsasalita sa wika ng bawat bisita</li>
+          <li><strong>Authority photo + video voucher para sa isang darating na championship</strong></li>
           <li><strong>Libreng hosting at domain sa loob ng 1 taon</strong></li>
         </ul>
         <div class="pkg-actions">
@@ -1018,13 +1024,16 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
       </div>
       <div class="pkg-expand"><div class="pkg-expand-inner">
         <h4>Ultimate Personal Brand · Kumpletong Detalye</h4>
-        <div class="detail-block"><span class="detail-label">Sa Imbitasyon Lamang</span><p>Para lang ito sa mga massage therapist na nakapag-book na sa akin ng photo at video coverage kahit isang beses. Ang mga litrato at pelikulang nagawa ko para sa iyo ang magiging raw material ng website mo, kaya hindi ito puwedeng i-book kung wala pa tayong nagawang coverage. Limitado ang slots at iniaalok lang sa pamamagitan ng personal na imbitasyon.</p></div>
+        <div class="detail-block"><span class="detail-label">Bakit Ito Mahalaga</span><p>Kapag may nakarinig ng pangalan mo, mula sa kaibigan, sa isang championship o sa Instagram, ang una nilang ginagawa ay hanapin ka online. Ang karaniwang nakikita nila ay isang social media grid, isang profile sa gitna ng dose-dosenang iba pa, o wala man lang. Ang talagang nagpapaiba sa iyo, ang training mo, ang mga titulo mo, ang paraan ng pagtatrabaho mo at kung sino ka, ay hindi kasya sa isang caption o profile. Kaya algorithm ang nagpapasya ng first impression sa iyo, at sa massage table mo pa lang nalalaman ng mga tao kung gaano ka kagaling.</p></div>
+        <div class="detail-block"><span class="detail-label">Ano ang Nagbabago</span><p>Magkakaroon ka ng isang lugar na talagang sa iyo, ginawa para ibigay ang first impression na nararapat sa iyo. Sa loob ng ilang segundo, makikita ng mga tao kung sino ka, ano na ang mga naabot mo at paano ka magtrabaho, nang walang algorithm at walang kakumpitensiya na isang scroll lang ang layo. Pagkakilala nila sa iyo, may tiwala na sila, at makatwiran na para sa kanila ang presyo mo bago ka pa magsalita. Ito rin ang kalmado at propesyonal na sagot kapag nagtanong ang isang spa, isang brand, isang event, isang school o isang kliyente mula sa ibang bansa, &ldquo;May website ka ba?&rdquo;</p></div>
+        <div class="detail-block"><span class="detail-label">Sa Imbitasyon Lamang</span><p>Para lang ito sa mga massage therapist na nakapag-book na sa akin ng photo at video coverage kahit isang beses. Ang mga litrato at pelikulang nagawa ko para sa iyo ang magiging raw material ng website mo, kaya hindi ito puwedeng i-book kung wala pa tayong nagawang coverage. Limitado ang slots at iniaalok sa pamamagitan ng personal na imbitasyon sa sandaling magbukas ang production.</p></div>
         <div class="detail-block"><span class="detail-label">Ano ang Makukuha Mo</span><p>Isang fully custom na personal website, dinisenyo at binuo mula sa simula para sa iyo. Walang template. Ikinukuwento nito ang buhay mo at ang professional journey mo, ang pilosopiya sa likod ng mga treatment mo, ang mga hilig mo, at ang mga titulo at award na napanalunan mo. Mararamdaman ng mga bisita ang tao sa likod ng mga treatment, hindi lang isang listahan ng services.</p></div>
         <div class="detail-block"><span class="detail-label">Business Intro Video</span><p>Isang dedicated na intro video na ginawa at in-edit mula sa footage mo. Ipinapakilala nito ang business mo at nagbibigay agad ng social proof sa sandaling dumating ang mga bisita: ang mga titulo mo, ang trabaho mo, at ang tiwalang ibinibigay na sa iyo ng ibang tao.</p></div>
-        <div class="detail-block"><span class="detail-label">Ang Experience</span><p>Dinadala ng mga interactive na elemento, visual effects at eleganteng sound effects ang mga bisita sa mundo mo. Bawat tunog ay ginawa gamit ang tunay na sound engineering sa studio ko sa Switzerland. Puwedeng salubungin ng sarili mong boses ang mga first-time visitor sa pamamagitan ng maikling personal na pagpapakilala.</p><p style="margin-top:8px;">Walang kapantay sa industriya mo ang ganitong level ng customization, at siguradong mangingibabaw ka. Ramdam agad ng mga bagong kliyente ang pagkakaiba mula sa unang segundo, at binibigyan ka nito ng posisyon para mag-set ng premium na presyo.</p></div>
+        <div class="detail-block"><span class="detail-label">Ang Experience</span><p>Dinadala ng mga interactive na elemento, visual effects at eleganteng sound effects ang mga bisita sa mundo mo. Bawat tunog ay ginawa gamit ang tunay na sound engineering sa studio ko sa Switzerland. Puwedeng salubungin ng sarili mong boses ang mga first-time visitor sa pamamagitan ng maikling personal na pagpapakilala.</p><p style="margin-top:8px;">Iilan lang na therapist ang may ganito, kaya tumatatak ka sa isip ng mga tao. Ramdam agad ng mga bagong kliyente ang pagkakaiba mula sa unang segundo, at binibigyan ka nito ng posisyon para mag-set ng premium na presyo.</p></div>
+        <div class="detail-block"><span class="detail-label">Championship Voucher</span><p>Kasama rin sa package mo ang voucher para sa Authority photo at video package ko, na nagkakahalaga ng 430 CHF, sa isang darating na massage championship na sasalihan mo, kung saan bahagi rin ako ng show. Sasabak ka, kukunan ko, at may bagong material ang website mo diretso mula sa event, na may priority same day transfer.</p></div>
         <div class="detail-block"><span class="detail-label">Multilingual</span><p>Binabasa ng website mo ang browser language ng bawat bisita at ipinapakita agad ang tamang bersyon mula sa unang sandali. Pagkakasunduan natin ang mga wika bago magsimula ang production.</p></div>
         <div class="detail-block"><span class="detail-label">Ginawa Kasama Mo</span><p>Hinuhubog ang final version ng sarili mong feedback at vision. Pinipino ko ang bawat detalye hanggang ramdam na ramdam na ikaw talaga ito. Para sa native language mo, ikaw mismo ang magre-review ng mga pangunahing text para natural ang dating, hindi kailanman parang translation.</p></div>
-        <div class="detail-block"><span class="detail-label">All Inclusive</span><p>Saklaw ng 1,800 CHF ang design, build, business intro video mo, visual effects, sound design, ang mga napagkasunduang wika at launch, kasama ang libreng hosting at domain mo sa unang taon.</p></div>
+        <div class="detail-block"><span class="detail-label">All Inclusive</span><p>Saklaw ng 1,800 CHF ang design, build, business intro video mo, visual effects, sound design, ang mga napagkasunduang wika at launch, kasama ang libreng hosting at domain mo sa unang taon, at ang Authority championship voucher mo.</p></div>
         <div class="detail-block"><span class="detail-label">Mga Rebisyon</span><p>2 rounds ng revisions pagkatapos ng unang full preview mo. Ang mga request na magbabago sa konsepto o structure pagkatapos ng approval ay hindi revisions.</p></div>
         <div class="detail-block"><span class="detail-label">Bayad &amp; Timeline</span><p>50% hindi maibabalik na deposit para ma-reserve ang production slot mo. 50% balanse bago ang launch. Napagkakasunduan nang indibidwal ang production calendar mo.</p></div>
       </div></div>

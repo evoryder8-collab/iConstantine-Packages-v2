@@ -284,6 +284,11 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="ultimate"] .btn-book svg { width:12px; height:12px; flex-shrink:0; }
 .pkg-badge.invite { background:linear-gradient(135deg,#E6E6EC,#9A9AA4); color:#0b0b0d; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.55); }
 @keyframes ultSheen { to { background-position:-250% 0; } }
+.ult-ribbon { position:absolute; top:40px; right:-48px; width:200px; padding:7px 0; transform:rotate(45deg); text-align:center; font-size:8px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; line-height:1.2; white-space:nowrap; color:#0b0b0d; background:linear-gradient(90deg,#8E8E98 0%,#F1F1F5 50%,#8E8E98 100%); box-shadow:0 0 0 1px rgba(0,0,0,0.6), 0 3px 12px rgba(0,0,0,0.55); z-index:4; pointer-events:none; }
+.pkg-card[data-tier="ultimate"] .pkg-badge { right:auto; left:18px; }
+@media(min-width:1025px) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { padding-right:76px; } }
+.icv3-carousel .pkg-card[data-tier="ultimate"] .pkg-badge { top:0; margin-top:calc(56.25% - 25px); left:10px; padding:5px 11px; letter-spacing:1.5px; }
+.icv3-carousel .ult-ribbon { top:26px; right:-54px; width:180px; padding:6px 0; font-size:7px; letter-spacing:2px; }
 @media (prefers-reduced-motion:reduce) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { animation:none; } }
 @media(max-width:1024px) {
   .pkg-card[data-tier="ultimate"] .pkg-thumb img { filter:grayscale(1) brightness(0.7) contrast(1.06) !important; }
@@ -996,19 +1001,20 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
   <div class="pkg-row-ult">
     <div class="pkg-card" data-tier="ultimate">
       <span class="pkg-badge invite">เฉพาะผู้ได้รับเชิญ</span>
+      <span class="ult-ribbon">เร็ว ๆ นี้</span>
       <div class="pkg-thumb"><img src="img/pkg-ultimate.webp" width="1200" height="960" loading="lazy" decoding="async" alt="Ultimate Personal Brand"></div>
       <div class="pkg-inner">
         <p class="pkg-tier-name">Ultimate Personal Brand</p>
         <p class="pkg-price">1,800 <span class="pkg-currency">CHF</span></p>
-        <p class="pkg-tagline">เว็บไซต์ส่วนตัวสไตล์หนัง สร้างจากเรื่องราวของคุณ ครบจบในราคาเดียว</p>
+        <p class="pkg-tagline">คนส่วนใหญ่จะรู้ว่าคุณเก่งแค่ไหนก็ตอนได้นอนบนเตียงนวดของคุณแล้ว เว็บไซต์นี้ทำให้เขารู้ตั้งแต่แรกเห็น</p>
         <ul class="pkg-features">
-          <li><strong>เว็บไซต์ส่วนตัวออกแบบเฉพาะคุณ</strong></li>
-          <li>เรื่องราว แนวคิด และรางวัลของคุณ</li>
-          <li><strong>วิดีโอแนะนำธุรกิจ เสริมความน่าเชื่อถือ</strong></li>
-          <li>VFX แบบอินเทอร์แอคทีฟ + SFX ที่ลงตัว</li>
-          <li>ทำเสียงในสตูดิโอของผมที่สวิสเซอร์แลนด์</li>
+          <li><strong>เว็บไซต์ที่ออกแบบโดยมีคุณเป็นศูนย์กลาง</strong></li>
+          <li>เรื่องราว แนวคิด และรางวัลของคุณ รวมไว้ในที่เดียว</li>
+          <li><strong>วิดีโอแนะนำที่สร้างความเชื่อใจในไม่กี่วินาที</strong></li>
+          <li>VFX และซาวด์ดีไซน์จากสตูดิโอของผมที่สวิสเซอร์แลนด์</li>
           <li>ต้อนรับคนเข้าเว็บด้วยเสียงของคุณเอง</li>
-          <li>หลายภาษา ตรวจจับภาษาให้อัตโนมัติ</li>
+          <li>เปลี่ยนเป็นภาษาของคนเข้าเว็บให้อัตโนมัติ</li>
+          <li><strong>วอเชอร์รูป + วิดีโอ Authority สำหรับงานแข่งชิงแชมป์ในอนาคต</strong></li>
           <li><strong>ฟรีโฮสติ้งและโดเมน 1 ปี</strong></li>
         </ul>
         <div class="pkg-actions">
@@ -1018,13 +1024,16 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
       </div>
       <div class="pkg-expand"><div class="pkg-expand-inner">
         <h4>Ultimate Personal Brand · รายละเอียดเต็ม</h4>
-        <div class="detail-block"><span class="detail-label">เฉพาะผู้ได้รับเชิญ</span><p>สำหรับนักบำบัดที่เคยจองถ่ายภาพและวิดีโอกับผมมาแล้วอย่างน้อย 1 ครั้ง เพราะภาพและวิดีโอที่ผมถ่ายคุณไว้คือวัตถุดิบหลักของเว็บไซต์ แพ็คเกจนี้จึงไม่เปิดให้จองเป็นงานแรก จำนวนจำกัด และเปิดให้เฉพาะคนที่ผมเชิญเป็นการส่วนตัว</p></div>
+        <div class="detail-block"><span class="detail-label">ทำไมถึงสำคัญ</span><p>เมื่อมีคนได้ยินชื่อคุณ ไม่ว่าจากเพื่อน ที่งานแข่งชิงแชมป์ หรือใน Instagram สิ่งแรกที่เขาทำคือค้นหาคุณ สิ่งที่เขาเจอส่วนใหญ่คือหน้าฟีดโซเชียลมีเดีย โปรไฟล์หนึ่งในหลายสิบโปรไฟล์ หรือไม่เจออะไรเลย ส่วนสิ่งที่ทำให้คุณแตกต่างจริง ๆ ทั้งการฝึกฝน ตำแหน่งแชมป์ วิธีทำงาน และตัวตนของคุณ ไม่มีทางใส่ลงในแคปชันหรือโปรไฟล์ได้ อัลกอริทึมจึงเป็นตัวกำหนดความประทับใจแรกของคุณ และกว่าคนจะรู้ว่าคุณเก่งแค่ไหนก็ตอนได้นอนบนเตียงนวดของคุณแล้ว</p></div>
+        <div class="detail-block"><span class="detail-label">สิ่งที่เปลี่ยนไป</span><p>คุณจะมีพื้นที่ที่เป็นของคุณเองทั้งหมด สร้างมาเพื่อมอบความประทับใจแรกที่คุณควรได้ ภายในไม่กี่วินาที คนจะได้รู้ว่าคุณเป็นใคร ทำอะไรสำเร็จมาแล้วบ้าง และทำงานอย่างไร ไม่มีอัลกอริทึม และไม่มีคู่แข่งโผล่มาแค่เลื่อนนิ้วเดียว เขามาพบคุณพร้อมความเชื่อใจตั้งแต่แรก และเข้าใจราคาของคุณตั้งแต่คุณยังไม่ได้พูดอะไรสักคำ และเมื่อสปา แบรนด์ ผู้จัดงาน โรงเรียน หรือลูกค้าจากต่างประเทศถามว่า “มีเว็บไซต์ไหม” นี่ก็คือคำตอบที่สงบและเป็นมืออาชีพ</p></div>
+        <div class="detail-block"><span class="detail-label">เฉพาะผู้ได้รับเชิญ</span><p>สำหรับนักบำบัดที่เคยจองถ่ายภาพและวิดีโอกับผมมาแล้วอย่างน้อย 1 ครั้ง เพราะภาพและวิดีโอที่ผมถ่ายคุณไว้คือวัตถุดิบหลักของเว็บไซต์ แพ็คเกจนี้จึงไม่เปิดให้จองเป็นงานแรก จำนวนจำกัด และจะเปิดให้เฉพาะคนที่ผมเชิญเป็นการส่วนตัว ทันทีที่เปิดรับงานโปรดักชัน</p></div>
         <div class="detail-block"><span class="detail-label">สิ่งที่คุณได้รับ</span><p>เว็บไซต์ส่วนตัวที่ออกแบบและสร้างขึ้นใหม่ทั้งหมดโดยมีคุณเป็นศูนย์กลาง ไม่ใช้เทมเพลต เล่าเรื่องชีวิตและเส้นทางอาชีพของคุณ ปรัชญาเบื้องหลังการนวดของคุณ สิ่งที่คุณรัก รวมถึงตำแหน่งแชมป์และรางวัลที่คุณได้มา คนที่เข้าเว็บจะสัมผัสได้ถึงตัวตนเบื้องหลังการนวด ไม่ใช่แค่รายการบริการ</p></div>
         <div class="detail-block"><span class="detail-label">วิดีโอแนะนำธุรกิจ</span><p>วิดีโอแนะนำที่ทำขึ้นเฉพาะคุณ ตัดต่อจากฟุตเทจของคุณเอง นำเสนอธุรกิจของคุณและสร้างความน่าเชื่อถือทันทีที่คนเข้าเว็บ ทั้งตำแหน่งแชมป์ ผลงาน และความไว้วางใจที่คนอื่นมอบให้คุณอยู่แล้ว</p></div>
-        <div class="detail-block"><span class="detail-label">ประสบการณ์</span><p>ลูกเล่นแบบอินเทอร์แอคทีฟ วิชวลเอฟเฟกต์ และซาวด์เอฟเฟกต์ที่ลงตัว ดึงคนเข้าเว็บเข้าสู่โลกของคุณ ทุกเสียงผ่านงานซาวด์เอนจิเนียริ่งของจริงในสตูดิโอของผมที่สวิสเซอร์แลนด์ คนที่เข้าเว็บครั้งแรกยังได้รับการต้อนรับด้วยเสียงของคุณเองผ่านการแนะนำตัวสั้น ๆ</p><p style="margin-top:8px;">งานปรับแต่งระดับนี้ยังไม่มีใครในวงการทำได้ และจะทำให้คุณโดดเด่นกว่าใคร ลูกค้าใหม่รู้สึกถึงความต่างตั้งแต่วินาทีแรก และคุณตั้งราคาระดับพรีเมียมได้อย่างมั่นใจ</p></div>
+        <div class="detail-block"><span class="detail-label">ประสบการณ์</span><p>ลูกเล่นแบบอินเทอร์แอคทีฟ วิชวลเอฟเฟกต์ และซาวด์เอฟเฟกต์ที่ลงตัว ดึงคนเข้าเว็บเข้าสู่โลกของคุณ ทุกเสียงผ่านงานซาวด์เอนจิเนียริ่งของจริงในสตูดิโอของผมที่สวิสเซอร์แลนด์ คนที่เข้าเว็บครั้งแรกยังได้รับการต้อนรับด้วยเสียงของคุณเองผ่านการแนะนำตัวสั้น ๆ</p><p style="margin-top:8px;">มีนักบำบัดน้อยคนมากที่มีเว็บแบบนี้ คนจึงจำคุณได้ ลูกค้าใหม่รู้สึกถึงความต่างตั้งแต่วินาทีแรก และคุณตั้งราคาระดับพรีเมียมได้อย่างมั่นใจ</p></div>
+        <div class="detail-block"><span class="detail-label">วอเชอร์ชิงแชมป์</span><p>แพ็คเกจของคุณยังรวมวอเชอร์สำหรับแพ็คเกจรูปและวิดีโอ Authority ของผม มูลค่า 430 CHF ใช้ได้ในงานแข่งชิงแชมป์นวดครั้งหนึ่งในอนาคตที่คุณลงแข่ง และผมเองก็เป็นส่วนหนึ่งของโชว์ในงานนั้นด้วย คุณแข่ง ผมถ่าย แล้วเว็บไซต์ของคุณก็ได้ภาพใหม่ ๆ ส่งตรงจากงาน พร้อมส่งด่วนภายในวันเดียวกัน</p></div>
         <div class="detail-block"><span class="detail-label">หลายภาษา</span><p>เว็บไซต์จะอ่านภาษาของเบราว์เซอร์คนที่เข้าเว็บแต่ละคน แล้วแสดงเวอร์ชันภาษาที่ใช่ตั้งแต่วินาทีแรก ภาษาที่รองรับจะตกลงกันก่อนเริ่มงาน</p></div>
         <div class="detail-block"><span class="detail-label">สร้างไปด้วยกัน</span><p>เวอร์ชันสุดท้ายจะถูกขัดเกลาจากฟีดแบ็กและวิสัยทัศน์ของคุณเอง ผมเก็บรายละเอียดจนกว่าจะเป็นตัวคุณแบบไม่มีผิด สำหรับภาษาแม่ของคุณ คุณจะได้ตรวจข้อความหลักเองเพื่อให้อ่านลื่นเป็นธรรมชาติ ไม่เหมือนงานแปล</p></div>
-        <div class="detail-block"><span class="detail-label">ครบจบในราคาเดียว</span><p>1,800 CHF รวมทั้งการออกแบบ การสร้างเว็บ วิดีโอแนะนำธุรกิจ วิชวลเอฟเฟกต์ ซาวด์ดีไซน์ ภาษาที่ตกลงกัน และการเปิดตัวเว็บ พร้อมโฮสติ้งและโดเมนฟรีในปีแรก</p></div>
+        <div class="detail-block"><span class="detail-label">ครบจบในราคาเดียว</span><p>1,800 CHF รวมทั้งการออกแบบ การสร้างเว็บ วิดีโอแนะนำธุรกิจ วิชวลเอฟเฟกต์ ซาวด์ดีไซน์ ภาษาที่ตกลงกัน และการเปิดตัวเว็บ พร้อมโฮสติ้งและโดเมนฟรีในปีแรก และวอเชอร์ Authority สำหรับงานแข่งชิงแชมป์ของคุณ</p></div>
         <div class="detail-block"><span class="detail-label">การแก้ไข</span><p>แก้ได้ 2 รอบหลังพรีวิวเต็มครั้งแรก คำขอที่เปลี่ยนคอนเซปต์หรือโครงสร้างหลังอนุมัติแล้วไม่นับเป็นการแก้</p></div>
         <div class="detail-block"><span class="detail-label">การชำระเงินและไทม์ไลน์</span><p>มัดจำ 50% (ไม่คืน) เพื่อล็อกคิวโปรดักชัน อีก 50% จ่ายก่อนเปิดเว็บ ตารางงานตกลงกันเป็นรายคน</p></div>
       </div></div>

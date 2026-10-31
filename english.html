@@ -328,6 +328,11 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="ultimate"] .btn-book svg { width:12px; height:12px; flex-shrink:0; }
 .pkg-badge.invite { background:linear-gradient(135deg,#E6E6EC,#9A9AA4); color:#0b0b0d; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.55); }
 @keyframes ultSheen { to { background-position:-250% 0; } }
+.ult-ribbon { position:absolute; top:40px; right:-48px; width:200px; padding:7px 0; transform:rotate(45deg); text-align:center; font-size:8px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; line-height:1.2; white-space:nowrap; color:#0b0b0d; background:linear-gradient(90deg,#8E8E98 0%,#F1F1F5 50%,#8E8E98 100%); box-shadow:0 0 0 1px rgba(0,0,0,0.6), 0 3px 12px rgba(0,0,0,0.55); z-index:4; pointer-events:none; }
+.pkg-card[data-tier="ultimate"] .pkg-badge { right:auto; left:18px; }
+@media(min-width:1025px) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { padding-right:76px; } }
+.icv3-carousel .pkg-card[data-tier="ultimate"] .pkg-badge { top:0; margin-top:calc(56.25% - 25px); left:10px; padding:5px 11px; letter-spacing:1.5px; }
+.icv3-carousel .ult-ribbon { top:26px; right:-54px; width:180px; padding:6px 0; font-size:7px; letter-spacing:2px; }
 @media (prefers-reduced-motion:reduce) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { animation:none; } }
 @media(max-width:1024px) {
   .pkg-card[data-tier="ultimate"] .pkg-thumb img { filter:grayscale(1) brightness(0.7) contrast(1.06) !important; }
@@ -1039,19 +1044,20 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
   <div class="pkg-row-ult">
     <div class="pkg-card" data-tier="ultimate">
       <span class="pkg-badge invite">Invitation Only</span>
+      <span class="ult-ribbon">Coming Soon</span>
       <div class="pkg-thumb"><img src="img/pkg-ultimate.webp" width="1200" height="960" loading="lazy" decoding="async" alt="Ultimate Personal Brand"></div>
       <div class="pkg-inner">
         <p class="pkg-tier-name">Ultimate Personal Brand</p>
         <p class="pkg-price">1,800 <span class="pkg-currency">CHF</span></p>
-        <p class="pkg-tagline">Your own cinematic website, built around your story. All inclusive.</p>
+        <p class="pkg-tagline">Most people only discover how good you are on your table. This shows them at first sight.</p>
         <ul class="pkg-features">
-          <li><strong>Fully custom personal website</strong></li>
-          <li>Your story, philosophy and awards</li>
-          <li><strong>Business intro video for social proof</strong></li>
-          <li>Interactive VFX and tasteful SFX</li>
-          <li>Sound engineered in my Swiss studio</li>
-          <li>Welcome intro in your own voice</li>
-          <li>Multilingual with automatic language detection</li>
+          <li><strong>A website built entirely around you</strong></li>
+          <li>Your story, philosophy and titles in one place</li>
+          <li><strong>Intro video that earns trust in seconds</strong></li>
+          <li>VFX and sound design from my Swiss studio</li>
+          <li>A welcome in your own voice</li>
+          <li>Speaks each visitor's language automatically</li>
+          <li><strong>Authority photo + video voucher for a future championship</strong></li>
           <li><strong>1 year hosting and domain free</strong></li>
         </ul>
         <div class="pkg-actions">
@@ -1061,13 +1067,16 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
       </div>
       <div class="pkg-expand"><div class="pkg-expand-inner">
         <h4>Ultimate Personal Brand · Full Details</h4>
-        <div class="detail-block"><span class="detail-label">Invitation Only</span><p>Reserved for therapists who have already booked photo and video coverage with me at least once. The photos and films I have made of you become the raw material of your website, which is why this tier cannot be booked from scratch. Places are limited and offered by personal invitation.</p></div>
+        <div class="detail-block"><span class="detail-label">Why It Matters</span><p>When someone hears your name, from a friend, at a championship or on Instagram, the first thing they do is look you up. What they find is usually a social media grid, a profile among dozens of others, or nothing at all. What really sets you apart, your training, your titles, the way you work and who you are, doesn't fit into a caption or a profile. So an algorithm decides your first impression, and people only find out how good you are once they are on your table.</p></div>
+        <div class="detail-block"><span class="detail-label">What Changes</span><p>You get a place that is entirely yours, made to give the first impression you deserve. Within seconds, people see who you are, what you have achieved and how you work, with no algorithm and no competitor one scroll away. They meet you already trusting you, and your prices make sense to them before you say a word. It is also the calm, professional answer when a spa, a brand, an event, a school or a client from abroad asks, &ldquo;Do you have a website?&rdquo;</p></div>
+        <div class="detail-block"><span class="detail-label">Invitation Only</span><p>Reserved for therapists who have already booked photo and video coverage with me at least once. The photos and films I have made of you become the raw material of your website, which is why this tier cannot be booked from scratch. Places are limited and offered by personal invitation as soon as production opens.</p></div>
         <div class="detail-block"><span class="detail-label">What You Get</span><p>A fully custom personal website, designed and built from the ground up around you. No templates. It tells your life story and professional journey, the philosophy behind your treatments, what you love, and the titles and awards you have earned. Visitors feel the person behind the treatments, not just a list of services.</p></div>
         <div class="detail-block"><span class="detail-label">Business Intro Video</span><p>A dedicated intro video, created and edited from your footage, that presents your business and establishes social proof the moment visitors arrive: your titles, your work and the trust others already place in you.</p></div>
-        <div class="detail-block"><span class="detail-label">The Experience</span><p>Interactive elements, visual effects and tasteful sound effects draw visitors into your world. Every sound is crafted with real sound engineering in my studio in Switzerland. First time visitors can be welcomed by your own voice with a short personal introduction.</p><p style="margin-top:8px;">This level of customisation is unparalleled in your industry and will make you stand out. New clients feel the difference from the first second, and it gives you the standing to set premium prices.</p></div>
+        <div class="detail-block"><span class="detail-label">The Experience</span><p>Interactive elements, visual effects and tasteful sound effects draw visitors into your world. Every sound is crafted with real sound engineering in my studio in Switzerland. First time visitors can be welcomed by your own voice with a short personal introduction.</p><p style="margin-top:8px;">Very few therapists have anything like it, so people remember you. New clients feel the difference from the first second, and it gives you the standing to set premium prices.</p></div>
+        <div class="detail-block"><span class="detail-label">Championship Voucher</span><p>Your package also includes a voucher for my Authority photo and video package, worth 430 CHF, at a future massage championship you take part in, where I am also part of the show. You compete, I capture it, and your website gets fresh material straight from the event, with priority same day transfer.</p></div>
         <div class="detail-block"><span class="detail-label">Multilingual</span><p>Your website reads each visitor's browser language and offers the right version from the first moment. Languages are agreed with you before production begins.</p></div>
         <div class="detail-block"><span class="detail-label">Made With You</span><p>The final version is shaped by your own feedback and vision. I refine the details until it feels unmistakably like you. For your native language, you review the key texts so they read naturally, never like a translation.</p></div>
-        <div class="detail-block"><span class="detail-label">All Inclusive</span><p>1,800 CHF covers design, build, your business intro video, visual effects, sound design, the agreed languages and launch, plus your first year of hosting and your domain, free.</p></div>
+        <div class="detail-block"><span class="detail-label">All Inclusive</span><p>1,800 CHF covers design, build, your business intro video, visual effects, sound design, the agreed languages and launch, plus your first year of hosting and your domain, free, and your Authority championship voucher.</p></div>
         <div class="detail-block"><span class="detail-label">Revisions</span><p>2 rounds of refinements after your first full preview. Requests that change the concept or structure after approval are not revisions.</p></div>
         <div class="detail-block"><span class="detail-label">Payment &amp; Timeline</span><p>50% non refundable deposit to reserve your production slot. 50% balance before launch. Your production calendar is agreed individually.</p></div>
       </div></div>

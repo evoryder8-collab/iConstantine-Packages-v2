@@ -284,6 +284,11 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="ultimate"] .btn-book svg { width:12px; height:12px; flex-shrink:0; }
 .pkg-badge.invite { background:linear-gradient(135deg,#E6E6EC,#9A9AA4); color:#0b0b0d; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.55); }
 @keyframes ultSheen { to { background-position:-250% 0; } }
+.ult-ribbon { position:absolute; top:40px; right:-48px; width:200px; padding:7px 0; transform:rotate(45deg); text-align:center; font-size:8px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; line-height:1.2; white-space:nowrap; color:#0b0b0d; background:linear-gradient(90deg,#8E8E98 0%,#F1F1F5 50%,#8E8E98 100%); box-shadow:0 0 0 1px rgba(0,0,0,0.6), 0 3px 12px rgba(0,0,0,0.55); z-index:4; pointer-events:none; }
+.pkg-card[data-tier="ultimate"] .pkg-badge { right:auto; left:18px; }
+@media(min-width:1025px) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { padding-right:76px; } }
+.icv3-carousel .pkg-card[data-tier="ultimate"] .pkg-badge { top:0; margin-top:calc(56.25% - 25px); left:10px; padding:5px 11px; letter-spacing:1.5px; }
+.icv3-carousel .ult-ribbon { top:26px; right:-54px; width:180px; padding:6px 0; font-size:7px; letter-spacing:2px; }
 @media (prefers-reduced-motion:reduce) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { animation:none; } }
 @media(max-width:1024px) {
   .pkg-card[data-tier="ultimate"] .pkg-thumb img { filter:grayscale(1) brightness(0.7) contrast(1.06) !important; }
@@ -995,19 +1000,20 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
   <div class="pkg-row-ult">
     <div class="pkg-card" data-tier="ultimate">
       <span class="pkg-badge invite">Vetëm me ftesë</span>
+      <span class="ult-ribbon">Së shpejti</span>
       <div class="pkg-thumb"><img src="img/pkg-ultimate.webp" width="1200" height="960" loading="lazy" decoding="async" alt="Ultimate Personal Brand"></div>
       <div class="pkg-inner">
         <p class="pkg-tier-name">Ultimate Personal Brand</p>
         <p class="pkg-price">1,800 <span class="pkg-currency">CHF</span></p>
-        <p class="pkg-tagline">Faqja juaj kinematografike, e ndërtuar rreth historisë suaj. Gjithçka e përfshirë.</p>
+        <p class="pkg-tagline">Shumica e njerëzve e kuptojnë sa mirë punoni vetëm kur shtrihen në tavolinën tuaj. Kjo ua tregon që në shikim të parë.</p>
         <ul class="pkg-features">
           <li><strong>Faqe personale e krijuar tërësisht për ju</strong></li>
-          <li>Historia, filozofia dhe çmimet tuaja</li>
-          <li><strong>Video prezantuese që ndërton besim</strong></li>
-          <li>VFX interaktive dhe SFX me shije</li>
-          <li>Zë i punuar në studion time në Zvicër</li>
+          <li>Historia, filozofia dhe titujt tuaj, në një vend</li>
+          <li><strong>Video prezantuese që fiton besim brenda pak sekondash</strong></li>
+          <li>VFX dhe dizajn zëri nga studioja ime në Zvicër</li>
           <li>Mirëseardhje me zërin tuaj</li>
-          <li>Shumëgjuhëshe, me zbulim automatik të gjuhës</li>
+          <li>Flet automatikisht gjuhën e çdo vizitori</li>
+          <li><strong>Kupon foto + video Authority për një kampionat të ardhshëm</strong></li>
           <li><strong>1 vit hosting dhe domain falas</strong></li>
         </ul>
         <div class="pkg-actions">
@@ -1017,13 +1023,16 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
       </div>
       <div class="pkg-expand"><div class="pkg-expand-inner">
         <h4>Ultimate Personal Brand · Detajet e Plota</h4>
-        <div class="detail-block"><span class="detail-label">Vetëm me Ftesë</span><p>Ky nivel u drejtohet vetëm terapistëve që kanë rezervuar të paktën një herë foto dhe video me mua. Fotot dhe filmat që kam realizuar për ju bëhen lënda e parë e faqes suaj, prandaj nuk mund të nisni drejtpërdrejt me këtë paketë. Vendet janë të kufizuara dhe ofrohen me ftesë personale.</p></div>
+        <div class="detail-block"><span class="detail-label">Pse Ka Rëndësi</span><p>Kur dikush dëgjon emrin tuaj, nga një mik, në një kampionat ose në Instagram, gjëja e parë që bën është t'ju kërkojë në internet. Zakonisht gjen disa postime në rrjete sociale, një profil mes dhjetëra të tjerësh, ose asgjë fare. Ajo që ju dallon vërtet, formimi juaj, titujt tuaj, mënyra si punoni dhe kush jeni, nuk ka vend në përshkrimin e një postimi apo në një profil. Kështu përshtypjen e parë për ju e vendos një algoritëm, dhe njerëzit e kuptojnë sa mirë punoni vetëm kur shtrihen në tavolinën tuaj.</p></div>
+        <div class="detail-block"><span class="detail-label">Çfarë Ndryshon</span><p>Merrni një vend që është tërësisht i juaji, i krijuar për të lënë përshtypjen e parë që meritoni. Brenda pak sekondash, njerëzit shohin kush jeni, çfarë keni arritur dhe si punoni, pa algoritëm dhe pa konkurrentë një scroll më poshtë. Kur ju takojnë, ju besojnë tashmë, dhe çmimet tuaja u duken të arsyeshme para se të thoni ndonjë fjalë. Është edhe përgjigjja e qetë dhe profesionale kur një spa, një markë, një organizator eventesh, një shkollë apo një klient nga jashtë ju pyet: &bdquo;A keni faqe interneti?&ldquo;</p></div>
+        <div class="detail-block"><span class="detail-label">Vetëm me Ftesë</span><p>Ky nivel u drejtohet vetëm terapistëve që kanë rezervuar të paktën një herë foto dhe video me mua. Fotot dhe filmat që kam realizuar për ju bëhen lënda e parë e faqes suaj, prandaj nuk mund të nisni drejtpërdrejt me këtë paketë. Vendet janë të kufizuara dhe ofrohen me ftesë personale, sapo të hapet prodhimi.</p></div>
         <div class="detail-block"><span class="detail-label">Çfarë Merrni</span><p>Një faqe personale e krijuar tërësisht për ju, e projektuar dhe e ndërtuar nga themelet rreth jush. Pa shabllone. Ajo tregon historinë e jetës dhe rrugëtimin tuaj profesional, filozofinë pas trajtimeve tuaja, pasionet tuaja, si dhe titujt dhe çmimet që keni fituar. Vizitorët njohin njeriun pas çdo trajtimi, jo thjesht një listë shërbimesh.</p></div>
         <div class="detail-block"><span class="detail-label">Video Prezantuese</span><p>Një video hyrëse e dedikuar, e krijuar dhe e montuar nga materialet tuaja, që prezanton biznesin tuaj dhe ndërton besueshmëri që në çastin kur vizitorët hyjnë: titujt tuaj, puna juaj dhe besimi që të tjerët ju kanë dhënë tashmë.</p></div>
-        <div class="detail-block"><span class="detail-label">Përvoja</span><p>Elementet interaktive, efektet vizuale dhe efektet zanore me shije i fusin vizitorët në botën tuaj. Çdo tingull përpunohet profesionalisht në studion time në Zvicër. Vizitorët që vijnë për herë të parë mund t'i mirëpresë zëri juaj, me një prezantim të shkurtër personal.</p><p style="margin-top:8px;">Ky nivel personalizimi nuk ka të krahasuar në fushën tuaj dhe do t'ju bëjë të dalloheni. Klientët e rinj e ndiejnë ndryshimin që në sekondën e parë, dhe kjo ju jep autoritetin për të vendosur çmime premium.</p></div>
+        <div class="detail-block"><span class="detail-label">Përvoja</span><p>Elementet interaktive, efektet vizuale dhe efektet zanore me shije i fusin vizitorët në botën tuaj. Çdo tingull përpunohet profesionalisht në studion time në Zvicër. Vizitorët që vijnë për herë të parë mund t'i mirëpresë zëri juaj, me një prezantim të shkurtër personal.</p><p style="margin-top:8px;">Shumë pak terapistë kanë diçka të tillë, prandaj njerëzit ju mbajnë mend. Klientët e rinj e ndiejnë ndryshimin që në sekondën e parë, dhe kjo ju jep autoritetin për të vendosur çmime premium.</p></div>
+        <div class="detail-block"><span class="detail-label">Kupon për Kampionat</span><p>Përfitoni gjithashtu një kupon për paketën time foto dhe video Authority, me vlerë 430 CHF, në një kampionat masazhi të ardhshëm ku merrni pjesë dhe ku edhe unë jam pjesë e programit. Ju garoni, unë i kap momentet, dhe faqja juaj merr material të freskët direkt nga eventi, me transferim prioritar në të njëjtën ditë.</p></div>
         <div class="detail-block"><span class="detail-label">Shumëgjuhëshe</span><p>Faqja juaj njeh gjuhën e shfletuesit të çdo vizitori dhe i ofron versionin e duhur që në çastin e parë. Për gjuhët biem dakord bashkë para se të nisë prodhimi.</p></div>
         <div class="detail-block"><span class="detail-label">E Krijuar me Ju</span><p>Versioni përfundimtar merr formë nga komentet dhe vizioni juaj. I përpunoj detajet derisa faqja t'ju përfaqësojë pa asnjë dyshim. Për gjuhën tuaj amtare, tekstet kryesore i rishikoni vetë, që të tingëllojnë natyrshëm, kurrë si përkthim.</p></div>
-        <div class="detail-block"><span class="detail-label">Gjithçka e Përfshirë</span><p>Çmimi 1,800 CHF përfshin dizajnin, ndërtimin, videon prezantuese të biznesit tuaj, efektet vizuale, dizajnin e zërit, gjuhët e dakorduara dhe publikimin, plus hostingun dhe domainin tuaj falas për vitin e parë.</p></div>
+        <div class="detail-block"><span class="detail-label">Gjithçka e Përfshirë</span><p>Çmimi 1,800 CHF përfshin dizajnin, ndërtimin, videon prezantuese të biznesit tuaj, efektet vizuale, dizajnin e zërit, gjuhët e dakorduara dhe publikimin, plus hostingun dhe domainin tuaj falas për vitin e parë, si dhe kuponin tuaj Authority për kampionat.</p></div>
         <div class="detail-block"><span class="detail-label">Rishikime</span><p>2 raunde korrigjimesh pas parapamjes së parë të plotë. Kërkesat që ndryshojnë konceptin ose strukturën pas miratimit nuk janë korrigjime.</p></div>
         <div class="detail-block"><span class="detail-label">Pagesa dhe Afatet</span><p>Depozitë 50% jo e rimbursueshme për të rezervuar vendin tuaj në prodhim. Pjesa e mbetur 50% paguhet para publikimit. Kalendari i prodhimit caktohet individualisht.</p></div>
       </div></div>

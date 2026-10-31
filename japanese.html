@@ -284,6 +284,11 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="ultimate"] .btn-book svg { width:12px; height:12px; flex-shrink:0; }
 .pkg-badge.invite { background:linear-gradient(135deg,#E6E6EC,#9A9AA4); color:#0b0b0d; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.55); }
 @keyframes ultSheen { to { background-position:-250% 0; } }
+.ult-ribbon { position:absolute; top:40px; right:-48px; width:200px; padding:7px 0; transform:rotate(45deg); text-align:center; font-size:8px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; line-height:1.2; white-space:nowrap; color:#0b0b0d; background:linear-gradient(90deg,#8E8E98 0%,#F1F1F5 50%,#8E8E98 100%); box-shadow:0 0 0 1px rgba(0,0,0,0.6), 0 3px 12px rgba(0,0,0,0.55); z-index:4; pointer-events:none; }
+.pkg-card[data-tier="ultimate"] .pkg-badge { right:auto; left:18px; }
+@media(min-width:1025px) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { padding-right:76px; } }
+.icv3-carousel .pkg-card[data-tier="ultimate"] .pkg-badge { top:0; margin-top:calc(56.25% - 25px); left:10px; padding:5px 11px; letter-spacing:1.5px; }
+.icv3-carousel .ult-ribbon { top:26px; right:-54px; width:180px; padding:6px 0; font-size:7px; letter-spacing:2px; }
 @media (prefers-reduced-motion:reduce) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { animation:none; } }
 @media(max-width:1024px) {
   .pkg-card[data-tier="ultimate"] .pkg-thumb img { filter:grayscale(1) brightness(0.7) contrast(1.06) !important; }
@@ -996,19 +1001,20 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
   <div class="pkg-row-ult">
     <div class="pkg-card" data-tier="ultimate">
       <span class="pkg-badge invite">完全招待制</span>
+      <span class="ult-ribbon">近日公開</span>
       <div class="pkg-thumb"><img src="img/pkg-ultimate.webp" width="1200" height="960" loading="lazy" decoding="async" alt="アルティメット・パーソナルブランド"></div>
       <div class="pkg-inner">
         <p class="pkg-tier-name">アルティメット・パーソナルブランド</p>
         <p class="pkg-price">1,800 <span class="pkg-currency">CHF</span></p>
-        <p class="pkg-tagline">あなたの物語を、映画のようなウェブサイトに。制作から公開まで、すべて込み。</p>
+        <p class="pkg-tagline">多くの人は、施術台に上がって初めてあなたの実力を知ります。このサイトは、それをひと目で伝えます。</p>
         <ul class="pkg-features">
-          <li><strong>完全オーダーメイドのウェブサイト</strong></li>
-          <li>あなたの歩み、施術へのこだわり、受賞歴</li>
-          <li><strong>実績と信頼を伝える紹介映像</strong></li>
-          <li>インタラクティブなVFXと上質なSFX</li>
-          <li>スイスの自社スタジオで仕上げるサウンド</li>
+          <li><strong>あなたのためだけに創るウェブサイト</strong></li>
+          <li>あなたの歩み、こだわり、タイトルをひとつの場所に</li>
+          <li><strong>数秒で信頼を得る紹介映像</strong></li>
+          <li>スイスの私のスタジオが手がけるVFXとサウンドデザイン</li>
           <li>あなた自身の声でお出迎え</li>
-          <li>言語を自動判別する多言語対応</li>
+          <li>訪れた人の言語に自動で切り替え</li>
+          <li><strong>今後の選手権で使えるオーソリティ写真+映像撮影券</strong></li>
           <li><strong>サーバー・ドメイン費用1年間無料</strong></li>
         </ul>
         <div class="pkg-actions">
@@ -1018,13 +1024,16 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
       </div>
       <div class="pkg-expand"><div class="pkg-expand-inner">
         <h4>アルティメット・パーソナルブランド · 詳細</h4>
-        <div class="detail-block"><span class="detail-label">完全招待制</span><p>過去に写真・映像撮影をご予約いただいたことのあるセラピストの方だけのパッケージです。私が撮影したあなたの写真と映像が、そのままウェブサイトの素材になります。そのため、初めてのご予約でこのパッケージをお選びいただくことはできません。枠には限りがあり、個別にご招待のご連絡を差し上げます。</p></div>
+        <div class="detail-block"><span class="detail-label">なぜ大切か</span><p>友人から、選手権の会場で、あるいはInstagramで。あなたの名前を耳にした人が最初にするのは、あなたを検索することです。そこで見つかるのは、たいていSNSの投稿一覧か、何十も並ぶプロフィールのひとつ。何も出てこないこともあります。あなたを本当に際立たせているもの、積み重ねてきた研鑽やタイトル、施術への向き合い方、そしてあなたという人は、キャプションにもプロフィールにも収まりません。だから第一印象はアルゴリズムに委ねられ、あなたの本当の実力が伝わるのは、施術台に上がってからになってしまうのです。</p></div>
+        <div class="detail-block"><span class="detail-label">何が変わるか</span><p>あなたにふさわしい第一印象を届けるための、完全にあなただけの場所が手に入ります。ほんの数秒で、あなたがどんな人で、何を成し遂げ、どのように仕事をしているかが伝わります。アルゴリズムも、スクロールひとつ先に並ぶ競合もありません。人はあなたに会う前からあなたを信頼していて、あなたが何も言わないうちに料金にも納得しています。スパやブランド、イベント主催者、スクール、海外のお客様から「ウェブサイトはありますか？」と聞かれたときにも、落ち着いて、プロとして答えられます。</p></div>
+        <div class="detail-block"><span class="detail-label">完全招待制</span><p>過去に写真・映像撮影をご予約いただいたことのあるセラピストの方だけのパッケージです。私が撮影したあなたの写真と映像が、そのままウェブサイトの素材になります。そのため、初めてのご予約でこのパッケージをお選びいただくことはできません。枠には限りがあり、制作の受付を開始しだい、個別にご招待のご連絡を差し上げます。</p></div>
         <div class="detail-block"><span class="detail-label">提供内容</span><p>あなたのためだけにゼロから設計・制作する、完全オーダーメイドのウェブサイトです。テンプレートは一切使いません。あなたの人生とキャリアの歩み、施術に込めた哲学、好きなこと、そしてこれまでに勝ち取ったタイトルや受賞歴を伝えます。訪れた人が感じ取るのは、ただのメニュー一覧ではなく、施術の向こうにいるあなた自身です。</p></div>
         <div class="detail-block"><span class="detail-label">ビジネス紹介映像</span><p>あなたの映像素材から制作・編集する、専用の紹介映像です。サイトを訪れたその瞬間に、あなたのビジネスと確かな実績を伝えます。獲得したタイトル、あなたの仕事ぶり、そしてすでに多くの方から寄せられている信頼を、ひと目で。</p></div>
-        <div class="detail-block"><span class="detail-label">サイト体験</span><p>インタラクティブな仕掛け、視覚効果、上質な効果音が、訪れた人をあなたの世界へと引き込みます。サウンドはすべて、スイスにある私のスタジオで、本格的な音響技術を駆使して一つひとつ作り込みます。初めて訪れた方を、あなた自身の声による短い自己紹介でお迎えすることもできます。</p><p style="margin-top:8px;">これほどのオーダーメイドは業界でも類を見ないもので、あなたをひときわ際立たせます。新しいお客様は最初の一秒からその違いを感じ取り、ワンランク上の料金設定にも説得力が生まれます。</p></div>
+        <div class="detail-block"><span class="detail-label">サイト体験</span><p>インタラクティブな仕掛け、視覚効果、上質な効果音が、訪れた人をあなたの世界へと引き込みます。サウンドはすべて、スイスにある私のスタジオで、本格的な音響技術を駆使して一つひとつ作り込みます。初めて訪れた方を、あなた自身の声による短い自己紹介でお迎えすることもできます。</p><p style="margin-top:8px;">このようなサイトを持つセラピストはほとんどいないため、あなたは人の記憶に残ります。新しいお客様は最初の一秒からその違いを感じ取り、ワンランク上の料金設定にも説得力が生まれます。</p></div>
+        <div class="detail-block"><span class="detail-label">選手権撮影券</span><p>このパッケージには、私のオーソリティ写真・映像パッケージ（430 CHF相当）をご利用いただける撮影券も含まれます。今後あなたが出場するマッサージ選手権のうち、私もプログラムに参加する大会でお使いいただけます。あなたは競技に、私は撮影に。大会から直接届く新しい素材がウェブサイトに加わり、優先当日転送も付いています。</p></div>
         <div class="detail-block"><span class="detail-label">多言語対応</span><p>訪れた人のブラウザの言語設定を読み取り、最初の瞬間から最適な言語で表示します。対応言語は、制作を始める前にご相談のうえ決定します。</p></div>
         <div class="detail-block"><span class="detail-label">あなたと創る</span><p>最終的な仕上がりは、あなたご自身のご意見とビジョンをもとに形にしていきます。紛れもなく「あなたらしい」と感じられるまで、細部を磨き上げます。母国語のページは主要な文章をご自身でご確認いただき、翻訳調ではない自然な文章に仕上げます。</p></div>
-        <div class="detail-block"><span class="detail-label">すべて込み</span><p>1,800 CHF には、デザイン、サイト制作、ビジネス紹介映像、視覚効果、サウンドデザイン、お打ち合わせで決めた対応言語、公開作業までがすべて含まれます。さらに、初年度のサーバー費用とドメイン費用も無料です。</p></div>
+        <div class="detail-block"><span class="detail-label">すべて込み</span><p>1,800 CHF には、デザイン、サイト制作、ビジネス紹介映像、視覚効果、サウンドデザイン、お打ち合わせで決めた対応言語、公開作業までがすべて含まれます。さらに、初年度のサーバー費用とドメイン費用も無料で、選手権で使えるオーソリティ撮影券も付いています。</p></div>
         <div class="detail-block"><span class="detail-label">修正</span><p>最初にサイト全体をご覧いただいた後、修正は2回まで承ります。ご承認後にコンセプトや構成を変更するご依頼は、修正に含まれません。</p></div>
         <div class="detail-block"><span class="detail-label">支払い・スケジュール</span><p>制作枠の確保のため、50%を返金不可のデポジットとしてお支払いいただきます。残りの50%は公開前にお支払いください。制作スケジュールは、お一人おひとりと個別に調整します。</p></div>
       </div></div>

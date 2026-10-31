@@ -284,6 +284,11 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="ultimate"] .btn-book svg { width:12px; height:12px; flex-shrink:0; }
 .pkg-badge.invite { background:linear-gradient(135deg,#E6E6EC,#9A9AA4); color:#0b0b0d; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.55); }
 @keyframes ultSheen { to { background-position:-250% 0; } }
+.ult-ribbon { position:absolute; top:40px; right:-48px; width:200px; padding:7px 0; transform:rotate(45deg); text-align:center; font-size:8px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; line-height:1.2; white-space:nowrap; color:#0b0b0d; background:linear-gradient(90deg,#8E8E98 0%,#F1F1F5 50%,#8E8E98 100%); box-shadow:0 0 0 1px rgba(0,0,0,0.6), 0 3px 12px rgba(0,0,0,0.55); z-index:4; pointer-events:none; }
+.pkg-card[data-tier="ultimate"] .pkg-badge { right:auto; left:18px; }
+@media(min-width:1025px) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { padding-right:76px; } }
+.icv3-carousel .pkg-card[data-tier="ultimate"] .pkg-badge { top:0; margin-top:calc(56.25% - 25px); left:10px; padding:5px 11px; letter-spacing:1.5px; }
+.icv3-carousel .ult-ribbon { top:26px; right:-54px; width:180px; padding:6px 0; font-size:7px; letter-spacing:2px; }
 @media (prefers-reduced-motion:reduce) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { animation:none; } }
 @media(max-width:1024px) {
   .pkg-card[data-tier="ultimate"] .pkg-thumb img { filter:grayscale(1) brightness(0.7) contrast(1.06) !important; }
@@ -996,19 +1001,20 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
   <div class="pkg-row-ult">
     <div class="pkg-card" data-tier="ultimate">
       <span class="pkg-badge invite">仅限受邀</span>
+      <span class="ult-ribbon">即将推出</span>
       <div class="pkg-thumb"><img src="img/pkg-ultimate.webp" width="1200" height="960" loading="lazy" decoding="async" alt="Ultimate Personal Brand"></div>
       <div class="pkg-inner">
         <p class="pkg-tier-name">Ultimate Personal Brand</p>
         <p class="pkg-price">1,800 <span class="pkg-currency">CHF</span></p>
-        <p class="pkg-tagline">围绕您的故事打造的电影级个人网站。一价全包。</p>
+        <p class="pkg-tagline">大多数人要躺上您的按摩床，才知道您有多出色。这个网站让他们第一眼就看到。</p>
         <ul class="pkg-features">
-          <li><strong>完全定制的个人网站</strong></li>
-          <li>您的故事、理念与荣誉</li>
-          <li><strong>建立信任背书的品牌介绍视频</strong></li>
-          <li>互动 VFX 与精致 SFX</li>
-          <li>在我的瑞士工作室专业制作音效</li>
+          <li><strong>完全围绕您打造的网站</strong></li>
+          <li>您的故事、理念与荣誉，集于一处</li>
+          <li><strong>几秒内赢得信任的介绍视频</strong></li>
+          <li>出自我瑞士工作室的 VFX 与声音设计</li>
           <li>用您本人的声音迎接访客</li>
-          <li>多语言版本，自动识别语言</li>
+          <li>自动切换为每位访客的语言</li>
+          <li><strong>Authority 照片 + 视频兑换券，用于日后的一场锦标赛</strong></li>
           <li><strong>首年网站托管与域名免费</strong></li>
         </ul>
         <div class="pkg-actions">
@@ -1018,13 +1024,16 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
       </div>
       <div class="pkg-expand"><div class="pkg-expand-inner">
         <h4>Ultimate Personal Brand · 完整详情</h4>
-        <div class="detail-block"><span class="detail-label">仅限受邀</span><p>本套餐专为曾至少预订过一次我的照片和视频拍摄的按摩师而设。我为您拍摄的照片和影片，正是打造您网站的素材，因此无法在没有合作基础的情况下直接预订。名额有限，仅通过私人邀请开放。</p></div>
+        <div class="detail-block"><span class="detail-label">为什么重要</span><p>当有人听说您的名字，无论是从朋友那里、在锦标赛上，还是在 Instagram 上，他们做的第一件事就是上网搜索您。搜到的往往是一面社交媒体照片墙、几十个相似主页中的一个，或者什么都没有。而真正让您与众不同的东西，您的专业训练、您的头衔、您的工作方式和您这个人，放不进一段配文，也装不进一个主页。于是，您给人的第一印象由算法决定，人们要等躺上您的按摩床，才知道您有多出色。</p></div>
+        <div class="detail-block"><span class="detail-label">带来的改变</span><p>您将拥有一个完全属于自己的地方，专为留下您应有的第一印象而打造。短短几秒，人们就能看到您是谁、取得过哪些成就、以怎样的方式工作，没有算法，往下一滑也不会冒出竞争对手。他们见到您时，心里已经有了信任；您还没开口，他们就已经认同您的价格。当水疗中心、品牌、活动主办方、学校或海外客人问起“您有网站吗？”，这也是一个从容而专业的回答。</p></div>
+        <div class="detail-block"><span class="detail-label">仅限受邀</span><p>本套餐专为曾至少预订过一次我的照片和视频拍摄的按摩师而设。我为您拍摄的照片和影片，正是打造您网站的素材，因此无法在没有合作基础的情况下直接预订。名额有限，开放制作后将第一时间通过私人邀请提供。</p></div>
         <div class="detail-block"><span class="detail-label">您将获得</span><p>一个以您为核心、从零开始设计搭建的完全定制个人网站，绝不套用模板。它讲述您的人生故事与职业历程、您手法背后的理念、您热爱的事物，以及您赢得的头衔与奖项。访客感受到的是手法背后的那个人，而不只是一张服务清单。</p></div>
         <div class="detail-block"><span class="detail-label">品牌介绍视频</span><p>一支用您的素材专门制作剪辑的介绍视频，访客一进入网站，就能看到您的事业，并立刻建立信任：您的头衔、您的作品，以及他人早已给予您的信赖。</p></div>
-        <div class="detail-block"><span class="detail-label">沉浸体验</span><p>互动元素、视觉特效与恰到好处的音效，把访客带进您的世界。每一个声音都在我位于瑞士的工作室，经过真正的声音工程精心打造。第一次到访的访客，还能听到您亲自录制的简短自我介绍。</p><p style="margin-top:8px;">如此程度的定制在您的行业中前所未有，让您脱颖而出。新客户从第一秒就能感受到不同，您也更有底气制定高端价格。</p></div>
+        <div class="detail-block"><span class="detail-label">沉浸体验</span><p>互动元素、视觉特效与恰到好处的音效，把访客带进您的世界。每一个声音都在我位于瑞士的工作室，经过真正的声音工程精心打造。第一次到访的访客，还能听到您亲自录制的简短自我介绍。</p><p style="margin-top:8px;">像这样的网站，很少有按摩师拥有，所以人们会记住您。新客户从第一秒就能感受到不同，您也更有底气制定高端价格。</p></div>
+        <div class="detail-block"><span class="detail-label">锦标赛兑换券</span><p>您的套餐还包含一张兑换券，可兑换我的 Authority 照片与视频套餐，价值 430 CHF，适用于您日后参加、而我也在节目中亮相的一场按摩锦标赛。您上场比赛，我负责记录，您的网站也会直接从赛场获得新鲜素材，并享有优先当天传输。</p></div>
         <div class="detail-block"><span class="detail-label">多语言</span><p>网站会读取每位访客的浏览器语言，第一时间呈现对应的语言版本。具体语言在开始制作前与您商定。</p></div>
         <div class="detail-block"><span class="detail-label">与您共创</span><p>最终版本根据您的反馈与构想逐步成形。我会反复打磨细节，直到它一看就是您。您母语的版本，由您亲自审阅关键文字，确保读起来自然地道，毫无翻译腔。</p></div>
-        <div class="detail-block"><span class="detail-label">一价全包</span><p>1,800 CHF 涵盖设计、搭建、品牌介绍视频、视觉特效、声音设计、商定的语言版本与上线，并免费赠送首年网站托管与域名。</p></div>
+        <div class="detail-block"><span class="detail-label">一价全包</span><p>1,800 CHF 涵盖设计、搭建、品牌介绍视频、视觉特效、声音设计、商定的语言版本与上线，并免费赠送首年网站托管与域名，另含您的 Authority 锦标赛兑换券。</p></div>
         <div class="detail-block"><span class="detail-label">修改</span><p>首次完整预览后可修改2轮。确认后再更改概念或结构的要求不算修改。</p></div>
         <div class="detail-block"><span class="detail-label">付款与时间安排</span><p>支付 50% 不可退款定金以锁定您的制作档期。上线前支付 50% 余额。制作日程单独商定。</p></div>
       </div></div>

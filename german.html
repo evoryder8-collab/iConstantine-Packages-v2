@@ -284,6 +284,11 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="ultimate"] .btn-book svg { width:12px; height:12px; flex-shrink:0; }
 .pkg-badge.invite { background:linear-gradient(135deg,#E6E6EC,#9A9AA4); color:#0b0b0d; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.55); }
 @keyframes ultSheen { to { background-position:-250% 0; } }
+.ult-ribbon { position:absolute; top:40px; right:-48px; width:200px; padding:7px 0; transform:rotate(45deg); text-align:center; font-size:8px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; line-height:1.2; white-space:nowrap; color:#0b0b0d; background:linear-gradient(90deg,#8E8E98 0%,#F1F1F5 50%,#8E8E98 100%); box-shadow:0 0 0 1px rgba(0,0,0,0.6), 0 3px 12px rgba(0,0,0,0.55); z-index:4; pointer-events:none; }
+.pkg-card[data-tier="ultimate"] .pkg-badge { right:auto; left:18px; }
+@media(min-width:1025px) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { padding-right:76px; } }
+.icv3-carousel .pkg-card[data-tier="ultimate"] .pkg-badge { top:0; margin-top:calc(56.25% - 25px); left:10px; padding:5px 11px; letter-spacing:1.5px; }
+.icv3-carousel .ult-ribbon { top:26px; right:-54px; width:180px; padding:6px 0; font-size:7px; letter-spacing:2px; }
 @media (prefers-reduced-motion:reduce) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { animation:none; } }
 @media(max-width:1024px) {
   .pkg-card[data-tier="ultimate"] .pkg-thumb img { filter:grayscale(1) brightness(0.7) contrast(1.06) !important; }
@@ -996,19 +1001,20 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
   <div class="pkg-row-ult">
     <div class="pkg-card" data-tier="ultimate">
       <span class="pkg-badge invite">Nur auf Einladung</span>
+      <span class="ult-ribbon">Demnächst</span>
       <div class="pkg-thumb"><img src="img/pkg-ultimate.webp" width="1200" height="960" loading="lazy" decoding="async" alt="Ultimate Personal Brand"></div>
       <div class="pkg-inner">
         <p class="pkg-tier-name">Ultimate Personal Brand</p>
         <p class="pkg-price">1,800 <span class="pkg-currency">CHF</span></p>
-        <p class="pkg-tagline">Ihre eigene Website in Kinoqualität, ganz um Ihre Geschichte gebaut. Alles inklusive.</p>
+        <p class="pkg-tagline">Die meisten Menschen merken erst auf Ihrer Liege, wie gut Sie sind. Ihre Website zeigt es ihnen auf den ersten Blick.</p>
         <ul class="pkg-features">
-          <li><strong>Persönliche Website, komplett nach Maß</strong></li>
-          <li>Ihre Geschichte, Philosophie und Auszeichnungen</li>
-          <li><strong>Business-Intro-Video als Social Proof</strong></li>
-          <li>Interaktive VFX und dezente SFX</li>
-          <li>Sounddesign aus meinem Schweizer Studio</li>
+          <li><strong>Eine Website, ganz um Sie herum gebaut</strong></li>
+          <li>Ihre Geschichte, Philosophie und Titel an einem Ort</li>
+          <li><strong>Intro-Video, das in Sekunden Vertrauen schafft</strong></li>
+          <li>VFX und Sounddesign aus meinem Schweizer Studio</li>
           <li>Begrüßung mit Ihrer eigenen Stimme</li>
-          <li>Mehrsprachig mit automatischer Spracherkennung</li>
+          <li>Spricht automatisch die Sprache jedes Besuchers</li>
+          <li><strong>Gutschein für Authority Foto + Video bei einer künftigen Meisterschaft</strong></li>
           <li><strong>1 Jahr Hosting und Domain kostenlos</strong></li>
         </ul>
         <div class="pkg-actions">
@@ -1018,13 +1024,16 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
       </div>
       <div class="pkg-expand"><div class="pkg-expand-inner">
         <h4>Ultimate Personal Brand · Vollständige Details</h4>
-        <div class="detail-block"><span class="detail-label">Nur auf Einladung</span><p>Reserviert für Therapeuten, die bereits mindestens einmal Foto- und Videoaufnahmen bei mir gebucht haben. Die Fotos und Filme, die ich von Ihnen gemacht habe, sind das Rohmaterial Ihrer Website. Deshalb ist dieses Paket nicht für Neukunden buchbar. Die Plätze sind begrenzt und werden nur auf persönliche Einladung vergeben.</p></div>
+        <div class="detail-block"><span class="detail-label">Warum es zählt</span><p>Wer Ihren Namen hört, ob von Freunden, auf einer Meisterschaft oder auf Instagram, sucht als Erstes nach Ihnen. Und findet dann meist einen Social-Media-Feed, ein Profil unter Dutzenden oder gar nichts. Was Sie wirklich auszeichnet, Ihre Ausbildung, Ihre Titel, Ihre Art zu arbeiten und wer Sie sind, passt in keine Bildunterschrift und in kein Profil. So bestimmt ein Algorithmus Ihren ersten Eindruck, und die Leute erfahren erst auf Ihrer Liege, wie gut Sie sind.</p></div>
+        <div class="detail-block"><span class="detail-label">Was sich ändert</span><p>Sie bekommen einen Ort, der ganz Ihnen gehört, gemacht für den ersten Eindruck, den Sie verdienen. Innerhalb von Sekunden sieht man, wer Sie sind, was Sie erreicht haben und wie Sie arbeiten, ohne Algorithmus und ohne Konkurrenz nur einen Wisch entfernt. Man begegnet Ihnen bereits mit Vertrauen, und Ihre Preise leuchten ein, bevor Sie ein Wort gesagt haben. Und wenn ein Spa, eine Marke, ein Event, eine Schule oder ein Kunde aus dem Ausland fragt: &bdquo;Haben Sie eine Website?&ldquo;, ist das Ihre ruhige, professionelle Antwort.</p></div>
+        <div class="detail-block"><span class="detail-label">Nur auf Einladung</span><p>Reserviert für Therapeuten, die bereits mindestens einmal Foto- und Videoaufnahmen bei mir gebucht haben. Die Fotos und Filme, die ich von Ihnen gemacht habe, sind das Rohmaterial Ihrer Website. Deshalb ist dieses Paket nicht für Neukunden buchbar. Die Plätze sind begrenzt und werden nur auf persönliche Einladung vergeben, sobald die Produktion startet.</p></div>
         <div class="detail-block"><span class="detail-label">Was Sie erhalten</span><p>Eine komplett maßgeschneiderte persönliche Website, von Grund auf rund um Sie gestaltet und entwickelt. Keine Vorlagen. Sie erzählt Ihre Lebensgeschichte und Ihren beruflichen Werdegang, die Philosophie hinter Ihren Behandlungen, wofür Sie brennen und welche Titel und Auszeichnungen Sie sich erarbeitet haben. Besucher spüren den Menschen hinter den Behandlungen, nicht bloß eine Liste von Leistungen.</p></div>
         <div class="detail-block"><span class="detail-label">Business-Intro-Video</span><p>Ein eigenes Intro-Video, aus Ihrem Material erstellt und geschnitten, das Ihr Business vorstellt und sofort Social Proof schafft, sobald Besucher auf Ihrer Seite landen: Ihre Titel, Ihre Arbeit und das Vertrauen, das andere Ihnen bereits schenken.</p></div>
-        <div class="detail-block"><span class="detail-label">Das Erlebnis</span><p>Interaktive Elemente, visuelle Effekte und dezente Soundeffekte ziehen Besucher in Ihre Welt. Jeder Klang entsteht mit echtem Sound Engineering in meinem Studio in der Schweiz. Wer Ihre Seite zum ersten Mal besucht, wird auf Wunsch mit Ihrer eigenen Stimme und einer kurzen persönlichen Vorstellung begrüßt.</p><p style="margin-top:8px;">Dieser Grad an Individualisierung ist in Ihrer Branche beispiellos und hebt Sie klar von anderen ab. Neue Kunden spüren den Unterschied ab der ersten Sekunde, und genau das gibt Ihnen das Standing für Premium-Preise.</p></div>
+        <div class="detail-block"><span class="detail-label">Das Erlebnis</span><p>Interaktive Elemente, visuelle Effekte und dezente Soundeffekte ziehen Besucher in Ihre Welt. Jeder Klang entsteht mit echtem Sound Engineering in meinem Studio in der Schweiz. Wer Ihre Seite zum ersten Mal besucht, wird auf Wunsch mit Ihrer eigenen Stimme und einer kurzen persönlichen Vorstellung begrüßt.</p><p style="margin-top:8px;">Kaum ein Therapeut hat etwas Vergleichbares, deshalb bleiben Sie in Erinnerung. Neue Kunden spüren den Unterschied ab der ersten Sekunde, und genau das gibt Ihnen das Standing für Premium-Preise.</p></div>
+        <div class="detail-block"><span class="detail-label">Meisterschafts-Gutschein</span><p>Zu Ihrem Paket gehört außerdem ein Gutschein für mein Foto- und Videopaket Authority im Wert von 430 CHF, für eine künftige Massage-Meisterschaft, an der Sie teilnehmen und bei der ich selbst auch Teil der Show bin. Sie treten an, ich halte es fest, und Ihre Website bekommt frisches Material direkt vom Event, mit bevorzugtem Soforttransfer.</p></div>
         <div class="detail-block"><span class="detail-label">Mehrsprachig</span><p>Ihre Website erkennt die Browsersprache jedes Besuchers und zeigt vom ersten Moment an die passende Version. Die Sprachen legen wir gemeinsam fest, bevor die Produktion beginnt.</p></div>
         <div class="detail-block"><span class="detail-label">Gemeinsam mit Ihnen</span><p>Die finale Version entsteht aus Ihrem eigenen Feedback und Ihrer Vision. Ich feile an den Details, bis sich alles unverwechselbar nach Ihnen anfühlt. Die wichtigsten Texte in Ihrer Muttersprache prüfen Sie selbst, damit sie natürlich klingen und nie wie eine Übersetzung.</p></div>
-        <div class="detail-block"><span class="detail-label">Alles inklusive</span><p>1,800 CHF umfassen Design, Entwicklung, Ihr Business-Intro-Video, visuelle Effekte, Sounddesign, die vereinbarten Sprachen und den Launch, dazu Ihr erstes Jahr Hosting und Ihre Domain kostenlos.</p></div>
+        <div class="detail-block"><span class="detail-label">Alles inklusive</span><p>1,800 CHF umfassen Design, Entwicklung, Ihr Business-Intro-Video, visuelle Effekte, Sounddesign, die vereinbarten Sprachen und den Launch, dazu Ihr erstes Jahr Hosting und Ihre Domain kostenlos sowie Ihren Authority-Gutschein für die Meisterschaft.</p></div>
         <div class="detail-block"><span class="detail-label">Überarbeitungen</span><p>2 Korrekturrunden nach Ihrer ersten vollständigen Vorschau. Wünsche, die nach der Freigabe das Konzept oder die Struktur ändern, sind keine Korrekturen.</p></div>
         <div class="detail-block"><span class="detail-label">Zahlung &amp; Zeitplan</span><p>50% nicht rückzahlbare Anzahlung, um Ihren Produktionsslot zu reservieren. 50% Restbetrag vor dem Launch fällig. Ihr Produktionskalender wird individuell vereinbart.</p></div>
       </div></div>

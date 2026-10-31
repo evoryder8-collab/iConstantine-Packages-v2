@@ -284,6 +284,11 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="ultimate"] .btn-book svg { width:12px; height:12px; flex-shrink:0; }
 .pkg-badge.invite { background:linear-gradient(135deg,#E6E6EC,#9A9AA4); color:#0b0b0d; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.55); }
 @keyframes ultSheen { to { background-position:-250% 0; } }
+.ult-ribbon { position:absolute; top:40px; right:-48px; width:200px; padding:7px 0; transform:rotate(45deg); text-align:center; font-size:8px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; line-height:1.2; white-space:nowrap; color:#0b0b0d; background:linear-gradient(90deg,#8E8E98 0%,#F1F1F5 50%,#8E8E98 100%); box-shadow:0 0 0 1px rgba(0,0,0,0.6), 0 3px 12px rgba(0,0,0,0.55); z-index:4; pointer-events:none; }
+.pkg-card[data-tier="ultimate"] .pkg-badge { right:auto; left:18px; }
+@media(min-width:1025px) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { padding-right:76px; } }
+.icv3-carousel .pkg-card[data-tier="ultimate"] .pkg-badge { top:0; margin-top:calc(56.25% - 25px); left:10px; padding:5px 11px; letter-spacing:1.5px; }
+.icv3-carousel .ult-ribbon { top:26px; right:-54px; width:180px; padding:6px 0; font-size:7px; letter-spacing:2px; }
 @media (prefers-reduced-motion:reduce) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { animation:none; } }
 @media(max-width:1024px) {
   .pkg-card[data-tier="ultimate"] .pkg-thumb img { filter:grayscale(1) brightness(0.7) contrast(1.06) !important; }
@@ -996,19 +1001,20 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
   <div class="pkg-row-ult">
     <div class="pkg-card" data-tier="ultimate">
       <span class="pkg-badge invite">Chỉ Theo Lời Mời</span>
+      <span class="ult-ribbon">Sắp Ra Mắt</span>
       <div class="pkg-thumb"><img src="img/pkg-ultimate.webp" width="1200" height="960" loading="lazy" decoding="async" alt="Ultimate Personal Brand"></div>
       <div class="pkg-inner">
         <p class="pkg-tier-name">Ultimate Personal Brand</p>
         <p class="pkg-price">1,800 <span class="pkg-currency">CHF</span></p>
-        <p class="pkg-tagline">Website riêng đậm chất điện ảnh, kể trọn câu chuyện của bạn. Trọn gói.</p>
+        <p class="pkg-tagline">Hầu hết mọi người chỉ nhận ra bạn giỏi đến đâu khi đã nằm trên giường massage của bạn. Website này cho họ thấy điều đó ngay từ cái nhìn đầu tiên.</p>
         <ul class="pkg-features">
-          <li><strong>Website cá nhân thiết kế riêng 100%</strong></li>
-          <li>Câu chuyện, triết lý và giải thưởng của bạn</li>
-          <li><strong>Video giới thiệu doanh nghiệp, khẳng định uy tín</strong></li>
-          <li>VFX tương tác và SFX tinh tế</li>
-          <li>Âm thanh xử lý tại phòng thu của tôi ở Thụy Sĩ</li>
+          <li><strong>Website xây dựng trọn vẹn xoay quanh bạn</strong></li>
+          <li>Câu chuyện, triết lý và danh hiệu của bạn ở cùng một nơi</li>
+          <li><strong>Video giới thiệu tạo niềm tin chỉ trong vài giây</strong></li>
+          <li>VFX và thiết kế âm thanh từ phòng thu của tôi ở Thụy Sĩ</li>
           <li>Lời chào mở đầu bằng chính giọng nói của bạn</li>
-          <li>Đa ngôn ngữ, tự động nhận diện ngôn ngữ</li>
+          <li>Tự động nói đúng ngôn ngữ của từng người xem</li>
+          <li><strong>Voucher ảnh + video Authority cho một giải vô địch sau này</strong></li>
           <li><strong>Miễn phí 1 năm hosting và tên miền</strong></li>
         </ul>
         <div class="pkg-actions">
@@ -1018,13 +1024,16 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
       </div>
       <div class="pkg-expand"><div class="pkg-expand-inner">
         <h4>Ultimate Personal Brand · Chi tiết đầy đủ</h4>
-        <div class="detail-block"><span class="detail-label">Chỉ Theo Lời Mời</span><p>Dành riêng cho các chuyên viên massage đã từng đặt gói chụp ảnh và quay phim với tôi ít nhất một lần. Chính những bức ảnh và thước phim tôi đã thực hiện cho bạn là chất liệu để dựng nên website, vì vậy gói này không nhận khách mới hoàn toàn. Số suất có hạn và chỉ dành cho những người được tôi mời riêng.</p></div>
+        <div class="detail-block"><span class="detail-label">Vì Sao Quan Trọng</span><p>Khi ai đó nghe đến tên bạn, qua người quen, tại một giải vô địch hay trên Instagram, việc đầu tiên họ làm là tìm bạn trên mạng. Thứ họ thấy thường chỉ là một lưới ảnh trên mạng xã hội, một hồ sơ lẫn giữa hàng chục hồ sơ khác, hoặc chẳng có gì cả. Những gì thật sự làm nên sự khác biệt của bạn, như quá trình đào tạo, các danh hiệu, cách bạn làm nghề và con người bạn, lại không gói gọn được trong một câu chú thích hay một trang hồ sơ. Vậy là thuật toán quyết định ấn tượng đầu tiên về bạn, và chỉ khi đã nằm trên giường massage của bạn, người ta mới biết bạn giỏi đến đâu.</p></div>
+        <div class="detail-block"><span class="detail-label">Điều Gì Thay Đổi</span><p>Bạn có một nơi hoàn toàn thuộc về mình, được tạo ra để mang lại ấn tượng đầu tiên mà bạn xứng đáng có. Chỉ trong vài giây, người ta thấy bạn là ai, bạn đã đạt được những gì và bạn làm việc ra sao, không thuật toán, không đối thủ nào chỉ cách một lần lướt. Họ gặp bạn khi đã tin tưởng sẵn, và mức giá của bạn trở nên hợp lý với họ trước cả khi bạn nói lời nào. Đó cũng là câu trả lời điềm tĩnh và chuyên nghiệp khi một spa, một thương hiệu, một sự kiện, một trường đào tạo hay một khách hàng ở nước ngoài hỏi: &ldquo;Bạn có website không?&rdquo;</p></div>
+        <div class="detail-block"><span class="detail-label">Chỉ Theo Lời Mời</span><p>Dành riêng cho các chuyên viên massage đã từng đặt gói chụp ảnh và quay phim với tôi ít nhất một lần. Chính những bức ảnh và thước phim tôi đã thực hiện cho bạn là chất liệu để dựng nên website, vì vậy gói này không nhận khách mới hoàn toàn. Số suất có hạn, và tôi sẽ gửi lời mời riêng ngay khi mở đợt sản xuất.</p></div>
         <div class="detail-block"><span class="detail-label">Bạn Nhận Được Gì</span><p>Một website cá nhân được thiết kế và xây dựng riêng từ con số không, lấy chính bạn làm trung tâm. Không dùng mẫu có sẵn. Website kể lại câu chuyện cuộc đời và hành trình nghề nghiệp của bạn, triết lý đằng sau từng liệu trình, những điều bạn yêu thích, cùng các danh hiệu và giải thưởng bạn đã giành được. Người xem cảm nhận được con người đứng sau từng liệu trình, chứ không chỉ một danh sách dịch vụ.</p></div>
         <div class="detail-block"><span class="detail-label">Video Giới Thiệu Doanh Nghiệp</span><p>Một video giới thiệu dành riêng cho bạn, được sản xuất và dựng từ chính những cảnh quay của bạn. Video giới thiệu công việc kinh doanh và khẳng định uy tín ngay khi khách vừa truy cập: danh hiệu của bạn, tay nghề của bạn và niềm tin mà nhiều người đã trao cho bạn.</p></div>
-        <div class="detail-block"><span class="detail-label">Trải Nghiệm</span><p>Các yếu tố tương tác, hiệu ứng hình ảnh và hiệu ứng âm thanh tinh tế cuốn người xem vào thế giới của bạn. Mọi âm thanh đều được xử lý bằng kỹ thuật âm thanh chuyên nghiệp tại phòng thu của tôi ở Thụy Sĩ. Khách ghé thăm lần đầu có thể được chào đón bằng chính giọng nói của bạn qua một lời giới thiệu ngắn.</p><p style="margin-top:8px;">Mức độ cá nhân hóa này chưa từng có trong ngành của bạn và sẽ giúp bạn thật sự nổi bật. Khách hàng mới cảm nhận được sự khác biệt ngay từ giây đầu tiên, và đó là vị thế để bạn tự tin đặt mức giá cao cấp.</p></div>
+        <div class="detail-block"><span class="detail-label">Trải Nghiệm</span><p>Các yếu tố tương tác, hiệu ứng hình ảnh và hiệu ứng âm thanh tinh tế cuốn người xem vào thế giới của bạn. Mọi âm thanh đều được xử lý bằng kỹ thuật âm thanh chuyên nghiệp tại phòng thu của tôi ở Thụy Sĩ. Khách ghé thăm lần đầu có thể được chào đón bằng chính giọng nói của bạn qua một lời giới thiệu ngắn.</p><p style="margin-top:8px;">Rất ít chuyên viên massage có được điều gì tương tự, nên người ta sẽ nhớ đến bạn. Khách hàng mới cảm nhận được sự khác biệt ngay từ giây đầu tiên, và đó là vị thế để bạn tự tin đặt mức giá cao cấp.</p></div>
+        <div class="detail-block"><span class="detail-label">Voucher Giải Vô Địch</span><p>Gói của bạn còn kèm một voucher cho gói ảnh và video Authority của tôi, trị giá 430 CHF, dùng tại một giải vô địch massage mà bạn tham gia sau này, nơi tôi cũng góp mặt trong chương trình. Bạn thi đấu, tôi ghi lại, và website của bạn có thêm chất liệu mới lấy thẳng từ sự kiện, kèm chuyển giao ưu tiên trong ngày.</p></div>
         <div class="detail-block"><span class="detail-label">Đa Ngôn Ngữ</span><p>Website tự nhận biết ngôn ngữ trình duyệt của từng người xem và hiển thị đúng phiên bản ngay từ giây đầu. Các ngôn ngữ sẽ được thống nhất với bạn trước khi bắt đầu sản xuất.</p></div>
         <div class="detail-block"><span class="detail-label">Cùng Bạn Hoàn Thiện</span><p>Phiên bản cuối cùng được định hình từ chính góp ý và tầm nhìn của bạn. Tôi tinh chỉnh từng chi tiết cho đến khi website mang đậm dấu ấn của riêng bạn. Với tiếng mẹ đẻ, bạn sẽ tự duyệt các nội dung chính để câu chữ thật tự nhiên, không bao giờ giống bản dịch.</p></div>
-        <div class="detail-block"><span class="detail-label">Trọn Gói</span><p>1,800 CHF đã bao gồm thiết kế, xây dựng, video giới thiệu doanh nghiệp, hiệu ứng hình ảnh, thiết kế âm thanh, các ngôn ngữ đã thống nhất và ra mắt, cùng năm đầu tiên hosting và tên miền miễn phí.</p></div>
+        <div class="detail-block"><span class="detail-label">Trọn Gói</span><p>1,800 CHF đã bao gồm thiết kế, xây dựng, video giới thiệu doanh nghiệp, hiệu ứng hình ảnh, thiết kế âm thanh, các ngôn ngữ đã thống nhất và ra mắt, cùng năm đầu tiên hosting và tên miền miễn phí, kèm voucher giải vô địch Authority của bạn.</p></div>
         <div class="detail-block"><span class="detail-label">Chỉnh Sửa</span><p>2 vòng chỉnh sửa sau bản xem trước hoàn chỉnh đầu tiên. Yêu cầu thay đổi ý tưởng hoặc cấu trúc sau khi đã duyệt không tính là chỉnh sửa.</p></div>
         <div class="detail-block"><span class="detail-label">Thanh Toán &amp; Tiến Độ</span><p>50% tiền cọc không hoàn lại để giữ suất sản xuất của bạn. 50% số dư trước khi ra mắt. Lịch sản xuất được thống nhất riêng với bạn.</p></div>
       </div></div>

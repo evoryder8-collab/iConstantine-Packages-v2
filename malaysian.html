@@ -284,6 +284,11 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="ultimate"] .btn-book svg { width:12px; height:12px; flex-shrink:0; }
 .pkg-badge.invite { background:linear-gradient(135deg,#E6E6EC,#9A9AA4); color:#0b0b0d; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.55); }
 @keyframes ultSheen { to { background-position:-250% 0; } }
+.ult-ribbon { position:absolute; top:40px; right:-48px; width:200px; padding:7px 0; transform:rotate(45deg); text-align:center; font-size:8px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; line-height:1.2; white-space:nowrap; color:#0b0b0d; background:linear-gradient(90deg,#8E8E98 0%,#F1F1F5 50%,#8E8E98 100%); box-shadow:0 0 0 1px rgba(0,0,0,0.6), 0 3px 12px rgba(0,0,0,0.55); z-index:4; pointer-events:none; }
+.pkg-card[data-tier="ultimate"] .pkg-badge { right:auto; left:18px; }
+@media(min-width:1025px) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { padding-right:76px; } }
+.icv3-carousel .pkg-card[data-tier="ultimate"] .pkg-badge { top:0; margin-top:calc(56.25% - 25px); left:10px; padding:5px 11px; letter-spacing:1.5px; }
+.icv3-carousel .ult-ribbon { top:26px; right:-54px; width:180px; padding:6px 0; font-size:7px; letter-spacing:2px; }
 @media (prefers-reduced-motion:reduce) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { animation:none; } }
 @media(max-width:1024px) {
   .pkg-card[data-tier="ultimate"] .pkg-thumb img { filter:grayscale(1) brightness(0.7) contrast(1.06) !important; }
@@ -995,19 +1000,20 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
   <div class="pkg-row-ult">
     <div class="pkg-card" data-tier="ultimate">
       <span class="pkg-badge invite">Atas Jemputan Sahaja</span>
+      <span class="ult-ribbon">Akan Datang</span>
       <div class="pkg-thumb"><img src="img/pkg-ultimate.webp" width="1200" height="960" loading="lazy" decoding="async" alt="Ultimate Personal Brand"></div>
       <div class="pkg-inner">
         <p class="pkg-tier-name">Ultimate Personal Brand</p>
         <p class="pkg-price">1,800 <span class="pkg-currency">CHF</span></p>
-        <p class="pkg-tagline">Laman web sinematik anda sendiri, dibina berteraskan kisah anda. Semuanya termasuk.</p>
+        <p class="pkg-tagline">Kebanyakan orang hanya tahu betapa hebatnya anda setelah berbaring di katil urut anda. Laman web ini menunjukkannya sejak pandangan pertama.</p>
         <ul class="pkg-features">
-          <li><strong>Laman web peribadi direka khas sepenuhnya</strong></li>
-          <li>Kisah, falsafah dan anugerah anda</li>
-          <li><strong>Video pengenalan perniagaan yang membina kepercayaan</strong></li>
-          <li>VFX interaktif dan SFX yang berkelas</li>
-          <li>Bunyi dihasilkan di studio saya di Switzerland</li>
+          <li><strong>Laman web yang dibina sepenuhnya berpaksikan diri anda</strong></li>
+          <li>Kisah, falsafah dan gelaran anda di satu tempat</li>
+          <li><strong>Video pengenalan yang meraih kepercayaan dalam beberapa saat</strong></li>
+          <li>VFX dan reka bentuk bunyi dari studio saya di Switzerland</li>
           <li>Ucapan alu-aluan dengan suara anda sendiri</li>
-          <li>Pelbagai bahasa dengan pengesanan bahasa automatik</li>
+          <li>Bertutur dalam bahasa setiap pelawat secara automatik</li>
+          <li><strong>Baucar foto + video Authority untuk kejohanan akan datang</strong></li>
           <li><strong>Hosting dan domain percuma selama 1 tahun</strong></li>
         </ul>
         <div class="pkg-actions">
@@ -1017,13 +1023,16 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
       </div>
       <div class="pkg-expand"><div class="pkg-expand-inner">
         <h4>Ultimate Personal Brand · Butiran Lengkap</h4>
-        <div class="detail-block"><span class="detail-label">Atas Jemputan Sahaja</span><p>Dikhaskan untuk terapis yang pernah menempah liputan foto dan video dengan saya sekurang-kurangnya sekali. Foto dan filem yang saya hasilkan tentang anda menjadi bahan asas laman web anda, sebab itulah pakej ini tidak boleh ditempah tanpa liputan terdahulu. Slot adalah terhad dan ditawarkan melalui jemputan peribadi.</p></div>
+        <div class="detail-block"><span class="detail-label">Mengapa Ia Penting</span><p>Apabila seseorang mendengar nama anda, daripada kawan, di sebuah kejohanan atau di Instagram, perkara pertama yang mereka lakukan ialah mencari anda dalam talian. Apa yang mereka temui biasanya hanyalah deretan foto di media sosial, satu profil antara berpuluh-puluh yang lain, atau tiada apa-apa langsung. Sedangkan perkara yang benar-benar membezakan anda, seperti latihan, gelaran, cara anda bekerja dan siapa diri anda, tidak muat dalam satu kapsyen atau profil. Jadi algoritma yang menentukan tanggapan pertama terhadap anda, dan orang hanya tahu betapa hebatnya anda setelah berbaring di katil urut anda.</p></div>
+        <div class="detail-block"><span class="detail-label">Apa yang Berubah</span><p>Anda mendapat satu ruang yang sepenuhnya milik anda, dibina untuk memberikan tanggapan pertama yang selayaknya anda terima. Dalam beberapa saat, orang dapat melihat siapa anda, apa yang telah anda capai dan bagaimana anda bekerja, tanpa algoritma dan tanpa pesaing yang muncul hanya dengan sekali tatal. Mereka bertemu anda dengan rasa percaya, dan harga anda sudah masuk akal bagi mereka sebelum anda berkata sepatah pun. Ia juga jawapan yang tenang dan profesional apabila sebuah spa, jenama, acara, sekolah atau klien dari luar negara bertanya, &ldquo;Anda ada laman web?&rdquo;</p></div>
+        <div class="detail-block"><span class="detail-label">Atas Jemputan Sahaja</span><p>Dikhaskan untuk terapis yang pernah menempah liputan foto dan video dengan saya sekurang-kurangnya sekali. Foto dan filem yang saya hasilkan tentang anda menjadi bahan asas laman web anda, sebab itulah pakej ini tidak boleh ditempah tanpa liputan terdahulu. Slot adalah terhad dan ditawarkan melalui jemputan peribadi sebaik sahaja pengeluaran dibuka.</p></div>
         <div class="detail-block"><span class="detail-label">Apa yang Anda Dapatkan</span><p>Laman web peribadi yang direka dan dibina khas dari asas, berpaksikan diri anda. Tiada templat. Ia menceritakan kisah hidup dan perjalanan kerjaya anda, falsafah di sebalik rawatan anda, perkara yang anda gemari, serta gelaran dan anugerah yang telah anda raih. Pelawat dapat merasai insan di sebalik rawatan, bukan sekadar senarai perkhidmatan.</p></div>
         <div class="detail-block"><span class="detail-label">Video Pengenalan Perniagaan</span><p>Video pengenalan khas yang dihasilkan dan disunting daripada rakaman anda sendiri. Ia memperkenalkan perniagaan anda dan membuktikan kredibiliti anda sebaik sahaja pelawat tiba: gelaran anda, hasil kerja anda dan kepercayaan yang orang lain sudah berikan kepada anda.</p></div>
-        <div class="detail-block"><span class="detail-label">Pengalaman Pelawat</span><p>Elemen interaktif, kesan visual dan kesan bunyi yang berkelas membawa pelawat masuk ke dunia anda. Setiap bunyi dihasilkan dengan kejuruteraan bunyi sebenar di studio saya di Switzerland. Pelawat kali pertama boleh disambut oleh suara anda sendiri melalui pengenalan peribadi yang ringkas.</p><p style="margin-top:8px;">Tahap penyesuaian seperti ini belum pernah ada dalam industri anda dan akan membuatkan anda menonjol. Klien baharu dapat merasai perbezaannya sejak saat pertama, dan ia memberi anda kedudukan untuk menetapkan harga premium.</p></div>
+        <div class="detail-block"><span class="detail-label">Pengalaman Pelawat</span><p>Elemen interaktif, kesan visual dan kesan bunyi yang berkelas membawa pelawat masuk ke dunia anda. Setiap bunyi dihasilkan dengan kejuruteraan bunyi sebenar di studio saya di Switzerland. Pelawat kali pertama boleh disambut oleh suara anda sendiri melalui pengenalan peribadi yang ringkas.</p><p style="margin-top:8px;">Sangat sedikit terapis yang memiliki sesuatu seperti ini, jadi orang akan mengingati anda. Klien baharu dapat merasai perbezaannya sejak saat pertama, dan ia memberi anda kedudukan untuk menetapkan harga premium.</p></div>
+        <div class="detail-block"><span class="detail-label">Baucar Kejohanan</span><p>Pakej anda juga termasuk baucar untuk pakej foto dan video Authority saya, bernilai 430 CHF, di sebuah kejohanan urut akan datang yang anda sertai, dan saya sendiri turut mengambil bahagian dalam program acara tersebut. Anda bertanding, saya merakamnya, dan laman web anda mendapat bahan baharu terus dari acara, dengan pemindahan keutamaan pada hari yang sama.</p></div>
         <div class="detail-block"><span class="detail-label">Pelbagai Bahasa</span><p>Laman web anda mengesan bahasa pelayar setiap pelawat dan terus memaparkan versi yang betul dari saat pertama. Bahasa yang disertakan dipersetujui bersama anda sebelum pengeluaran bermula.</p></div>
         <div class="detail-block"><span class="detail-label">Dihasilkan Bersama Anda</span><p>Versi akhir dibentuk oleh maklum balas dan visi anda sendiri. Saya memperhalusi setiap butiran sehingga ia benar-benar mencerminkan diri anda. Untuk bahasa ibunda anda, anda sendiri menyemak teks utama supaya bunyinya semula jadi, tidak sekali-kali seperti terjemahan.</p></div>
-        <div class="detail-block"><span class="detail-label">Semua Termasuk</span><p>1,800 CHF merangkumi reka bentuk, pembinaan, video pengenalan perniagaan anda, kesan visual, reka bentuk bunyi, bahasa yang dipersetujui dan pelancaran, serta hosting dan domain anda untuk tahun pertama, percuma.</p></div>
+        <div class="detail-block"><span class="detail-label">Semua Termasuk</span><p>1,800 CHF merangkumi reka bentuk, pembinaan, video pengenalan perniagaan anda, kesan visual, reka bentuk bunyi, bahasa yang dipersetujui dan pelancaran, serta hosting dan domain anda untuk tahun pertama, percuma, dan baucar kejohanan Authority anda.</p></div>
         <div class="detail-block"><span class="detail-label">Semakan</span><p>2 pusingan semakan selepas pratonton penuh pertama anda. Permintaan yang mengubah konsep atau struktur selepas kelulusan bukan semakan.</p></div>
         <div class="detail-block"><span class="detail-label">Pembayaran &amp; Garis Masa</span><p>Deposit 50% tidak dapat dikembalikan untuk menempah slot pengeluaran anda. Baki 50% sebelum pelancaran. Jadual pengeluaran anda dipersetujui secara individu.</p></div>
       </div></div>
