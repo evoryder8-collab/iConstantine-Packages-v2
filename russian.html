@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Видео и фото кинематографического уровня для чемпионатов по массажу по всему миру. Пять пакетов, приоритетная съёмка и быстрая доставка.">
+<meta name="description" content="Видео и фото кинематографического уровня для чемпионатов по массажу по всему миру. Шесть пакетов, приоритетная съёмка и быстрая доставка.">
 <link rel="canonical" href="https://iconstantine.ch/russian">
 <link rel="alternate" hreflang="en" href="https://iconstantine.ch/english">
 <link rel="alternate" hreflang="de" href="https://iconstantine.ch/german">
@@ -28,7 +28,7 @@
 <link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="iCONSTANTINE | Медиапакеты для Чемпионатов">
-<meta property="og:description" content="Видео и фото кинематографического уровня для чемпионатов по массажу по всему миру. Пять пакетов, приоритетная съёмка и быстрая доставка.">
+<meta property="og:description" content="Видео и фото кинематографического уровня для чемпионатов по массажу по всему миру. Шесть пакетов, приоритетная съёмка и быстрая доставка.">
 <meta property="og:url" content="https://iconstantine.ch/russian">
 <meta property="og:image" content="https://iconstantine.ch/img/og-image.jpg">
 <meta name="twitter:card" content="summary">
@@ -166,11 +166,14 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 /* ── TOP ROW: 3 cards (Starter, Essential, Authority featured) ── */
 .pkg-row-top { display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-bottom:18px; }
 /* ── BOTTOM ROW: 2 cards centered ── */
-.pkg-row-bot { display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:880px; margin:0 auto 80px; }
+.pkg-row-bot { display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:880px; margin:0 auto 18px; }
+/* ── ULTIMATE ROW: 1 wide card centered ── */
+.pkg-row-ult { max-width:880px; margin:0 auto 80px; }
 
 @media(max-width:1024px) {
   .pkg-row-top { grid-template-columns:1fr; max-width:480px; margin:0 auto 18px; }
-  .pkg-row-bot { grid-template-columns:1fr; max-width:480px; margin:0 auto 60px; }
+  .pkg-row-bot { grid-template-columns:1fr; max-width:480px; margin:0 auto 18px; }
+  .pkg-row-ult { max-width:480px; margin:0 auto 60px; }
 }
 
 /* ═══════ PACKAGE CARDS ═══════ */
@@ -259,6 +262,40 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="showcase"] .btn-book:hover { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.2); }
 .pkg-card[data-tier="signature"] .btn-book { background:linear-gradient(135deg, rgba(100,120,220,0.12), rgba(100,120,220,0.2)); color:#B8C8FF; border:1px solid rgba(100,120,220,0.2); }
 .pkg-card[data-tier="signature"] .btn-book:hover { background:linear-gradient(135deg, rgba(100,120,220,0.2), rgba(100,120,220,0.3)); }
+
+/* ── ULTIMATE PERSONAL BRAND: platinum, by invitation ── */
+.pkg-card[data-tier="ultimate"] { background:linear-gradient(180deg, rgba(20,20,24,0.96) 0%, var(--black-card) 100%); border-color:rgba(210,210,222,0.12); box-shadow:0 4px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(230,230,240,0.07); }
+.pkg-card[data-tier="ultimate"]::before { background:linear-gradient(180deg, rgba(235,235,245,0.2) 0%, rgba(150,150,165,0.03) 45%, rgba(210,210,225,0.1) 100%); }
+.pkg-card[data-tier="ultimate"]:hover { transform:translateY(-3px); }
+.pkg-card[data-tier="ultimate"]:hover::before { background:linear-gradient(180deg, rgba(235,235,245,0.32) 0%, rgba(150,150,165,0.05) 45%, rgba(210,210,225,0.16) 100%); }
+.pkg-card[data-tier="ultimate"]>.card-spot { background:radial-gradient(500px circle at var(--mx) var(--my),rgba(230,230,240,.05),transparent 55%); }
+.pkg-card[data-tier="ultimate"] [class^="focus-bracket-"] { border-color:#B8B8C2; }
+.pkg-card[data-tier="ultimate"] .pkg-thumb img { object-position:52% 50%; filter:grayscale(1) brightness(0.62) contrast(1.08); }
+.pkg-card[data-tier="ultimate"]:hover .pkg-thumb img { transform:scale(1.04); filter:grayscale(0.5) brightness(0.8) contrast(1.05); }
+.pkg-card[data-tier="ultimate"] .pkg-tier-name { background:linear-gradient(100deg, #8E8E98 20%, #F1F1F5 45%, #8E8E98 70%); background-size:250% 100%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:ultSheen 7s linear infinite; }
+.pkg-card[data-tier="ultimate"] .pkg-price { background:linear-gradient(135deg, #EDEDF2, #8E8E98); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+.pkg-card[data-tier="ultimate"] .pkg-currency { -webkit-text-fill-color:#8E8E98; color:#8E8E98; }
+.pkg-card[data-tier="ultimate"] .pkg-tagline, .pkg-card[data-tier="ultimate"] .pkg-features li { color:rgba(205,205,214,0.55); }
+.pkg-card[data-tier="ultimate"] .pkg-features li strong { color:#C4C4CC; }
+.pkg-card[data-tier="ultimate"] .pkg-features li::before { background:#7A7A84; }
+.pkg-card[data-tier="ultimate"] .detail-label { color:#A9A9B3; }
+.pkg-card[data-tier="ultimate"] .btn-book { display:flex; align-items:center; justify-content:center; gap:8px; pointer-events:none; cursor:default; background:repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 7px, rgba(255,255,255,0.045) 7px 14px); border:1px dashed rgba(220,220,230,0.18); color:rgba(225,225,232,0.5); }
+.pkg-card[data-tier="ultimate"] .btn-book::before { display:none; }
+.pkg-card[data-tier="ultimate"] .btn-book svg { width:12px; height:12px; flex-shrink:0; }
+.pkg-badge.invite { background:linear-gradient(135deg,#E6E6EC,#9A9AA4); color:#0b0b0d; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.55); }
+@keyframes ultSheen { to { background-position:-250% 0; } }
+@media (prefers-reduced-motion:reduce) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { animation:none; } }
+@media(max-width:1024px) {
+  .pkg-card[data-tier="ultimate"] .pkg-thumb img { filter:grayscale(1) brightness(0.7) contrast(1.06) !important; }
+  .pkg-card[data-tier="ultimate"]:hover .pkg-thumb img, .pkg-card[data-tier="ultimate"]:active .pkg-thumb img { filter:grayscale(0.5) brightness(0.82) contrast(1.05) !important; }
+}
+@media(min-width:1025px) {
+  .pkg-card[data-tier="ultimate"] { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+  .pkg-card[data-tier="ultimate"] .pkg-thumb { aspect-ratio:auto; min-height:100%; }
+  .pkg-card[data-tier="ultimate"] .pkg-thumb::after { top:0; left:auto; right:0; width:40%; height:100%; background:linear-gradient(to left, var(--black-card) 0%, transparent 100%); }
+  .pkg-card[data-tier="ultimate"] .pkg-expand { grid-column:1/-1; }
+  .pkg-card[data-tier="ultimate"] .pkg-badge { right:auto; left:18px; }
+}
 
 .btn-details { background:none; border:none; color:var(--text-muted); font-size:11px; font-weight:400; cursor:pointer; padding:6px; letter-spacing:0.5px; transition:color 0.3s ease; font-family:var(--font-body); }
 .btn-details:hover { color:var(--text-secondary); }
@@ -782,7 +819,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 <section class="packages-section" id="packages" data-section="packages">
   <div class="packages-header reveal">
     <p class="section-overline">Выберите Свой Опыт</p>
-    <h2>Пять Уровней <em>Мастерства</em></h2>
+    <h2>Шесть Уровней <em>Мастерства</em></h2>
     <p class="pkg-hint">Нажмите <strong>Подробнее</strong> на любом пакете, чтобы увидеть все детали</p>
   </div>
 
@@ -948,6 +985,43 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
         <div class="detail-block"><span class="detail-label">Оплата</span><p>Невозвратный депозит в размере 50% до события. Остаток 50% подлежит оплате при доставке.</p></div>
         <div class="detail-block"><span class="detail-label">Почему только 2 слота</span><p>Такой формат требует очень много продакшена, поэтому я беру строго 2 клиентов на событие.</p></div>
         <div class="detail-block"><span class="detail-label">Очередь доставки</span><div class="dq-grid"><div class="dq-slot ok"><strong>Места 1-5</strong>Индивидуальный производственный календарь согласован при бронировании</div><div class="dq-slot wait"><strong>Место 6 и далее</strong>1-2 недели</div></div><p class="dq-note">При наличии только 2 слотов ваш график производства согласуется индивидуально при бронировании. Фотогалерея доставляется в день события для всех клиентов.</p></div>
+      </div></div>
+    </div>
+  </div>
+  <div class="pkg-row-ult">
+    <div class="pkg-card" data-tier="ultimate">
+      <span class="pkg-badge invite">Только по приглашению</span>
+      <div class="pkg-thumb"><img src="img/pkg-ultimate.webp" width="1200" height="960" loading="lazy" decoding="async" alt="Ultimate Personal Brand"></div>
+      <div class="pkg-inner">
+        <p class="pkg-tier-name">Ultimate Personal Brand</p>
+        <p class="pkg-price">1,800 <span class="pkg-currency">CHF</span></p>
+        <p class="pkg-tagline">Собственный кинематографичный сайт, выстроенный вокруг вашей истории. Всё включено.</p>
+        <ul class="pkg-features">
+          <li><strong>Полностью индивидуальный личный сайт</strong></li>
+          <li>Ваша история, философия и награды</li>
+          <li><strong>Видеопрезентация, которая вызывает доверие</strong></li>
+          <li>Интерактивные VFX и деликатные SFX</li>
+          <li>Звукорежиссура в моей студии в Швейцарии</li>
+          <li>Приветствие вашим собственным голосом</li>
+          <li>Мультиязычность и автоопределение языка</li>
+          <li><strong>Хостинг и домен на 1 год бесплатно</strong></li>
+        </ul>
+        <div class="pkg-actions">
+          <a class="btn-book" aria-disabled="true" tabindex="-1"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5"/></svg>Только для постоянных клиентов</a>
+          <button class="btn-details" onclick="toggleDetails(this)">Подробнее &#9662;</button>
+        </div>
+      </div>
+      <div class="pkg-expand"><div class="pkg-expand-inner">
+        <h4>Ultimate Personal Brand · Полные Детали</h4>
+        <div class="detail-block"><span class="detail-label">Только по приглашению</span><p>Только для массажистов, которые уже хотя бы раз бронировали у меня фото- и видеосъёмку. Фото и видео с вами, которые я уже снял, становятся материалом для вашего сайта, поэтому начать сотрудничество с этого уровня нельзя. Мест немного, и я предлагаю их по личному приглашению.</p></div>
+        <div class="detail-block"><span class="detail-label">Что вы получаете</span><p>Полностью индивидуальный личный сайт, который я проектирую и создаю с нуля специально для вас. Никаких шаблонов. Он рассказывает историю вашей жизни и профессиональный путь, философию, на которой строятся ваши сеансы, то, что вы любите, а также заслуженные титулы и награды. Посетители видят не просто список услуг, а живого человека за каждым сеансом.</p></div>
+        <div class="detail-block"><span class="detail-label">Видеопрезентация бизнеса</span><p>Отдельное видео-знакомство, смонтированное из ваших съёмок. Оно представляет ваш бизнес и с первой секунды работает как социальное доказательство: ваши титулы, ваша работа и доверие, которое вам уже оказывают другие.</p></div>
+        <div class="detail-block"><span class="detail-label">Атмосфера</span><p>Интерактивные элементы, визуальные эффекты и деликатные звуковые эффекты погружают посетителей в ваш мир. Каждый звук проходит настоящую звукорежиссуру в моей студии в Швейцарии. Тех, кто зашёл впервые, может встретить ваш собственный голос с коротким личным приветствием.</p><p style="margin-top:8px;">Такого уровня индивидуальности в вашей сфере нет ни у кого, и это выделит вас среди коллег. Новые клиенты чувствуют разницу с первой секунды, а вы получаете статус, который позволяет назначать премиальные цены.</p></div>
+        <div class="detail-block"><span class="detail-label">Мультиязычность</span><p>Сайт определяет язык браузера каждого посетителя и с первой секунды показывает нужную версию. Языки мы согласуем до начала работы.</p></div>
+        <div class="detail-block"><span class="detail-label">Создано вместе с вами</span><p>Финальную версию определяют ваша обратная связь и ваше видение. Я дорабатываю детали, пока сайт не станет по-настоящему вашим. Ключевые тексты на вашем родном языке вы вычитываете сами, чтобы они звучали естественно, а не как перевод.</p></div>
+        <div class="detail-block"><span class="detail-label">Всё включено</span><p>В стоимость 1,800 CHF входят дизайн, разработка, видеопрезентация вашего бизнеса, визуальные эффекты, саунд-дизайн, согласованные языки и запуск, а также бесплатный хостинг и домен на первый год.</p></div>
+        <div class="detail-block"><span class="detail-label">Правки</span><p>2 раунда правок после показа первой полной версии. Изменения концепции или структуры после утверждения правками не считаются.</p></div>
+        <div class="detail-block"><span class="detail-label">Оплата и сроки</span><p>Невозвратный депозит в размере 50% закрепляет за вами слот на производство. Остаток 50% — до запуска сайта. График производства согласуется индивидуально.</p></div>
       </div></div>
     </div>
   </div>
@@ -1635,7 +1709,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModa
     var athumb=document.querySelector('.pkg-card[data-tier="authority"] .pkg-thumb');
     if(rib&&athumb)athumb.appendChild(rib);
     var header=document.querySelector('.packages-header');
-    var cards=[].slice.call(document.querySelectorAll('.pkg-card'));
+    var cards=[].slice.call(document.querySelectorAll('.pkg-card:not([data-tier="ultimate"])'));
     if(header&&cards.length){
       document.querySelector('.packages-section').classList.add('icv3-has-carousel');
       var hint=document.createElement('p');hint.className='icv3-swipehint';hint.textContent=T.hint;

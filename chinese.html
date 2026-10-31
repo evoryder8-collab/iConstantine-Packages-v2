@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="为全球按摩锦标赛提供电影级视频与摄影服务。五个套餐级别、优先拍摄与快速交付。摄影师 Constantin Barbu。">
+<meta name="description" content="为全球按摩锦标赛提供电影级视频与摄影服务。六个套餐级别、优先拍摄与快速交付。摄影师 Constantin Barbu。">
 <link rel="canonical" href="https://iconstantine.ch/chinese">
 <link rel="alternate" hreflang="en" href="https://iconstantine.ch/english">
 <link rel="alternate" hreflang="de" href="https://iconstantine.ch/german">
@@ -28,7 +28,7 @@
 <link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="iCONSTANTINE | 锦标赛媒体套餐">
-<meta property="og:description" content="为全球按摩锦标赛提供电影级视频与摄影服务。五个套餐级别、优先拍摄与快速交付。摄影师 Constantin Barbu。">
+<meta property="og:description" content="为全球按摩锦标赛提供电影级视频与摄影服务。六个套餐级别、优先拍摄与快速交付。摄影师 Constantin Barbu。">
 <meta property="og:url" content="https://iconstantine.ch/chinese">
 <meta property="og:image" content="https://iconstantine.ch/img/og-image.jpg">
 <meta name="twitter:card" content="summary">
@@ -166,11 +166,14 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 /* ── TOP ROW: 3 cards (Starter, Essential, Authority featured) ── */
 .pkg-row-top { display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-bottom:18px; }
 /* ── BOTTOM ROW: 2 cards centered ── */
-.pkg-row-bot { display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:880px; margin:0 auto 80px; }
+.pkg-row-bot { display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:880px; margin:0 auto 18px; }
+/* ── ULTIMATE ROW: 1 wide card centered ── */
+.pkg-row-ult { max-width:880px; margin:0 auto 80px; }
 
 @media(max-width:1024px) {
   .pkg-row-top { grid-template-columns:1fr; max-width:480px; margin:0 auto 18px; }
-  .pkg-row-bot { grid-template-columns:1fr; max-width:480px; margin:0 auto 60px; }
+  .pkg-row-bot { grid-template-columns:1fr; max-width:480px; margin:0 auto 18px; }
+  .pkg-row-ult { max-width:480px; margin:0 auto 60px; }
 }
 
 /* ═══════ PACKAGE CARDS ═══════ */
@@ -259,6 +262,40 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="showcase"] .btn-book:hover { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.2); }
 .pkg-card[data-tier="signature"] .btn-book { background:linear-gradient(135deg, rgba(100,120,220,0.12), rgba(100,120,220,0.2)); color:#B8C8FF; border:1px solid rgba(100,120,220,0.2); }
 .pkg-card[data-tier="signature"] .btn-book:hover { background:linear-gradient(135deg, rgba(100,120,220,0.2), rgba(100,120,220,0.3)); }
+
+/* ── ULTIMATE PERSONAL BRAND: platinum, by invitation ── */
+.pkg-card[data-tier="ultimate"] { background:linear-gradient(180deg, rgba(20,20,24,0.96) 0%, var(--black-card) 100%); border-color:rgba(210,210,222,0.12); box-shadow:0 4px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(230,230,240,0.07); }
+.pkg-card[data-tier="ultimate"]::before { background:linear-gradient(180deg, rgba(235,235,245,0.2) 0%, rgba(150,150,165,0.03) 45%, rgba(210,210,225,0.1) 100%); }
+.pkg-card[data-tier="ultimate"]:hover { transform:translateY(-3px); }
+.pkg-card[data-tier="ultimate"]:hover::before { background:linear-gradient(180deg, rgba(235,235,245,0.32) 0%, rgba(150,150,165,0.05) 45%, rgba(210,210,225,0.16) 100%); }
+.pkg-card[data-tier="ultimate"]>.card-spot { background:radial-gradient(500px circle at var(--mx) var(--my),rgba(230,230,240,.05),transparent 55%); }
+.pkg-card[data-tier="ultimate"] [class^="focus-bracket-"] { border-color:#B8B8C2; }
+.pkg-card[data-tier="ultimate"] .pkg-thumb img { object-position:52% 50%; filter:grayscale(1) brightness(0.62) contrast(1.08); }
+.pkg-card[data-tier="ultimate"]:hover .pkg-thumb img { transform:scale(1.04); filter:grayscale(0.5) brightness(0.8) contrast(1.05); }
+.pkg-card[data-tier="ultimate"] .pkg-tier-name { background:linear-gradient(100deg, #8E8E98 20%, #F1F1F5 45%, #8E8E98 70%); background-size:250% 100%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:ultSheen 7s linear infinite; }
+.pkg-card[data-tier="ultimate"] .pkg-price { background:linear-gradient(135deg, #EDEDF2, #8E8E98); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+.pkg-card[data-tier="ultimate"] .pkg-currency { -webkit-text-fill-color:#8E8E98; color:#8E8E98; }
+.pkg-card[data-tier="ultimate"] .pkg-tagline, .pkg-card[data-tier="ultimate"] .pkg-features li { color:rgba(205,205,214,0.55); }
+.pkg-card[data-tier="ultimate"] .pkg-features li strong { color:#C4C4CC; }
+.pkg-card[data-tier="ultimate"] .pkg-features li::before { background:#7A7A84; }
+.pkg-card[data-tier="ultimate"] .detail-label { color:#A9A9B3; }
+.pkg-card[data-tier="ultimate"] .btn-book { display:flex; align-items:center; justify-content:center; gap:8px; pointer-events:none; cursor:default; background:repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 7px, rgba(255,255,255,0.045) 7px 14px); border:1px dashed rgba(220,220,230,0.18); color:rgba(225,225,232,0.5); }
+.pkg-card[data-tier="ultimate"] .btn-book::before { display:none; }
+.pkg-card[data-tier="ultimate"] .btn-book svg { width:12px; height:12px; flex-shrink:0; }
+.pkg-badge.invite { background:linear-gradient(135deg,#E6E6EC,#9A9AA4); color:#0b0b0d; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.55); }
+@keyframes ultSheen { to { background-position:-250% 0; } }
+@media (prefers-reduced-motion:reduce) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { animation:none; } }
+@media(max-width:1024px) {
+  .pkg-card[data-tier="ultimate"] .pkg-thumb img { filter:grayscale(1) brightness(0.7) contrast(1.06) !important; }
+  .pkg-card[data-tier="ultimate"]:hover .pkg-thumb img, .pkg-card[data-tier="ultimate"]:active .pkg-thumb img { filter:grayscale(0.5) brightness(0.82) contrast(1.05) !important; }
+}
+@media(min-width:1025px) {
+  .pkg-card[data-tier="ultimate"] { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+  .pkg-card[data-tier="ultimate"] .pkg-thumb { aspect-ratio:auto; min-height:100%; }
+  .pkg-card[data-tier="ultimate"] .pkg-thumb::after { top:0; left:auto; right:0; width:40%; height:100%; background:linear-gradient(to left, var(--black-card) 0%, transparent 100%); }
+  .pkg-card[data-tier="ultimate"] .pkg-expand { grid-column:1/-1; }
+  .pkg-card[data-tier="ultimate"] .pkg-badge { right:auto; left:18px; }
+}
 
 .btn-details { background:none; border:none; color:var(--text-muted); font-size:11px; font-weight:400; cursor:pointer; padding:6px; letter-spacing:0.5px; transition:color 0.3s ease; font-family:var(--font-body); }
 .btn-details:hover { color:var(--text-secondary); }
@@ -782,7 +819,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 <section class="packages-section" id="packages" data-section="packages">
   <div class="packages-header reveal">
     <p class="section-overline">选择您的体验</p>
-    <h2>五个级别的 <em>卓越</em></h2>
+    <h2>六个级别的 <em>卓越</em></h2>
     <p class="pkg-hint">点击任意套餐的 <strong>更多信息</strong> 查看完整详情</p>
   </div>
 
@@ -885,7 +922,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
     </div>
   </div>
 
-  <!-- BOTTOM ROW: Showcase · 簽名 -->
+  <!-- BOTTOM ROW: Showcase · 签名 -->
   <div class="pkg-row-bot">
     <div class="pkg-card" data-tier="showcase">
       <div class="pkg-thumb"><img src="img/pkg-showcase.webp" width="1000" height="714" loading="lazy" decoding="async" alt="锦标赛奖杯"></div>
@@ -921,7 +958,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
       <span class="pkg-badge limited">限量：2个名额</span>
       <div class="pkg-thumb"><img src="img/pkg-signature.jpg" width="600" height="337" loading="lazy" decoding="async" alt="专业肖像"></div>
       <div class="pkg-inner">
-        <p class="pkg-tier-name">簽名</p>
+        <p class="pkg-tier-name">签名</p>
         <p class="pkg-price">1,209 <span class="pkg-currency">CHF</span></p>
         <p class="pkg-tagline">含旁白的完整品牌纪录片。每场活动限2个名额。</p>
         <ul class="pkg-features">
@@ -951,6 +988,43 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
       </div></div>
     </div>
   </div>
+  <div class="pkg-row-ult">
+    <div class="pkg-card" data-tier="ultimate">
+      <span class="pkg-badge invite">仅限受邀</span>
+      <div class="pkg-thumb"><img src="img/pkg-ultimate.webp" width="1200" height="960" loading="lazy" decoding="async" alt="Ultimate Personal Brand"></div>
+      <div class="pkg-inner">
+        <p class="pkg-tier-name">Ultimate Personal Brand</p>
+        <p class="pkg-price">1,800 <span class="pkg-currency">CHF</span></p>
+        <p class="pkg-tagline">围绕您的故事打造的电影级个人网站。一价全包。</p>
+        <ul class="pkg-features">
+          <li><strong>完全定制的个人网站</strong></li>
+          <li>您的故事、理念与荣誉</li>
+          <li><strong>建立信任背书的品牌介绍视频</strong></li>
+          <li>互动 VFX 与精致 SFX</li>
+          <li>在我的瑞士工作室专业制作音效</li>
+          <li>用您本人的声音迎接访客</li>
+          <li>多语言版本，自动识别语言</li>
+          <li><strong>首年网站托管与域名免费</strong></li>
+        </ul>
+        <div class="pkg-actions">
+          <a class="btn-book" aria-disabled="true" tabindex="-1"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5"/></svg>仅限老客户</a>
+          <button class="btn-details" onclick="toggleDetails(this)">更多信息 &#9662;</button>
+        </div>
+      </div>
+      <div class="pkg-expand"><div class="pkg-expand-inner">
+        <h4>Ultimate Personal Brand · 完整详情</h4>
+        <div class="detail-block"><span class="detail-label">仅限受邀</span><p>本套餐专为曾至少预订过一次我的照片和视频拍摄的按摩师而设。我为您拍摄的照片和影片，正是打造您网站的素材，因此无法在没有合作基础的情况下直接预订。名额有限，仅通过私人邀请开放。</p></div>
+        <div class="detail-block"><span class="detail-label">您将获得</span><p>一个以您为核心、从零开始设计搭建的完全定制个人网站，绝不套用模板。它讲述您的人生故事与职业历程、您手法背后的理念、您热爱的事物，以及您赢得的头衔与奖项。访客感受到的是手法背后的那个人，而不只是一张服务清单。</p></div>
+        <div class="detail-block"><span class="detail-label">品牌介绍视频</span><p>一支用您的素材专门制作剪辑的介绍视频，访客一进入网站，就能看到您的事业，并立刻建立信任：您的头衔、您的作品，以及他人早已给予您的信赖。</p></div>
+        <div class="detail-block"><span class="detail-label">沉浸体验</span><p>互动元素、视觉特效与恰到好处的音效，把访客带进您的世界。每一个声音都在我位于瑞士的工作室，经过真正的声音工程精心打造。第一次到访的访客，还能听到您亲自录制的简短自我介绍。</p><p style="margin-top:8px;">如此程度的定制在您的行业中前所未有，让您脱颖而出。新客户从第一秒就能感受到不同，您也更有底气制定高端价格。</p></div>
+        <div class="detail-block"><span class="detail-label">多语言</span><p>网站会读取每位访客的浏览器语言，第一时间呈现对应的语言版本。具体语言在开始制作前与您商定。</p></div>
+        <div class="detail-block"><span class="detail-label">与您共创</span><p>最终版本根据您的反馈与构想逐步成形。我会反复打磨细节，直到它一看就是您。您母语的版本，由您亲自审阅关键文字，确保读起来自然地道，毫无翻译腔。</p></div>
+        <div class="detail-block"><span class="detail-label">一价全包</span><p>1,800 CHF 涵盖设计、搭建、品牌介绍视频、视觉特效、声音设计、商定的语言版本与上线，并免费赠送首年网站托管与域名。</p></div>
+        <div class="detail-block"><span class="detail-label">修改</span><p>首次完整预览后可修改2轮。确认后再更改概念或结构的要求不算修改。</p></div>
+        <div class="detail-block"><span class="detail-label">付款与时间安排</span><p>支付 50% 不可退款定金以锁定您的制作档期。上线前支付 50% 余额。制作日程单独商定。</p></div>
+      </div></div>
+    </div>
+  </div>
 </section>
 
 <!-- ═══════ ADD-ONS ═══════ -->
@@ -967,7 +1041,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
       <div class="addon-info">
         <p class="addon-name">4K电影升级</p>
         <p class="addon-applies">仅限Starter套餐客户</p>
-        <p class="addon-desc">将您的竖向全高清素材升级到4K横向10位电影质量。与Authority、Showcase和簽名套餐中已包含的相同分辨率标准。</p>
+        <p class="addon-desc">将您的竖向全高清素材升级到4K横向10位电影质量。与Authority、Showcase和签名套餐中已包含的相同分辨率标准。</p>
       </div>
       <div class="addon-price-col">
         <p class="addon-price">+99 <span>CHF</span></p>
@@ -997,7 +1071,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
       <p class="pay-desc">活动前需要全额付款以确保您的位置并激活优先状态。</p>
     </div>
     <div class="payment-card">
-      <p class="pay-label">簽名</p>
+      <p class="pay-label">签名</p>
       <p class="pay-desc">赛事前支付 50% 定金。交付时支付 50% 余额。</p>
     </div>
   </div>
@@ -1635,7 +1709,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModa
     var athumb=document.querySelector('.pkg-card[data-tier="authority"] .pkg-thumb');
     if(rib&&athumb)athumb.appendChild(rib);
     var header=document.querySelector('.packages-header');
-    var cards=[].slice.call(document.querySelectorAll('.pkg-card'));
+    var cards=[].slice.call(document.querySelectorAll('.pkg-card:not([data-tier="ultimate"])'));
     if(header&&cards.length){
       document.querySelector('.packages-section').classList.add('icv3-has-carousel');
       var hint=document.createElement('p');hint.className='icv3-swipehint';hint.textContent=T.hint;

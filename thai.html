@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="วิดีโอและภาพถ่ายคุณภาพระดับหนังสำหรับเวทีแข่งนวดทั่วโลก มีแพ็คเกจ 5 ระดับ คิวถ่ายพิเศษ และส่งงานไว">
+<meta name="description" content="วิดีโอและภาพถ่ายคุณภาพระดับหนังสำหรับเวทีแข่งนวดทั่วโลก มีแพ็คเกจ 6 ระดับ คิวถ่ายพิเศษ และส่งงานไว">
 <link rel="canonical" href="https://iconstantine.ch/thai">
 <link rel="alternate" hreflang="en" href="https://iconstantine.ch/english">
 <link rel="alternate" hreflang="de" href="https://iconstantine.ch/german">
@@ -28,7 +28,7 @@
 <link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="iCONSTANTINE | แพ็คเกจสื่อสำหรับการแข่งขัน">
-<meta property="og:description" content="วิดีโอและภาพถ่ายคุณภาพระดับหนังสำหรับเวทีแข่งนวดทั่วโลก มีแพ็คเกจ 5 ระดับ คิวถ่ายพิเศษ และส่งงานไว">
+<meta property="og:description" content="วิดีโอและภาพถ่ายคุณภาพระดับหนังสำหรับเวทีแข่งนวดทั่วโลก มีแพ็คเกจ 6 ระดับ คิวถ่ายพิเศษ และส่งงานไว">
 <meta property="og:url" content="https://iconstantine.ch/thai">
 <meta property="og:image" content="https://iconstantine.ch/img/og-image.jpg">
 <meta name="twitter:card" content="summary">
@@ -166,11 +166,14 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 /* ── TOP ROW: 3 cards (Starter, Essential, Authority featured) ── */
 .pkg-row-top { display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-bottom:18px; }
 /* ── BOTTOM ROW: 2 cards centered ── */
-.pkg-row-bot { display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:880px; margin:0 auto 80px; }
+.pkg-row-bot { display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:880px; margin:0 auto 18px; }
+/* ── ULTIMATE ROW: 1 wide card centered ── */
+.pkg-row-ult { max-width:880px; margin:0 auto 80px; }
 
 @media(max-width:1024px) {
   .pkg-row-top { grid-template-columns:1fr; max-width:480px; margin:0 auto 18px; }
-  .pkg-row-bot { grid-template-columns:1fr; max-width:480px; margin:0 auto 60px; }
+  .pkg-row-bot { grid-template-columns:1fr; max-width:480px; margin:0 auto 18px; }
+  .pkg-row-ult { max-width:480px; margin:0 auto 60px; }
 }
 
 /* ═══════ PACKAGE CARDS ═══════ */
@@ -259,6 +262,40 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="showcase"] .btn-book:hover { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.2); }
 .pkg-card[data-tier="signature"] .btn-book { background:linear-gradient(135deg, rgba(100,120,220,0.12), rgba(100,120,220,0.2)); color:#B8C8FF; border:1px solid rgba(100,120,220,0.2); }
 .pkg-card[data-tier="signature"] .btn-book:hover { background:linear-gradient(135deg, rgba(100,120,220,0.2), rgba(100,120,220,0.3)); }
+
+/* ── ULTIMATE PERSONAL BRAND: platinum, by invitation ── */
+.pkg-card[data-tier="ultimate"] { background:linear-gradient(180deg, rgba(20,20,24,0.96) 0%, var(--black-card) 100%); border-color:rgba(210,210,222,0.12); box-shadow:0 4px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(230,230,240,0.07); }
+.pkg-card[data-tier="ultimate"]::before { background:linear-gradient(180deg, rgba(235,235,245,0.2) 0%, rgba(150,150,165,0.03) 45%, rgba(210,210,225,0.1) 100%); }
+.pkg-card[data-tier="ultimate"]:hover { transform:translateY(-3px); }
+.pkg-card[data-tier="ultimate"]:hover::before { background:linear-gradient(180deg, rgba(235,235,245,0.32) 0%, rgba(150,150,165,0.05) 45%, rgba(210,210,225,0.16) 100%); }
+.pkg-card[data-tier="ultimate"]>.card-spot { background:radial-gradient(500px circle at var(--mx) var(--my),rgba(230,230,240,.05),transparent 55%); }
+.pkg-card[data-tier="ultimate"] [class^="focus-bracket-"] { border-color:#B8B8C2; }
+.pkg-card[data-tier="ultimate"] .pkg-thumb img { object-position:52% 50%; filter:grayscale(1) brightness(0.62) contrast(1.08); }
+.pkg-card[data-tier="ultimate"]:hover .pkg-thumb img { transform:scale(1.04); filter:grayscale(0.5) brightness(0.8) contrast(1.05); }
+.pkg-card[data-tier="ultimate"] .pkg-tier-name { background:linear-gradient(100deg, #8E8E98 20%, #F1F1F5 45%, #8E8E98 70%); background-size:250% 100%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:ultSheen 7s linear infinite; }
+.pkg-card[data-tier="ultimate"] .pkg-price { background:linear-gradient(135deg, #EDEDF2, #8E8E98); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+.pkg-card[data-tier="ultimate"] .pkg-currency { -webkit-text-fill-color:#8E8E98; color:#8E8E98; }
+.pkg-card[data-tier="ultimate"] .pkg-tagline, .pkg-card[data-tier="ultimate"] .pkg-features li { color:rgba(205,205,214,0.55); }
+.pkg-card[data-tier="ultimate"] .pkg-features li strong { color:#C4C4CC; }
+.pkg-card[data-tier="ultimate"] .pkg-features li::before { background:#7A7A84; }
+.pkg-card[data-tier="ultimate"] .detail-label { color:#A9A9B3; }
+.pkg-card[data-tier="ultimate"] .btn-book { display:flex; align-items:center; justify-content:center; gap:8px; pointer-events:none; cursor:default; background:repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 7px, rgba(255,255,255,0.045) 7px 14px); border:1px dashed rgba(220,220,230,0.18); color:rgba(225,225,232,0.5); }
+.pkg-card[data-tier="ultimate"] .btn-book::before { display:none; }
+.pkg-card[data-tier="ultimate"] .btn-book svg { width:12px; height:12px; flex-shrink:0; }
+.pkg-badge.invite { background:linear-gradient(135deg,#E6E6EC,#9A9AA4); color:#0b0b0d; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.55); }
+@keyframes ultSheen { to { background-position:-250% 0; } }
+@media (prefers-reduced-motion:reduce) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { animation:none; } }
+@media(max-width:1024px) {
+  .pkg-card[data-tier="ultimate"] .pkg-thumb img { filter:grayscale(1) brightness(0.7) contrast(1.06) !important; }
+  .pkg-card[data-tier="ultimate"]:hover .pkg-thumb img, .pkg-card[data-tier="ultimate"]:active .pkg-thumb img { filter:grayscale(0.5) brightness(0.82) contrast(1.05) !important; }
+}
+@media(min-width:1025px) {
+  .pkg-card[data-tier="ultimate"] { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+  .pkg-card[data-tier="ultimate"] .pkg-thumb { aspect-ratio:auto; min-height:100%; }
+  .pkg-card[data-tier="ultimate"] .pkg-thumb::after { top:0; left:auto; right:0; width:40%; height:100%; background:linear-gradient(to left, var(--black-card) 0%, transparent 100%); }
+  .pkg-card[data-tier="ultimate"] .pkg-expand { grid-column:1/-1; }
+  .pkg-card[data-tier="ultimate"] .pkg-badge { right:auto; left:18px; }
+}
 
 .btn-details { background:none; border:none; color:var(--text-muted); font-size:11px; font-weight:400; cursor:pointer; padding:6px; letter-spacing:0.5px; transition:color 0.3s ease; font-family:var(--font-body); }
 .btn-details:hover { color:var(--text-secondary); }
@@ -782,7 +819,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 <section class="packages-section" id="packages" data-section="packages">
   <div class="packages-header reveal">
     <p class="section-overline">เลือกประสบการณ์ของคุณ</p>
-    <h2>5 แพ็คเกจแห่ง<em>ความเป็นเลิศ</em> เลือกสิ่งที่ใช่สำหรับคุณ</h2>
+    <h2>6 แพ็คเกจแห่ง<em>ความเป็นเลิศ</em> เลือกสิ่งที่ใช่สำหรับคุณ</h2>
     <p class="pkg-hint">แตะ <strong>ข้อมูลเพิ่มเติม</strong> ในแพ็คเกจใดก็ได้เพื่อดูรายละเอียดทั้งหมด</p>
   </div>
 
@@ -948,6 +985,43 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
         <div class="detail-block"><span class="detail-label">การชำระเงิน</span><p>มัดจำ 50% (ไม่คืน) ก่อนงาน อีก 50% จ่ายตอนรับงาน</p></div>
         <div class="detail-block"><span class="detail-label">ทำไมรับแค่ 2 คิว</span><p>งานเล่าเรื่องแบบนี้ใช้พลังโปรดักชันสูงมาก ระดับนี้เลยรับแค่ 2 คิวต่องานเท่านั้น</p></div>
         <div class="detail-block"><span class="detail-label">คิวส่งมอบ</span><div class="dq-grid"><div class="dq-slot ok"><strong>คิวที่ 1-5</strong>นัดตารางงานกันตัวต่อตัวตอนจอง</div><div class="dq-slot wait"><strong>คิวที่ 6 ขึ้นไป</strong>1-2 สัปดาห์</div></div><p class="dq-note">เพราะมีแค่ 2 คิว ตารางส่งงานของคุณจะตกลงกันเป็นรายคนตอนจอง ส่วนอัลบั้มรูปได้วันงานทุกคน</p></div>
+      </div></div>
+    </div>
+  </div>
+  <div class="pkg-row-ult">
+    <div class="pkg-card" data-tier="ultimate">
+      <span class="pkg-badge invite">เฉพาะผู้ได้รับเชิญ</span>
+      <div class="pkg-thumb"><img src="img/pkg-ultimate.webp" width="1200" height="960" loading="lazy" decoding="async" alt="Ultimate Personal Brand"></div>
+      <div class="pkg-inner">
+        <p class="pkg-tier-name">Ultimate Personal Brand</p>
+        <p class="pkg-price">1,800 <span class="pkg-currency">CHF</span></p>
+        <p class="pkg-tagline">เว็บไซต์ส่วนตัวสไตล์หนัง สร้างจากเรื่องราวของคุณ ครบจบในราคาเดียว</p>
+        <ul class="pkg-features">
+          <li><strong>เว็บไซต์ส่วนตัวออกแบบเฉพาะคุณ</strong></li>
+          <li>เรื่องราว แนวคิด และรางวัลของคุณ</li>
+          <li><strong>วิดีโอแนะนำธุรกิจ เสริมความน่าเชื่อถือ</strong></li>
+          <li>VFX แบบอินเทอร์แอคทีฟ + SFX ที่ลงตัว</li>
+          <li>ทำเสียงในสตูดิโอของผมที่สวิสเซอร์แลนด์</li>
+          <li>ต้อนรับคนเข้าเว็บด้วยเสียงของคุณเอง</li>
+          <li>หลายภาษา ตรวจจับภาษาให้อัตโนมัติ</li>
+          <li><strong>ฟรีโฮสติ้งและโดเมน 1 ปี</strong></li>
+        </ul>
+        <div class="pkg-actions">
+          <a class="btn-book" aria-disabled="true" tabindex="-1"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5"/></svg>เฉพาะลูกค้าเก่า</a>
+          <button class="btn-details" onclick="toggleDetails(this)">ข้อมูลเพิ่มเติม &#9662;</button>
+        </div>
+      </div>
+      <div class="pkg-expand"><div class="pkg-expand-inner">
+        <h4>Ultimate Personal Brand · รายละเอียดเต็ม</h4>
+        <div class="detail-block"><span class="detail-label">เฉพาะผู้ได้รับเชิญ</span><p>สำหรับนักบำบัดที่เคยจองถ่ายภาพและวิดีโอกับผมมาแล้วอย่างน้อย 1 ครั้ง เพราะภาพและวิดีโอที่ผมถ่ายคุณไว้คือวัตถุดิบหลักของเว็บไซต์ แพ็คเกจนี้จึงไม่เปิดให้จองเป็นงานแรก จำนวนจำกัด และเปิดให้เฉพาะคนที่ผมเชิญเป็นการส่วนตัว</p></div>
+        <div class="detail-block"><span class="detail-label">สิ่งที่คุณได้รับ</span><p>เว็บไซต์ส่วนตัวที่ออกแบบและสร้างขึ้นใหม่ทั้งหมดโดยมีคุณเป็นศูนย์กลาง ไม่ใช้เทมเพลต เล่าเรื่องชีวิตและเส้นทางอาชีพของคุณ ปรัชญาเบื้องหลังการนวดของคุณ สิ่งที่คุณรัก รวมถึงตำแหน่งแชมป์และรางวัลที่คุณได้มา คนที่เข้าเว็บจะสัมผัสได้ถึงตัวตนเบื้องหลังการนวด ไม่ใช่แค่รายการบริการ</p></div>
+        <div class="detail-block"><span class="detail-label">วิดีโอแนะนำธุรกิจ</span><p>วิดีโอแนะนำที่ทำขึ้นเฉพาะคุณ ตัดต่อจากฟุตเทจของคุณเอง นำเสนอธุรกิจของคุณและสร้างความน่าเชื่อถือทันทีที่คนเข้าเว็บ ทั้งตำแหน่งแชมป์ ผลงาน และความไว้วางใจที่คนอื่นมอบให้คุณอยู่แล้ว</p></div>
+        <div class="detail-block"><span class="detail-label">ประสบการณ์</span><p>ลูกเล่นแบบอินเทอร์แอคทีฟ วิชวลเอฟเฟกต์ และซาวด์เอฟเฟกต์ที่ลงตัว ดึงคนเข้าเว็บเข้าสู่โลกของคุณ ทุกเสียงผ่านงานซาวด์เอนจิเนียริ่งของจริงในสตูดิโอของผมที่สวิสเซอร์แลนด์ คนที่เข้าเว็บครั้งแรกยังได้รับการต้อนรับด้วยเสียงของคุณเองผ่านการแนะนำตัวสั้น ๆ</p><p style="margin-top:8px;">งานปรับแต่งระดับนี้ยังไม่มีใครในวงการทำได้ และจะทำให้คุณโดดเด่นกว่าใคร ลูกค้าใหม่รู้สึกถึงความต่างตั้งแต่วินาทีแรก และคุณตั้งราคาระดับพรีเมียมได้อย่างมั่นใจ</p></div>
+        <div class="detail-block"><span class="detail-label">หลายภาษา</span><p>เว็บไซต์จะอ่านภาษาของเบราว์เซอร์คนที่เข้าเว็บแต่ละคน แล้วแสดงเวอร์ชันภาษาที่ใช่ตั้งแต่วินาทีแรก ภาษาที่รองรับจะตกลงกันก่อนเริ่มงาน</p></div>
+        <div class="detail-block"><span class="detail-label">สร้างไปด้วยกัน</span><p>เวอร์ชันสุดท้ายจะถูกขัดเกลาจากฟีดแบ็กและวิสัยทัศน์ของคุณเอง ผมเก็บรายละเอียดจนกว่าจะเป็นตัวคุณแบบไม่มีผิด สำหรับภาษาแม่ของคุณ คุณจะได้ตรวจข้อความหลักเองเพื่อให้อ่านลื่นเป็นธรรมชาติ ไม่เหมือนงานแปล</p></div>
+        <div class="detail-block"><span class="detail-label">ครบจบในราคาเดียว</span><p>1,800 CHF รวมทั้งการออกแบบ การสร้างเว็บ วิดีโอแนะนำธุรกิจ วิชวลเอฟเฟกต์ ซาวด์ดีไซน์ ภาษาที่ตกลงกัน และการเปิดตัวเว็บ พร้อมโฮสติ้งและโดเมนฟรีในปีแรก</p></div>
+        <div class="detail-block"><span class="detail-label">การแก้ไข</span><p>แก้ได้ 2 รอบหลังพรีวิวเต็มครั้งแรก คำขอที่เปลี่ยนคอนเซปต์หรือโครงสร้างหลังอนุมัติแล้วไม่นับเป็นการแก้</p></div>
+        <div class="detail-block"><span class="detail-label">การชำระเงินและไทม์ไลน์</span><p>มัดจำ 50% (ไม่คืน) เพื่อล็อกคิวโปรดักชัน อีก 50% จ่ายก่อนเปิดเว็บ ตารางงานตกลงกันเป็นรายคน</p></div>
       </div></div>
     </div>
   </div>
@@ -1635,7 +1709,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModa
     var athumb=document.querySelector('.pkg-card[data-tier="authority"] .pkg-thumb');
     if(rib&&athumb)athumb.appendChild(rib);
     var header=document.querySelector('.packages-header');
-    var cards=[].slice.call(document.querySelectorAll('.pkg-card'));
+    var cards=[].slice.call(document.querySelectorAll('.pkg-card:not([data-tier="ultimate"])'));
     if(header&&cards.length){
       document.querySelector('.packages-section').classList.add('icv3-has-carousel');
       var hint=document.createElement('p');hint.className='icv3-swipehint';hint.textContent=T.hint;

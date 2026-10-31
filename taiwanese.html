@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="為全球按摩錦標賽提供電影級影像與攝影服務。五個套餐級別、優先拍攝與快速交付。攝影師 Constantin Barbu。">
+<meta name="description" content="為全球按摩錦標賽提供電影級影像與攝影服務。六個套餐級別、優先拍攝與快速交付。攝影師 Constantin Barbu。">
 <link rel="canonical" href="https://iconstantine.ch/taiwanese">
 <link rel="alternate" hreflang="en" href="https://iconstantine.ch/english">
 <link rel="alternate" hreflang="de" href="https://iconstantine.ch/german">
@@ -28,7 +28,7 @@
 <link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="iCONSTANTINE | 錦標賽媒體套餐">
-<meta property="og:description" content="為全球按摩錦標賽提供電影級影像與攝影服務。五個套餐級別、優先拍攝與快速交付。攝影師 Constantin Barbu。">
+<meta property="og:description" content="為全球按摩錦標賽提供電影級影像與攝影服務。六個套餐級別、優先拍攝與快速交付。攝影師 Constantin Barbu。">
 <meta property="og:url" content="https://iconstantine.ch/taiwanese">
 <meta property="og:image" content="https://iconstantine.ch/img/og-image.jpg">
 <meta name="twitter:card" content="summary">
@@ -166,11 +166,14 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 /* ── TOP ROW: 3 cards (Starter, Essential, Authority featured) ── */
 .pkg-row-top { display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-bottom:18px; }
 /* ── BOTTOM ROW: 2 cards centered ── */
-.pkg-row-bot { display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:880px; margin:0 auto 80px; }
+.pkg-row-bot { display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:880px; margin:0 auto 18px; }
+/* ── ULTIMATE ROW: 1 wide card centered ── */
+.pkg-row-ult { max-width:880px; margin:0 auto 80px; }
 
 @media(max-width:1024px) {
   .pkg-row-top { grid-template-columns:1fr; max-width:480px; margin:0 auto 18px; }
-  .pkg-row-bot { grid-template-columns:1fr; max-width:480px; margin:0 auto 60px; }
+  .pkg-row-bot { grid-template-columns:1fr; max-width:480px; margin:0 auto 18px; }
+  .pkg-row-ult { max-width:480px; margin:0 auto 60px; }
 }
 
 /* ═══════ PACKAGE CARDS ═══════ */
@@ -259,6 +262,40 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="showcase"] .btn-book:hover { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.2); }
 .pkg-card[data-tier="signature"] .btn-book { background:linear-gradient(135deg, rgba(100,120,220,0.12), rgba(100,120,220,0.2)); color:#B8C8FF; border:1px solid rgba(100,120,220,0.2); }
 .pkg-card[data-tier="signature"] .btn-book:hover { background:linear-gradient(135deg, rgba(100,120,220,0.2), rgba(100,120,220,0.3)); }
+
+/* ── ULTIMATE PERSONAL BRAND: platinum, by invitation ── */
+.pkg-card[data-tier="ultimate"] { background:linear-gradient(180deg, rgba(20,20,24,0.96) 0%, var(--black-card) 100%); border-color:rgba(210,210,222,0.12); box-shadow:0 4px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(230,230,240,0.07); }
+.pkg-card[data-tier="ultimate"]::before { background:linear-gradient(180deg, rgba(235,235,245,0.2) 0%, rgba(150,150,165,0.03) 45%, rgba(210,210,225,0.1) 100%); }
+.pkg-card[data-tier="ultimate"]:hover { transform:translateY(-3px); }
+.pkg-card[data-tier="ultimate"]:hover::before { background:linear-gradient(180deg, rgba(235,235,245,0.32) 0%, rgba(150,150,165,0.05) 45%, rgba(210,210,225,0.16) 100%); }
+.pkg-card[data-tier="ultimate"]>.card-spot { background:radial-gradient(500px circle at var(--mx) var(--my),rgba(230,230,240,.05),transparent 55%); }
+.pkg-card[data-tier="ultimate"] [class^="focus-bracket-"] { border-color:#B8B8C2; }
+.pkg-card[data-tier="ultimate"] .pkg-thumb img { object-position:52% 50%; filter:grayscale(1) brightness(0.62) contrast(1.08); }
+.pkg-card[data-tier="ultimate"]:hover .pkg-thumb img { transform:scale(1.04); filter:grayscale(0.5) brightness(0.8) contrast(1.05); }
+.pkg-card[data-tier="ultimate"] .pkg-tier-name { background:linear-gradient(100deg, #8E8E98 20%, #F1F1F5 45%, #8E8E98 70%); background-size:250% 100%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:ultSheen 7s linear infinite; }
+.pkg-card[data-tier="ultimate"] .pkg-price { background:linear-gradient(135deg, #EDEDF2, #8E8E98); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+.pkg-card[data-tier="ultimate"] .pkg-currency { -webkit-text-fill-color:#8E8E98; color:#8E8E98; }
+.pkg-card[data-tier="ultimate"] .pkg-tagline, .pkg-card[data-tier="ultimate"] .pkg-features li { color:rgba(205,205,214,0.55); }
+.pkg-card[data-tier="ultimate"] .pkg-features li strong { color:#C4C4CC; }
+.pkg-card[data-tier="ultimate"] .pkg-features li::before { background:#7A7A84; }
+.pkg-card[data-tier="ultimate"] .detail-label { color:#A9A9B3; }
+.pkg-card[data-tier="ultimate"] .btn-book { display:flex; align-items:center; justify-content:center; gap:8px; pointer-events:none; cursor:default; background:repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 7px, rgba(255,255,255,0.045) 7px 14px); border:1px dashed rgba(220,220,230,0.18); color:rgba(225,225,232,0.5); }
+.pkg-card[data-tier="ultimate"] .btn-book::before { display:none; }
+.pkg-card[data-tier="ultimate"] .btn-book svg { width:12px; height:12px; flex-shrink:0; }
+.pkg-badge.invite { background:linear-gradient(135deg,#E6E6EC,#9A9AA4); color:#0b0b0d; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.55); }
+@keyframes ultSheen { to { background-position:-250% 0; } }
+@media (prefers-reduced-motion:reduce) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { animation:none; } }
+@media(max-width:1024px) {
+  .pkg-card[data-tier="ultimate"] .pkg-thumb img { filter:grayscale(1) brightness(0.7) contrast(1.06) !important; }
+  .pkg-card[data-tier="ultimate"]:hover .pkg-thumb img, .pkg-card[data-tier="ultimate"]:active .pkg-thumb img { filter:grayscale(0.5) brightness(0.82) contrast(1.05) !important; }
+}
+@media(min-width:1025px) {
+  .pkg-card[data-tier="ultimate"] { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+  .pkg-card[data-tier="ultimate"] .pkg-thumb { aspect-ratio:auto; min-height:100%; }
+  .pkg-card[data-tier="ultimate"] .pkg-thumb::after { top:0; left:auto; right:0; width:40%; height:100%; background:linear-gradient(to left, var(--black-card) 0%, transparent 100%); }
+  .pkg-card[data-tier="ultimate"] .pkg-expand { grid-column:1/-1; }
+  .pkg-card[data-tier="ultimate"] .pkg-badge { right:auto; left:18px; }
+}
 
 .btn-details { background:none; border:none; color:var(--text-muted); font-size:11px; font-weight:400; cursor:pointer; padding:6px; letter-spacing:0.5px; transition:color 0.3s ease; font-family:var(--font-body); }
 .btn-details:hover { color:var(--text-secondary); }
@@ -782,7 +819,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 <section class="packages-section" id="packages" data-section="packages">
   <div class="packages-header reveal">
     <p class="section-overline">選擇您的體驗</p>
-    <h2>五個級別的 <em>卓越</em></h2>
+    <h2>六個級別的 <em>卓越</em></h2>
     <p class="pkg-hint">點擊任一套餐的 <strong>更多資訊</strong> 查看完整詳情</p>
   </div>
 
@@ -948,6 +985,43 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
         <div class="detail-block"><span class="detail-label">付款</span><p>賽事前支付 50% 不可退款定金。交付時支付 50% 餘額。</p></div>
         <div class="detail-block"><span class="detail-label">為什麼只有2個名額</span><p>這種敘事形式製作量非常大，所以每場活動嚴格只接2位客戶。</p></div>
         <div class="detail-block"><span class="detail-label">交付佇列</span><div class="dq-grid"><div class="dq-slot ok"><strong>第1至5個名額</strong>在預訂時同意的個人製作日曆</div><div class="dq-slot wait"><strong>第6個名額及以後</strong>1至2週</div></div><p class="dq-note">由於只有2個位置可用，您的製作時間表在預訂時單獨商定。所有客戶的照片庫在活動當天交付。</p></div>
+      </div></div>
+    </div>
+  </div>
+  <div class="pkg-row-ult">
+    <div class="pkg-card" data-tier="ultimate">
+      <span class="pkg-badge invite">僅限受邀</span>
+      <div class="pkg-thumb"><img src="img/pkg-ultimate.webp" width="1200" height="960" loading="lazy" decoding="async" alt="Ultimate Personal Brand"></div>
+      <div class="pkg-inner">
+        <p class="pkg-tier-name">Ultimate Personal Brand</p>
+        <p class="pkg-price">1,800 <span class="pkg-currency">CHF</span></p>
+        <p class="pkg-tagline">以您的故事為核心打造的電影級個人網站。一價全包。</p>
+        <ul class="pkg-features">
+          <li><strong>全客製化個人網站</strong></li>
+          <li>您的故事、理念與榮譽</li>
+          <li><strong>建立口碑信任的品牌介紹影片</strong></li>
+          <li>互動 VFX 與精緻 SFX</li>
+          <li>在我的瑞士工作室專業製作音效</li>
+          <li>以您本人的聲音迎接訪客</li>
+          <li>多語系，自動偵測語言</li>
+          <li><strong>首年網站主機與網域免費</strong></li>
+        </ul>
+        <div class="pkg-actions">
+          <a class="btn-book" aria-disabled="true" tabindex="-1"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5"/></svg>舊客戶限定</a>
+          <button class="btn-details" onclick="toggleDetails(this)">更多資訊 &#9662;</button>
+        </div>
+      </div>
+      <div class="pkg-expand"><div class="pkg-expand-inner">
+        <h4>Ultimate Personal Brand · 完整詳情</h4>
+        <div class="detail-block"><span class="detail-label">僅限受邀</span><p>本套餐僅開放給曾至少預訂過一次我的攝影與影片拍攝的按摩師。我為您拍攝的照片與影片，正是打造您網站的素材，因此無法在沒有合作基礎的情況下直接預訂。名額有限，僅透過個人邀請開放。</p></div>
+        <div class="detail-block"><span class="detail-label">您將獲得</span><p>以您為核心、從零開始設計打造的全客製化個人網站，絕不套用模板。它述說您的人生故事與職業歷程、您手法背後的理念、您熱愛的事物，以及您贏得的頭銜與獎項。訪客感受到的，是手法背後的那個人，而不只是一份服務清單。</p></div>
+        <div class="detail-block"><span class="detail-label">品牌介紹影片</span><p>以您的素材專門製作剪輯的介紹影片，訪客一進入網站，就能看見您的事業並立刻建立信任：您的頭銜、您的作品，以及他人早已給予您的信賴。</p></div>
+        <div class="detail-block"><span class="detail-label">沉浸體驗</span><p>互動元素、視覺特效與恰到好處的音效，將訪客帶進您的世界。每一個聲音都在我位於瑞士的工作室，以真正的聲音工程精心打造。第一次造訪的訪客，還能聽到您親自錄製的簡短自我介紹。</p><p style="margin-top:8px;">這種程度的客製化在您的產業中前所未見，讓您脫穎而出。新客人從第一秒就能感受到差異，您也更有底氣訂出高端價格。</p></div>
+        <div class="detail-block"><span class="detail-label">多語系</span><p>網站會讀取每位訪客的瀏覽器語言，第一時間呈現對應的語言版本。支援的語言會在開始製作前與您確認。</p></div>
+        <div class="detail-block"><span class="detail-label">與您共創</span><p>最終版本依照您的回饋與想法逐步成形。我會反覆琢磨細節，直到它一看就是您。您母語的版本，由您親自審閱關鍵文字，確保讀起來自然道地，毫無翻譯腔。</p></div>
+        <div class="detail-block"><span class="detail-label">一價全包</span><p>1,800 CHF 涵蓋設計、網站建置、品牌介紹影片、視覺特效、聲音設計、商定的語言版本與上線，並免費贈送首年網站主機與網域。</p></div>
+        <div class="detail-block"><span class="detail-label">修改</span><p>首次完整預覽後可修改2輪。確認後再更改概念或架構的要求，不算修改。</p></div>
+        <div class="detail-block"><span class="detail-label">付款與時程</span><p>支付 50% 不可退款定金以保留您的製作檔期。上線前支付 50% 餘額。製作時程個別商定。</p></div>
       </div></div>
     </div>
   </div>
@@ -1635,7 +1709,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModa
     var athumb=document.querySelector('.pkg-card[data-tier="authority"] .pkg-thumb');
     if(rib&&athumb)athumb.appendChild(rib);
     var header=document.querySelector('.packages-header');
-    var cards=[].slice.call(document.querySelectorAll('.pkg-card'));
+    var cards=[].slice.call(document.querySelectorAll('.pkg-card:not([data-tier="ultimate"])'));
     if(header&&cards.length){
       document.querySelector('.packages-section').classList.add('icv3-has-carousel');
       var hint=document.createElement('p');hint.className='icv3-swipehint';hint.textContent=T.hint;

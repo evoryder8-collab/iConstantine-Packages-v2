@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta name="description" content="Vidéo et photographie de qualité cinéma pour les championnats de massage dans le monde entier. Cinq forfaits, couverture prioritaire et livraison rapide.">
+<meta name="description" content="Vidéo et photographie de qualité cinéma pour les championnats de massage dans le monde entier. Six forfaits, couverture prioritaire et livraison rapide.">
 <link rel="canonical" href="https://iconstantine.ch/frenchfacts">
 <link rel="alternate" hreflang="en" href="https://iconstantine.ch/english">
 <link rel="alternate" hreflang="de" href="https://iconstantine.ch/german">
@@ -29,7 +29,7 @@
 <link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="iCONSTANTINE | Forfaits Médias Championnats">
-<meta property="og:description" content="Vidéo et photographie de qualité cinéma pour les championnats de massage dans le monde entier. Cinq forfaits, couverture prioritaire et livraison rapide.">
+<meta property="og:description" content="Vidéo et photographie de qualité cinéma pour les championnats de massage dans le monde entier. Six forfaits, couverture prioritaire et livraison rapide.">
 <meta property="og:url" content="https://iconstantine.ch/frenchfacts">
 <meta property="og:image" content="https://iconstantine.ch/img/og-image.jpg">
 <meta name="twitter:card" content="summary">
@@ -167,11 +167,14 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 /* ── TOP ROW: 3 cards (Starter, Essential, Authority featured) ── */
 .pkg-row-top { display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-bottom:18px; }
 /* ── BOTTOM ROW: 2 cards centered ── */
-.pkg-row-bot { display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:880px; margin:0 auto 80px; }
+.pkg-row-bot { display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:880px; margin:0 auto 18px; }
+/* ── ULTIMATE ROW: 1 wide card centered ── */
+.pkg-row-ult { max-width:880px; margin:0 auto 80px; }
 
 @media(max-width:1024px) {
   .pkg-row-top { grid-template-columns:1fr; max-width:480px; margin:0 auto 18px; }
-  .pkg-row-bot { grid-template-columns:1fr; max-width:480px; margin:0 auto 60px; }
+  .pkg-row-bot { grid-template-columns:1fr; max-width:480px; margin:0 auto 18px; }
+  .pkg-row-ult { max-width:480px; margin:0 auto 60px; }
 }
 
 /* ═══════ PACKAGE CARDS ═══════ */
@@ -260,6 +263,40 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="showcase"] .btn-book:hover { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.2); }
 .pkg-card[data-tier="signature"] .btn-book { background:linear-gradient(135deg, rgba(100,120,220,0.12), rgba(100,120,220,0.2)); color:#B8C8FF; border:1px solid rgba(100,120,220,0.2); }
 .pkg-card[data-tier="signature"] .btn-book:hover { background:linear-gradient(135deg, rgba(100,120,220,0.2), rgba(100,120,220,0.3)); }
+
+/* ── ULTIMATE PERSONAL BRAND: platinum, by invitation ── */
+.pkg-card[data-tier="ultimate"] { background:linear-gradient(180deg, rgba(20,20,24,0.96) 0%, var(--black-card) 100%); border-color:rgba(210,210,222,0.12); box-shadow:0 4px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(230,230,240,0.07); }
+.pkg-card[data-tier="ultimate"]::before { background:linear-gradient(180deg, rgba(235,235,245,0.2) 0%, rgba(150,150,165,0.03) 45%, rgba(210,210,225,0.1) 100%); }
+.pkg-card[data-tier="ultimate"]:hover { transform:translateY(-3px); }
+.pkg-card[data-tier="ultimate"]:hover::before { background:linear-gradient(180deg, rgba(235,235,245,0.32) 0%, rgba(150,150,165,0.05) 45%, rgba(210,210,225,0.16) 100%); }
+.pkg-card[data-tier="ultimate"]>.card-spot { background:radial-gradient(500px circle at var(--mx) var(--my),rgba(230,230,240,.05),transparent 55%); }
+.pkg-card[data-tier="ultimate"] [class^="focus-bracket-"] { border-color:#B8B8C2; }
+.pkg-card[data-tier="ultimate"] .pkg-thumb img { object-position:52% 50%; filter:grayscale(1) brightness(0.62) contrast(1.08); }
+.pkg-card[data-tier="ultimate"]:hover .pkg-thumb img { transform:scale(1.04); filter:grayscale(0.5) brightness(0.8) contrast(1.05); }
+.pkg-card[data-tier="ultimate"] .pkg-tier-name { background:linear-gradient(100deg, #8E8E98 20%, #F1F1F5 45%, #8E8E98 70%); background-size:250% 100%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:ultSheen 7s linear infinite; }
+.pkg-card[data-tier="ultimate"] .pkg-price { background:linear-gradient(135deg, #EDEDF2, #8E8E98); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+.pkg-card[data-tier="ultimate"] .pkg-currency { -webkit-text-fill-color:#8E8E98; color:#8E8E98; }
+.pkg-card[data-tier="ultimate"] .pkg-tagline, .pkg-card[data-tier="ultimate"] .pkg-features li { color:rgba(205,205,214,0.55); }
+.pkg-card[data-tier="ultimate"] .pkg-features li strong { color:#C4C4CC; }
+.pkg-card[data-tier="ultimate"] .pkg-features li::before { background:#7A7A84; }
+.pkg-card[data-tier="ultimate"] .detail-label { color:#A9A9B3; }
+.pkg-card[data-tier="ultimate"] .btn-book { display:flex; align-items:center; justify-content:center; gap:8px; pointer-events:none; cursor:default; background:repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 7px, rgba(255,255,255,0.045) 7px 14px); border:1px dashed rgba(220,220,230,0.18); color:rgba(225,225,232,0.5); }
+.pkg-card[data-tier="ultimate"] .btn-book::before { display:none; }
+.pkg-card[data-tier="ultimate"] .btn-book svg { width:12px; height:12px; flex-shrink:0; }
+.pkg-badge.invite { background:linear-gradient(135deg,#E6E6EC,#9A9AA4); color:#0b0b0d; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.55); }
+@keyframes ultSheen { to { background-position:-250% 0; } }
+@media (prefers-reduced-motion:reduce) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { animation:none; } }
+@media(max-width:1024px) {
+  .pkg-card[data-tier="ultimate"] .pkg-thumb img { filter:grayscale(1) brightness(0.7) contrast(1.06) !important; }
+  .pkg-card[data-tier="ultimate"]:hover .pkg-thumb img, .pkg-card[data-tier="ultimate"]:active .pkg-thumb img { filter:grayscale(0.5) brightness(0.82) contrast(1.05) !important; }
+}
+@media(min-width:1025px) {
+  .pkg-card[data-tier="ultimate"] { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+  .pkg-card[data-tier="ultimate"] .pkg-thumb { aspect-ratio:auto; min-height:100%; }
+  .pkg-card[data-tier="ultimate"] .pkg-thumb::after { top:0; left:auto; right:0; width:40%; height:100%; background:linear-gradient(to left, var(--black-card) 0%, transparent 100%); }
+  .pkg-card[data-tier="ultimate"] .pkg-expand { grid-column:1/-1; }
+  .pkg-card[data-tier="ultimate"] .pkg-badge { right:auto; left:18px; }
+}
 
 .btn-details { background:none; border:none; color:var(--text-muted); font-size:11px; font-weight:400; cursor:pointer; padding:6px; letter-spacing:0.5px; transition:color 0.3s ease; font-family:var(--font-body); }
 .btn-details:hover { color:var(--text-secondary); }
@@ -770,7 +807,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 <section class="packages-section" data-section="packages" id="packages">
 <div class="packages-header reveal">
 <p class="section-overline">Choisissez Votre Expérience</p>
-<h2>Cinq Niveaux d' <em>Excellence</em></h2>
+<h2>Six Niveaux d' <em>Excellence</em></h2>
 <p class="pkg-hint">Appuyez sur <strong>Plus d'infos</strong> sur n'importe quel forfait pour tous les détails</p>
 </div>
 <!-- TOP ROW: Starter · Essential · Authority (featured) -->
@@ -922,7 +959,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 <h4>Signature · Détails complets</h4>
 <div class="detail-block"><span class="detail-label">Comment fonctionne la couverture</span><p>J'interviens comme cinéaste mobile tout au long de l'événement en direct, capturant l'intensité brute de la compétition sur toutes les scènes et dans toutes les catégories. L'achat d'un forfait vous garantit un <strong>statut prioritaire</strong> : je donne strictement la priorité aux visites de table pour les clients ayant réservé, avant les participants sans réservation.</p><p style="margin-top:8px;"><strong>Plus de catégories = plus de couverture.</strong> Je visiterai votre table plusieurs fois au cours de chacun de vos tours de catégorie. Si vous concourez dans plusieurs catégories, vous accumulez naturellement plus de visites, donc plus d'images et de photos. Monter sur scène pour recevoir une récompense ajoute également du temps d'enregistrement et des occasions de photos supplémentaires.</p><p style="margin-top:8px;font-size:11px;color:var(--text-muted);">Remarque : je conserve une autonomie créative pour couvrir brièvement les juges, les réactions du public et d'autres temps forts afin de capturer toute l'atmosphère. Je ne peux pas rester en continu à une seule table, car il s'agit d'un événement en direct multi-tables.</p></div>
 <div class="detail-block"><span class="detail-label">Ce Que Vous Obtenez</span><p>Un documentaire cinématographique de marque personnelle conçu pour vous positionner comme une autorité dans votre domaine. Vous recevez également les fichiers masters Full HD vertical + 4K Landscape + votre documentaire finalisé.</p></div>
-<div class="detail-block"><span class="detail-label">Portata Narrativa</span><p>Le film construit une trame puissante en fusionnant l'intensité du championnat en direct avec une mise en valeur de vos réussites passées et de votre parcours professionnel. Il vous positionne comme une autorité du secteur et renforce votre marque personnelle en reliant votre histoire à votre performance actuelle.</p></div>
+<div class="detail-block"><span class="detail-label">Portée narrative</span><p>Le film construit une trame puissante en fusionnant l'intensité du championnat en direct avec une mise en valeur de vos réussites passées et de votre parcours professionnel. Il vous positionne comme une autorité du secteur et renforce votre marque personnelle en reliant votre histoire à votre performance actuelle.</p></div>
 <div class="detail-block"><span class="detail-label">Spécifications</span><p>Voix off professionnelle et montage cinématographique. Durée adaptée au flux narratif avec un maximum strict de 5 minutes. Livré aux formats horizontal et vertical.</p></div>
 <div class="detail-block"><span class="detail-label">Direction Créative</span><p>Je conserve l'autorité créative finale sur la structure du récit afin que le film réponde aux standards cinématographiques du personal branding haut de gamme. Vous fournissez 1 à 2 références visuelles ou ambiances musicales avant le début du montage.</p></div>
 <div class="detail-block"><span class="detail-label">Révisions</span><p>2 cycles d'ajustements. Les demandes nécessitant une reconstruction complète de la timeline ou un changement narratif total ne sont pas des révisions. Nous nous accordons sur l'ambiance avant la première coupe.</p></div>
@@ -932,6 +969,43 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 </div></div>
 </div>
 </div>
+  <div class="pkg-row-ult">
+    <div class="pkg-card" data-tier="ultimate">
+      <span class="pkg-badge invite">Sur invitation</span>
+      <div class="pkg-thumb"><img src="img/pkg-ultimate.webp" width="1200" height="960" loading="lazy" decoding="async" alt="Ultimate Personal Brand"></div>
+      <div class="pkg-inner">
+        <p class="pkg-tier-name">Ultimate Personal Brand</p>
+        <p class="pkg-price">1,800 <span class="pkg-currency">CHF</span></p>
+        <p class="pkg-tagline">Votre propre site cinématographique, conçu autour de votre histoire. Tout compris.</p>
+        <ul class="pkg-features">
+          <li><strong>Site personnel entièrement sur mesure</strong></li>
+          <li>Votre histoire, votre philosophie, vos distinctions</li>
+          <li><strong>Vidéo de présentation, preuve sociale à l'appui</strong></li>
+          <li>VFX interactifs et SFX raffinés</li>
+          <li>Son travaillé dans mon studio en Suisse</li>
+          <li>Message d'accueil avec votre propre voix</li>
+          <li>Multilingue avec détection automatique de la langue</li>
+          <li><strong>1 an d'hébergement et nom de domaine offerts</strong></li>
+        </ul>
+        <div class="pkg-actions">
+          <a class="btn-book" aria-disabled="true" tabindex="-1"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5"/></svg>Réservé aux clients existants</a>
+          <button class="btn-details" onclick="toggleDetails(this)">Plus d'infos ▾</button>
+        </div>
+      </div>
+      <div class="pkg-expand"><div class="pkg-expand-inner">
+        <h4>Ultimate Personal Brand · Détails complets</h4>
+        <div class="detail-block"><span class="detail-label">Sur Invitation</span><p>Réservé aux praticiens qui ont déjà fait appel à moi au moins une fois pour une couverture photo et vidéo. Les photos et les films que j'ai réalisés de vous deviennent la matière première de votre site : c'est pourquoi ce forfait ne peut pas être réservé sans collaboration préalable. Les places sont limitées et proposées uniquement sur invitation personnelle.</p></div>
+        <div class="detail-block"><span class="detail-label">Ce Que Vous Obtenez</span><p>Un site personnel entièrement sur mesure, conçu et développé de A à Z autour de vous. Aucun modèle. Il raconte votre histoire et votre parcours professionnel, la philosophie qui guide vos soins, ce qui vous passionne, ainsi que les titres et distinctions que vous avez remportés. Vos visiteurs perçoivent la personne derrière les soins, pas une simple liste de prestations.</p></div>
+        <div class="detail-block"><span class="detail-label">Vidéo de Présentation</span><p>Une vidéo de présentation dédiée, créée et montée à partir de vos images, qui met en valeur votre activité et installe la preuve sociale dès l'arrivée des visiteurs : vos titres, votre travail et la confiance que d'autres vous accordent déjà.</p></div>
+        <div class="detail-block"><span class="detail-label">L'Expérience</span><p>Des éléments interactifs, des effets visuels et des effets sonores raffinés plongent vos visiteurs dans votre univers. Chaque son est façonné par un véritable travail d'ingénierie sonore dans mon studio en Suisse. Lors de leur première visite, ils peuvent être accueillis par votre propre voix, le temps d'une courte présentation personnelle.</p><p style="margin-top:8px;">Un tel niveau de personnalisation est sans équivalent dans votre secteur et vous fera sortir du lot. Les nouveaux clients ressentent la différence dès la première seconde, et vous gagnez la légitimité nécessaire pour pratiquer des tarifs premium.</p></div>
+        <div class="detail-block"><span class="detail-label">Multilingue</span><p>Votre site détecte la langue du navigateur de chaque visiteur et affiche la bonne version dès le premier instant. Les langues sont définies avec vous avant le début de la production.</p></div>
+        <div class="detail-block"><span class="detail-label">Conçu Avec Vous</span><p>La version finale prend forme à partir de vos retours et de votre vision. J'affine chaque détail jusqu'à ce que le site vous ressemble trait pour trait. Dans votre langue maternelle, vous relisez vous-même les textes clés pour qu'ils sonnent juste, jamais comme une traduction.</p></div>
+        <div class="detail-block"><span class="detail-label">Tout Compris</span><p>1,800 CHF couvrent le design, le développement, votre vidéo de présentation, les effets visuels, la conception sonore, les langues convenues et la mise en ligne, ainsi que votre première année d'hébergement et votre nom de domaine, offerts.</p></div>
+        <div class="detail-block"><span class="detail-label">Révisions</span><p>2 cycles d'ajustements après votre premier aperçu complet. Les demandes qui modifient le concept ou la structure après validation ne sont pas des révisions.</p></div>
+        <div class="detail-block"><span class="detail-label">Paiement &amp; Calendrier</span><p>Acompte de 50 % non remboursable pour réserver votre créneau de production. Solde de 50 % avant la mise en ligne. Votre calendrier de production est convenu individuellement.</p></div>
+      </div></div>
+    </div>
+  </div>
 </section>
 <!-- ═══════ ADD-ONS ═══════ -->
 <section class="addons-section reveal" data-section="addons" id="addons">
@@ -1608,7 +1682,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModa
     var athumb=document.querySelector('.pkg-card[data-tier="authority"] .pkg-thumb');
     if(rib&&athumb)athumb.appendChild(rib);
     var header=document.querySelector('.packages-header');
-    var cards=[].slice.call(document.querySelectorAll('.pkg-card'));
+    var cards=[].slice.call(document.querySelectorAll('.pkg-card:not([data-tier="ultimate"])'));
     if(header&&cards.length){
       document.querySelector('.packages-section').classList.add('icv3-has-carousel');
       var hint=document.createElement('p');hint.className='icv3-swipehint';hint.textContent=T.hint;

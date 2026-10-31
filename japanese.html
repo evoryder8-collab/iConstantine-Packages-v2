@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="世界中のマッサージ選手権のための映画品質の映像と写真。5つのパッケージ、優先撮影、迅速な納品。撮影：Constantin Barbu。">
+<meta name="description" content="世界中のマッサージ選手権のための映画品質の映像と写真。6つのパッケージ、優先撮影、迅速な納品。撮影：Constantin Barbu。">
 <link rel="canonical" href="https://iconstantine.ch/japanese">
 <link rel="alternate" hreflang="en" href="https://iconstantine.ch/english">
 <link rel="alternate" hreflang="de" href="https://iconstantine.ch/german">
@@ -28,7 +28,7 @@
 <link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="iCONSTANTINE | 大会向けメディアパッケージ">
-<meta property="og:description" content="世界中のマッサージ選手権のための映画品質の映像と写真。5つのパッケージ、優先撮影、迅速な納品。撮影：Constantin Barbu。">
+<meta property="og:description" content="世界中のマッサージ選手権のための映画品質の映像と写真。6つのパッケージ、優先撮影、迅速な納品。撮影：Constantin Barbu。">
 <meta property="og:url" content="https://iconstantine.ch/japanese">
 <meta property="og:image" content="https://iconstantine.ch/img/og-image.jpg">
 <meta name="twitter:card" content="summary">
@@ -166,11 +166,14 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 /* ── TOP ROW: 3 cards (スターター, Essential, オーソリティ featured) ── */
 .pkg-row-top { display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-bottom:18px; }
 /* ── BOTTOM ROW: 2 cards centered ── */
-.pkg-row-bot { display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:880px; margin:0 auto 80px; }
+.pkg-row-bot { display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:880px; margin:0 auto 18px; }
+/* ── ULTIMATE ROW: 1 wide card centered ── */
+.pkg-row-ult { max-width:880px; margin:0 auto 80px; }
 
 @media(max-width:1024px) {
   .pkg-row-top { grid-template-columns:1fr; max-width:480px; margin:0 auto 18px; }
-  .pkg-row-bot { grid-template-columns:1fr; max-width:480px; margin:0 auto 60px; }
+  .pkg-row-bot { grid-template-columns:1fr; max-width:480px; margin:0 auto 18px; }
+  .pkg-row-ult { max-width:480px; margin:0 auto 60px; }
 }
 
 /* ═══════ PACKAGE CARDS ═══════ */
@@ -259,6 +262,40 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="showcase"] .btn-book:hover { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.2); }
 .pkg-card[data-tier="signature"] .btn-book { background:linear-gradient(135deg, rgba(100,120,220,0.12), rgba(100,120,220,0.2)); color:#B8C8FF; border:1px solid rgba(100,120,220,0.2); }
 .pkg-card[data-tier="signature"] .btn-book:hover { background:linear-gradient(135deg, rgba(100,120,220,0.2), rgba(100,120,220,0.3)); }
+
+/* ── ULTIMATE PERSONAL BRAND: platinum, by invitation ── */
+.pkg-card[data-tier="ultimate"] { background:linear-gradient(180deg, rgba(20,20,24,0.96) 0%, var(--black-card) 100%); border-color:rgba(210,210,222,0.12); box-shadow:0 4px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(230,230,240,0.07); }
+.pkg-card[data-tier="ultimate"]::before { background:linear-gradient(180deg, rgba(235,235,245,0.2) 0%, rgba(150,150,165,0.03) 45%, rgba(210,210,225,0.1) 100%); }
+.pkg-card[data-tier="ultimate"]:hover { transform:translateY(-3px); }
+.pkg-card[data-tier="ultimate"]:hover::before { background:linear-gradient(180deg, rgba(235,235,245,0.32) 0%, rgba(150,150,165,0.05) 45%, rgba(210,210,225,0.16) 100%); }
+.pkg-card[data-tier="ultimate"]>.card-spot { background:radial-gradient(500px circle at var(--mx) var(--my),rgba(230,230,240,.05),transparent 55%); }
+.pkg-card[data-tier="ultimate"] [class^="focus-bracket-"] { border-color:#B8B8C2; }
+.pkg-card[data-tier="ultimate"] .pkg-thumb img { object-position:52% 50%; filter:grayscale(1) brightness(0.62) contrast(1.08); }
+.pkg-card[data-tier="ultimate"]:hover .pkg-thumb img { transform:scale(1.04); filter:grayscale(0.5) brightness(0.8) contrast(1.05); }
+.pkg-card[data-tier="ultimate"] .pkg-tier-name { background:linear-gradient(100deg, #8E8E98 20%, #F1F1F5 45%, #8E8E98 70%); background-size:250% 100%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:ultSheen 7s linear infinite; }
+.pkg-card[data-tier="ultimate"] .pkg-price { background:linear-gradient(135deg, #EDEDF2, #8E8E98); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+.pkg-card[data-tier="ultimate"] .pkg-currency { -webkit-text-fill-color:#8E8E98; color:#8E8E98; }
+.pkg-card[data-tier="ultimate"] .pkg-tagline, .pkg-card[data-tier="ultimate"] .pkg-features li { color:rgba(205,205,214,0.55); }
+.pkg-card[data-tier="ultimate"] .pkg-features li strong { color:#C4C4CC; }
+.pkg-card[data-tier="ultimate"] .pkg-features li::before { background:#7A7A84; }
+.pkg-card[data-tier="ultimate"] .detail-label { color:#A9A9B3; }
+.pkg-card[data-tier="ultimate"] .btn-book { display:flex; align-items:center; justify-content:center; gap:8px; pointer-events:none; cursor:default; background:repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 7px, rgba(255,255,255,0.045) 7px 14px); border:1px dashed rgba(220,220,230,0.18); color:rgba(225,225,232,0.5); }
+.pkg-card[data-tier="ultimate"] .btn-book::before { display:none; }
+.pkg-card[data-tier="ultimate"] .btn-book svg { width:12px; height:12px; flex-shrink:0; }
+.pkg-badge.invite { background:linear-gradient(135deg,#E6E6EC,#9A9AA4); color:#0b0b0d; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.55); }
+@keyframes ultSheen { to { background-position:-250% 0; } }
+@media (prefers-reduced-motion:reduce) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { animation:none; } }
+@media(max-width:1024px) {
+  .pkg-card[data-tier="ultimate"] .pkg-thumb img { filter:grayscale(1) brightness(0.7) contrast(1.06) !important; }
+  .pkg-card[data-tier="ultimate"]:hover .pkg-thumb img, .pkg-card[data-tier="ultimate"]:active .pkg-thumb img { filter:grayscale(0.5) brightness(0.82) contrast(1.05) !important; }
+}
+@media(min-width:1025px) {
+  .pkg-card[data-tier="ultimate"] { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+  .pkg-card[data-tier="ultimate"] .pkg-thumb { aspect-ratio:auto; min-height:100%; }
+  .pkg-card[data-tier="ultimate"] .pkg-thumb::after { top:0; left:auto; right:0; width:40%; height:100%; background:linear-gradient(to left, var(--black-card) 0%, transparent 100%); }
+  .pkg-card[data-tier="ultimate"] .pkg-expand { grid-column:1/-1; }
+  .pkg-card[data-tier="ultimate"] .pkg-badge { right:auto; left:18px; }
+}
 
 .btn-details { background:none; border:none; color:var(--text-muted); font-size:11px; font-weight:400; cursor:pointer; padding:6px; letter-spacing:0.5px; transition:color 0.3s ease; font-family:var(--font-body); }
 .btn-details:hover { color:var(--text-secondary); }
@@ -782,7 +819,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 <section class="packages-section" id="packages" data-section="packages">
   <div class="packages-header reveal">
     <p class="section-overline">プランを選ぶ</p>
-    <h2>5段階の <em>卓越性</em></h2>
+    <h2>6段階の <em>卓越性</em></h2>
     <p class="pkg-hint">各パッケージの <strong>詳細を表示</strong> をタップすると、すべての詳細をご覧いただけます</p>
   </div>
 
@@ -948,6 +985,43 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
         <div class="detail-block"><span class="detail-label">支払い</span><p>イベント前に 50% の返金不可デポジット。配信時に 50% の残高をお支払いください。</p></div>
         <div class="detail-block"><span class="detail-label">なぜわずか2スロット</span><p>この形式は制作の負荷が非常に大きいため、1イベントにつきお客様2名様までに限定しています。</p></div>
         <div class="detail-block"><span class="detail-label">配信待ち</span><div class="dq-grid"><div class="dq-slot ok"><strong>枠 1〜5</strong>ブッキング時に合意された個別の制作カレンダー</div><div class="dq-slot wait"><strong>枠 6以降</strong>1〜2週間</div></div><p class="dq-note">利用可能なスロットがわずか2つのため、あなたの制作タイムラインはブッキング時に個別に合意されます。写真ギャラリーはすべてのクライアントのイベント当日に配信されます。</p></div>
+      </div></div>
+    </div>
+  </div>
+  <div class="pkg-row-ult">
+    <div class="pkg-card" data-tier="ultimate">
+      <span class="pkg-badge invite">完全招待制</span>
+      <div class="pkg-thumb"><img src="img/pkg-ultimate.webp" width="1200" height="960" loading="lazy" decoding="async" alt="アルティメット・パーソナルブランド"></div>
+      <div class="pkg-inner">
+        <p class="pkg-tier-name">アルティメット・パーソナルブランド</p>
+        <p class="pkg-price">1,800 <span class="pkg-currency">CHF</span></p>
+        <p class="pkg-tagline">あなたの物語を、映画のようなウェブサイトに。制作から公開まで、すべて込み。</p>
+        <ul class="pkg-features">
+          <li><strong>完全オーダーメイドのウェブサイト</strong></li>
+          <li>あなたの歩み、施術へのこだわり、受賞歴</li>
+          <li><strong>実績と信頼を伝える紹介映像</strong></li>
+          <li>インタラクティブなVFXと上質なSFX</li>
+          <li>スイスの自社スタジオで仕上げるサウンド</li>
+          <li>あなた自身の声でお出迎え</li>
+          <li>言語を自動判別する多言語対応</li>
+          <li><strong>サーバー・ドメイン費用1年間無料</strong></li>
+        </ul>
+        <div class="pkg-actions">
+          <a class="btn-book" aria-disabled="true" tabindex="-1"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5"/></svg>既存のお客様限定</a>
+          <button class="btn-details" onclick="toggleDetails(this)">詳細を表示 &#9662;</button>
+        </div>
+      </div>
+      <div class="pkg-expand"><div class="pkg-expand-inner">
+        <h4>アルティメット・パーソナルブランド · 詳細</h4>
+        <div class="detail-block"><span class="detail-label">完全招待制</span><p>過去に写真・映像撮影をご予約いただいたことのあるセラピストの方だけのパッケージです。私が撮影したあなたの写真と映像が、そのままウェブサイトの素材になります。そのため、初めてのご予約でこのパッケージをお選びいただくことはできません。枠には限りがあり、個別にご招待のご連絡を差し上げます。</p></div>
+        <div class="detail-block"><span class="detail-label">提供内容</span><p>あなたのためだけにゼロから設計・制作する、完全オーダーメイドのウェブサイトです。テンプレートは一切使いません。あなたの人生とキャリアの歩み、施術に込めた哲学、好きなこと、そしてこれまでに勝ち取ったタイトルや受賞歴を伝えます。訪れた人が感じ取るのは、ただのメニュー一覧ではなく、施術の向こうにいるあなた自身です。</p></div>
+        <div class="detail-block"><span class="detail-label">ビジネス紹介映像</span><p>あなたの映像素材から制作・編集する、専用の紹介映像です。サイトを訪れたその瞬間に、あなたのビジネスと確かな実績を伝えます。獲得したタイトル、あなたの仕事ぶり、そしてすでに多くの方から寄せられている信頼を、ひと目で。</p></div>
+        <div class="detail-block"><span class="detail-label">サイト体験</span><p>インタラクティブな仕掛け、視覚効果、上質な効果音が、訪れた人をあなたの世界へと引き込みます。サウンドはすべて、スイスにある私のスタジオで、本格的な音響技術を駆使して一つひとつ作り込みます。初めて訪れた方を、あなた自身の声による短い自己紹介でお迎えすることもできます。</p><p style="margin-top:8px;">これほどのオーダーメイドは業界でも類を見ないもので、あなたをひときわ際立たせます。新しいお客様は最初の一秒からその違いを感じ取り、ワンランク上の料金設定にも説得力が生まれます。</p></div>
+        <div class="detail-block"><span class="detail-label">多言語対応</span><p>訪れた人のブラウザの言語設定を読み取り、最初の瞬間から最適な言語で表示します。対応言語は、制作を始める前にご相談のうえ決定します。</p></div>
+        <div class="detail-block"><span class="detail-label">あなたと創る</span><p>最終的な仕上がりは、あなたご自身のご意見とビジョンをもとに形にしていきます。紛れもなく「あなたらしい」と感じられるまで、細部を磨き上げます。母国語のページは主要な文章をご自身でご確認いただき、翻訳調ではない自然な文章に仕上げます。</p></div>
+        <div class="detail-block"><span class="detail-label">すべて込み</span><p>1,800 CHF には、デザイン、サイト制作、ビジネス紹介映像、視覚効果、サウンドデザイン、お打ち合わせで決めた対応言語、公開作業までがすべて含まれます。さらに、初年度のサーバー費用とドメイン費用も無料です。</p></div>
+        <div class="detail-block"><span class="detail-label">修正</span><p>最初にサイト全体をご覧いただいた後、修正は2回まで承ります。ご承認後にコンセプトや構成を変更するご依頼は、修正に含まれません。</p></div>
+        <div class="detail-block"><span class="detail-label">支払い・スケジュール</span><p>制作枠の確保のため、50%を返金不可のデポジットとしてお支払いいただきます。残りの50%は公開前にお支払いください。制作スケジュールは、お一人おひとりと個別に調整します。</p></div>
       </div></div>
     </div>
   </div>
@@ -1635,7 +1709,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModa
     var athumb=document.querySelector('.pkg-card[data-tier="authority"] .pkg-thumb');
     if(rib&&athumb)athumb.appendChild(rib);
     var header=document.querySelector('.packages-header');
-    var cards=[].slice.call(document.querySelectorAll('.pkg-card'));
+    var cards=[].slice.call(document.querySelectorAll('.pkg-card:not([data-tier="ultimate"])'));
     if(header&&cards.length){
       document.querySelector('.packages-section').classList.add('icv3-has-carousel');
       var hint=document.createElement('p');hint.className='icv3-swipehint';hint.textContent=T.hint;

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Video a fotografie kinematografické kvality pro šampionáty masáží po celém světě. Pět balíčků, prioritní pokrytí a rychlé dodání.">
+<meta name="description" content="Video a fotografie kinematografické kvality pro šampionáty masáží po celém světě. Šest balíčků, prioritní pokrytí a rychlé dodání.">
 <link rel="canonical" href="https://iconstantine.ch/czech">
 <link rel="alternate" hreflang="en" href="https://iconstantine.ch/english">
 <link rel="alternate" hreflang="de" href="https://iconstantine.ch/german">
@@ -28,7 +28,7 @@
 <link rel="alternate" hreflang="x-default" href="https://iconstantine.ch/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="iCONSTANTINE | Mediální Balíčky pro Šampionáty">
-<meta property="og:description" content="Video a fotografie kinematografické kvality pro šampionáty masáží po celém světě. Pět balíčků, prioritní pokrytí a rychlé dodání.">
+<meta property="og:description" content="Video a fotografie kinematografické kvality pro šampionáty masáží po celém světě. Šest balíčků, prioritní pokrytí a rychlé dodání.">
 <meta property="og:url" content="https://iconstantine.ch/czech">
 <meta property="og:image" content="https://iconstantine.ch/img/og-image.jpg">
 <meta name="twitter:card" content="summary">
@@ -166,11 +166,14 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 /* ── TOP ROW: 3 cards (Starter, Essential, Authority featured) ── */
 .pkg-row-top { display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-bottom:18px; }
 /* ── BOTTOM ROW: 2 cards centered ── */
-.pkg-row-bot { display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:880px; margin:0 auto 80px; }
+.pkg-row-bot { display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:880px; margin:0 auto 18px; }
+/* ── ULTIMATE ROW: 1 wide card centered ── */
+.pkg-row-ult { max-width:880px; margin:0 auto 80px; }
 
 @media(max-width:1024px) {
   .pkg-row-top { grid-template-columns:1fr; max-width:480px; margin:0 auto 18px; }
-  .pkg-row-bot { grid-template-columns:1fr; max-width:480px; margin:0 auto 60px; }
+  .pkg-row-bot { grid-template-columns:1fr; max-width:480px; margin:0 auto 18px; }
+  .pkg-row-ult { max-width:480px; margin:0 auto 60px; }
 }
 
 /* ═══════ PACKAGE CARDS ═══════ */
@@ -259,6 +262,40 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 .pkg-card[data-tier="showcase"] .btn-book:hover { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.2); }
 .pkg-card[data-tier="signature"] .btn-book { background:linear-gradient(135deg, rgba(100,120,220,0.12), rgba(100,120,220,0.2)); color:#B8C8FF; border:1px solid rgba(100,120,220,0.2); }
 .pkg-card[data-tier="signature"] .btn-book:hover { background:linear-gradient(135deg, rgba(100,120,220,0.2), rgba(100,120,220,0.3)); }
+
+/* ── ULTIMATE PERSONAL BRAND: platinum, by invitation ── */
+.pkg-card[data-tier="ultimate"] { background:linear-gradient(180deg, rgba(20,20,24,0.96) 0%, var(--black-card) 100%); border-color:rgba(210,210,222,0.12); box-shadow:0 4px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(230,230,240,0.07); }
+.pkg-card[data-tier="ultimate"]::before { background:linear-gradient(180deg, rgba(235,235,245,0.2) 0%, rgba(150,150,165,0.03) 45%, rgba(210,210,225,0.1) 100%); }
+.pkg-card[data-tier="ultimate"]:hover { transform:translateY(-3px); }
+.pkg-card[data-tier="ultimate"]:hover::before { background:linear-gradient(180deg, rgba(235,235,245,0.32) 0%, rgba(150,150,165,0.05) 45%, rgba(210,210,225,0.16) 100%); }
+.pkg-card[data-tier="ultimate"]>.card-spot { background:radial-gradient(500px circle at var(--mx) var(--my),rgba(230,230,240,.05),transparent 55%); }
+.pkg-card[data-tier="ultimate"] [class^="focus-bracket-"] { border-color:#B8B8C2; }
+.pkg-card[data-tier="ultimate"] .pkg-thumb img { object-position:52% 50%; filter:grayscale(1) brightness(0.62) contrast(1.08); }
+.pkg-card[data-tier="ultimate"]:hover .pkg-thumb img { transform:scale(1.04); filter:grayscale(0.5) brightness(0.8) contrast(1.05); }
+.pkg-card[data-tier="ultimate"] .pkg-tier-name { background:linear-gradient(100deg, #8E8E98 20%, #F1F1F5 45%, #8E8E98 70%); background-size:250% 100%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:ultSheen 7s linear infinite; }
+.pkg-card[data-tier="ultimate"] .pkg-price { background:linear-gradient(135deg, #EDEDF2, #8E8E98); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+.pkg-card[data-tier="ultimate"] .pkg-currency { -webkit-text-fill-color:#8E8E98; color:#8E8E98; }
+.pkg-card[data-tier="ultimate"] .pkg-tagline, .pkg-card[data-tier="ultimate"] .pkg-features li { color:rgba(205,205,214,0.55); }
+.pkg-card[data-tier="ultimate"] .pkg-features li strong { color:#C4C4CC; }
+.pkg-card[data-tier="ultimate"] .pkg-features li::before { background:#7A7A84; }
+.pkg-card[data-tier="ultimate"] .detail-label { color:#A9A9B3; }
+.pkg-card[data-tier="ultimate"] .btn-book { display:flex; align-items:center; justify-content:center; gap:8px; pointer-events:none; cursor:default; background:repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 7px, rgba(255,255,255,0.045) 7px 14px); border:1px dashed rgba(220,220,230,0.18); color:rgba(225,225,232,0.5); }
+.pkg-card[data-tier="ultimate"] .btn-book::before { display:none; }
+.pkg-card[data-tier="ultimate"] .btn-book svg { width:12px; height:12px; flex-shrink:0; }
+.pkg-badge.invite { background:linear-gradient(135deg,#E6E6EC,#9A9AA4); color:#0b0b0d; border:none; box-shadow:0 0 0 2px #000, 0 2px 10px rgba(0,0,0,0.55); }
+@keyframes ultSheen { to { background-position:-250% 0; } }
+@media (prefers-reduced-motion:reduce) { .pkg-card[data-tier="ultimate"] .pkg-tier-name { animation:none; } }
+@media(max-width:1024px) {
+  .pkg-card[data-tier="ultimate"] .pkg-thumb img { filter:grayscale(1) brightness(0.7) contrast(1.06) !important; }
+  .pkg-card[data-tier="ultimate"]:hover .pkg-thumb img, .pkg-card[data-tier="ultimate"]:active .pkg-thumb img { filter:grayscale(0.5) brightness(0.82) contrast(1.05) !important; }
+}
+@media(min-width:1025px) {
+  .pkg-card[data-tier="ultimate"] { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+  .pkg-card[data-tier="ultimate"] .pkg-thumb { aspect-ratio:auto; min-height:100%; }
+  .pkg-card[data-tier="ultimate"] .pkg-thumb::after { top:0; left:auto; right:0; width:40%; height:100%; background:linear-gradient(to left, var(--black-card) 0%, transparent 100%); }
+  .pkg-card[data-tier="ultimate"] .pkg-expand { grid-column:1/-1; }
+  .pkg-card[data-tier="ultimate"] .pkg-badge { right:auto; left:18px; }
+}
 
 .btn-details { background:none; border:none; color:var(--text-muted); font-size:11px; font-weight:400; cursor:pointer; padding:6px; letter-spacing:0.5px; transition:color 0.3s ease; font-family:var(--font-body); }
 .btn-details:hover { color:var(--text-secondary); }
@@ -782,7 +819,7 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
 <section class="packages-section" id="packages" data-section="packages">
   <div class="packages-header reveal">
     <p class="section-overline">Vyberte Svůj Zážitek</p>
-    <h2>Pět Úrovní <em>Dokonalosti</em></h2>
+    <h2>Šest Úrovní <em>Dokonalosti</em></h2>
     <p class="pkg-hint">Klepněte na <strong>Více Informací</strong> u libovolného balíčku a zobrazte všechny podrobnosti</p>
   </div>
 
@@ -945,9 +982,46 @@ body { font-family:var(--font-body); background:var(--black); color:var(--text-p
         <div class="detail-block"><span class="detail-label">Specifikace</span><p>Profesionální voiceover a kinematografickou úpravu. Doba trvání přizpůsobená toku vyprávění s přísným maximem 5 minut. Doručeno v obou formátech Horizontal a Vertical.</p></div>
         <div class="detail-block"><span class="detail-label">Tvůrčí směr</span><p>Konečné slovo nad stavbou příběhu mám já, aby film splňoval filmové standardy pro prémiový personal branding. Vy jen pošlete 1-2 vizuální reference nebo oblíbený hudební styl, než začnu stříhat.</p></div>
         <div class="detail-block"><span class="detail-label">Revize</span><p>2 kola úprav. Požadavky na kompletní předělání nebo úplnou změnu příběhu nejsou úpravy. Na náladě se domluvíme, než střihnu první záběr.</p></div>
-        <div class="detail-block"><span class="detail-label">Platba</span><p>50% nevrátná záloha před akcí. Zůstatek 50% splatný při doručení.</p></div>
+        <div class="detail-block"><span class="detail-label">Platba</span><p>50% nevratná záloha před akcí. Zůstatek 50% splatný při doručení.</p></div>
         <div class="detail-block"><span class="detail-label">Proč jen 2 místa</span><p>Tento formát je produkčně velmi náročný, proto beru přísně jen 2 klienty na akci.</p></div>
         <div class="detail-block"><span class="detail-label">Fronta Doručení</span><div class="dq-grid"><div class="dq-slot ok"><strong>Místa 1 až 5</strong>Individuální výrobní kalendář dohodnut při rezervaci</div><div class="dq-slot wait"><strong>Místo 6 a dále</strong>1-2 týdny</div></div><p class="dq-note">S dostupnými pouze 2 sloty je váš časový plán výroby dohodnut individuálně při rezervaci. Fotogalerie je doručena den akce pro všechny klienty.</p></div>
+      </div></div>
+    </div>
+  </div>
+  <div class="pkg-row-ult">
+    <div class="pkg-card" data-tier="ultimate">
+      <span class="pkg-badge invite">Pouze na pozvání</span>
+      <div class="pkg-thumb"><img src="img/pkg-ultimate.webp" width="1200" height="960" loading="lazy" decoding="async" alt="Ultimate Personal Brand"></div>
+      <div class="pkg-inner">
+        <p class="pkg-tier-name">Ultimate Personal Brand</p>
+        <p class="pkg-price">1,800 <span class="pkg-currency">CHF</span></p>
+        <p class="pkg-tagline">Vlastní filmový web postavený kolem vašeho příběhu. Vše v ceně.</p>
+        <ul class="pkg-features">
+          <li><strong>Osobní web kompletně na míru</strong></li>
+          <li>Váš příběh, filozofie a ocenění</li>
+          <li><strong>Úvodní video, které buduje důvěru</strong></li>
+          <li>Interaktivní VFX a vkusné SFX</li>
+          <li>Zvuk z mého studia ve Švýcarsku</li>
+          <li>Uvítání vaším vlastním hlasem</li>
+          <li>Vícejazyčný web s automatickou volbou jazyka</li>
+          <li><strong>1 rok hostingu a domény zdarma</strong></li>
+        </ul>
+        <div class="pkg-actions">
+          <a class="btn-book" aria-disabled="true" tabindex="-1"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5"/></svg>Jen pro Stávající Klienty</a>
+          <button class="btn-details" onclick="toggleDetails(this)">Více Informací &#9662;</button>
+        </div>
+      </div>
+      <div class="pkg-expand"><div class="pkg-expand-inner">
+        <h4>Ultimate Personal Brand · Úplné detaily</h4>
+        <div class="detail-block"><span class="detail-label">Pouze na pozvání</span><p>Určeno terapeutům, kteří si u mě už alespoň jednou rezervovali foto a video. Fotografie a filmy, které jsem o vás vytvořil, tvoří základ vašeho webu, a proto tuto úroveň nelze objednat bez předchozí spolupráce. Počet míst je omezený a nabízím je na osobní pozvání.</p></div>
+        <div class="detail-block"><span class="detail-label">Co Získáte</span><p>Osobní web kompletně na míru, navržený a postavený od základu kolem vás. Žádné šablony. Vypráví váš životní příběh a profesní cestu, filozofii, na které stavíte své masáže, co milujete, i tituly a ocenění, které jste získali. Návštěvníci uvidí člověka, který stojí za každou masáží, ne jen seznam služeb.</p></div>
+        <div class="detail-block"><span class="detail-label">Úvodní video</span><p>Samostatné úvodní video, vytvořené a sestříhané z vašich záběrů, které představí vaše podnikání a od první vteřiny poslouží jako sociální důkaz: vaše tituly, vaše práce a důvěra, kterou vám druzí už projevují.</p></div>
+        <div class="detail-block"><span class="detail-label">Zážitek</span><p>Interaktivní prvky, vizuální efekty a vkusné zvukové efekty vtáhnou návštěvníky do vašeho světa. Každý zvuk profesionálně zpracovávám ve svém studiu ve Švýcarsku. Nové návštěvníky může přivítat váš vlastní hlas krátkým osobním představením.</p><p style="margin-top:8px;">Takovou úroveň personalizace ve vašem oboru nikdo nenabízí a díky ní vyniknete. Noví klienti poznají rozdíl od první vteřiny a vy získáte postavení, které vám dovolí nastavit prémiové ceny.</p></div>
+        <div class="detail-block"><span class="detail-label">Vícejazyčnost</span><p>Web rozpozná jazyk prohlížeče každého návštěvníka a hned od prvního okamžiku mu nabídne správnou verzi. Jazyky si společně odsouhlasíme ještě před začátkem produkce.</p></div>
+        <div class="detail-block"><span class="detail-label">Tvořeno s vámi</span><p>Finální podobu utváří vaše zpětná vazba a vaše vize. Detaily ladím tak dlouho, dokud web nebude nezaměnitelně váš. Klíčové texty ve vaší mateřštině si sami zkontrolujete, aby zněly přirozeně a nikdy jako překlad.</p></div>
+        <div class="detail-block"><span class="detail-label">Vše v ceně</span><p>Cena 1,800 CHF zahrnuje design, tvorbu webu, úvodní video o vašem podnikání, vizuální efekty, zvukový design, dohodnuté jazyky a spuštění. Navíc první rok hostingu a doménu dostanete zdarma.</p></div>
+        <div class="detail-block"><span class="detail-label">Revize</span><p>2 kola úprav po prvním kompletním náhledu. Požadavky, které po schválení mění koncept nebo strukturu, nejsou úpravy.</p></div>
+        <div class="detail-block"><span class="detail-label">Platba a termíny</span><p>50% nevratná záloha vám zajistí termín v produkci. Zůstatek 50% je splatný před spuštěním webu. Harmonogram produkce dohodneme individuálně.</p></div>
       </div></div>
     </div>
   </div>
@@ -1635,7 +1709,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModa
     var athumb=document.querySelector('.pkg-card[data-tier="authority"] .pkg-thumb');
     if(rib&&athumb)athumb.appendChild(rib);
     var header=document.querySelector('.packages-header');
-    var cards=[].slice.call(document.querySelectorAll('.pkg-card'));
+    var cards=[].slice.call(document.querySelectorAll('.pkg-card:not([data-tier="ultimate"])'));
     if(header&&cards.length){
       document.querySelector('.packages-section').classList.add('icv3-has-carousel');
       var hint=document.createElement('p');hint.className='icv3-swipehint';hint.textContent=T.hint;
